@@ -1,0 +1,1932 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import regularPackageImg from '../assets/packages/1.jpg';
+import premiumPackageImg from '../assets/packages/2.jpg';
+import elitePackageImg from '../assets/packages/3.jpg';
+
+// Updated packages data with alcohol brands information
+const packages = [
+    {
+        id: 'regular',
+        letter: 'R',
+        name: 'Regular Package',
+        pricing: {
+            stag: { price: '2,000', otpc: '1,000' },
+            couple: { price: '3,000', otpc: '2,000' }
+        },
+        features: [
+            { icon: 'utensils', text: 'Starters' },
+            { icon: 'utensils', text: 'Unlimited Buffet' },
+            { icon: 'music', text: 'Live Entertainment & Performances' },
+            { 
+                icon: 'glass-cheers', 
+                text: 'Alcoholic Drinks - 2 Coupons per head: 30ml each',
+                note: '* T&C Apply',
+                alcoholBrands: {
+                    "Whiskey": "Blenders, Signature, Rockford",
+                    "Vodka": "Romanov",
+                    "Rum": "Old Monk, Bacardi white/Black, Cabo",
+                    "Gin": "Blue Riband",
+                    "Brandy": "Honey Bee, Mansion House",
+                    "Beer": "Kingfisher",
+                    "Feni": "Big Boss Coconut/Cashew"
+                }
+            }
+        ]
+    },
+    {
+        id: 'premium',
+        letter: 'P',
+        name: 'Premium Package',
+        pricing: {
+            stag: { price: '3,000', otpc: '3,000' },
+            couple: { price: '5,000', otpc: '5,000' }
+        },
+        features: [
+            { icon: 'utensils', text: 'Starters' },
+            { icon: 'utensils', text: 'Unlimited Buffet' },
+            { icon: 'music', text: 'Live Entertainment & Performances' },
+            { 
+                icon: 'glass-cheers', 
+                text: 'Alcoholic Drinks - 2 Coupons per head: 30ml each',
+                note: '* T&C Apply',
+                alcoholBrands: {
+                    "Whiskey": "Vat 69, Black Dog, Oak Smith Gold, 100 Pipers, Black & White, Red Label & Ballantines",
+                    "Vodka": "Smirnoff Regular",
+                    "Rum": "Old Monk, Bacardi white/Black, Cabo",
+                    "Gin": "Blue Riband, Greater than",
+                    "Brandy": "Honey Bee, Mansion House, Morpheus xo",
+                    "Beer": "Kingfisher, Kingfisher ultra, Budweiser",
+                    "Feni": "Big Boss Coconut/Cashew",
+                    "Breezer": "",
+                    "Wine": "Amora White/Amora Red/Langoor Red & Port wine",
+                    "Vermouth": "Martini, Campari",
+                    "Energy Drink": "As per stock available",
+                    "Liqueur": "Kahlua, Triple sec"
+                }
+            }
+        ]
+    },
+    {
+        id: 'elite',
+        letter: 'E',
+        name: 'Elite Package',
+        pricing: {
+            stag: { price: '7,000', otpc: '10,000' },
+            couple: { price: '10,000', otpc: '12,000' }
+        },
+        features: [
+            { icon: 'utensils', text: 'Starters' },
+            { icon: 'utensils', text: 'Unlimited Buffet' },
+            { icon: 'music', text: 'Live Entertainment & Performances' },
+            { 
+                icon: 'glass-cheers', 
+                text: 'Alcoholic Drinks - 2 Coupons per head: 30ml each',
+                note: '* T&C Apply',
+                alcoholBrands: {
+                    "Whiskey": "Black Label, Chivas Regal 12 yrs, Singleton 12 yrs, Glenfiddich 12 yrs",
+                    "Vodka": "Absolut, Ciroc & Ketel One",
+                    "Rum": "Old Monk, Bacardi white/Black, Cabo, Coconut Rum",
+                    "Gin": "Blue Riband, Gordons & Bombay Sapphire",
+                    "Brandy": "Honey Bee, Mansion House, Morpheus xo",
+                    "Beer": "House Brands + Premium & Heineken",
+                    "Feni": "Coconut/Cashew",
+                    "Breezer": "",
+                    "Cognac": "St. Remy VSOP",
+                    "Wine": "Yellow tail and Jacob Greek",
+                    "Vermouth": "Martini, Campari",
+                    "Energy Drink": "Red Bull",
+                    "Liqueur": "Kahlua, Triple sec & Baileys",
+                    "Sparkling Wine": "Frizzano/Zampa Brut"
+                }
+            }
+        ]
+    }
+];
+
+// Group packages information
+const groupDiscounts = [
+    {
+        text: '10% cash discount + Extra 500 OTPC per group - 10-15 Pax'
+    },
+    {
+        text: '15% cash discount + extra 500 OTPC per group - 15+ Pax'
+    },
+    {
+        text: 'Can avail Extra 1000 OTPC instead of Cash Discount'
+    }
+];
+
+// Highlights information
+const highlights = [
+    {
+        icon: 'glass-martini-alt',
+        title: 'Food & Drinks',
+        description: 'Enjoy premium gourmet dishes and specialty cocktails'
+    },
+    {
+        icon: 'dice',
+        title: 'Games',
+        description: 'Experience the thrill of our casino games and slot machines'
+    },
+    {
+        icon: 'music',
+        title: 'Entertainment',
+        description: 'Live shows, performances, and exciting events'
+    }
+];
+---
+
+<Layout title="Packages | Phoenix Casino">
+    <section class="page-banner">
+        <div class="container">
+            <h1 class="page-title">ENTRY PACKAGES</h1>
+            <p class="page-subtitle">Experience luxury with our exclusive casino packages</p>
+        </div>
+    </section>
+
+    <!-- Individual Packages Section with fixed labels -->
+    <section class="packages-section" id="entry-packages">
+        <div class="container">
+            <div class="packages-grid">
+                {packages.map((pkg, packageIndex) => (
+                    <div class="package-card">
+                        <div class="package-letter">{pkg.letter}</div>
+                        <h3 class="package-name">{pkg.name}</h3>
+                        
+                        <div class="package-pricing">
+                            <div class="price-item">Stag: ₹{pkg.pricing.stag.price} (With ₹{pkg.pricing.stag.otpc} OTPC)</div>
+                            <div class="price-item">Couple: ₹{pkg.pricing.couple.price} (With ₹{pkg.pricing.couple.otpc} OTPC)</div>
+                        </div>
+                        
+                        <ul class="package-features">
+                            {pkg.features.map((feature, featureIndex) => (
+                                <li class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class={`fas fa-${feature.icon}`}></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        {feature.alcoholBrands ? (
+                                            <button class="alcohol-btn" data-package={packageIndex} data-feature={featureIndex}>
+                                                <span class="feature-text">{feature.text}</span>
+                                                <i class="fas fa-wine-glass-alt alcohol-icon"></i>
+                                            </button>
+                                        ) : (
+                                            <span class="feature-text">{feature.text}</span>
+                                        )}
+                                        {feature.note && <span class="feature-note">{feature.note}</span>}
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                        
+                        <a href="/contact" class="book-btn">Book Now</a>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Improved Alcohol Brands Popup -->
+    <div id="alcoholPopup" class="alcohol-popup">
+        <div class="alcohol-popup-backdrop"></div>
+        <div class="alcohol-popup-content">
+            <button id="closePopupBtn" class="close-popup">&times;</button>
+            <h2 class="popup-title">Available Alcoholic Brands</h2>
+            
+            <div class="package-type-label">Package Type</div>
+            <div id="packageTypeName" class="package-type-name">Elite Package</div>
+            <div class="popup-divider"></div>
+            
+            <div id="alcoholBrandsList" class="alcohol-brands-list">
+                <!-- Content will be added here via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Group Discounts Section -->
+    <section class="group-discounts-section" id="group-discounts">
+        <div class="container">
+            <h2 class="section-title">Group Discounts</h2>
+            
+            <div class="discounts-container">
+                <ul class="discount-list">
+                    {groupDiscounts.map(discount => (
+                        <li>
+                            <i class="fas fa-circle"></i>
+                            <span>{discount.text}</span>
+                        </li>
+                    ))}
+                </ul>
+                
+                <a href="/contact" class="book-btn wide-btn">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Day Pass Section -->
+    <section class="day-pass-section" id="day-pass">
+        <div class="container">
+            <h2 class="section-title">DAY PACKAGE</h2>
+            
+            <div style="display: flex; justify-content: center;">
+                <div class="package-card" style="max-width: 350px; width: 100%;">
+                    <div class="package-letter">D</div>
+                    <h3 class="package-name">Day Package</h3>
+                    
+                    <div class="package-pricing">
+                        <div class="price-item">₹1000 <span>/person</span></div>
+                    </div>
+                    
+                    <ul class="package-features">
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div class="feature-content">
+                                <span class="feature-text">Entry Charges - Rs 1000 / head (No OTPC applicable)</span>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="feature-content">
+                                <span class="feature-text">Starters</span>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="feature-content">
+                                <span class="feature-text">Unlimited Buffet</span>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-glass-cheers"></i>
+                            </div>
+                            <div class="feature-content">
+                                <button class="alcohol-btn" data-package="day">
+                                    <span class="feature-text">Alcoholic Drinks - 2 Coupons per head: 30ml each</span>
+                                    <i class="fas fa-wine-glass-alt alcohol-icon ml-1"></i>
+                                </button>
+                                <span class="feature-note"><a class="tc-link" data-tab="tc">*T&C Apply</a></span>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <a href="/contact" class="book-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Packages Section -->
+    <section class="vip-packages-section" id="vip-packages">
+        <div class="container">
+            <h2 class="section-title">VIP PACKAGES</h2>
+            
+            <div class="vip-table-container">
+                <table class="vip-table">
+                    <thead>
+                        <tr>
+                            <th>Buy In</th>
+                            <th>Airfare Reimbursement</th>
+                            <th>Hotel Reimbursement</th>
+                            <th>Nights</th>
+                            <th>Hotel options (Candolim, Goa)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="vip-row">
+                            <td class="buy-in">1 Lakh</td>
+                            <td>NA</td>
+                            <td>4000</td>
+                            <td>1</td>
+                            <td>Hue Guh</td>
+                        </tr>
+                        <tr class="vip-row">
+                            <td class="buy-in">2 Lakh</td>
+                            <td>8000</td>
+                            <td>8000</td>
+                            <td>2</td>
+                            <td>Hue Guh</td>
+                        </tr>
+                        <tr class="vip-row">
+                            <td class="buy-in">3 Lakh</td>
+                            <td>12000</td>
+                            <td>12000</td>
+                            <td>2</td>
+                            <td>ITC Fortune Select/Astor Standard</td>
+                        </tr>
+                        <tr class="vip-row">
+                            <td class="buy-in">5 Lakh</td>
+                            <td>15000</td>
+                            <td>15000</td>
+                            <td>2</td>
+                            <td>Hilton Goa Resort/Grand Mercure/Astor Resort – Deluxe Room</td>
+                        </tr>
+                        <tr class="vip-row">
+                            <td class="buy-in">10 Lakh</td>
+                            <td>20000</td>
+                            <td>20000</td>
+                            <td>2</td>
+                            <td>Hilton Goa Resort/Grand Mercure/Astor Resort – Suite Room</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="vip-note">
+                <p>• The player needs to complete 6 times rolling/tracking to get eligible for benefits and rebates.</p>
+                <p>• 1.5% on rolling / 5% on tracking or 10% on losing</p>
+            </div>
+
+            <div class="vip-cta">
+                <a href="/contact" class="cta-button">
+                    Contact Us
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights-section">
+        <div class="container">
+            <h2 class="section-title">HIGHLIGHTS</h2>
+            
+            <div class="highlights-grid">
+                {highlights.map(highlight => (
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class={`fas fa-${highlight.icon}`}></i>
+                        </div>
+                        <h3 class="highlight-title">{highlight.title}</h3>
+                        <p class="highlight-desc">{highlight.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Policy Tabs Section -->
+    <section class="policy-section">
+        <div class="container">
+            <h2 class="section-title">POLICIES & INFORMATION</h2>
+            
+            <div class="policy-tabs-container">
+                <div class="policy-tabs">
+                    <button class="policy-tab active" data-tab="tc">T&C</button>
+                    <button class="policy-tab" data-tab="otpc">OTPC</button>
+                    <button class="policy-tab" data-tab="general">General</button>
+                </div>
+                
+                <div class="policy-content-container">
+                    <!-- T&C Tab Content -->
+                    <div class="policy-content active" id="tc-content">
+                        <h3 class="policy-title">Terms & Conditions</h3>
+                        <div class="policy-text">
+                            <ul class="policy-list">
+                                <li>All bookings made through the Call Centre and Website are non-refundable</li>
+                                <li>Rescheduling or cancellation is not allowed within 24 hours of the scheduled date of visit</li>
+                                <li>One-time date change is allowed to reschedule the visit for a future date with an applicable difference amount payable depending on the pricing at the time of revision. Request to be placed 24 hours ahead of the scheduled date of visit</li>
+                                <li>If the pricing for the revised booking is of a lesser amount than your original booking, the remainder is not payable to Guest</li>
+                                <li>Cancellation due to valid medical emergencies is subject to a full refund. However, the same will be addressed post verification of submitted documents</li>
+                                <li>No cancellations/refunds are allowed for bookings made for blackout dates or at special rates</li>
+                                <li>No cancellations/refunds or transfer of tickets in case of no show or unutilized bookings</li>
+                                <li>Refunds shall be issued to the payment method used for the purchase of original tickets/packages. Once refund request is generated, the same will be processed within 10 working days</li>
+                                <li>No refund can be processed if a guest utilizes the playing coupons offered to them as part of their package</li>
+                                <li>Refund & Cancellation policy is subject to change without notice.</li>
+                                <li>Management's decision shall remain final.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- OTPC Tab Content -->
+                    <div class="policy-content" id="otpc-content">
+                        <h3 class="policy-title">OTPC</h3>
+                        <div class="policy-text">
+                            <ul class="policy-list">
+                                <li>Roulette Table - Even Chances only.</li>
+                                <li>Baccarat - Only Primary bet (player) & no optional bet</li>
+                                <li>Andar Bahar - only andar</li>
+                                <li>Blackjack - Only primary bets no insurance & no surrender</li>
+                                <li>OTPC cannot be encashed</li>
+                                <li>OTPC cannot be played on the slot machines/evona/indian flush</li>
+                                <li>OTPC can only be played once regardless of the outcome of the game it will be retained by the dealer</li>
+                                <li>OTPC are in denominations of 500 & cannot be broken down to lower denominations</li>
+                                <li>Management decision is final</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- General Tab Content -->
+                    <div class="policy-content" id="general-content">
+                        <h3 class="policy-title">General Information</h3>
+                        <div class="policy-text">
+                            <ul class="policy-list">
+                                <li>Dress Code: Smart Casuals</li>
+                                <li>Carry Govt ID</li>
+                                <li>Entry age 21+</li>
+                                <li>Entry valid till 06:00 am</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    /* Page Banner */
+    .page-banner {
+        padding: 8rem 0 2rem;
+        background-color: #000;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        position: relative;
+    }
+    
+    .page-banner::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+    }
+    
+    .page-banner .container {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .page-title {
+        font-size: 3.5rem;
+        color: #e7c980;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .page-subtitle {
+        font-size: 1.2rem;
+        color: #fff;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* Common Styles */
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    
+    /* Packages Section */
+    .packages-section {
+        padding: 3rem 0;
+        background-color: #000;
+    }
+    
+    .packages-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .package-card {
+        border: 1px solid rgba(231, 201, 128, 0.3);
+        border-radius: 8px;
+        padding: 2.5rem 2rem;
+        background-color: rgba(20, 20, 20, 0.5);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .package-card:hover {
+        transform: translateY(-5px); 
+        box-shadow: 0 10px 25px rgba(231, 201, 128, 0.1);
+        border-color: rgba(231, 201, 128, 0.5);
+    }
+    
+    .package-letter {
+        font-size: 5rem;
+        color: #e7c980;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 1rem;
+        line-height: 1;
+        transition: all 0.3s ease;
+    }
+    
+    .package-name {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #e7c980;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        text-transform: lowercase;
+    }
+    
+    .package-pricing {
+        margin-bottom: 1.5rem;
+    }
+    
+    .price-item {
+        color: #fff;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .package-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem;
+    }
+    
+    .package-features li {
+        display: flex;
+        align-items: baseline;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        color: #ccc;
+    }
+    
+    .package-features i {
+        color: #e7c980;
+        font-size: 1rem;
+    }
+    
+    .feature-note {
+        display: block;
+        margin-top: 0.3rem;
+        color: #e7c980;
+        font-size: 0.85rem;
+    }
+    
+    .book-btn {
+        display: inline-block;
+        background-color: #e7c980;
+        color: #000;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 4px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-top: auto;
+    }
+    
+    .book-btn:hover {
+        background-color: #d4b76e;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(231, 201, 128, 0.4);
+    }
+    /* Group Discounts Section */
+    .group-discounts-section {
+        padding: 3rem 0;
+        background-color: #0c0c0c;
+        border-top: 1px solid rgba(231, 201, 128, 0.1);
+        border-bottom: 1px solid rgba(231, 201, 128, 0.1);
+    }
+
+    .day-pass-section {
+        padding: 3rem 0;
+    }
+    
+    .discounts-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+        border: 1px solid rgba(231, 201, 128, 0.3);
+        border-radius: 8px;
+    }
+    
+    .discount-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem;
+    }
+    
+    .discount-list li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.2rem;
+        color: #fff;
+        font-size: 1.1rem;
+    }
+    
+    .discount-list i {
+        color: #e7c980;
+        font-size: 0.5rem;
+    }
+    
+    .wide-btn {
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    /* Highlights Section */
+    .highlights-section {
+        padding: 2rem 0;
+        background-color: #000;
+    }
+    
+    .highlights-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+    }
+    
+    .highlight-card {
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .highlight-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .highlight-icon {
+        font-size: 3rem;
+        color: #e7c980;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .highlight-title {
+        font-size: 1.5rem;
+        color: #e7c980;
+        margin-bottom: 1rem;
+    }
+    
+    .highlight-desc {
+        color: #ccc;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+        .packages-grid {
+            gap: 1.5rem;
+        }
+        
+        .package-card {
+            padding: 2rem 1.5rem;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .page-title {
+            font-size: 2.5rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+        }
+        
+        .packages-grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .highlights-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .highlight-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-desc {
+            display: none; /* Hide descriptions on medium screens */
+        }
+        
+        .discount-list li {
+            font-size: 1rem;
+        }
+        
+        .policy-tabs {
+            flex-direction: column;
+        }
+        
+        .policy-tab {
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(231, 201, 128, 0.1);
+        }
+        
+        .policy-tab:last-child {
+            border-bottom: none;
+        }
+        
+        .policy-content {
+            padding: 1.5rem;
+        }
+        
+        .alcohol-popup-content {
+            width: 95%;
+            max-height: 80vh;
+        }
+        
+        .popup-header {
+            padding: 1.25rem;
+        }
+        
+        .popup-title {
+            font-size: 1.3rem;
+        }
+        
+        .popup-content {
+            padding: 1.25rem;
+        }
+        
+        .brand-item {
+            padding: 0.35rem 0.7rem;
+            font-size: 0.85rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .container {
+            padding: 0 1rem;
+        }
+        
+        .page-title {
+            font-size: 2rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1rem;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+        
+        .package-card {
+            padding: 1.5rem 1rem;
+        }
+        
+        .package-letter {
+            font-size: 4rem;
+        }
+        
+        .discount-list li {
+            font-size: 0.9rem;
+            align-items: flex-start;
+        }
+        
+        .discount-list i {
+            margin-top: 0.5rem;
+        }
+        
+        .policy-title {
+            font-size: 1.3rem;
+        }
+        
+        .policy-list li {
+            font-size: 0.9rem;
+        }
+        
+        .highlights-section {
+            padding: 1.5rem 0;
+        }
+        
+        .highlights-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 0;
+        }
+        
+        .highlight-card {
+            flex: 0 0 auto;
+            width: 30%;
+        }
+        
+        .highlight-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-title {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        .feature-icon {
+            width: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .feature-content {
+            padding-left: 0.5rem;
+        }
+        
+        .alcohol-popup-content {
+            width: 98%;
+        }
+        
+        .popup-header {
+            padding: 1rem;
+        }
+        
+        .popup-title {
+            font-size: 1.1rem;
+        }
+        
+        .popup-content {
+            padding: 1rem;
+        }
+        
+        .alcohol-category-title {
+            font-size: 1rem;
+        }
+        
+        .alcohol-category-brands {
+            font-size: 0.9rem;
+        }
+        
+        .alcohol-category {
+            margin-bottom: 2rem;
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+            transform: translateY(10px);
+            position: relative;
+            padding-left: 10px;
+        }
+        
+        .alcohol-category:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 2rem;
+            right: 2rem;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(231, 201, 128, 0.2), transparent);
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .alcohol-category:nth-child(1) { animation-delay: 0.1s; }
+        .alcohol-category:nth-child(2) { animation-delay: 0.15s; }
+        .alcohol-category:nth-child(3) { animation-delay: 0.2s; }
+        .alcohol-category:nth-child(4) { animation-delay: 0.25s; }
+        .alcohol-category:nth-child(5) { animation-delay: 0.3s; }
+        .alcohol-category:nth-child(6) { animation-delay: 0.35s; }
+        .alcohol-category:nth-child(7) { animation-delay: 0.4s; }
+        .alcohol-category:nth-child(8) { animation-delay: 0.45s; }
+        .alcohol-category:nth-child(9) { animation-delay: 0.5s; }
+        .alcohol-category:nth-child(10) { animation-delay: 0.55s; }
+        
+        .alcohol-category-title {
+            font-size: 1.1rem;
+            color: #e7c980;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .alcohol-category-title:before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #e7c980;
+            margin-right: 10px;
+            transform: rotate(45deg);
+            box-shadow: 0 0 10px rgba(231, 201, 128, 0.5);
+        }
+        
+        .alcohol-category-brands {
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        /* Brand items (new structure) */
+        .brand-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .brand-item {
+            background-color: rgba(231, 201, 128, 0.07);
+            border: 1px solid rgba(231, 201, 128, 0.15);
+            border-radius: 4px;
+            padding: 0.4rem 0.8rem;
+            color: #ddd;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            margin-bottom: 0.3rem;
+        }
+        
+        .brand-item:hover {
+            background-color: rgba(231, 201, 128, 0.12);
+            border-color: rgba(231, 201, 128, 0.25);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+        
+        /* When we have a single line of text instead of brands */
+        .no-brands-message {
+            color: #999;
+            font-style: italic;
+            padding-left: 25px;
+        }
+        
+        /* Additional popup styles */
+        .package-type-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .package-type-name {
+            font-size: 1.6rem;
+            font-weight: 600;
+            text-align: center;
+            margin: 0 0 1.5rem;
+            background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .popup-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(231, 201, 128, 0.5), transparent);
+            margin-bottom: 2rem;
+        }
+    }
+    
+    /* Policy Tabs Section */
+    .policy-section {
+        padding: 4rem 0;
+        background-color: #0c0c0c;
+        border-top: 1px solid rgba(231, 201, 128, 0.1);
+    }
+    
+    .policy-tabs-container {
+        max-width: 900px;
+        margin: 0 auto;
+        border: 1px solid rgba(231, 201, 128, 0.3);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .policy-tabs {
+        display: flex;
+        background-color: rgba(231, 201, 128, 0.05);
+        border-bottom: 1px solid rgba(231, 201, 128, 0.3);
+    }
+    
+    .policy-tab {
+        padding: 1rem 2rem;
+        background: transparent;
+        border: none;
+        color: #ccc;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex: 1;
+        text-align: center;
+    }
+    
+    .policy-tab.active {
+        color: #e7c980;
+        background-color: rgba(231, 201, 128, 0.1);
+        box-shadow: inset 0 -2px 0 #e7c980;
+    }
+    
+    .policy-tab:hover:not(.active) {
+        background-color: rgba(231, 201, 128, 0.05);
+        color: #e7c980;
+    }
+    
+    .policy-content-container {
+        position: relative;
+        background-color: rgba(20, 20, 20, 0.5);
+    }
+    
+    .policy-content {
+        display: none;
+        padding: 2rem;
+    }
+    
+    .policy-content.active {
+        display: block;
+    }
+    
+    .policy-title {
+        font-size: 1.5rem;
+        color: #e7c980;
+        margin-bottom: 1.5rem;
+    }
+    
+    .policy-list {
+        list-style-type: disc;
+        padding-left: 2rem;
+        color: #ccc;
+    }
+    
+    .policy-list li {
+        margin-bottom: 0.75rem;
+        line-height: 1.6;
+    }
+    
+    /* Alcohol Button Styles */
+    .alcohol-btn {
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        padding: 0;
+        text-decoration: underline;
+        transition: color 0.2s ease;
+    }
+    
+    .alcohol-btn:hover {
+        color: #e7c980;
+    }
+    
+    .ml-1 {
+        margin-left: 0.25rem;
+    }
+    
+    /* Updated alcohol popup positioning */
+    .alcohol-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        z-index: 9999;
+        display: none;
+    }
+    
+    .alcohol-popup.active {
+        display: block;
+    }
+    
+    .alcohol-popup-backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .alcohol-popup-content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #111;
+        width: 90%;
+        max-width: 550px;
+        max-height: 80vh;
+        overflow-y: auto;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(231, 201, 128, 0.2);
+        border-radius: 8px;
+    }
+    
+    .close-popup {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+    
+    .popup-title {
+        color: #e7c980;
+        font-size: 32px;
+        text-align: center;
+        margin: 0 0 30px;
+    }
+    
+    .package-type-label {
+        color: #fff;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    
+    .package-type-name {
+        color: #fff;
+        font-size: 28px;
+        font-weight: 600;
+        margin: 0 0 20px;
+    }
+    
+    .popup-divider {
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin: 0 0 30px;
+    }
+    
+    .alcohol-category {
+        margin-bottom: 30px;
+    }
+    
+    .alcohol-category:last-child {
+        margin-bottom: 0;
+    }
+    
+    .alcohol-category-title {
+        color: #fff;
+        font-size: 22px;
+        margin: 0 0 15px;
+        font-weight: 600;
+    }
+    
+    .brand-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .brand-item {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        padding: 6px 12px;
+        color: #ddd;
+        font-size: 14px;
+    }
+    
+    .no-brands {
+        color: #999;
+        font-style: italic;
+    }
+    
+    @media (max-width: 768px) {
+        .popup-title {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+        
+        .package-type-name {
+            font-size: 24px;
+        }
+        
+        .alcohol-category-title {
+            font-size: 20px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .alcohol-popup-content {
+            width: calc(100% - 30px);
+            padding: 30px 20px;
+        }
+        
+        .popup-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .package-type-name {
+            font-size: 20px;
+        }
+        
+        .alcohol-category-title {
+            font-size: 18px;
+        }
+    }
+
+    /* Add this to your existing style section */
+    @keyframes shine {
+        0% {
+            background-position: -100px;
+        }
+        60% {
+            background-position: 300px;
+        }
+        100% {
+            background-position: 300px;
+        }
+    }
+
+    .package-letter {
+        transition: all 0.3s ease;
+        position: relative;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .package-card:hover .package-letter {
+        background: linear-gradient(
+            90deg,
+            #e7c980 0%,
+            #e7c980 45%,
+            #ffffff 50%,
+            #e7c980 55%,
+            #9e8253 100%
+        );
+        background-size: 400px 100%;
+        animation: shine 3s infinite ease-in-out;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 5px rgba(231, 201, 128, 0.5);
+    }
+
+    /* Enhanced Package Type Name styling */
+    .package-type-name {
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+        margin: 0 0 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: linear-gradient(135deg, #e7c980 0%, #d5b466 50%, #9e8253 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .package-type-name::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, rgba(231, 201, 128, 0.3), rgba(231, 201, 128, 0.8), rgba(231, 201, 128, 0.3));
+        border-radius: 3px;
+    }
+
+    .package-type-label {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #999;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    /* Add a subtle animation for when the popup opens */
+    @keyframes fadeInScale {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Skeleton loading styles */
+    @keyframes shimmer {
+        0% {
+            background-position: -200% 0;
+        }
+        100% {
+            background-position: 200% 0;
+        }
+    }
+    
+    .skeleton-card {
+        background-color: rgba(20, 20, 20, 0.5);
+    }
+    
+    .skeleton-text, .skeleton-button, .skeleton-circle, .skeleton-letter {
+        position: relative;
+        background: linear-gradient(90deg, 
+            rgba(40, 40, 40, 0.6) 25%, 
+            rgba(60, 60, 60, 0.6) 37%, 
+            rgba(40, 40, 40, 0.6) 63%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+        border-radius: 4px;
+    }
+    
+    .skeleton-letter {
+        height: 5rem;
+        width: 5rem;
+        margin: 0 auto 1rem;
+        border-radius: 50%;
+    }
+    
+    .skeleton-text {
+        height: 1rem;
+        margin-bottom: 0.75rem;
+        width: 100%;
+    }
+    
+    .skeleton-short {
+        width: 60%;
+    }
+    
+    .skeleton-circle {
+        height: 1.2rem;
+        width: 1.2rem;
+        margin-right: 0.75rem;
+        border-radius: 50%;
+    }
+    
+    .skeleton-button {
+        height: 2.5rem;
+        width: 100%;
+        margin-top: auto;
+        border-radius: 4px;
+    }
+    
+    .package-name.skeleton-text {
+        height: 1.5rem;
+        width: 70%;
+        margin: 0 auto 2rem;
+    }
+    
+    .package-pricing .skeleton-text {
+        height: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .feature-text.skeleton-text {
+        height: 0.9rem;
+    }
+    
+    .feature-note.skeleton-text {
+        height: 0.7rem;
+        margin-top: 0.3rem;
+    }
+
+    /* VIP Packages Table Styles */
+    .vip-packages-section {
+        padding: 3rem 0;
+        background-color: #0c0c0c;
+        border-top: 1px solid rgba(231, 201, 128, 0.1);
+        border-bottom: 1px solid rgba(231, 201, 128, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .vip-packages-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 50%, rgba(231, 201, 128, 0.05) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    
+    .vip-table-container {
+        position: relative;
+        overflow-x: auto;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(231, 201, 128, 0.2);
+    }
+    
+    .vip-table {
+        width: 100%;
+        border-collapse: collapse;
+        color: #fff;
+        font-size: 1rem;
+        overflow: hidden;
+    }
+    
+    .vip-table thead {
+        background: linear-gradient(90deg, rgba(20, 20, 20, 0.9), rgba(30, 30, 30, 0.9));
+        border-bottom: 2px solid rgba(231, 201, 128, 0.5);
+    }
+    
+    .vip-table th {
+        padding: 1.2rem 1.5rem;
+        text-align: left;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #e7c980;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+        position: relative;
+    }
+    
+    .vip-table th::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(231, 201, 128, 0.5), transparent);
+    }
+    
+    .vip-table tbody tr {
+        background-color: rgba(20, 20, 20, 0.5);
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .vip-table tbody tr:nth-child(odd) {
+        background-color: rgba(30, 30, 30, 0.5);
+    }
+    
+    .vip-table tbody tr:hover {
+        background-color: rgba(50, 50, 50, 0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+    
+    .vip-table td {
+        padding: 1.2rem 1.5rem;
+        border-bottom: 1px solid rgba(231, 201, 128, 0.1);
+        position: relative;
+    }
+    
+    .vip-table tr:last-child td {
+        border-bottom: none;
+    }
+    
+    /* Highlight Buy-In column */
+    .buy-in {
+        font-weight: 700;
+        color: #e7c980;
+        font-size: 1.2rem;
+    }
+    
+    /* Animation for table rows */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .vip-row {
+        animation: fadeInUp 0.5s ease forwards;
+        opacity: 0;
+    }
+    
+    .vip-row:nth-child(1) { animation-delay: 0.1s; }
+    .vip-row:nth-child(2) { animation-delay: 0.2s; }
+    .vip-row:nth-child(3) { animation-delay: 0.3s; }
+    .vip-row:nth-child(4) { animation-delay: 0.4s; }
+    .vip-row:nth-child(5) { animation-delay: 0.5s; }
+    
+    /* Gold shimmer animation for rows on hover */
+    @keyframes goldShimmer {
+        0% {
+            background-position: -100% 0;
+        }
+        100% {
+            background-position: 200% 0;
+        }
+    }
+    
+    .vip-table tbody tr:hover::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, 
+            transparent 0%, 
+            rgba(231, 201, 128, 0.1) 50%, 
+            transparent 100%);
+        background-size: 200% 100%;
+        animation: goldShimmer 1.5s infinite linear;
+        pointer-events: none;
+    }
+    
+    /* Note styling */
+    .vip-note {
+        text-align: center;
+        margin-top: 2rem;
+        color: #ccc;
+        font-style: italic;
+        animation: fadeInUp 0.5s ease forwards;
+        animation-delay: 0.6s;
+        opacity: 0;
+    }
+    
+    .gold-link {
+        color: #e7c980;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .gold-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        transition: width 0.3s ease;
+    }
+    
+    .gold-link:hover {
+        color: #fff;
+    }
+    
+    .gold-link:hover::after {
+        width: 100%;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .vip-table {
+            font-size: 0.9rem;
+        }
+        
+        .vip-table th, 
+        .vip-table td {
+            padding: 1rem;
+        }
+        
+        .buy-in {
+            font-size: 1.1rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .vip-table {
+            font-size: 0.8rem;
+        }
+        
+        .vip-table th, 
+        .vip-table td {
+            padding: 0.8rem 0.5rem;
+        }
+        
+        .buy-in {
+            font-size: 1rem;
+        }
+    }
+
+    /* Add these styles to your existing styles */
+    .vip-cta {
+        margin-top: 2.5rem;
+        text-align: center;
+    }
+
+    .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: linear-gradient(90deg, #F2C75E 0%, #CE9639 100%);
+        color: #000;
+        font-size: 1.125rem;
+        font-weight: 600;
+        padding: 1rem 2.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(231, 201, 128, 0.3);
+    }
+
+    .cta-button .arrow {
+        transition: transform 0.3s ease;
+    }
+
+    .cta-button:hover .arrow {
+        transform: translateX(5px);
+    }
+
+    @media (max-width: 768px) {
+        .vip-cta {
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            font-size: 1rem;
+            padding: 0.875rem 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .vip-cta {
+            margin-top: 1.5rem;
+        }
+
+        .cta-button {
+            width: 100%;
+            justify-content: center;
+            font-size: 0.9375rem;
+            padding: 0.75rem 1.5rem;
+        }
+    }
+</style>
+
+<script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        // Update the packagesData array to include day package
+        const packagesData = [
+            {
+                name: "Regular",
+                alcoholBrands: {
+                    "Whiskey": "Blenders, Signature, Rockford",
+                    "Vodka": "Romanov",
+                    "Rum": "Old Monk, Bacardi white/Black, Cabo",
+                    "Gin": "Blue Riband",
+                    "Brandy": "Honey Bee, Mansion House",
+                    "Beer": "Kingfisher",
+                    "Feni": "Coconut/Cashew"
+                }
+            },
+            {
+                name: "Premium",
+                alcoholBrands: {
+                    "Whiskey": "Vat 69, Black Dog, Oak Smith Gold, 100 Pipers, Black & White, Red Label & Ballantines",
+                    "Vodka": "Smirnoff Regular",
+                    "Rum": "Old Monk, Bacardi white/Black, Cabo",
+                    "Gin": "Blue Riband, Greater than",
+                    "Brandy": "Honey Bee, Mansion House, Morpheus xo",
+                    "Beer": "Kingfisher, Kingfisher ultra, Budweiser",
+                    "Feni": "Coconut/Cashew",
+                    "Breezer": "",
+                    "Wine": "Amora White/Amora Red/Langoor Red & Port wine",
+                    "Energy Drink": "As per stock available",
+                    "Liqueur": "Kahlua, Triple sec"
+                }
+            },
+            {
+                name: "Elite",
+                alcoholBrands: {
+                    "Whiskey": "Black Label, Chivas Regal 12 yrs, Singleton 12 yrs, Glenfiddich 12 yrs",
+                    "Vodka": "Absolut, Ciroc & Ketel One",
+                    "Rum": "Old Monk, Bacardi white/Black, Cabo, Coconut Rum",
+                    "Gin": "Blue Riband, Gordons & Bombay Sapphire",
+                    "Brandy": "Honey Bee, Mansion House, Morpheus xo",
+                    "Beer": "House Brands + Premium & Heineken",
+                    "Feni": "Coconut/Cashew",
+                    "Breezer": "",
+                    "Cognac": "St. Remy VSOP",
+                    "Wine": "Yellow tail and Jacob Greek",
+                    "Energy Drink": "Red Bull",
+                    "Liqueur": "Kahlua, Triple sec & Baileys",
+                    "Sparkling Wine": "Frizzano/Zampa Brut"
+                }
+            }
+        ];
+        
+        // Elements
+        const popup = document.getElementById('alcoholPopup');
+        const closeBtn = document.getElementById('closePopupBtn');
+        const packageNameEl = document.getElementById('packageTypeName');
+        const brandsListEl = document.getElementById('alcoholBrandsList');
+        
+        // Update the click handler in setupAlcoholButtons
+        const setupAlcoholButtons = () => {
+            const alcoholButtons = document.querySelectorAll('.alcohol-btn');
+            
+            alcoholButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    let packageIndex = parseInt(this.dataset.package) || 0;
+                    let packageName = packagesData[packageIndex].name;
+
+                    // Check if this is the day package button
+                    if (this.dataset.package === 'day') {
+                        packageIndex = 0; // Use Regular package's alcohol list
+                        packageName = "Day"; // But change the name
+                    }
+                    
+                    // Set package name
+                    packageNameEl.textContent = packageName + " Package";
+                    
+                    // Clear previous content
+                    brandsListEl.innerHTML = '';
+                    
+                    // Add alcohol brands
+                    const brands = packagesData[packageIndex].alcoholBrands;
+                    for (const category in brands) {
+                        const brandsText = brands[category];
+                        
+                        // Skip if no brands
+                        if (!brandsText && brandsText !== '') continue;
+                        
+                        // Create category container
+                        const categoryEl = document.createElement('div');
+                        categoryEl.className = 'alcohol-category';
+                        
+                        // Add title
+                        const titleEl = document.createElement('h4');
+                        titleEl.className = 'alcohol-category-title';
+                        titleEl.textContent = category;
+                        categoryEl.appendChild(titleEl);
+                        
+                        // Handle brands
+                        if (brandsText.trim() === '') {
+                            // Empty category
+                            const emptyEl = document.createElement('div');
+                            emptyEl.className = 'no-brands';
+                            emptyEl.textContent = 'Available upon request';
+                            categoryEl.appendChild(emptyEl);
+                        } else {
+                            // Create brands list
+                            const listEl = document.createElement('ul');
+                            listEl.className = 'brand-list';
+                            
+                            // Add each brand
+                            const brandArray = brandsText.split(',');
+                            brandArray.forEach(brand => {
+                                const brandName = brand.trim();
+                                if (brandName) {
+                                    const itemEl = document.createElement('li');
+                                    itemEl.className = 'brand-item';
+                                    itemEl.textContent = brandName;
+                                    listEl.appendChild(itemEl);
+                                }
+                            });
+                            
+                            categoryEl.appendChild(listEl);
+                        }
+                        
+                        brandsListEl.appendChild(categoryEl);
+                    }
+                    
+                    // Show popup
+                    popup.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+        };
+        
+        // Setup close button
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                popup.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+        
+        // Close on backdrop click
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup || e.target.classList.contains('alcohol-popup-backdrop')) {
+                popup.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && popup.classList.contains('active')) {
+                popup.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Initialize
+        setupAlcoholButtons();
+        
+        // Re-initialize on potential dynamic content changes
+        const observer = new MutationObserver(function(mutations) {
+            setupAlcoholButtons();
+        });
+        
+        // Start observing the document body for changes
+        observer.observe(document.body, { 
+            childList: true,
+            subtree: true 
+        });
+
+        // Tab switching functionality
+        const policyTabs = document.querySelectorAll<HTMLButtonElement>('.policy-tab');
+        const policyContents = document.querySelectorAll<HTMLDivElement>('.policy-content');
+
+        policyTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                policyTabs.forEach(t => t.classList.remove('active'));
+                policyContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Get the tab data attribute
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Activate corresponding content
+                const content = document.getElementById(`${tabId}-content`) as HTMLDivElement | null;
+                if (content) {
+                    content.classList.add('active');
+                }
+            });
+        });
+
+        // Package tab switching
+        const packageButtons = document.querySelectorAll<HTMLButtonElement>('.package-button');
+        const packageImages = document.querySelectorAll<HTMLImageElement>('.packages-image img');
+        const packageDetails = document.querySelectorAll<HTMLDivElement>('.package-details');
+
+        packageButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and images
+                packageButtons.forEach(btn => btn.classList.remove('active'));
+                packageImages.forEach(img => img.classList.remove('active'));
+                packageDetails.forEach(detail => detail.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding image
+                button.classList.add('active');
+                
+                const targetId = button.getAttribute('data-target');
+                const targetImage = document.getElementById(`${targetId}-image`) as HTMLImageElement | null;
+                const targetDetail = document.getElementById(`${targetId}-details`) as HTMLDivElement | null;
+                
+                if (targetImage) targetImage.classList.add('active');
+                if (targetDetail) targetDetail.classList.add('active');
+            });
+        });
+    });
+</script>

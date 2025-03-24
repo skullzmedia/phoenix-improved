@@ -1,0 +1,238 @@
+---
+import Layout from './Layout.astro';
+
+// Add the formatDate function here instead of importing
+function formatDate(date: Date): string {
+    return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    }).format(date);
+}
+
+const { title, description, pubDate, author, image, category } = Astro.props;
+---
+
+<Layout title={`${title} | Phoenixx Casino Blog`}>
+    <article class="blog-post">
+        <div class="blog-header">
+            <div class="container">
+                <span class="category">{category}</span>
+                <h1>{title}</h1>
+                <div class="meta">
+                    <span class="date">{formatDate(pubDate)}</span>
+                    <span class="author">By {author}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="featured-image">
+            <div class="container">
+                <img src={image} alt={title} />
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="content">
+                    <slot />
+                </div>
+            </div>
+        </div>
+    </article>
+</Layout>
+
+<style>
+    .blog-post {
+        background: #000;
+        color: #fff;
+        padding-top: 80px; /* Account for navbar */
+    }
+
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .blog-header {
+        padding: 4rem 0;
+        text-align: center;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,1));
+    }
+
+    .blog-header .container {
+        max-width: 900px;
+    }
+
+    .category {
+        display: inline-block;
+        background: #e7c980;
+        color: #000;
+        padding: 0.5rem 1.5rem;
+        border-radius: 2rem;
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        margin: 0 0 1.5rem;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1.2;
+    }
+
+    .meta {
+        color: #999;
+        font-size: 1rem;
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .meta span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .featured-image {
+        width: 100%;
+        background: #111;
+        padding: 2rem 0;
+    }
+
+    .featured-image .container {
+        max-width: 1200px;
+    }
+
+    .featured-image img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .content-wrapper {
+        padding: 4rem 0 6rem;
+    }
+
+    .content {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+
+    .content :global(h2) {
+        color: #e7c980;
+        font-size: 2rem;
+        margin: 3rem 0 1.5rem;
+    }
+
+    .content :global(h3) {
+        color: #e7c980;
+        font-size: 1.5rem;
+        margin: 2rem 0 1rem;
+    }
+
+    .content :global(p) {
+        margin: 1.5rem 0;
+        color: #eee;
+    }
+
+    .content :global(ul) {
+        margin: 1.5rem 0;
+        padding-left: 1.5rem;
+    }
+
+    .content :global(li) {
+        margin: 0.5rem 0;
+        color: #eee;
+    }
+
+    .content :global(blockquote) {
+        border-left: 4px solid #e7c980;
+        padding: 1rem 0 1rem 2rem;
+        margin: 2rem 0;
+        font-style: italic;
+        color: #ccc;
+        background: rgba(231, 201, 128, 0.05);
+        border-radius: 0 8px 8px 0;
+    }
+
+    @media (max-width: 1024px) {
+        .container {
+            padding: 0 1.5rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        .featured-image img {
+            height: 400px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .blog-post {
+            padding-top: 60px;
+        }
+
+        .blog-header {
+            padding: 3rem 0;
+        }
+
+        .container {
+            padding: 0 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .featured-image {
+            padding: 1rem 0;
+        }
+
+        .featured-image img {
+            height: 300px;
+            border-radius: 8px;
+        }
+
+        .content-wrapper {
+            padding: 2rem 0 4rem;
+        }
+
+        .content {
+            font-size: 1rem;
+        }
+
+        .content :global(h2) {
+            font-size: 1.75rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .content :global(h3) {
+            font-size: 1.25rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .meta {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .featured-image img {
+            height: 250px;
+        }
+    }
+</style> 

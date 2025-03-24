@@ -1,0 +1,386 @@
+---
+import { Image } from 'astro:assets';
+import PlaceholderImage from '../assets/latest_offers/placeholder.svg';
+import IndependenceDay from '../assets/entertainment/upcoming/event-two.png'
+import FreeOTPC from '../assets/entertainment/upcoming/event-one.png'
+
+const offers = [
+{
+    title: "Free 500 OTPC",
+    description: "Get Free 500 OTPC on our entry packages ( T&C apply )",
+    image: FreeOTPC,
+  },
+  {
+    title: "Independence Day Fiesta",
+    description: "Celebrate Independence day with big wins and entertainmet.",
+    image: IndependenceDay,
+  }
+];
+---
+
+<section class="latest-offers">
+    <div class="container">
+        <h2 class="section-title">LATEST OFFERS AND EVENTS</h2>
+        <p class="section-subtitle">Phoenixx casino is Goa's hub for endless winnings whilst having a gala time</p>
+        
+        <div class="offers-container">
+            {offers.length < 3 ? (
+                <div class="offers-static">
+                    {offers.map(offer => (
+                        <a href="/contact" class="offer-card">
+                            <div class="card-image">
+                                {offer.image ? (
+                                    <Image 
+                                        src={offer.image} 
+                                        alt={offer.title} 
+                                        width={600} 
+                                        height={800}
+                                        quality={80}
+                                        class="gallery-image"
+                                    />
+                                ) : (
+                                    <div class="placeholder-image">
+                                        <div class="placeholder-text">{offer.title}</div>
+                                    </div>
+                                )}
+                            </div>
+                            <div class="card-content">
+                                <h3>{offer.title}</h3>
+                                <p>{offer.description}</p>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            ) : (
+                <div class="offers-scroll">
+                    {offers.map(offer => (
+                        <a href="/contact" class="offer-card">
+                            <div class="card-image">
+                                {offer.image ? (
+                                    <Image 
+                                        src={offer.image} 
+                                        alt={offer.title} 
+                                        width={600} 
+                                        height={800}
+                                        quality={80}
+                                        class="gallery-image"
+                                    />
+                                ) : (
+                                    <div class="placeholder-image">
+                                        <div class="placeholder-text">{offer.title}</div>
+                                    </div>
+                                )}
+                            </div>
+                            <div class="card-content">
+                                <h3>{offer.title}</h3>
+                                <p>{offer.description}</p>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            )}
+        </div>
+    </div>
+</section>
+
+<style>
+    .latest-offers {
+        padding: 2rem 0;
+        background-color: var(--color-bg);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        text-align: center;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        position: relative;
+    }
+
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: #D4AF37;
+        margin: 1rem auto 0;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        letter-spacing: 1px;
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 400;
+        color: #e0e0e0;
+        max-width: 800px;
+        margin: 0 auto 4rem;
+        line-height: 1.6;
+    }
+
+    .offers-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 1rem 0;
+    }
+
+    .offers-scroll {
+        display: flex;
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+        animation: scroll 40s linear infinite;
+        width: max-content;
+    }
+
+    .offers-scroll:hover {
+        animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-100% + 100vw));
+        }
+    }
+
+    .offer-card {
+        background: #111111;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        width: 280px;
+        height: 420px;
+        flex-shrink: 0;
+    }
+
+    .offer-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+    }
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .card-image::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, 
+            rgba(0,0,0,0) 0%, 
+            rgba(0,0,0,0.2) 50%, 
+            rgba(0,0,0,0.9) 100%);
+    }
+
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1.75rem 1.5rem;
+        color: white;
+        z-index: 1;
+    }
+
+    .card-content h3 {
+        font-size: 1.2rem;
+        color: #D4AF37;
+        margin: 0 0 0.4rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .card-content p {
+        font-size: 0.9rem;
+        color: #fff;
+        margin: 0;
+        opacity: 0.9;
+        line-height: 1.4;
+    }
+
+    @media (max-width: 1024px) {
+        .section-title {
+            font-size: 2.5rem;
+        }
+
+        .offer-card {
+            width: 260px;
+            height: 390px;
+        }
+
+        .card-content h3 {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            width: 95%;
+            padding: 0 1rem;
+        }
+
+        .latest-offers {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .offer-card {
+            width: 240px;
+            height: 360px;
+        }
+
+        .card-content {
+            padding: 1.5rem 1.25rem;
+        }
+
+        .card-content h3 {
+            font-size: 1rem;
+        }
+
+        .card-content p {
+            font-size: 0.85rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            width: 98%;
+            padding: 0 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+        }
+
+        .offer-card {
+            width: 220px;
+            height: 330px;
+        }
+
+        .card-content {
+            padding: 1.25rem 1rem;
+        }
+
+        .card-content h3 {
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-content p {
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+    }
+
+    .placeholder-image {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, #111111 0%, #222222 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .placeholder-text {
+        color: #D4AF37;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.7;
+    }
+
+    /* Static layout for fewer than 3 offers */
+    .offers-static {
+        display: flex;
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Scrolling layout for 3+ offers */
+    .offers-scroll {
+        display: flex;
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+        animation: scroll 40s linear infinite;
+        width: max-content;
+    }
+
+    .offers-scroll:hover {
+        animation-play-state: paused;
+    }
+
+    @media (max-width: 768px) {
+        .offers-static {
+            gap: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .offers-static {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .offers-static .offer-card {
+            margin-bottom: 1.5rem;
+        }
+    }
+</style>
+
+<script>
+    // Clone cards for smooth infinite scroll only if there are enough offers
+    const scrollContainer = document.querySelector('.offers-scroll');
+    if (scrollContainer) {
+        const cards = scrollContainer.children;
+        const cardCount = cards.length;
+        
+        // Clone first set of cards and append to the end
+        for (let i = 0; i < cardCount; i++) {
+            const clone = cards[i].cloneNode(true);
+            scrollContainer.appendChild(clone);
+        }
+    }
+</script> 

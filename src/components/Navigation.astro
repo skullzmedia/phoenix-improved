@@ -1,0 +1,846 @@
+---
+// Navigation component
+---
+
+<nav class="navigation">
+    <div class="page-transition"></div>
+    <div class="nav-container">
+        <div class="logo">
+            <a href="/">
+                <img src="/logo-new.png" alt="Phoenix Casino Goa" />
+            </a>
+        </div>
+        
+        <div class="nav-links desktop-nav">
+            <a href="/" class="nav-link">HOME</a>
+            <a href="/casino" class="nav-link">ABOUT US</a>
+            <div class="dropdown">
+                <a href="/entertainment" class="nav-link dropdown-toggle">
+                    ENTERTAINMENT<span class="dropdown-icon"></span>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="/entertainment#daily-entertainment" class="dropdown-item">DAILY ENTERTAINMENT</a>
+                    <a href="/entertainment#upcoming-events" class="dropdown-item">UPCOMING EVENTS</a>
+                    <a href="/entertainment#past-events" class="dropdown-item">PAST EVENTS</a>
+                    <a href="/entertainment#celebrities" class="dropdown-item">CELEBRITIES</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="/packages" class="nav-link dropdown-toggle">
+                    PACKAGES<span class="dropdown-icon"></span>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="/packages#entry-packages" class="dropdown-item">ENTRY PACKAGES</a>
+                    <a href="/packages#day-pass" class="dropdown-item">DAY PACKAGES</a>
+                    <a href="/packages#vip-packages" class="dropdown-item">VIP PACKAGES</a>
+                </div>
+            </div>
+            <a href="/gallery" class="nav-link">GALLERY</a>
+            <a href="/contact" class="nav-link">CONTACT US</a>
+            <a href="/faq" class="nav-link">FAQ</a>
+        </div>
+
+        <div class="book-now desktop-nav">
+            <a href="/contact" class="cta-button">BOOK NOW</a>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </div>
+    
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-container">
+            <div class="mobile-nav-links">
+                <a href="/" class="mobile-nav-link">HOME</a>
+                <a href="/casino" class="mobile-nav-link">ABOUT US</a>
+                <div class="mobile-dropdown">
+                    <a href="/entertainment" class="mobile-nav-link mobile-dropdown-toggle">
+                        ENTERTAINMENT<span class="mobile-dropdown-icon"></span>
+                    </a>
+                    <div class="mobile-dropdown-menu">
+                        <span class="mobile-dropdown-title">Entertainment Options</span>
+                        <a href="/entertainment#daily-entertainment" class="mobile-dropdown-item">DAILY ENTERTAINMENT</a>
+                        <a href="/entertainment#upcoming-events" class="mobile-dropdown-item">UPCOMING EVENTS</a>
+                        <a href="/entertainment#past-events" class="mobile-dropdown-item">PAST EVENTS</a>
+                        <a href="/entertainment#celebrities" class="mobile-dropdown-item">CELEBRITIES</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <a href="/packages" class="mobile-nav-link mobile-dropdown-toggle">
+                        PACKAGES<span class="mobile-dropdown-icon"></span>
+                    </a>
+                    <div class="mobile-dropdown-menu">
+                        <span class="mobile-dropdown-title">Package Options</span>
+                        <a href="/packages#entry-packages" class="mobile-dropdown-item">ENTRY PACKAGES</a>
+                        <a href="/packages#day-pass" class="mobile-dropdown-item">DAY PASS</a>
+                        <a href="/packages#vip-packages" class="mobile-dropdown-item">VIP PACKAGES</a>
+                    </div>
+                </div>
+                <a href="/gallery" class="mobile-nav-link">GALLERY</a>
+                <a href="/contact" class="mobile-nav-link">CONTACT US</a>
+                <a href="/faq" class="mobile-nav-link">FAQ</a>
+            </div>
+            
+            <div class="mobile-book-now">
+                <a href="/contact" class="mobile-cta-button">BOOK NOW</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .navigation {
+        background-color: rgba(0, 0, 0, 0.9);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        padding: 0.5rem 0;
+        transition: all 0.3s ease;
+    }
+
+    .navigation.scrolled {
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+    }
+
+    .logo img {
+        height: 120px;
+        width: auto;
+        position: relative;
+        z-index: 1001; /* Ensure logo appears above mobile menu */
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1.8rem;
+        align-items: center;
+    }
+
+    .nav-link {
+        color: white;
+        text-decoration: none;
+        letter-spacing: 1px;
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: color 0.3s ease;
+        position: relative;
+        padding: 0.3rem 0;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        transition: width 0.3s ease;
+        transform-origin: left;
+    }
+
+    .nav-link:hover {
+        color: #D4AF37;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+        box-shadow: 0 0 8px rgba(231, 201, 128, 0.5);
+    }
+
+    .cta-button {
+        background-color: #D4AF37;
+        color: black;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .cta-button:hover {
+        background-color: #C5A028;
+        transform: translateY(-2px);
+    }
+    
+    /* Mobile menu styles */
+    .mobile-menu-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1002;
+        position: relative;
+    }
+    
+    .bar {
+        display: block;
+        width: 30px;
+        height: 3px;
+        margin: 6px auto;
+        background-color: #e7c980;
+        transition: all 0.3s ease-in-out;
+        border-radius: 3px;
+    }
+    
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        transform: translateX(100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .mobile-menu.active {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .mobile-menu-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 2rem;
+        text-align: center;
+    }
+    
+    .mobile-nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .mobile-nav-link {
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+        position: relative;
+        display: inline-block;
+        padding: 0.5rem 1rem;
+    }
+    
+    .mobile-nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        transition: width 0.3s ease;
+    }
+    
+    .mobile-nav-link:hover {
+        color: #e7c980;
+    }
+    
+    .mobile-nav-link:hover::after {
+        width: 80%;
+    }
+    
+    .mobile-cta-button {
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        color: black;
+        padding: 1rem 3rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        display: inline-block;
+        margin-top: 1rem;
+    }
+    
+    .mobile-cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(231, 201, 128, 0.3);
+    }
+
+    /* Hamburger animation */
+    .mobile-menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    
+    .mobile-menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+        .desktop-nav {
+            display: none;
+        }
+        
+        .mobile-menu-toggle {
+            display: block;
+        }
+        
+        .nav-container {
+            padding: 0 1rem;
+        }
+        
+        .logo img {
+            height: 100px; /* Smaller logo on mobile */
+        }
+    }
+
+    /* Dropdown styles */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .dropdown-toggle {
+        position: relative;
+    }
+    
+    /* Add the dropdown icon as a separate element */
+    .dropdown-icon {
+        display: inline-block;
+        margin-left: 5px;
+        position: relative;
+    }
+    
+    .dropdown-icon::after {
+        content: '▼';
+        font-size: 10px;
+        color: #e7c980;
+        vertical-align: middle;
+    }
+    
+    .dropdown:hover .dropdown-icon::after {
+        content: '▲';
+    }
+    
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        min-width: 250px;
+        border-radius: 8px;
+        padding: 0.75rem 0;
+        margin-top: 0.8rem;
+        border: 1px solid rgba(231, 201, 128, 0.2);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 100;
+        overflow: hidden;
+    }
+    
+    .dropdown-menu::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid rgba(10, 10, 10, 0.95);
+        z-index: 101;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    
+    /* Keep the dropdown menu visible when hovering over the menu itself */
+    .dropdown-menu:hover {
+        display: block;
+    }
+    
+    /* Add a buffer zone to prevent accidental close */
+    .dropdown::after {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 100%;
+        bottom: -20px;
+        left: 0;
+    }
+    
+    .dropdown-item {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 0.7rem 1.5rem;
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center;
+        transition: all 0.2s ease;
+        position: relative;
+    }
+    
+    .dropdown-item::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        background: linear-gradient(to right, transparent, rgba(231, 201, 128, 0.2), transparent);
+    }
+    
+    .dropdown-item:last-child::after {
+        display: none;
+    }
+    
+    .dropdown-item:hover {
+        background: linear-gradient(90deg, rgba(231, 201, 128, 0.05) 0%, rgba(231, 201, 128, 0.15) 50%, rgba(231, 201, 128, 0.05) 100%);
+        color: #e7c980;
+    }
+    
+    /* Mobile dropdown styles */
+    .mobile-dropdown {
+        position: relative;
+        margin-bottom: 0.5rem;
+    }
+    
+    .mobile-dropdown-toggle {
+        position: relative;
+    }
+    
+    .mobile-dropdown-icon {
+        display: inline-block;
+        margin-left: 5px;
+        position: relative;
+    }
+    
+    .mobile-dropdown-icon::after {
+        content: '▼';
+        font-size: 12px;
+        color: #e7c980;
+        vertical-align: middle;
+    }
+    
+    .mobile-dropdown.active .mobile-dropdown-icon::after {
+        content: '▲';
+    }
+    
+    .mobile-dropdown-menu {
+        display: none;
+        background-color: rgba(231, 201, 128, 0.1);
+        border-radius: 8px;
+        margin: 0.5rem auto;
+        max-width: 300px;
+        width: 90%;
+        border: 1px solid rgba(231, 201, 128, 0.2);
+    }
+    
+    .mobile-dropdown.active .mobile-dropdown-menu {
+        display: block;
+        padding: 0.75rem 0;
+    }
+    
+    .mobile-dropdown-item {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 0.9rem 1.5rem;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        transition: all 0.2s ease;
+        position: relative;
+    }
+    
+    .mobile-dropdown-item::after {
+        content: '';
+        position: absolute;
+        left: 10%;
+        bottom: 0;
+        height: 1px;
+        width: 80%;
+        background: linear-gradient(to right, transparent, rgba(231, 201, 128, 0.2), transparent);
+    }
+    
+    .mobile-dropdown-item:last-child::after {
+        display: none;
+    }
+    
+    .mobile-dropdown-item:hover,
+    .mobile-dropdown-item:active {
+        background: rgba(231, 201, 128, 0.15);
+        color: #e7c980;
+    }
+
+    /* Add a title above dropdown items */
+    .mobile-dropdown-title {
+        display: block;
+        color: #e7c980;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0.5rem 0;
+        padding: 0 1rem;
+        opacity: 0.6;
+    }
+
+    /* Page transition overlay */
+    .page-transition {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: radial-gradient(ellipse at center, rgba(0,0,0,0.95) 0%, rgba(0,0,0,1) 70%);
+        z-index: 9999;
+        transform: translateY(100%);
+        pointer-events: none;
+        overflow: hidden;
+    }
+    
+    .page-transition::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #e7c980, #9e8253, transparent);
+        box-shadow: 0 0 15px rgba(231, 201, 128, 0.7);
+        z-index: 10000;
+    }
+
+    .page-transition.animating {
+        animation: pageTransition 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    }
+
+    @keyframes pageTransition {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(0%);
+        }
+    }
+    
+    /* Gold particle animations */
+    .gold-particle {
+        position: absolute;
+        background: radial-gradient(circle at center, #fff 10%, #e7c980 40%, #9e8253 100%);
+        border-radius: 50%;
+        opacity: 0;
+        top: -10px;
+        box-shadow: 0 0 20px rgba(231, 201, 128, 0.8), 0 0 40px rgba(231, 201, 128, 0.4);
+        animation: particleFade 2s ease-out forwards;
+        z-index: 10001;
+    }
+    
+    @keyframes particleFade {
+        0% {
+            opacity: 0;
+            transform: translateY(0) scale(0);
+        }
+        20% {
+            opacity: 1;
+            transform: translateY(10px) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(100vh) scale(0.5);
+        }
+    }
+
+    /* Add specific spacing between the CONTACT US and FAQ links */
+    .nav-links .nav-link:nth-last-child(2) {
+        margin-right: 0.5rem; /* Add a bit of extra space after CONTACT US */
+    }
+
+    /* Add specific spacing for the button container */
+    .book-now {
+        padding-left: 1rem; /* Add space before the button without moving the container */
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const nav = document.querySelector('.navigation');
+        const scrollThreshold = 50;
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link:not(.mobile-dropdown-toggle)');
+        const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+        const mobileDropdown = document.querySelector('.mobile-dropdown');
+        const mobileDropdownItems = document.querySelectorAll('.mobile-dropdown-item');
+        const pageTransition = document.querySelector('.page-transition') as HTMLElement;
+        
+        // Desktop dropdown enhancement
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownMenu = document.querySelector('.dropdown-menu') as HTMLElement;
+        let timeoutId: number | null = null;
+        
+        // Make dropdown menu stay open when moving between nav and menu
+        if (dropdown && dropdownMenu) {
+            dropdown.addEventListener('mouseenter', () => {
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                    timeoutId = null;
+                }
+                dropdownMenu.style.display = 'block';
+            });
+            
+            dropdown.addEventListener('mouseleave', () => {
+                timeoutId = window.setTimeout(() => {
+                    dropdownMenu.style.display = '';
+                }, 300); // 300ms delay before closing
+            });
+            
+            dropdownMenu.addEventListener('mouseenter', () => {
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                    timeoutId = null;
+                }
+            });
+            
+            dropdownMenu.addEventListener('mouseleave', () => {
+                timeoutId = window.setTimeout(() => {
+                    dropdownMenu.style.display = '';
+                }, 300); // 300ms delay before closing
+            });
+        }
+        
+        // Handle scroll effects for header
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > scrollThreshold) {
+                nav?.classList.add('scrolled');
+            } else {
+                nav?.classList.remove('scrolled');
+            }
+        });
+        
+        // Toggle mobile menu
+        mobileMenuToggle?.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mobileMenu?.classList.toggle('active');
+            
+            // Reset dropdown state when closing the menu
+            if (!mobileMenuToggle.classList.contains('active')) {
+                mobileDropdown?.classList.remove('active');
+            }
+            
+            // Update aria-expanded attribute for accessibility
+            const isExpanded = mobileMenuToggle.classList.contains('active');
+            mobileMenuToggle.setAttribute('aria-expanded', isExpanded.toString());
+            
+            // Prevent body scrolling when menu is open
+            document.body.style.overflow = isExpanded ? 'hidden' : '';
+        });
+        
+        // Toggle mobile dropdown
+        mobileDropdownToggle?.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // Prevent event from bubbling up
+            mobileDropdown?.classList.toggle('active');
+        });
+        
+        // Close menu when a link is clicked
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
+                document.body.style.overflow = '';
+                mobileMenuToggle?.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Close menu when a dropdown item is clicked
+        mobileDropdownItems.forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenuToggle?.classList.remove('active');
+                mobileMenu?.classList.remove('active');
+                mobileDropdown?.classList.remove('active');
+                document.body.style.overflow = '';
+                mobileMenuToggle?.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Prevent dropdown from closing when clicking inside it
+        const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu');
+        mobileDropdownMenu?.addEventListener('click', (e: Event) => {
+            const target = e.target as Element;
+            // Only prevent propagation if not clicking a link
+            if (target && !target.classList.contains('mobile-dropdown-item')) {
+                e.stopPropagation();
+            }
+        });
+        
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="/entertainment#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                const isOnEntertainmentPage = window.location.pathname === '/entertainment';
+                
+                if (href) {
+                    const [path, hash] = href.split('#');
+                    
+                    if (isOnEntertainmentPage) {
+                        // Already on entertainment page, just smooth scroll to section
+                        e.preventDefault();
+                        const targetElement = document.getElementById(hash);
+                        
+                        if (targetElement) {
+                            // Close mobile menu if open
+                            mobileMenuToggle?.classList.remove('active');
+                            mobileMenu?.classList.remove('active');
+                            mobileDropdown?.classList.remove('active');
+                            document.body.style.overflow = '';
+                            
+                            // Add offset for fixed header
+                            const headerOffset = 100;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    } else {
+                        // Store the hash in sessionStorage to use it when page loads
+                        if (hash) {
+                            sessionStorage.setItem('scrollToSection', hash);
+                        }
+                        // Let the normal navigation happen
+                    }
+                }
+            });
+        });
+        
+        // Check if we need to scroll to a section after page load
+        const scrollToSection = sessionStorage.getItem('scrollToSection');
+        if (scrollToSection && window.location.pathname === '/entertainment') {
+            setTimeout(() => {
+                const targetElement = document.getElementById(scrollToSection);
+                if (targetElement) {
+                    // Add offset for fixed header
+                    const headerOffset = 100;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'auto'
+                    });
+                    
+                    // Clear the storage item after use
+                    sessionStorage.removeItem('scrollToSection');
+                }
+            }, 100);
+        }
+
+        // Handle browser back/forward navigation
+        window.addEventListener('popstate', () => {
+            // Remove any ongoing animations
+            if (pageTransition) {
+                pageTransition.classList.remove('animating');
+                pageTransition.style.transform = 'translateY(100%)';
+                
+                // Clear any existing particles
+                const particles = pageTransition.querySelectorAll('.gold-particle');
+                particles.forEach(p => p.remove());
+            }
+        });
+
+        // Create gold accent particles for transition effect
+        function createGoldParticles() {
+            if (!pageTransition) return;
+            
+            // Clear any existing particles
+            const existingParticles = pageTransition.querySelectorAll('.gold-particle');
+            existingParticles.forEach(p => p.remove());
+            
+            // Create new particles
+            const particleCount = 25;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('gold-particle');
+                
+                // Random position and size
+                const size = Math.random() * 12 + 4;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 0.7;
+                const duration = Math.random() * 0.8 + 1.2;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                pageTransition.appendChild(particle);
+            }
+        }
+
+        // Modified page load animation
+        if (pageTransition && !sessionStorage.getItem('pageTransitionShown')) {
+            pageTransition.style.transform = 'translateY(0)';
+            createGoldParticles();
+            
+            requestAnimationFrame(() => {
+                pageTransition.style.transition = 'transform 0.8s cubic-bezier(0.19, 1, 0.22, 1)';
+                pageTransition.style.transform = 'translateY(-100%)';
+                
+                // Remove the transition after it completes
+                setTimeout(() => {
+                    pageTransition.style.transition = '';
+                    pageTransition.style.transform = 'translateY(100%)';
+                    sessionStorage.setItem('pageTransitionShown', 'true');
+                    
+                    // Clear particles
+                    const particles = pageTransition.querySelectorAll('.gold-particle');
+                    particles.forEach(p => p.remove());
+                }, 800);
+            });
+        }
+    });
+</script> 

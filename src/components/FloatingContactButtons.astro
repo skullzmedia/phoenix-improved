@@ -1,0 +1,93 @@
+---
+// FloatingContactButtons.astro
+---
+
+<!-- Floating Contact Buttons -->
+<div class="floating-contact-buttons">
+    <a href="tel:+919960007937" class="contact-button phone-button" aria-label="Call us">
+        <i class="fas fa-phone"></i>
+    </a>
+    <a href="https://wa.me/919960007937" target="_blank" class="contact-button whatsapp-button" aria-label="Contact on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+<style>
+    /* Floating Contact Buttons */
+    .floating-contact-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 9999;
+    }
+
+    .contact-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        animation: pulse 2s infinite;
+    }
+
+    .contact-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .phone-button {
+        background-color: #e7c980;
+        color: #000;
+    }
+
+    .whatsapp-button {
+        background-color: #25D366;
+        color: #fff;
+    }
+
+    .contact-button i {
+        font-size: 28px;
+    }
+
+    /* Pulse animation */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        70% {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+        }
+
+        100% {
+            transform: scale(1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .floating-contact-buttons {
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .contact-button {
+            width: 50px;
+            height: 50px;
+        }
+
+        .contact-button i {
+            font-size: 24px;
+        }
+    }
+</style> 

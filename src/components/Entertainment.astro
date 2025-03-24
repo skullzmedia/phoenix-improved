@@ -1,0 +1,319 @@
+---
+const entertainmentOptions = [
+    {
+        icon: "fa-solid fa-music",
+        title: "Live Music Performances",
+        description: "Experience electrifying performances by top artists and bands in an intimate setting."
+    },
+    {
+        icon: "fa-solid fa-shirt",
+        title: "Fashion Shows",
+        description: "Witness glamorous runway events featuring top designers and models in our luxurious venue."
+    },
+    {
+        icon: "fa-solid fa-headphones",
+        title: "DJ Nights",
+        description: "Dance the night away with our resident and guest DJs spinning the latest hits."
+    },
+    {
+        icon: "fa-solid fa-star",
+        title: "Celebrity Appearances",
+        description: "Meet and greet with your favorite stars during our exclusive celebrity nights."
+    }
+];
+---
+
+<section class="entertainment">
+    <div class="container">
+        <h2 class="section-title">ENTERTAINMENT & EVENTS</h2>
+        
+        <p class="section-description">
+            From star-studded nights to fashion shows, Phoenixx casino Goa is power packed with entertainment and fun, you will never leave a night disappointed!
+        </p>
+
+        <div class="content-wrapper">
+            <div class="entertainment-list">
+                {entertainmentOptions.map(option => (
+                    <div class="entertainment-item">
+                        <div class="icon-circle">
+                            <i class={option.icon}></i>
+                        </div>
+                        <div class="text-content">
+                            <h3 class="item-title">{option.title}</h3>
+                            <p class="item-description">{option.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div class="video-frame">
+                <div class="video-placeholder">
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/oMvX-g5jKxE?autoplay=1&mute=1&loop=1&controls=0&playlist=oMvX-g5jKxE"
+                        title="Entertainment Video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+
+        <a href="/contact" class="cta-button">BOOK YOUR SPOT</a>
+    </div>
+</section>
+
+<style>
+    .entertainment {
+        padding: 2rem 0;
+        background-color: var(--color-bg);
+        color: #fff;
+    }
+
+    .container {
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .underline {
+        width: 80px;
+        height: 3px;
+        background-color: #e7c980;
+        margin: 1rem auto 2rem;
+    }
+
+    .section-description {
+        max-width: 800px;
+        margin: 0 auto 4rem;
+        letter-spacing: 1px;
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 400;
+        color: #e0e0e0;
+    }
+
+    .content-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: stretch;
+        margin-bottom: 3rem;
+        min-height: 450px;
+    }
+
+    .entertainment-list {
+        text-align: left;
+    }
+
+    .entertainment-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+    }
+
+    .entertainment-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .entertainment-item:hover .icon-circle {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(231, 201, 128, 0.4);
+    }
+
+    .entertainment-item:hover .icon-circle i {
+        transform: scale(1.1);
+    }
+
+    .icon-circle {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(231, 201, 128, 0.3);
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .icon-circle i {
+        font-size: 1.5rem;
+        color: #000000;
+        transition: all 0.3s ease;
+    }
+
+    .text-content {
+        flex: 1;
+        padding-top: 0.5rem;
+    }
+
+    .item-title {
+        color: #e7c980;
+        font-size: 1.25rem;
+        margin: 0 0 0.5rem;
+        font-weight: 600;
+    }
+
+    .item-description {
+        color: #ccc;
+        margin: 0;
+        line-height: 1.5;
+        font-size: 1rem;
+    }
+
+    .video-frame {
+        width: 100%;
+        height: 100%;
+        max-height: 450px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid rgba(212, 175, 55, 0.2);
+        background: #111;
+        position: relative;
+    }
+
+    .video-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-placeholder iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        color: #000;
+        padding: 1rem 2.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        margin-top: 2rem;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(231, 201, 128, 0.3);
+    }
+
+    @media (max-width: 1024px) {
+        .section-title {
+            font-size: 2.5rem;
+        }
+
+        .video-frame {
+            max-height: 400px;
+        }
+        .content-wrapper {
+            min-height: 400px;
+        }
+
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+        }
+
+        .icon-circle i {
+            font-size: 1.3rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .entertainment {
+            padding: 2rem 0;
+        }
+
+        .content-wrapper {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            min-height: auto;
+        }
+
+        .video-frame {
+            height: 350px;
+            max-height: 350px;
+            position: relative;
+        }
+
+        .video-placeholder {
+            position: relative;
+            height: 100%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .section-description {
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .icon-circle {
+            width: 50px;
+            height: 50px;
+        }
+
+        .icon-circle i {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .section-title {
+            font-size: 1.8rem;
+        }
+
+        .entertainment-item {
+            gap: 1rem;
+        }
+
+        .icon-circle {
+            width: 45px;
+            height: 45px;
+        }
+
+        .icon-circle i {
+            font-size: 1rem;
+        }
+
+        .item-title {
+            font-size: 1.1rem;
+        }
+
+        .item-description {
+            font-size: 0.9rem;
+        }
+
+        .cta-button {
+            padding: 0.875rem 2rem;
+            font-size: 0.9rem;
+        }
+    }
+</style> 

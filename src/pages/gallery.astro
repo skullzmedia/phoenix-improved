@@ -1,0 +1,722 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import amenity1 from "../assets/gallery/amenities/1.jpg";
+import amenity2 from "../assets/gallery/amenities/2.jpg";
+import amenity3 from "../assets/gallery/amenities/3.jpg";
+import amenity4 from "../assets/gallery/amenities/4.jpg";
+import amenity5 from "../assets/gallery/amenities/5.jpg";
+import amenity6 from "../assets/gallery/amenities/6.jpg";
+import amenity7 from "../assets/gallery/amenities/7.jpg";
+import amenity8 from "../assets/gallery/amenities/8.jpg";
+import amenity9 from "../assets/gallery/amenities/9.jpg";
+import amenity10 from "../assets/gallery/amenities/10.jpg";
+import amenity11 from "../assets/gallery/amenities/11.jpg";
+import amenity12 from "../assets/gallery/amenities/12.jpg";
+import gaming1 from "../assets/gallery/gaming/1.jpg";
+import gaming2 from "../assets/gallery/gaming/2.jpg";
+import gaming3 from "../assets/gallery/gaming/3.jpg";
+import gaming4 from "../assets/gallery/gaming/4.jpg";
+import gaming5 from "../assets/gallery/gaming/5.jpg";
+import gaming6 from "../assets/gallery/gaming/6.jpg";
+import gaming7 from "../assets/gallery/gaming/7.jpg";
+import gaming8 from "../assets/gallery/gaming/8.jpg";
+import gaming9 from "../assets/gallery/gaming/9.jpg";
+import gaming10 from "../assets/gallery/gaming/10.jpg";
+import gaming11 from "../assets/gallery/gaming/11.jpg";
+import gaming12 from "../assets/gallery/gaming/12.jpg";
+import gaming13 from "../assets/gallery/gaming/13.jpg";
+import gaming14 from "../assets/gallery/gaming/14.jpg";
+import gaming15 from "../assets/gallery/gaming/15.jpg";
+import gaming16 from "../assets/gallery/gaming/16.jpg";
+import gaming17 from "../assets/gallery/gaming/17.jpg";
+import gaming18 from "../assets/gallery/gaming/18.jpg";
+import gaming19 from "../assets/gallery/gaming/19.jpg";
+import gaming20 from "../assets/gallery/gaming/20.jpg";
+import gaming21 from "../assets/gallery/gaming/21.jpg";
+import entertainment1 from "../assets/gallery/entertainment/1.jpg";
+import entertainment2 from "../assets/gallery/entertainment/2.jpg";
+import entertainment3 from "../assets/gallery/entertainment/3.jpg";
+import entertainment4 from "../assets/gallery/entertainment/4.jpg";
+import entertainment5 from "../assets/gallery/entertainment/5.jpg";
+import entertainment6 from "../assets/gallery/entertainment/6.jpg";
+import entertainment7 from "../assets/gallery/entertainment/7.jpg";
+import entertainment8 from "../assets/gallery/entertainment/8.jpg";
+import entertainment9 from "../assets/gallery/entertainment/9.jpg";
+import entertainment10 from "../assets/gallery/entertainment/10.jpg";
+import entertainment11 from "../assets/gallery/entertainment/11.jpg";
+import entertainment12 from "../assets/gallery/entertainment/12.jpg";
+import entertainment13 from "../assets/gallery/entertainment/13.jpg";
+import entertainment14 from "../assets/gallery/entertainment/14.jpg";
+import entertainment15 from "../assets/gallery/entertainment/15.jpg";
+import entertainment16 from "../assets/gallery/entertainment/16.jpg";
+import entertainment17 from "../assets/gallery/entertainment/17.jpg";
+import entertainment18 from "../assets/gallery/entertainment/18.jpg";
+import entertainment19 from "../assets/gallery/entertainment/19.jpg";
+import entertainment20 from "../assets/gallery/entertainment/20.jpg";
+import entertainment21 from "../assets/gallery/entertainment/21.jpg";
+import entertainment22 from "../assets/gallery/entertainment/22.jpg";
+import entertainment23 from "../assets/gallery/entertainment/23.jpg";
+import entertainment24 from "../assets/gallery/entertainment/24.jpg";
+import entertainment25 from "../assets/gallery/entertainment/25.jpg";
+import entertainment26 from "../assets/gallery/entertainment/26.jpg";
+import ambiance1 from "../assets/gallery/ambiance/1.jpg";
+import ambiance2 from "../assets/gallery/ambiance/2.jpg";
+import ambiance3 from "../assets/gallery/ambiance/3.jpg";
+import ambiance4 from "../assets/gallery/ambiance/4.jpg";
+import ambiance5 from "../assets/gallery/ambiance/5.jpeg";
+import ambiance6 from "../assets/gallery/ambiance/6.jpeg";
+import ambiance7 from "../assets/gallery/ambiance/7.jpeg";
+import ambiance8 from "../assets/gallery/ambiance/8.jpeg";
+import ambiance9 from "../assets/gallery/ambiance/9.jpeg";
+import ambiance10 from "../assets/gallery/ambiance/10.jpeg";
+import ambiance11 from "../assets/gallery/ambiance/11.jpeg";
+import ambiance12 from "../assets/gallery/ambiance/12.jpeg";
+import ambiance13 from "../assets/gallery/ambiance/13.jpeg";
+import ambiance14 from "../assets/gallery/ambiance/14.jpeg";
+import ambiance15 from "../assets/gallery/ambiance/15.jpeg";
+import ambiance16 from "../assets/gallery/ambiance/16.jpeg";
+import food1 from "../assets/gallery/food-and-drinks/1.jpg";
+import food2 from "../assets/gallery/food-and-drinks/2.jpg";
+import food3 from "../assets/gallery/food-and-drinks/3.jpg";
+import food4 from "../assets/gallery/food-and-drinks/4.jpg";
+import food5 from "../assets/gallery/food-and-drinks/5.jpg";
+import food6 from "../assets/gallery/food-and-drinks/6.jpg";
+import food7 from "../assets/gallery/food-and-drinks/7.jpg";
+import food8 from "../assets/gallery/food-and-drinks/8.jpg";
+import food9 from "../assets/gallery/food-and-drinks/9.jpg";
+import food10 from "../assets/gallery/food-and-drinks/10.jpg";
+import food11 from "../assets/gallery/food-and-drinks/11.jpg";
+import food12 from "../assets/gallery/food-and-drinks/12.jpg";
+import food13 from "../assets/gallery/food-and-drinks/13.jpg";
+import food14 from "../assets/gallery/food-and-drinks/14.jpg";
+import food15 from "../assets/gallery/food-and-drinks/15.jpg";
+import food16 from "../assets/gallery/food-and-drinks/16.jpg";
+import food17 from "../assets/gallery/food-and-drinks/17.jpg";
+import food18 from "../assets/gallery/food-and-drinks/18.jpg";
+import food19 from "../assets/gallery/food-and-drinks/19.jpg";
+import food20 from "../assets/gallery/food-and-drinks/20.jpg";
+import celebrities1 from "../assets/gallery/celebrities/1.jpg";
+import celebrities2 from "../assets/gallery/celebrities/2.jpg";
+import celebrities3 from "../assets/gallery/celebrities/3.jpg";
+import celebrities4 from "../assets/gallery/celebrities/4.jpg";
+import celebrities5 from "../assets/gallery/celebrities/5.jpg";
+import celebrities6 from "../assets/gallery/celebrities/6.jpg";
+import celebrities7 from "../assets/gallery/celebrities/7.jpg";
+import celebrities8 from "../assets/gallery/celebrities/8.jpg";
+import celebrities9 from "../assets/gallery/celebrities/9.jpg";
+import celebrities10 from "../assets/gallery/celebrities/10.jpg";
+import celebrities11 from "../assets/gallery/celebrities/11.jpg";
+import celebrities12 from "../assets/gallery/celebrities/12.jpg";
+import celebrities13 from "../assets/gallery/celebrities/13.jpg";
+import celebrities14 from "../assets/gallery/celebrities/14.jpeg";
+import celebrities15 from "../assets/gallery/celebrities/15.jpeg";
+import celebrities16 from "../assets/gallery/celebrities/16.jpeg";
+import celebrities17 from "../assets/gallery/celebrities/17.jpeg";
+import celebrities18 from "../assets/gallery/celebrities/18.jpeg";
+import celebrities19 from "../assets/gallery/celebrities/19.jpeg";
+import celebrities20 from "../assets/gallery/celebrities/20.jpeg";
+import celebrities21 from "../assets/gallery/celebrities/21.jpeg";
+import celebrities22 from "../assets/gallery/celebrities/22.jpeg";
+import celebrities23 from "../assets/gallery/celebrities/23.jpeg";
+import celebrities24 from "../assets/gallery/celebrities/24.jpeg";
+import celebrities25 from "../assets/gallery/celebrities/25.jpeg";
+import celebrities26 from "../assets/gallery/celebrities/26.jpeg";
+import celebrities27 from "../assets/gallery/celebrities/27.jpeg";
+import celebrities28 from "../assets/gallery/celebrities/28.jpeg";
+import celebrities29 from "../assets/gallery/celebrities/29.jpeg";
+import celebrities30 from "../assets/gallery/celebrities/30.jpeg";
+import celebrities31 from "../assets/gallery/celebrities/31.jpeg";
+import celebrities32 from "../assets/gallery/celebrities/32.jpeg";
+import celebrities33 from "../assets/gallery/celebrities/33.jpeg";
+import celebrities34 from "../assets/gallery/celebrities/34.jpeg";
+import celebrities35 from "../assets/gallery/celebrities/35.jpeg";
+import celebrities36 from "../assets/gallery/celebrities/36.jpeg";
+import celebrities37 from "../assets/gallery/celebrities/37.jpeg";
+import celebrities38 from "../assets/gallery/celebrities/38.jpeg";
+import celebrities39 from "../assets/gallery/celebrities/39.jpeg";
+import celebrities40 from "../assets/gallery/celebrities/40.jpeg";
+import celebrities41 from "../assets/gallery/celebrities/41.jpeg";
+import celebrities42 from "../assets/gallery/celebrities/42.jpeg";
+import celebrities43 from "../assets/gallery/celebrities/43.jpeg";
+
+
+
+
+const categories = [
+    { id: 'all', label: 'All' },
+    { id: 'gaming', label: 'Gaming' },
+    { id: 'entertainment', label: 'Entertainment' },
+    { id: 'ambiance', label: 'Ambiance' },
+    { id: 'food', label: 'Food' },
+    { id: 'celebrities', label: 'Celebrities' },
+    { id: 'amenities', label: 'Amenities' }
+];
+
+const galleryItems = [
+    // Amenities
+    { image: amenity2, alt: "VIP Lounge", width: 800, height: 1000, category: "amenities" },
+    { image: amenity3, alt: "Private Suites", width: 800, height: 1000, category: "amenities" },
+    { image: amenity4, alt: "Premium Services", width: 800, height: 1000, category: "amenities" },
+    { image: amenity5, alt: "Premium Services", width: 800, height: 1000, category: "amenities" },
+    { image: amenity6, alt: "Premium Services", width: 800, height: 1000, category: "amenities" },
+    { image: amenity7, alt: "Premium Services", width: 800, height: 1000, category: "amenities" },
+    { image: amenity8, alt: "Premium Services", width: 800, height: 1000, category: "amenities" },
+    { image: amenity9, alt: "Premium Services", width: 800, height: 1000, category: "amenities" },
+    { image: amenity10, alt: "Premium Services", width: 800, height: 1000, category: "amenities" },
+    { image: amenity11, alt: "Premium Services", width: 800, height: 1000, category: "amenities" },
+    { image: amenity12, alt: "Premium Services", width: 800, height: 1000, category: "amenities" },
+    // Gaming
+    { image: gaming1, alt: "Slot Machines", width: 800, height: 1000, category: "gaming" },
+    { image: gaming2, alt: "Poker Tables", width: 800, height: 1000, category: "gaming" },
+    { image: gaming3, alt: "Roulette Wheel", width: 800, height: 1000, category: "gaming" },
+    { image: gaming4, alt: "Blackjack Table", width: 800, height: 1000, category: "gaming" },
+    { image: gaming5, alt: "Chip Stacks", width: 800, height: 1000, category: "gaming" },
+    { image: gaming6, alt: "Slot Machines", width: 800, height: 1000, category: "gaming" },
+    { image: gaming7, alt: "Poker Tables", width: 800, height: 1000, category: "gaming" },
+    { image: gaming8, alt: "Roulette Wheel", width: 800, height: 1000, category: "gaming" },
+    { image: gaming9, alt: "Blackjack Table", width: 800, height: 1000, category: "gaming" },
+    { image: gaming10, alt: "Chip Stacks", width: 800, height: 1000, category: "gaming" },
+    { image: gaming11, alt: "Slot Machines", width: 800, height: 1000, category: "gaming" },
+    { image: gaming12, alt: "Poker Tables", width: 800, height: 1000, category: "gaming" },
+    { image: gaming13, alt: "Roulette Wheel", width: 800, height: 1000, category: "gaming" },
+    { image: gaming14, alt: "Blackjack Table", width: 800, height: 1000, category: "gaming" },
+    { image: gaming15, alt: "Chip Stacks", width: 800, height: 1000, category: "gaming" },
+    { image: gaming16, alt: "Slot Machines", width: 800, height: 1000, category: "gaming" },
+    { image: gaming17, alt: "Poker Tables", width: 800, height: 1000, category: "gaming" },
+    { image: gaming18, alt: "Roulette Wheel", width: 800, height: 1000, category: "gaming" },
+    { image: gaming19, alt: "Blackjack Table", width: 800, height: 1000, category: "gaming" },
+    { image: gaming20, alt: "Chip Stacks", width: 800, height: 1000, category: "gaming" },
+    { image: gaming21, alt: "Slot Machines", width: 800, height: 1000, category: "gaming" },
+
+    // Entertainment
+    { image: entertainment1, alt: "Live Band", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment2, alt: "DJ Performance", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment3, alt: "Stage Show", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment4, alt: "Dance Floor", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment5, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment6, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment7, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment8, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment9, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment10, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment11, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment12, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment13, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment14, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment15, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment16, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment17, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment18, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment19, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment20, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment21, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment22, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment23, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment24, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment25, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+    { image: entertainment26, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+
+    // Ambiance
+    { image: ambiance1, alt: "Lobby View", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance2, alt: "Chandeliers", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance3, alt: "Bar Area", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance4, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance5, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance6, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance7, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance8, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance9, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance10, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance11, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance12, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance13, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance14, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance15, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+    { image: ambiance16, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+
+    // Food & Drinks
+    { image: food1, alt: "Gourmet Dishes", width: 800, height: 1000, category: "food" },
+    { image: food2, alt: "Cocktail Bar", width: 800, height: 1000, category: "food" },
+    { image: food3, alt: "Dessert Spread", width: 800, height: 1000, category: "food" },
+    { image: food4, alt: "Wine Selection", width: 800, height: 1000, category: "food" },
+    { image: food5, alt: "Chef's Special", width: 800, height: 1000, category: "food" },
+    { image: food6, alt: "Appetizers", width: 800, height: 1000, category: "food" },
+    { image: food7, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food8, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food9, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food10, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food11, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food12, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food13, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food14, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food15, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food16, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food17, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food18, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food19, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    { image: food20, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+    
+
+    // Celebrities
+    { image: celebrities1, alt: "Celebrity Appearance", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities2, alt: "Star Guest", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities3, alt: "VIP Entry", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities4, alt: "Red Carpet", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities5, alt: "Celebrity Meet", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities6, alt: "Famous Performer", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities7, alt: "Star Interaction", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities8, alt: "Celebrity Host", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities9, alt: "VIP Experience", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities10, alt: "Exclusive Event", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities11, alt: "Star Performance", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities12, alt: "Celebrity Guest", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities13, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities14, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities15, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities16, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities17, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities18, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities19, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities20, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities21, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities22, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities23, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities24, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities25, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities26, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities27, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities28, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities29, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities30, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities31, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities32, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities33, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities34, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities35, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities36, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities37, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities38, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities39, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities40, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities41, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities42, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    { image: celebrities43, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" },
+    
+];
+---
+<Layout title="Gallery | Phoenix Casino">
+    <section class="gallery-page">
+        <div class="container">
+            <h1 class="page-title">GALLERY</h1>
+            <p class="page-subtitle">Explore the luxury and excitement of Phoenix Casino through our image gallery</p>
+            
+            <!-- Add mobile dropdown -->
+            <div class="category-filter-mobile">
+                <select class="category-select" aria-label="Filter gallery">
+                    {categories.map(category => (
+                        <option value={category.id}>{category.label}</option>
+                    ))}
+                </select>
+            </div>
+
+            <!-- Desktop filter buttons -->
+            <div class="category-filter">
+                {categories.map(category => (
+                    <button 
+                        class="filter-btn" 
+                        data-category={category.id}
+                        data-active={category.id === 'all' ? 'true' : 'false'}
+                    >
+                        {category.label}
+                    </button>
+                ))}
+            </div>
+
+            <!-- Grid gallery layout -->
+            <div class="gallery-grid">
+                {galleryItems.map(item => (
+                    <div class="gallery-item" data-category={item.category}>
+                        <Image 
+                            src={item.image} 
+                            alt={item.alt} 
+                            width={item.width}
+                            height={item.height}
+                            quality={80}
+                            loading="lazy"
+                            class="gallery-image"
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox for image viewing -->
+    <div class="image-lightbox" id="imageLightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <img src="" alt="" class="lightbox-image">
+        <p class="lightbox-caption"></p>
+    </div>
+</Layout>
+
+<style>
+    .gallery-page {
+        padding: 3rem 0;
+        background-color: var(--color-bg);
+        margin-top: 140px;
+    }
+
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .page-title {
+        font-size: 3rem;
+        text-align: center;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .page-subtitle {
+        text-align: center;
+        color: #fff;
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+        opacity: 0.9;
+    }
+
+    .category-filter {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        background: transparent;
+        border: none;
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .filter-btn[data-active="true"] {
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .filter-btn[data-active="true"]::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 2px;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    }
+
+    .filter-btn:hover {
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Grid layout instead of scroll */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        width: 100%;
+    }
+
+    .gallery-item {
+        aspect-ratio: 4/5;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    .gallery-item.hidden {
+        display: none;
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-image {
+        transform: scale(1.05);
+    }
+
+    .gallery-item::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(231, 201, 128, 0);
+        transition: background 0.3s ease;
+        border-radius: 12px;
+        pointer-events: none;
+    }
+    
+    .gallery-item:hover::after {
+        background: rgba(231, 201, 128, 0.1);
+    }
+
+    .category-filter-mobile {
+        display: none;
+        margin-bottom: 2rem;
+    }
+
+    .category-select {
+        width: 100%;
+        max-width: 300px;
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        background: rgba(231, 201, 128, 0.1);
+        border: 1px solid rgba(231, 201, 128, 0.3);
+        color: #e7c980;
+        font-size: 1rem;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e7c980' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 1.2em;
+    }
+
+    .category-select:focus {
+        outline: none;
+        border-color: #e7c980;
+    }
+
+    .category-select option {
+        background: var(--color-bg);
+        color: #e7c980;
+        padding: 0.5rem;
+    }
+
+    /* Lightbox styles */
+    .image-lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 10000;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .image-lightbox.active {
+        display: flex;
+    }
+    
+    .lightbox-image {
+        max-width: 90%;
+        max-height: 80vh;
+        object-fit: contain;
+        border: 3px solid rgba(231, 201, 128, 0.3);
+        border-radius: 8px;
+    }
+    
+    .lightbox-caption {
+        color: #e7c980;
+        margin-top: 15px;
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: #e7c980;
+        background: none;
+        border: none;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    @media (max-width: 1024px) {
+        .gallery-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 0 1rem;
+        }
+
+        .gallery-page {
+            margin-top: 110px;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+        }
+
+        .gallery-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .category-filter {
+            display: none; /* Hide buttons on mobile */
+        }
+
+        .category-filter-mobile {
+            display: flex;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .gallery-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .page-title {
+            font-size: 2rem;
+        }
+
+        .page-subtitle {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<script>
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const galleryItems = document.querySelectorAll<HTMLElement>('.gallery-item');
+    const categorySelect = document.querySelector<HTMLSelectElement>('.category-select');
+
+    function filterGallery(selectedCategory: string) {
+        document.querySelectorAll<HTMLElement>('.gallery-item').forEach(item => {
+            if (selectedCategory === 'all' || item.dataset.category === selectedCategory) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.setAttribute('data-active', 'false'));
+            button.setAttribute('data-active', 'true');
+            
+            const selectedCategory = button.getAttribute('data-category')!;
+            filterGallery(selectedCategory);
+            
+            if (categorySelect) {
+                categorySelect.value = selectedCategory;
+            }
+        });
+    });
+
+    if (categorySelect) {
+        categorySelect.addEventListener('change', (e) => {
+            const selectedCategory = (e.target as HTMLSelectElement).value;
+            filterGallery(selectedCategory);
+            
+            filterButtons.forEach(btn => {
+                btn.setAttribute('data-active', 
+                    btn.getAttribute('data-category') === selectedCategory ? 'true' : 'false'
+                );
+            });
+        });
+    }
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('imageLightbox') as HTMLElement;
+    const lightboxImage = lightbox?.querySelector('.lightbox-image') as HTMLImageElement;
+    const lightboxCaption = lightbox?.querySelector('.lightbox-caption') as HTMLElement;
+    const lightboxClose = lightbox?.querySelector('.lightbox-close') as HTMLElement;
+    
+    // Make all gallery items clickable
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            if (img && lightbox && lightboxImage) {
+                // Get the source image URL
+                const imgSrc = img.currentSrc || img.src;
+                
+                // Get the alt text for caption
+                const imgAlt = img.alt;
+                
+                // Set the lightbox content
+                lightboxImage.src = imgSrc;
+                lightboxImage.alt = imgAlt;
+                if (lightboxCaption) {
+                    lightboxCaption.textContent = imgAlt;
+                }
+                
+                // Show the lightbox
+                lightbox.classList.add('active');
+                
+                // Prevent scrolling on the body
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    
+    // Close lightbox when clicking the close button
+    lightboxClose?.addEventListener('click', () => {
+        lightbox?.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    // Close lightbox when clicking outside the image
+    lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox?.classList.contains('active')) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+</script> 

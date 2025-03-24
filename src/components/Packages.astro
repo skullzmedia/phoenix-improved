@@ -1,0 +1,412 @@
+---
+import { Image } from 'astro:assets';
+import regularPackageImg from '../assets/packages/1.jpg';
+import premiumPackageImg from '../assets/packages/2.jpg';
+import elitePackageImg from '../assets/packages/3.jpg';
+
+const packages = [
+    {
+        id: 'regular',
+        name: 'Regular Package',
+        pricing: {
+            stag: { price: '2,000', otpc: '1,000' },
+            couple: { price: '3,000', otpc: '2,000' }
+        },
+        features: [
+            { icon: 'utensils', text: 'Starters' },
+            { icon: 'utensils', text: 'Unlimited Buffet' },
+            { icon: 'music', text: 'Live Entertainment & Performances' },
+            { 
+                icon: 'glass-cheers', 
+                text: 'Alcoholic Drinks - 2 Coupons per head: 30ml each',
+                note: '* T&C Apply'
+            }
+        ]
+    },
+    {
+        id: 'premium',
+        name: 'Premium Package',
+        pricing: {
+            stag: { price: '3,000', otpc: '3,000' },
+            couple: { price: '5,000', otpc: '5,000' }
+        },
+        features: [
+            { icon: 'utensils', text: 'Starters' },
+            { icon: 'utensils', text: 'Unlimited Buffet' },
+            { icon: 'music', text: 'Live Entertainment & Performances' },
+            { 
+                icon: 'glass-cheers', 
+                text: 'Alcoholic Drinks - 2 Coupons per head: 30ml each',
+                note: '* T&C Apply'
+            }
+        ]
+    },
+    {
+        id: 'elite',
+        name: 'Elite Package',
+        pricing: {
+            stag: { price: '7,000', otpc: '10,000' },
+            couple: { price: '10,000', otpc: '12,000' }
+        },
+        features: [
+            { icon: 'utensils', text: 'Starters' },
+            { icon: 'utensils', text: 'Unlimited Buffet' },
+            { icon: 'music', text: 'Live Entertainment & Performances' },
+            { 
+                icon: 'glass-cheers', 
+                text: 'Alcoholic Drinks - 2 Coupons per head: 30ml each',
+                note: '* T&C Apply'
+            }
+        ]
+    }
+];
+---
+<section class="packages-section">
+    <div class="packages-container">
+        <div class="section-header">
+            <h2>OUR PACKAGES</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="packages-content">
+            <div class="packages-tabs">
+                {packages.map((pkg, index) => (
+                    <div class={`package-tab ${index === 0 ? 'active' : ''}`} data-package={pkg.id}>
+                        <div class="package-header">
+                            <h3>{pkg.name}</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+
+                        <div class="package-details">
+                            <div class="package-pricing">
+                                <div class="price-item">Stag: ₹{pkg.pricing.stag.price} (With ₹{pkg.pricing.stag.otpc} OTPC)</div>
+                                <div class="price-item">Couple: ₹{pkg.pricing.couple.price} (With ₹{pkg.pricing.couple.otpc} OTPC)</div>
+                            </div>
+
+                            <ul class="package-features">
+                                {pkg.features.map(feature => (
+                                    <li>
+                                        <i class={`fas fa-${feature.icon}`}></i>
+                                        <span>{feature.text}</span>
+                                        {feature.note && <small>{feature.note}</small>}
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <a href="/contact" class="cta-button package-cta">Book Now</a>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div class="packages-image">
+                {regularPackageImg && (
+                    <Image 
+                        src={regularPackageImg} 
+                        alt="Regular Package" 
+                        id="regular-image" 
+                        class="active"
+                        width={800}
+                        height={1000}
+                        quality="high"
+                    />
+                )}
+                {premiumPackageImg && (
+                    <Image 
+                        src={premiumPackageImg} 
+                        alt="Premium Package" 
+                        id="premium-image"
+                        width={800}
+                        height={1000}
+                        quality="high"
+                    />
+                )}
+                {elitePackageImg && (
+                    <Image 
+                        src={elitePackageImg} 
+                        alt="Elite Package" 
+                        id="elite-image"
+                        width={800}
+                        height={1000}
+                        quality="high"
+                    />
+                )}
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const packageTabs = document.querySelectorAll('.package-tab');
+        const packageImages = document.querySelectorAll('.packages-image img');
+
+        packageTabs.forEach(tab => {
+            const header = tab.querySelector('.package-header');
+            if (header) {
+                header.addEventListener('click', () => {
+                    // Check if this tab is already active
+                    const isActive = tab.classList.contains('active');
+
+                    // Close all tabs
+                    packageTabs.forEach(t => {
+                        t.classList.remove('active');
+                        const icon = t.querySelector('.toggle-icon');
+                        if (icon) icon.textContent = '+';
+                    });
+
+                    // If the clicked tab wasn't active, open it
+                    if (!isActive) {
+                        tab.classList.add('active');
+                        const icon = tab.querySelector('.toggle-icon');
+                        if (icon) icon.textContent = '-';
+
+                        // Update images
+                        const packageId = tab.dataset.package;
+                        packageImages.forEach(img => {
+                            img.classList.remove('active');
+                            if (img.id === `${packageId}-image`) {
+                                img.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+<style>
+    .packages-section {
+        padding: 4rem 0;
+        background-color: var(--color-bg);
+        color: #fff;
+    }
+
+    .packages-container {
+        max-width: 1200px;
+        width: 92%;
+        margin: 0 auto;
+    }
+
+    .section-header {
+        text-align: center;
+        
+        margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+        font-size: 2.5rem;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0;
+        font-weight: 700;
+    }
+
+    .underline {
+        width: 80px;
+        height: 3px;
+        background-color: #D4AF37;
+        margin: 1rem auto;
+    }
+
+    .packages-content {
+        display: grid;
+        grid-template-columns: 1fr 0.7fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .packages-tabs {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .package-tab {
+        background: linear-gradient(90deg, rgba(231, 201, 128, 0.1) 0%, rgba(158, 130, 83, 0.1) 100%);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 6px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .package-tab.active {
+        border-color: #e7c980;
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+    }
+
+    .package-header {
+        padding: 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        background: rgba(212, 175, 55, 0.1);
+    }
+
+    .package-header h3 {
+        margin: 0;
+        color: #e7c980;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .toggle-icon {
+        color: #D4AF37;
+        font-size: 1.2rem;
+        font-weight: 300;
+        transition: transform 0.3s ease;
+    }
+
+    .package-tab.active .toggle-icon {
+        transform: rotate(45deg);
+    }
+
+    .package-details {
+        display: none;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 1.25rem;
+    }
+
+    .package-tab.active .package-details {
+        display: block;
+    }
+
+    .package-pricing {
+        margin-bottom: 1.25rem;
+    }
+
+    .price-item {
+        color: #fff;
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .package-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.5rem;
+    }
+
+    .package-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        color: #ccc;
+        font-size: 0.95rem;
+    }
+
+    .package-features i {
+        color: #D4AF37;
+        font-size: 1rem;
+        width: 20px;
+        text-align: center;
+    }
+
+    .package-features small {
+        display: block;
+        margin-left: 2rem;
+        color: #888;
+        font-size: 0.8rem;
+    }
+
+    .packages-image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .packages-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .packages-image img.active {
+        opacity: 1;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background-color: #D4AF37;
+        color: #000;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background-color: #c4a032;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 1024px) {
+        .section-header h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .packages-section {
+            padding: 3rem 0;
+        }
+
+        .packages-content {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .packages-image {
+            order: -1;
+            height: 400px;
+            max-height: none;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .section-header h2 {
+            font-size: 1.8rem;
+        }
+
+        .package-header {
+            padding: 1rem;
+        }
+
+        .package-tab.active .package-details {
+            padding: 1rem;
+        }
+
+        .package-features li {
+            font-size: 0.9rem;
+        }
+
+        .cta-button {
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .packages-image {
+            height: 350px;
+        }
+    }
+</style> 

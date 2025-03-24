@@ -1,0 +1,162 @@
+:root {
+    /* Color Variables */
+    --color-bg: #000000;
+    --color-text: #ffffff;
+    --color-gold: #D4AF37;
+    --color-gold-light: #e7c980;
+    --color-gold-dark: #9e8253;
+    --color-gray: #888888;
+    --color-gray-light: #b0b0b0;
+    
+    /* Gradients */
+    --gold-gradient: linear-gradient(90deg, var(--color-gold-light) 0%, var(--color-gold-dark) 100%);
+    --gold-gradient-hover: linear-gradient(90deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 6px 15px rgba(231, 201, 128, 0.4);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.3);
+    
+    /* Font */
+    --font-family-base: 'Raleway', system-ui, sans-serif;
+}
+
+/* Global Button Styles */
+.cta-button {
+    display: inline-block;
+    background: var(--gold-gradient);
+    color: #000;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+/* Secondary Button Style */
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid var(--color-gold);
+    color: var(--color-gold);
+}
+
+.cta-button.secondary:hover {
+    background: var(--gold-gradient);
+    color: #000;
+}
+
+/* Small Button Variant */
+.cta-button.small {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* Large Button Variant */
+.cta-button.large {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* Disabled State */
+.cta-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Global Link Styles */
+a {
+    color: var(--color-gold);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-gold-light);
+}
+
+/* Global Section Styles */
+.section-title {
+    color: var(--color-gold);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: var(--gold-gradient);
+    margin: 1rem auto;
+}
+
+/* Global Container Style */
+.container {
+    max-width: 1200px;
+    width: 92%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Global Background Overlay */
+.overlay-gradient {
+    position: relative;
+}
+
+.overlay-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(231, 201, 128, 0.03) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .cta-button {
+        padding: 0.875rem 1.75rem;
+        font-size: 0.95rem;
+    }
+
+    .cta-button.large {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+} 

@@ -1,0 +1,347 @@
+---
+import { Image } from 'astro:assets';
+import AmyraUttam from '../assets/wall_of_fame/amyra-uttam.jpg';
+import DaisyShah from '../assets/wall_of_fame/daisy-shah.jpg';
+import KumarSanu from '../assets/wall_of_fame/kumar-sanu.jpg';
+import UrvashiRautela from '../assets/wall_of_fame/urvashi-rautela.jpg';
+import SonalChauhan from '../assets/wall_of_fame/sonal-chauhan.jpg';
+import InaayatSharma from '../assets/wall_of_fame/inaayat-sharma.jpg';
+
+const celebrities = [
+    {
+        name: "Kumar Sanu",
+        image: KumarSanu,
+    },
+    {
+        name: "Daisy Shah",
+        image: DaisyShah,
+    },
+    {
+        name: "Amyra Uttam",
+        image: AmyraUttam,
+    },
+    {
+        name: "Urvashi Rautela",
+        image: UrvashiRautela,
+    },
+    {
+        name: "Sonal Chauhan",
+        image: SonalChauhan,
+    },
+    // Duplicate first item for seamless loop if needed
+    {
+        name: "Inaayat Sharma",
+        image: InaayatSharma,
+    }
+];
+
+const totalSlides = Math.ceil(celebrities.length / 4);
+---
+
+<section class="wall-of-fame">
+    <div class="container">
+        <h2 class="section-title">OUR WALL OF FAME</h2>
+
+        
+        <div class="wof-celebrities-container">
+            <button class="nav-arrow wof-prev-arrow" aria-label="Previous slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="wof-celebrities-wrapper">
+                <div class="wof-celebrities-track">
+                    {celebrities.filter(celebrity => celebrity.image).map((celebrity) => (
+                        <div class="wof-celebrity-item">
+                            <div class="celebrity-image">
+                                <Image 
+                                    src={celebrity.image} 
+                                    alt={celebrity.name} 
+                                    width={300}
+                                    height={300}
+                                    quality="high"
+                                />
+                            </div>
+                            <h3 class="celebrity-name">{celebrity.name}</h3>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <button class="nav-arrow wof-next-arrow" aria-label="Next slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<style>
+    .wall-of-fame {
+        padding: 3rem 0;
+        background-color: var(--color-bg);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        width: 92%;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 2.8rem;
+        text-align: center;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    .underline {
+        width: 50px;
+        height: 2px;
+        background-color: #D4AF37;
+        margin: 1rem auto 2.5rem;
+    }
+
+    .wof-celebrities-container {
+        padding: 2.5rem 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .wof-celebrities-wrapper {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        padding: 0 15px;
+    }
+
+    .wof-celebrities-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        gap: 25px;
+    }
+
+    .wof-celebrity-item {
+        flex: 0 0 calc(25% - 20px);
+        min-width: calc(25% - 20px);
+        text-align: center;
+    }
+
+    .celebrity-image {
+        width: 95%;
+        margin: 0 auto;
+        padding-bottom: 95%;
+        margin-bottom: 25px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        border: 3px solid rgba(231, 201, 128, 0.4);
+        box-shadow: 0 12px 30px rgba(231, 201, 128, 0.35);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .celebrity-image:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(231, 201, 128, 0.4);
+    }
+
+    .celebrity-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .celebrity-name {
+        font-size: 22px;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 10px;
+    }
+
+    .nav-arrow {
+        background: rgba(231, 201, 128, 0.25);
+        border: 1px solid rgba(231, 201, 128, 0.4);
+        color: #e7c980;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
+
+    .nav-arrow:hover {
+        background: rgba(231, 201, 128, 0.4);
+    }
+
+    .wof-prev-arrow {
+        left: -15px;
+    }
+
+    .wof-next-arrow {
+        right: -15px;
+    }
+
+    @media (max-width: 1024px) {
+        .wof-celebrity-item {
+            flex: 0 0 calc(25% - 20px);
+        }
+        
+        .celebrity-image {
+            padding-bottom: 110%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .wof-celebrities-container {
+            padding: 1.5rem 0;
+        }
+        
+        .wof-celebrity-item {
+            flex: 0 0 calc(50% - 10px);
+            min-width: calc(50% - 10px);
+        }
+        
+        .wof-celebrities-track {
+            gap: 20px;
+        }
+        
+        .celebrity-image {
+            width: 95%;
+            padding-bottom: 95%;
+            border-width: 4px;
+        }
+
+        .nav-arrow {
+            width: 40px;
+            height: 40px;
+            background: rgba(231, 201, 128, 0.35);
+        }
+        
+        .celebrity-name {
+            font-size: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .section-title {
+            font-size: 2.2rem;
+        }
+        
+        .wof-celebrities-container {
+            padding: 1rem 0;
+        }
+        
+        .wof-celebrity-item {
+            flex: 0 0 100%;
+            min-width: 100%;
+        }
+        
+        .wof-celebrities-track {
+            gap: 30px;
+        }
+
+        .nav-arrow {
+            width: 38px;
+            height: 38px;
+        }
+
+        .celebrity-name {
+            font-size: 22px;
+            margin-top: 5px;
+        }
+
+        .celebrity-image {
+            width: 70%;
+            padding-bottom: 70%;
+            margin-bottom: 10px;
+            border-width: 4px;
+            box-shadow: 0 15px 35px rgba(231, 201, 128, 0.5);
+        }
+    }
+</style>
+
+<script>
+    const trackElement = document.querySelector('.wof-celebrities-track') as HTMLElement;
+    const prevButton = document.querySelector('.wof-prev-arrow') as HTMLButtonElement;
+    const nextButton = document.querySelector('.wof-next-arrow') as HTMLButtonElement;
+    
+    const getItemsPerView = () => {
+        if (window.innerWidth >= 1024) return 4;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+    };
+
+    let currentIndex = 0;
+    const celebrities = document.querySelectorAll('.wof-celebrity-item');
+    
+    function updateTotalSlides() {
+        return Math.ceil(celebrities.length / getItemsPerView()) - 1;
+    }
+
+    function updateNavigation() {
+        const totalSlides = updateTotalSlides();
+        if (prevButton && nextButton) {
+            prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
+            prevButton.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+            
+            nextButton.style.opacity = currentIndex >= totalSlides ? '0.5' : '1';
+            nextButton.style.pointerEvents = currentIndex >= totalSlides ? 'none' : 'auto';
+        }
+    }
+
+    function scrollTo(index: number) {
+        if (trackElement) {
+            currentIndex = index;
+            const item = trackElement.querySelector('.wof-celebrity-item') as HTMLElement;
+            const itemWidth = item ? item.offsetWidth : 0;
+            const gap = window.innerWidth <= 480 ? 30 : 25;
+            const scrollDistance = index * -(itemWidth + gap) * getItemsPerView();
+            trackElement.style.transform = `translateX(${scrollDistance}px)`;
+            updateNavigation();
+        }
+    }
+
+    if (prevButton) {
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                scrollTo(currentIndex - 1);
+            }
+        });
+    }
+
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < updateTotalSlides()) {
+                scrollTo(currentIndex + 1);
+            }
+        });
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        currentIndex = 0;
+        scrollTo(0);
+        updateNavigation();
+    });
+
+    // Initial setup
+    updateNavigation();
+</script> 

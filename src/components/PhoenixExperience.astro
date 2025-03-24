@@ -1,0 +1,551 @@
+---
+import { Image } from 'astro:assets';
+import LiveEntertainment from '../assets/the-exp/live-entertainment.jpg';
+import CelebrityVisits from '../assets/the-exp/celebrity-visits.jpg';
+import Cocktails from '../assets/the-exp/cocktails.jpg';
+import LuxuryCuisine from '../assets/the-exp/cuisine.jpg';
+import RussianDance from '../assets/the-exp/russian-dance.jpg';
+import ExcitedEvents from '../assets/the-exp/events.jpg';
+import LuxuryGaming from '../assets/the-exp/luxury-gaming.jpg';
+
+
+const cards = [
+    {
+        image: RussianDance,
+        title: "Russian Dance",
+        initialClass: ""
+    },
+    {
+        image: LuxuryGaming,
+        title: "Luxury Gaming",
+        initialClass: ""
+    },
+    {
+        image: ExcitedEvents,
+        title: "Exciting Events",
+        initialClass: ""
+    },
+    {
+        image: CelebrityVisits,
+        title: "Celebrity Visits",
+        initialClass: "prev"
+    },
+    {
+        image: LuxuryCuisine,
+        title: "Delicious Cuisine",
+        initialClass: "active"
+    },
+    {
+        image: Cocktails,
+        title: "Sophisticated Cocktails",
+        initialClass: "next"
+    },
+    {
+        image: LiveEntertainment,
+        title: "Live Entertainment",
+        initialClass: ""
+    }
+];
+
+const activeIndex = cards.findIndex(card => card.initialClass === 'active');
+---
+
+<section class="experience-slider">
+    <div class="slider-container">
+        <h2 class="slider-title">THE PHOENIXX EXPERIENCE</h2>
+        <p class="slider-subtitle">
+            Play big while you revel in unforgettable events and savour the finest cuisine and drinks
+        </p>
+
+        <div class="card-slider">
+            <div class="card-wrapper">
+                {cards.filter(card => card.image).map((card, index) => (
+                    <div class={`card ${card.initialClass}`} style={`z-index: ${card.initialClass === 'active' ? 10 : card.initialClass === 'prev' || card.initialClass === 'next' ? 5 : 1};`}>
+                        <Image 
+                            src={card.image} 
+                            alt={card.title}
+                            width={800}
+                            height={500}
+                            quality="high"
+                        />
+                        <div class="card-overlay">
+                            <div class="card-label">{card.title}</div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <button class="slider-arrow prev-arrow" aria-label="Previous slide">
+                <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <button class="slider-arrow next-arrow" aria-label="Next slide">
+                <i class="fa-solid fa-angle-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        // Basic elements
+        const cards = document.querySelectorAll('.card');
+        const prevBtn = document.querySelector('.prev-arrow');
+        const nextBtn = document.querySelector('.next-arrow');
+        
+        // Exit if no cards found
+        if (!cards.length) return;
+        
+        let currentIndex = 0;
+        let autoplayTimer = null;
+        const totalCards = cards.length;
+        
+        // Initialize the slider
+        function initSlider() {
+            // Find the initial active card
+            const activeCard = document.querySelector('.card.active');
+            if (activeCard) {
+                currentIndex = Array.from(cards).indexOf(activeCard);
+            }
+            
+            updateSlider();
+            
+            // Add click events to nav buttons
+            if (prevBtn) {
+                prevBtn.addEventListener('click', prevSlide);
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', nextSlide);
+            }
+            
+            // Start the autoplay
+            startAutoplay();
+        }
+        
+        // Update slider to show current slide
+        function updateSlider() {
+            const prevIndex = (currentIndex - 1 + totalCards) % totalCards;
+            const nextIndex = (currentIndex + 1) % totalCards;
+            
+            // Reset all cards
+            cards.forEach((card, index) => {
+                card.classList.remove('active', 'prev', 'next');
+                
+                if (index === currentIndex) {
+                    card.classList.add('active');
+                    card.style.zIndex = '10';
+                } else if (index === prevIndex) {
+                    card.classList.add('prev');
+                    card.style.zIndex = '5';
+                } else if (index === nextIndex) {
+                    card.classList.add('next');
+                    card.style.zIndex = '5';
+                } else {
+                    card.style.zIndex = '1';
+                }
+            });
+        }
+        
+        // Navigate to previous slide
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            updateSlider();
+            resetAutoplay();
+        }
+        
+        // Navigate to next slide
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalCards;
+            updateSlider();
+            resetAutoplay();
+        }
+        
+        // Autoplay functions
+        function startAutoplay() {
+            stopAutoplay();
+            autoplayTimer = window.setInterval(nextSlide, 5000);
+        }
+        
+        function stopAutoplay() {
+            if (autoplayTimer) {
+                clearInterval(autoplayTimer);
+                autoplayTimer = null;
+            }
+        }
+        
+        function resetAutoplay() {
+            stopAutoplay();
+            startAutoplay();
+        }
+        
+        // Initialize everything
+        initSlider();
+        
+        // Handle hover pause
+        const cardWrapper = document.querySelector('.card-wrapper');
+        if (cardWrapper) {
+            cardWrapper.addEventListener('mouseenter', stopAutoplay);
+            cardWrapper.addEventListener('mouseleave', startAutoplay);
+        }
+        
+        // Log initialization for debugging
+        console.log('Experience slider initialized with', totalCards, 'cards');
+    });
+</script>
+
+<style>
+    .experience-slider {
+        background-color: #000;
+        padding: 4rem 0;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    /* Improved golden glow effect */
+    .experience-slider::before {
+        content: '';
+        position: absolute;
+        top: -20%;
+        left: -20%;
+        right: -20%;
+        bottom: -20%;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(231, 201, 128, 0.12) 0%,
+            rgba(212, 175, 55, 0.08) 20%,
+            rgba(212, 175, 55, 0.04) 40%,
+            rgba(212, 175, 55, 0.01) 60%,
+            rgba(0, 0, 0, 0) 75%
+        );
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.8;
+        filter: blur(20px);
+        transform: translateZ(0);
+    }
+    
+    /* Additional ambient glow */
+    .experience-slider::after {
+        content: '';
+        position: absolute;
+        top: 30%;
+        left: 0;
+        right: 0;
+        height: 40%;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(231, 201, 128, 0.05) 0%,
+            rgba(0, 0, 0, 0) 70%
+        );
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.7;
+        filter: blur(40px);
+    }
+
+    .slider-container {
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    .slider-title {
+        font-size: 2.5rem;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        position: relative;
+        z-index: 3;
+    }
+    
+    .slider-title::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        filter: blur(15px);
+        opacity: 0.3;
+        z-index: -1;
+    }
+
+    .slider-subtitle {
+        margin: 1rem auto 3rem;
+        max-width: 800px;
+        line-height: 1.6;
+        letter-spacing: 1px;
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 400;
+        color: #e0e0e0;
+    }
+
+    .card-slider {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        perspective: 1000px;
+    }
+
+    .card-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+    }
+
+    .card {
+        position: absolute;
+        width: 60%;
+        height: 100%;
+        left: 20%;
+        transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.5s ease;
+        opacity: 0;
+        visibility: hidden;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+    }
+
+    .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0) scale(1);
+        z-index: 3;
+        pointer-events: auto;
+        box-shadow: 
+            0 15px 40px rgba(0, 0, 0, 0.5),
+            0 0 30px rgba(231, 201, 128, 0.15),
+            0 0 60px rgba(231, 201, 128, 0.1);
+    }
+
+    .card.prev, .card.next {
+        opacity: 0.7;
+        visibility: visible;
+        z-index: 2;
+        pointer-events: auto;
+        box-shadow: 
+            0 10px 25px rgba(0, 0, 0, 0.4),
+            0 0 20px rgba(231, 201, 128, 0.07);
+    }
+
+    .card.prev {
+        transform: translateX(-70%) scale(0.9);
+    }
+
+    .card.next {
+        transform: translateX(70%) scale(0.9);
+    }
+
+    .card-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 3rem 2rem 2rem;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0.85) 100%
+        );
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .card-label {
+        color: #e7c980;
+        font-size: 1.8rem;
+        font-weight: 600;
+        position: relative;
+        text-shadow: 0 0 5px rgba(231, 201, 128, 0.3);
+    }
+    
+    .card-label::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 1px;
+        background: linear-gradient(90deg, 
+            rgba(231, 201, 128, 0) 0%, 
+            rgba(231, 201, 128, 0.8) 50%,
+            rgba(231, 201, 128, 0) 100%
+        );
+    }
+
+    .slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(21, 21, 21, 0.6);
+        color: #e7c980;
+        border: 1px solid rgba(231, 201, 128, 0.3);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        outline: none;
+        box-shadow: 0 0 10px rgba(231, 201, 128, 0.15);
+        backdrop-filter: blur(3px);
+    }
+
+    .slider-arrow:hover {
+        background: rgba(231, 201, 128, 0.2);
+        box-shadow: 0 0 15px rgba(231, 201, 128, 0.3);
+        transform: translateY(-50%) scale(1.05);
+        border-color: rgba(231, 201, 128, 0.5);
+    }
+
+    .slider-arrow:active {
+        transform: translateY(-50%) scale(0.95);
+    }
+
+    .prev-arrow {
+        left: 5%;
+    }
+
+    .next-arrow {
+        right: 5%;
+    }
+
+    .slider-arrow i {
+        line-height: 1;
+    }
+
+    @media (max-width: 1200px) {
+        .slider-container {
+            width: 95%;
+        }
+
+        .slider-title {
+            font-size: 2.2rem;
+        }
+
+        .card {
+            width: 70%;
+            left: 15%;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .slider-container {
+            width: 90%;
+        }
+
+        .slider-title {
+            font-size: 2rem;
+        }
+
+        .slider-subtitle {
+            font-size: 1rem;
+        }
+
+        .card {
+            width: 80%;
+            left: 10%;
+        }
+
+        .card.prev {
+            transform: translateX(-60%) scale(0.9);
+        }
+
+        .card.next {
+            transform: translateX(60%) scale(0.9);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .experience-slider {
+            padding: 3rem 0;
+        }
+
+        .card-slider {
+            height: 400px;
+        }
+
+        .card {
+            width: 90%;
+            left: 5%;
+        }
+
+        .card.prev {
+            transform: translateX(-50%) scale(0.9);
+        }
+
+        .card.next {
+            transform: translateX(50%) scale(0.9);
+        }
+
+        .card-label {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .slider-container {
+            width: 92%;
+        }
+
+        .slider-title {
+            font-size: 1.6rem;
+        }
+
+        .slider-subtitle {
+            font-size: 0.9rem;
+        }
+
+        .card-slider {
+            height: 300px;
+        }
+
+        .card {
+            width: 100%;
+            left: 0;
+        }
+
+        .card.prev {
+            transform: translateX(-40%) scale(0.9);
+        }
+
+        .card.next {
+            transform: translateX(40%) scale(0.9);
+        }
+
+        .card-overlay {
+            padding: 1.5rem;
+        }
+
+        .card-label {
+            font-size: 1.2rem;
+        }
+    }
+</style> 

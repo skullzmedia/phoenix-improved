@@ -1,0 +1,860 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import WallOfFame from '../components/WallOfFame.astro';
+import RussianDance from '../assets/entertainment/banner/banner_two.jpeg'
+import EntertainmentBanner from '../assets/entertainment/banner/banner_four.jpeg'
+import CelebrityBanner from '../assets/entertainment/banner/banner_one.png'
+import DailyGiveAways from '../assets/entertainment/daily/daily_giveaways.jpeg'
+import LivePerformances from '../assets/entertainment/daily/live.jpeg'
+import RussianDancer from '../assets/entertainment/daily/russian_dancer.jpeg'
+import PlaceholderImage from '../assets/entertainment/placeholder.svg';
+import IndependenceDay from '../assets/entertainment/upcoming/indi.jpeg'
+import FreeOTPC from '../assets/entertainment/upcoming/free-otpc.png'
+
+// Daily Entertainment
+const dailyEntertainment = [
+  {
+    title: "Russian Dancers",
+    description: "Experience the art and elegance of Russian dancers as they perform traditional and contemporary routines that captivate and mesmerize.",
+    image: RussianDancer
+  },
+  {
+    title: " Live Music & Bollywood Dance",
+    description: "Enjoy electrifying live music performances by talented artists and bands, creating the perfect ambience for your casino experience.",
+    image: LivePerformances
+  },
+  {
+    title: "Live Games & Giveaways",
+    description: "Participate in exciting live games and stand a chance to win amazing prizes in our regular giveaways throughout the evening.",
+    image: DailyGiveAways
+  }
+];
+
+// Upcoming Events
+const upcomingEvents = [
+  {
+    title: "Free 500 OTPC",
+    description: "Get Free 500 OTPC on our entry packages ( T&C apply )",
+    image: FreeOTPC,
+  },
+  {
+    title: "Independence Day Fiesta",
+    description: "Celebrate Independence day with big wins and entertainmet.",
+    image: IndependenceDay,
+  }
+];
+
+// Past Events
+const pastEvents = [
+  {
+    title: "New Year's Eve Bash",
+    description: "Our spectacular New Year celebration featuring celebrity performances and breathtaking fireworks.",
+    video: "https://www.youtube.com/embed/oMvX-g5jKxE",
+    date: "Dec 31, 2024"
+  },
+  {
+    title: "Celebrity Night Extravaganza",
+    description: "A dazzling fashion showcase featuring Urvashi Rautela, Sonal Chauhan, and Amyra Uttam celebrity appearances.",
+    video: "https://youtube.com/embed/yzPjaQ8jrtQ",
+    date: "Feb 20, 2025"
+  }
+];
+
+// Banner slides
+const bannerSlides = [
+  {
+    image: EntertainmentBanner,
+    alt: "Entertainment at Phoenixx Casino",
+    title: "EXPERIENCE THE MAGIC",
+    subtitle: "Unforgettable entertainment experiences await you"
+  },
+  {
+    image: RussianDance,
+    alt: "Live Performances",
+    title: "LIVE PERFORMANCES",
+    subtitle: "Enjoy electrifying shows by talented artists"
+  },
+  {
+    image: CelebrityBanner ,
+    alt: "Celebrity Appearances",
+    title: "CELEBRITY APPEARANCES",
+    subtitle: "Meet your favorite stars at our exclusive events"
+  }
+];
+---
+
+<Layout title="Entertainment | Phoenixx Casino">
+  <!-- Banner Section -->
+  <section class="entertainment-banner">
+    <div class="banner-slider">
+      <div class="slides-container">
+        {bannerSlides.map((slide, index) => (
+          <div class="slide" data-index={index}>
+            <Image 
+              src={slide.image} 
+              alt={slide.alt}
+              width={1400}
+              height={600}
+              quality={90}
+              class="slide-image"
+            />
+            <div class="slide-content">
+              <h1>{slide.title}</h1>
+              <p>{slide.subtitle}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <button class="banner-nav prev" aria-label="Previous slide">❮</button>
+      <button class="banner-nav next" aria-label="Next slide">❯</button>
+      
+      <div class="banner-dots">
+        {bannerSlides.map((_, index) => (
+          <button class="dot" data-index={index} aria-label={`Go to slide ${index + 1}`}></button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Entertainment Section -->
+  <section id="daily-entertainment" class="daily-entertainment">
+    <div class="container">
+      <h2 class="section-title">DAILY ENTERTAINMENT</h2>
+      <p class="section-subtitle">Experience the vibrant entertainment offerings at Phoenixx Casino</p>
+      
+      <div class="entertainment-grid">
+        {dailyEntertainment.map(item => (
+          <div class="entertainment-card">
+            <div class="card-image">
+              <Image 
+                src={item.image} 
+                alt={item.title}
+                width={600}
+                height={400}
+                quality={80}
+                class="card-img"
+              />
+            </div>
+            <div class="card-content">
+              <h3>{item.title}</h3>
+              <p class="description">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events Section -->
+  <section id="upcoming-events" class="upcoming-events">
+    <div class="container">
+      <h2 class="section-title">UPCOMING EVENTS</h2>
+      <p class="section-subtitle">Mark your calendar for these exciting upcoming events</p>
+      
+      <div class="events-container">
+        <div class={`events-scroll ${upcomingEvents.length > 3 ? 'scrollable' : 'non-scrollable'}`}>
+          {upcomingEvents.map(event => (
+            <a href="/contact" class="event-card">
+              <div class="event-image">
+                <Image 
+                  src={event.image} 
+                  alt={event.title}
+                  width={600}
+                  height={800}
+                  quality={80}
+                  class="event-img"
+                />
+              </div>
+              <div class="event-content">
+                <h3>{event.title}</h3>
+                <p class="event-description">{event.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Events Section -->
+  <section id="past-events" class="past-events">
+    <div class="container">
+      <h2 class="section-title">PAST EVENTS</h2>
+      <p class="section-subtitle">Relive the magical moments from our past events</p>
+      
+      <div class="videos-container">
+        <div class={`videos-scroll ${pastEvents.length > 3 ? 'scrollable' : 'non-scrollable'}`}>
+          {pastEvents.map(event => (
+            <div class="video-card">
+              <div class="video-frame">
+                <iframe
+                  src={event.video}
+                  title={event.title}
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="video-content">
+                <h3>{event.title}</h3>
+                <p class="video-date"><i class="fas fa-calendar-check"></i> {event.date}</p>
+                <p class="video-description">{event.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Celebrities Section -->
+  <section id="celebrities">
+    <WallOfFame />
+  </section>
+</Layout>
+
+<style>
+  /* Banner Section */
+  .entertainment-banner {
+    width: 100%;
+    margin-top: 120px;
+    position: relative;
+  }
+  
+  .banner-slider {
+    width: 100%;
+    height: min(600px, 70vh);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slides-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  
+  .slide[data-index="0"] {
+    opacity: 1;
+  }
+  
+  .slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .slide-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 0 2rem;
+  }
+  
+  .slide-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .slide-content p {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .banner-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(212, 175, 55, 0.8);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .banner-nav:hover {
+    background: rgba(212, 175, 55, 1);
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .prev {
+    left: 20px;
+  }
+  
+  .next {
+    right: 20px;
+  }
+  
+  .banner-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .dot.active {
+    background: #D4AF37;
+    transform: scale(1.2);
+  }
+  
+  /* Common Styles */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+  
+  /* Daily Entertainment Section */
+  .daily-entertainment {
+    padding: 5rem 0;
+    background-color: #000;
+  }
+  
+  .entertainment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .entertainment-card {
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(231, 201, 128, 0.2);
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+  
+  .entertainment-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+    border-color: rgba(231, 201, 128, 0.4);
+  }
+  
+  .card-image {
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .entertainment-card:hover .card-img {
+    transform: scale(1.05);
+  }
+  
+  .card-content {
+    padding: 1.5rem;
+  }
+  
+  .card-content h3 {
+    color: #e7c980;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    color: #ccc;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  
+  .schedule {
+    color: #e7c980;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* Upcoming Events Section */
+  .upcoming-events {
+    padding: 2rem 0;
+    background-color: #0a0a0a;
+  }
+  
+  .events-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+  }
+  
+  .events-scroll {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .events-scroll.scrollable {
+    animation: scroll 40s linear infinite;
+    width: max-content;
+  }
+  
+  .events-scroll.non-scrollable {
+    width: 100%;
+    animation: none;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .events-scroll.scrollable:hover {
+    animation-play-state: paused;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% + 100vw));
+    }
+  }
+  
+  .event-card {
+    flex: 0 0 350px;
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(231, 201, 128, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .non-scrollable .event-card {
+    margin-bottom: 2rem;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+    border-color: rgba(231, 201, 128, 0.4);
+  }
+  
+  .event-image {
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .event-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .event-card:hover .event-img {
+    transform: scale(1.05);
+  }
+  
+  .event-content {
+    padding: 1.5rem;
+  }
+  
+  .event-content h3 {
+    color: #e7c980;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .event-date {
+    color: #e7c980;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .event-description {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* Past Events Section */
+  .past-events {
+    padding: 2rem 0;
+    background-color: #000;
+  }
+  
+  .videos-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+  }
+  
+  .videos-scroll {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+  .videos-scroll.scrollable {
+    animation: scroll 50s linear infinite;
+    width: max-content;
+  }
+  
+  .videos-scroll.non-scrollable {
+    width: 100%;
+    animation: none;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .videos-scroll.scrollable:hover {
+    animation-play-state: paused;
+  }
+  
+  .video-card {
+    flex: 0 0 400px;
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(231, 201, 128, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .non-scrollable .video-card {
+    margin-bottom: 2rem;
+  }
+  
+  .video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+    border-color: rgba(231, 201, 128, 0.4);
+  }
+  
+  .video-frame {
+    width: 100%;
+    height: 225px;
+    position: relative;
+  }
+  
+  .video-frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  .video-content {
+    padding: 1.5rem;
+  }
+  
+  .video-content h3 {
+    color: #e7c980;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .video-date {
+    color: #e7c980;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .video-description {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* Celebrities Section */
+  .custom-section-title {
+    padding: 5rem 0;
+    background-color: #0a0a0a;
+  }
+  
+  /* CTA Section */
+  .entertainment-cta {
+    padding: 5rem 0;
+    background-color: #000;
+    background-image: url('/assets/entertainment/placeholder.svg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    text-align: center;
+  }
+  
+  .entertainment-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .cta-title {
+    font-size: 2.5rem;
+    color: #e7c980;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-text {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    color: #000;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 201, 128, 0.3);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .slide-content h1 {
+      font-size: 3rem;
+    }
+    
+    .slide-content p {
+      font-size: 1.3rem;
+    }
+    
+    .entertainment-grid {
+      gap: 1.5rem;
+    }
+    
+    .non-scrollable .event-card,
+    .non-scrollable .video-card {
+      flex: 0 0 calc(50% - 1rem);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .entertainment-banner {
+      margin-top: 100px;
+    }
+    
+    .banner-slider {
+      height: 400px;
+    }
+    
+    .slide-content h1 {
+      font-size: 2.5rem;
+    }
+    
+    .slide-content p {
+      font-size: 1.1rem;
+    }
+    
+    .container {
+      padding: 0 1.5rem;
+    }
+    
+    .entertainment-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .banner-nav {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+    }
+    
+    .non-scrollable .event-card,
+    .non-scrollable .video-card {
+      flex: 0 0 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .banner-slider {
+      height: 300px;
+    }
+    
+    .slide-content h1 {
+      font-size: 2rem;
+    }
+    
+    .slide-content p {
+      font-size: 1rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .section-subtitle {
+      font-size: 1rem;
+    }
+    
+    .daily-entertainment, 
+    .upcoming-events, 
+    .past-events, 
+    .entertainment-cta {
+      padding: 2rem 0;
+    }
+    
+    .banner-nav {
+      width: 35px;
+      height: 35px;
+      font-size: 1rem;
+    }
+    
+    .cta-title {
+      font-size: 2rem;
+    }
+    
+    .cta-text {
+      font-size: 1rem;
+    }
+    
+    .non-scrollable .event-card,
+    .non-scrollable .video-card {
+      flex: 0 0 100%;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Banner slider functionality
+    const slides = document.querySelectorAll<HTMLElement>('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector<HTMLButtonElement>('.prev');
+    const nextBtn = document.querySelector<HTMLButtonElement>('.next');
+    
+    let currentSlide = 0;
+    const slideCount = slides.length;
+    
+    function updateSlider() {
+      slides.forEach((slide, index) => {
+        slide.style.opacity = index === currentSlide ? '1' : '0';
+      });
+      
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slideCount;
+      updateSlider();
+    }
+    
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+      updateSlider();
+    }
+    
+    // Initialize
+    updateSlider();
+    
+    // Event listeners
+    prevBtn?.addEventListener('click', prevSlide);
+    nextBtn?.addEventListener('click', nextSlide);
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateSlider();
+      });
+    });
+    
+    // Auto-advance slides every 5 seconds
+    setInterval(nextSlide, 5000);
+  });
+</script> 

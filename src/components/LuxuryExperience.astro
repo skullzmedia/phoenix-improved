@@ -1,0 +1,391 @@
+---
+const features = [
+    {
+        icon: "fa-solid fa-music",
+        title: "Live",
+        subtitle: "Performances"
+    },
+    {
+        icon: "fa-solid fa-dice",
+        title: "10+",
+        subtitle: "Games"
+    },
+    {
+        icon: "fa-solid fa-champagne-glasses",
+        title: "Festive",
+        subtitle: "Fun"
+    },
+    {
+        icon: "fa-solid fa-martini-glass-citrus",
+        title: "Drinks &",
+        subtitle: "Cocktails"
+    },
+    {
+        icon: "fa-solid fa-utensils",
+        title: "Delicious",
+        subtitle: "Food"
+    },
+    {
+        icon: "fa-solid fa-gamepad",
+        title: "Gaming",
+        subtitle: "Experience"
+    },
+];
+---
+
+<section class="luxury-experience">
+    <div class="container">
+        <div class="content">
+            <div class="title-section">
+                <h2>OUR LUXURY EXPERIENCE</h2>
+                <div class="underline"></div>
+            </div>
+            
+            <p class="description">
+                Phoenixx Casino Goa offers a luxury gaming destination in Candolim, a
+                Hilton Goa resort. Join us to experience fun, entertainment, and
+                unlimited luck at our Casino.
+            </p>
+
+            <div class="features">
+                {
+                    features.map((feature) => (
+                        <div class="feature">
+                            <div class="icon-circle">
+                                <i class={feature.icon}></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>{feature.title}</h3>
+                                <p>{feature.subtitle}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <a href="/contact" class="book-now">BOOK NOW</a>
+        </div>
+        
+        <div class="video-container">
+            <iframe 
+                width="560" 
+                height="315"
+                src="https://www.youtube.com/embed/tawS88SZ8Cw?si=EFiS0OMvuUFMWjjD&autoplay=1&mute=1&loop=1&playlist=tawS88SZ8Cw&controls=0&showinfo=0&rel=0"
+                title="YouTube video player" 
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<style>
+    .luxury-experience {
+        background-color: #000;
+        color: #fff;
+        padding: 4rem 0;
+        margin-top: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    .content {
+        width: 100%;
+        text-align: left;
+    }
+
+    .title-section {
+        margin-bottom: 2rem;
+        text-align: left;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        white-space: nowrap;
+    }
+
+    .underline {
+        width: 60px;
+        height: 3px;
+        background-color: #D4AF37;
+        margin-top: 1.2rem;
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .description {
+        letter-spacing: 1px;
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 400;
+        color: #e0e0e0;
+        margin-bottom: 2rem;
+        max-width: 100%;
+    }
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    .feature {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .feature:last-child {
+        display: none; /* Hide the 6th feature on desktop */
+    }
+
+    .icon-circle {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+        box-shadow: 0 5px 15px rgba(231, 201, 128, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .icon-circle i {
+        font-size: 1.5rem;
+        color: #000000;
+        transition: all 0.3s ease;
+    }
+
+    .feature:hover .icon-circle {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(231, 201, 128, 0.4);
+    }
+
+    .feature:hover .icon-circle i {
+        transform: scale(1.1);
+    }
+
+    .feature-text {
+        text-align: center;
+    }
+
+    .feature-text h3 {
+        font-size: 1rem;
+        margin: 0;
+        color: #e7c980;
+        font-weight: 600;
+    }
+
+    .feature-text p {
+        font-size: 1rem;
+        color: #999;
+        margin: 0.1rem 0 0 0;
+    }
+
+    .book-now {
+        display: inline-block;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        color: #000;
+        padding: 0.875rem 2rem;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        transition: all 0.3s ease;
+    }
+
+    .book-now:hover {
+        background-color: #c4a032;
+        transform: translateY(-2px);
+    }
+
+    .video-container {
+        width: 100%;
+        aspect-ratio: 16/9;
+        background-color: #111;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        position: relative;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .video-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+    }
+
+    .play-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #000000;
+    }
+
+    @media (max-width: 1200px) {
+        .container {
+            width: 95%;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .container {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .title-section {
+            text-align: center;
+        }
+
+        .underline {
+            margin-left: auto;
+        }
+
+        .features {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .icon-circle {
+            width: 55px;
+            height: 55px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .luxury-experience {
+            padding: 3rem 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            grid-template-rows: repeat(2, auto); /* 2 rows */
+            gap: 1.5rem;
+            padding: 0;
+            overflow-x: visible;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .feature {
+            width: auto;
+            display: flex;
+        }
+
+        .feature:last-child {
+            display: flex; /* Show the 6th feature */
+        }
+
+        .icon-circle {
+            width: 45px;
+            height: 45px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            width: 92%;
+        }
+
+        .luxury-experience {
+            padding: 2.5rem 0;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+        }
+
+        .features {
+            gap: 1rem;
+        }
+
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+        }
+
+        .feature-text h3 {
+            font-size: 0.8rem;
+        }
+
+        .feature-text p {
+            font-size: 0.7rem;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .container {
+            width: 90%;
+        }
+
+        .features {
+            gap: 0.8rem;
+        }
+
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+        }
+
+        .icon {
+            font-size: 1rem;
+        }
+    }
+</style> 

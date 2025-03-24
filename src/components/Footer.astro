@@ -1,0 +1,400 @@
+---
+import { Image } from 'astro:assets';
+
+const quickLinks = [
+    { name: 'Home', url: '/' },
+    { name: 'About Us', url: '/casino' },
+    { name: 'Entertainment', url: '/entertainment' },
+    { name: 'Packages', url: '/packages' },
+    { name: 'Gallery', url: '/gallery' },
+    { name: 'Blog', url: '/blog' },
+    { name: 'FAQ', url: '/faq' },
+];
+
+const packages = [
+    { name: 'Entry Package', url: '/packages#entry-packages' },
+    { name: 'Day Package', url: '/packages#day-pass' },
+    { name: 'VIP Package', url: '/packages#vip-packages' },
+];
+
+const socialLinks = [
+    { name: 'Facebook', icon: 'facebook-f', url: 'https://www.facebook.com/phoenixcasinogoa' },
+    { name: 'Instagram', icon: 'instagram', url: 'https://www.instagram.com/phoenixcasinogoa/' },
+    { name: 'LinkedIn', icon: 'linkedin-in', url: 'https://www.linkedin.com/company/phoenix-casino-goa/' },
+    { name: 'YouTube', icon: 'youtube', url: 'https://www.youtube.com/@Phoenixcasinogoa' }
+];
+---
+
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="footer-container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="/logo.png" alt="Phoenixx Casino Logo" width="180" height="60">
+                    </div>
+                    <p class="footer-description">
+                        Phoenixx Casino Goa offers a luxury gaming destination in Candolim, a Hilton Goa resort.
+                        Join us to experience fun, entertainment, and unlimited luck.
+                    </p>
+                    <div class="social-icons">
+                        {socialLinks.map(social => (
+                            <a href={social.url} target="_blank" rel="noopener noreferrer" class="social-icon">
+                                <i class={`fab fa-${social.icon}`}></i>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        {quickLinks.map(link => (
+                            <li><a href={link.url}>{link.name}</a></li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3 class="footer-heading">Our Packages</h3>
+                    <ul class="footer-links">
+                        {packages.map(pkg => (
+                            <li><a href={pkg.url}>{pkg.name}</a></li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div class="footer-column contact-column">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Hilton Goa Resort, Saipem, Candolim</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+919960007937">+91 99600 07937</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:marketing@phoenixcasino.in">marketing@phoenixcasino.in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3844.340036703151!2d73.79143477489198!3d15.519891585082807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfc1b4a50d83ff%3A0x5e31709f023eb4b7!2sPhoenix%20Casino!5e0!3m2!1sen!2sin!4v1725436091672!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-container">
+            <div class="copyright">
+                <p>&copy; 2025 Phoenixx Casino Goa. All Rights Reserved.</p>
+            </div>
+            <div class="footer-bottom-links">
+                <a href="/terms">Terms & Conditions</a>
+                <a href="/privacy">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .site-footer {
+        background-color: #0a0a0a;
+        color: #e0e0e0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .site-footer:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at center, rgba(231, 201, 128, 0.03) 0%, rgba(0, 0, 0, 0) 70%);
+        pointer-events: none;
+    }
+
+    .footer-top {
+        padding: 60px 0 40px;
+        border-bottom: 1px solid rgba(231, 201, 128, 0.2);
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-columns {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .footer-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-column {
+        grid-column: span 1;
+    }
+
+    .footer-logo {
+        margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+        height: 150px;
+        width: auto;
+        filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    .footer-description {
+        font-family: var(--font-family-base);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: #b0b0b0;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-icon:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(231, 201, 128, 0.4);
+    }
+
+    .footer-heading {
+        font-family: var(--font-family-base);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #e7c980;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .footer-heading:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-family: var(--font-family-base);
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        color: #b0b0b0;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s ease, transform 0.3s ease;
+        position: relative;
+        display: inline-block;
+    }
+
+    .footer-links a:before {
+        content: '›';
+        margin-right: 8px;
+        color: #e7c980;
+    }
+
+    .footer-links a:hover {
+        color: #e7c980;
+        transform: translateX(3px);
+    }
+
+    .contact-info {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contact-info li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    .contact-info li i {
+        color: #e7c980;
+        margin-right: 10px;
+        min-width: 16px;
+        margin-top: 3px;
+    }
+
+    .contact-info a {
+        color: #b0b0b0;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+        color: #e7c980;
+    }
+
+    .footer-map {
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(231, 201, 128, 0.2);
+        border: 2px solid rgba(231, 201, 128, 0.2);
+        height: 300px;
+        position: relative;
+    }
+
+    .footer-map:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at center, rgba(231, 201, 128, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .footer-bottom {
+        padding: 20px 0;
+        font-size: 14px;
+    }
+
+    .footer-bottom .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .copyright p {
+        color: #888;
+        margin: 0;
+    }
+
+    .footer-bottom-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .footer-bottom-links a {
+        color: #888;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+        color: #e7c980;
+    }
+
+    @media (max-width: 1024px) {
+        .footer-columns {
+            gap: 30px;
+        }
+
+        .footer-logo img {
+            height: 120px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .footer-columns {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-column:first-child {
+            grid-column: 1 / -1;
+            text-align: center;
+            align-items: center;
+        }
+
+        .social-icons {
+            justify-content: center;
+        }
+
+        .footer-bottom .footer-container {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer-columns {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .footer-column {
+            text-align: center;
+        }
+
+        .footer-heading:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .footer-links a:before {
+            display: none;
+        }
+
+        .contact-info li {
+            justify-content: center;
+        }
+
+        .footer-bottom-links {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+</style>
