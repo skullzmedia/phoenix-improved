@@ -127,22 +127,6 @@ const contactInfo = {
               />
             </div>
             
-            <div class="form-field">
-              <label for="date" class="field-icon">
-                <i class="fas fa-calendar-alt"></i>
-              </label>
-              <input 
-                type="text" 
-                id="date" 
-                name="date" 
-                placeholder="DD/MM/YYYY" 
-                pattern="\d{2}/\d{2}/\d{4}"
-                required
-                onfocus="(this.type='date')"
-                onblur="if(!this.value) this.type='text'"
-              />
-            </div>
-            
             <button type="submit" class="submit-btn">
               Send WhatsApp Message
               <i class="fas fa-arrow-right"></i>
@@ -542,15 +526,11 @@ const contactInfo = {
       const phone = document.getElementById('phone').value;
       const email = document.getElementById('email').value;
       const people = document.getElementById('people').value;
-      const date = document.getElementById('date').value;
-      
-      // Format date for WhatsApp message
-      const formattedDate = new Date(date).toLocaleDateString('en-GB');
       
       // Construct WhatsApp message
-      const message = `Hello, my name is ${name}. I'd like to make a reservation at Phoenix Casino for ${people} people on ${formattedDate}. My contact details: Phone: ${phone}, Email: ${email}`;
+      const message = `Hello, my name is ${name}. I'd like to make a reservation at Phoenix Casino for ${people} people. My contact details: Phone: ${phone}, Email: ${email}`;
       
-      // Construct WhatsApp URL
+      // Construct WhatsApp URL with your number
       const whatsappURL = `https://wa.me/919960007937?text=${encodeURIComponent(message)}`;
       
       // Open WhatsApp
@@ -570,32 +550,5 @@ const contactInfo = {
         }
       });
     });
-
-    const dateInput = document.getElementById('date') as HTMLInputElement;
-    if (dateInput) {
-      // Handle date input formatting
-      dateInput.addEventListener('change', function(this: HTMLInputElement) {
-        if (this.value) {
-          this.classList.add('has-value');
-        } else {
-          this.classList.remove('has-value');
-        }
-      });
-
-      // Handle date input focus
-      dateInput.addEventListener('focus', function(this: HTMLInputElement) {
-        this.type = 'date';
-        if ('showPicker' in this) {
-          this.showPicker();
-        }
-      });
-
-      // Handle date input blur
-      dateInput.addEventListener('blur', function(this: HTMLInputElement) {
-        if (!this.value) {
-          this.type = 'text';
-        }
-      });
-    }
   });
 </script> 
