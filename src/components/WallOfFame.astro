@@ -120,7 +120,7 @@ const totalSlides = Math.ceil(celebrities.length / 4);
         width: 100%;
         overflow: hidden;
         position: relative;
-        padding: 0 15px;
+        padding: 16px 15px 0;
     }
 
     .wof-celebrities-track {
@@ -170,34 +170,39 @@ const totalSlides = Math.ceil(celebrities.length / 4);
     }
 
     .nav-arrow {
-        background: rgba(231, 201, 128, 0.25);
-        border: 1px solid rgba(231, 201, 128, 0.4);
-        color: #e7c980;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-        transition: all 0.3s ease;
-    }
+    background: rgba(231, 201, 128, 0.25);
+    border: 1px solid rgba(231, 201, 128, 0.4);
+    color: #e7c980;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: all 0.3s ease;
+}
 
-    .nav-arrow:hover {
-        background: rgba(231, 201, 128, 0.4);
-    }
+.nav-arrow:hover {
+    background: rgba(231, 201, 128, 0.4);
+}
 
-    .wof-prev-arrow {
-        left: -15px;
-    }
+/* Move left arrow slightly up & left */
+.wof-prev-arrow {
+    left: -35px;  /* Move more left */
+    top: 45%;     /* Move slightly up */
+}
 
-    .wof-next-arrow {
-        right: -15px;
-    }
+/* Move right arrow slightly up & right */
+.wof-next-arrow {
+    right: -35px; /* Move more right */
+    top: 45%;     /* Move slightly up */
+}
+
 
     @media (max-width: 1024px) {
         .wof-celebrity-item {
@@ -277,7 +282,6 @@ const totalSlides = Math.ceil(celebrities.length / 4);
         }
     }
 </style>
-
 <script>
     const trackElement = document.querySelector('.wof-celebrities-track') as HTMLElement;
     const prevButton = document.querySelector('.wof-prev-arrow') as HTMLButtonElement;
@@ -340,6 +344,25 @@ const totalSlides = Math.ceil(celebrities.length / 4);
         currentIndex = 0;
         scrollTo(0);
         updateNavigation();
+    });
+    //abd
+    document.addEventListener("DOMContentLoaded", function() {
+        const prevArrow = document.querySelector(".wof-prev-arrow");
+        const nextArrow = document.querySelector(".wof-next-arrow");
+
+        function triggerClick(element) {
+            if (element) {
+                element.click();
+            }
+        }
+
+        prevArrow.addEventListener("mouseenter", function() {
+            triggerClick(prevArrow);
+        });
+
+        nextArrow.addEventListener("mouseenter", function() {
+            triggerClick(nextArrow);
+        });
     });
 
     // Initial setup

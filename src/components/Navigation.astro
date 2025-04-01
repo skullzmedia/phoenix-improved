@@ -1,7 +1,7 @@
 ---
 // Navigation component
 ---
-
+import from '../pages/casino.astro'
 <nav class="navigation">
     <div class="page-transition"></div>
     <div class="nav-container">
@@ -38,6 +38,8 @@
             <a href="/gallery" class="nav-link">GALLERY</a>
             <a href="/contact" class="nav-link">CONTACT US</a>
             <a href="/faq" class="nav-link">FAQ</a>
+            <a href="/casino#game-sec" class="nav-link">GAMES</a>
+            <a href="/blog" class="nav-link">BLOG</a>
         </div>
 
         <div class="book-now desktop-nav">
@@ -84,6 +86,8 @@
                 <a href="/gallery" class="mobile-nav-link">GALLERY</a>
                 <a href="/contact" class="mobile-nav-link">CONTACT US</a>
                 <a href="/faq" class="mobile-nav-link">FAQ</a>
+                <a href="casino#game" class="mobile-nav-link">GAME</a>
+                <a href="/blog" class="mobile-nav-link">BLOG</a>
             </div>
             
             <div class="mobile-book-now">
@@ -129,7 +133,7 @@
 
     .nav-links {
         display: flex;
-        gap: 1.8rem;
+        gap: 20px;
         align-items: center;
     }
 
@@ -191,6 +195,7 @@
         background: transparent;
         border: none;
         cursor: pointer;
+        padding-top:20px;
         padding: 10px;
         z-index: 1002;
         position: relative;
@@ -241,13 +246,14 @@
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        margin-bottom: 3rem;
+        padding-top:3rem;
+        margin-bottom: 1rem;
     }
     
     .mobile-nav-link {
         color: white;
         text-decoration: none;
-        font-size: 24px;
+        /*font-size: 24px;*/
         font-weight: 600;
         letter-spacing: 1px;
         transition: color 0.3s ease;
@@ -287,7 +293,7 @@
         letter-spacing: 1px;
         transition: all 0.3s ease;
         display: inline-block;
-        margin-top: 1rem;
+        /*margin-top: 1rem;*/
     }
     
     .mobile-cta-button:hover {
