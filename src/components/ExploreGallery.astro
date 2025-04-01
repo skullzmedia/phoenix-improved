@@ -168,6 +168,11 @@ const galleryItems = [
     <button class="lightbox-arrow right" id="nextImage" aria-label="Next image">▶</button>
 </div>
 
+<div class="gallery-navigation">
+    <button class="gallery-arrow left" id="prevSlide" aria-label="Previous slide">◀</button>
+    <button class="gallery-arrow right" id="nextSlide" aria-label="Next slide">▶</button>
+</div>
+
 </div>
 
 <style>
@@ -254,7 +259,7 @@ const galleryItems = [
         display: flex;
         gap: 1.5rem;
         padding: 0 1rem;
-        animation: scroll 8s linear infinite;
+        animation: scroll 12s linear infinite;
         transition: transform 0.5s ease-in-out;
     }
 
@@ -311,6 +316,66 @@ const galleryItems = [
     color: white;
     font-size: 30px;
     cursor: pointer;
+}
+
+//
+.gallery-navigation{
+    align-item:center;
+}
+.arrow-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 20px;
+}
+
+.arrow-left,
+.arrow-right {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+    background-color: rgba(231, 201, 128, 0.7);
+}
+//
+/* Ensures that the gallery-navigation container spans the full width */
+.gallery-navigation {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    align-items: center; /* Centers the buttons vertically */
+    z-index: 1000; /* Ensures the navigation buttons stay on top */
+}
+
+/* Ensures the arrows are properly aligned */
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 1000; /* Ensures the buttons stay on top */
+}
+
+.gallery-arrow.left {
+    left: 5%; /* You can adjust this value for proper spacing */
+}
+
+.gallery-arrow.right {
+    right: 5%; /* You can adjust this value for proper spacing */
 }
 
 
@@ -560,7 +625,7 @@ const galleryItems = [
         
         // 5. Restart animation
         setTimeout(() => {
-            scrollContainer.style.animation = 'scroll 15s linear infinite';
+            scrollContainer.style.animation = 'scroll 12s linear infinite';
         }, 50);
     }
 

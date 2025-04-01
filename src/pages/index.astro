@@ -1,4 +1,4 @@
----
+--- 
 import Layout from '../layouts/Layout.astro';
 import HeroSlider from '../components/HeroSlider.astro';
 import LuxuryExperience from '../components/LuxuryExperience.astro';
@@ -11,22 +11,48 @@ import Packages from '../components/Packages.astro';
 ---
 
 <Layout title="Phoenix Casino Goa - Luxury Gaming & Entertainment">
-	<main>
-		<HeroSlider />
-		<LuxuryExperience />
-		<PhoenixExperience />
-		<LatestOffers />
-		<ExploreGallery />
-		<WallOfFame />
-		<Entertainment />
-		<Packages />
-	</main>
+  <main>
+    <HeroSlider />
+    
+    <!-- Wrap LuxuryExperience in a centering container -->
+    <div class="luxury-experience-wrapper">
+      <LuxuryExperience />
+    </div>
+    
+    <PhoenixExperience />
+    <LatestOffers />
+    <ExploreGallery />
+    <WallOfFame />
+    <Entertainment />
+    <Packages />
+  </main>
 </Layout>
 
 <style>
-	main {
-		width: 100%;
-		margin: 0;
-		padding: 0;
-	}
+  /* Global box-sizing */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  main {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left; /* Default alignment on larger screens */
+  }
+
+  /* Center the LuxuryExperience section */
+  .luxury-experience-wrapper {
+    margin: 0 auto;
+    max-width: 1200px; /* Or any width that fits your design */
+    text-align: center;
+  }
+  
+  /* For smaller screens, center main content */
+  @media (max-width: 768px) {
+    main {
+      padding: 0 1rem;
+      text-align: center;
+    }
+  }
 </style>
