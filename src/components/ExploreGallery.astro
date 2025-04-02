@@ -219,7 +219,7 @@ const galleryItems = [
     font-size: 1.1rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: none; /* Remove transition to avoid interference */
     position: relative;
     background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
     -webkit-background-clip: text;
@@ -258,7 +258,8 @@ const galleryItems = [
     display: flex;
     gap: 1.5rem;
     padding: 0 1rem;
-    transition: transform 0.3s ease;
+    /* Remove CSS transition for smooth requestAnimationFrame scrolling */
+    transition: none;
   }
   .gallery-item {
     width: 200px;
@@ -294,7 +295,7 @@ const galleryItems = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: none;
   }
   .gallery-item:hover .gallery-image {
     transform: scale(1.05);
@@ -307,7 +308,7 @@ const galleryItems = [
     right: 0;
     bottom: 0;
     background: rgba(231, 201, 128, 0);
-    transition: background 0.3s ease;
+    transition: none;
     border-radius: 12px;
     pointer-events: none;
   }
@@ -516,23 +517,62 @@ const galleryItems = [
     let currentIndex = 0;
     let activeCategory = 'all';
 
-    // We'll track our manual/auto scroll position
+    // Tracking the scroll offset for both auto and manual scrolling
     let currentTranslateX = 0;
     const scrollStep = 300; // pixels per arrow click
 
-    // Auto scroll configuration
-    const autoScrollSpeed = 0.5; // pixels per interval
-    const autoScrollIntervalTime = 10; // milliseconds
-    let autoScrollInterval;
+    // Auto scroll configuration for 10 seconds to complete one cycle
+    let lastTimestamp = null;
+    const durationMs = 80000; // 15 seconds
+    const resetThreshold = scrollContainer.scrollWidth / 2; // because items are duplicated
+    const pixelsPerMs = resetThreshold / durationMs;
 
-    // Initialize the gallery
-    function initializeGallery() {
-      updateFilterUI(activeCategory);
-      updateGalleryImagesArray();
-      startAutoScroll();
+    // Flag to pause scrolling on hover
+    let isPaused = false;
+    scrollContainer.addEventListener("mouseenter", () => {
+      isPaused = true;
+    });
+    scrollContainer.addEventListener("mouseleave", () => {
+      isPaused = false;
+    });
+
+    function animateScroll(timestamp) {
+      if (isPaused) {
+        lastTimestamp = timestamp; // reset timestamp to prevent jump on resume
+        requestAnimationFrame(animateScroll);
+        return;
+      }
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const deltaTime = timestamp - lastTimestamp;
+      currentTranslateX += pixelsPerMs * deltaTime;
+      if (currentTranslateX >= resetThreshold) {
+        currentTranslateX = 0;
+      }
+      scrollContainer.style.transform = `translateX(-${currentTranslateX}px)`;
+      lastTimestamp = timestamp;
+      requestAnimationFrame(animateScroll);
     }
 
-    // Update filter UI
+    requestAnimationFrame(animateScroll);
+
+    // Manual arrow navigation
+    leftArrow.addEventListener('click', () => {
+      currentTranslateX -= scrollStep;
+      if (currentTranslateX < 0) {
+        currentTranslateX = resetThreshold - 1;
+      }
+      scrollContainer.style.transform = `translateX(-${currentTranslateX}px)`;
+    });
+
+    rightArrow.addEventListener('click', () => {
+      currentTranslateX += scrollStep;
+      if (currentTranslateX >= resetThreshold) {
+        currentTranslateX = 0;
+      }
+      scrollContainer.style.transform = `translateX(-${currentTranslateX}px)`;
+    });
+
+    // Filter gallery function
     function updateFilterUI(category) {
       filterButtons.forEach(btn => {
         btn.setAttribute('data-active', btn.getAttribute('data-category') === category ? 'true' : 'false');
@@ -541,8 +581,6 @@ const galleryItems = [
         categorySelect.value = category;
       }
     }
-
-    // Filter gallery function
     function filterGallery(selectedCategory) {
       activeCategory = selectedCategory;
       updateFilterUI(selectedCategory);
@@ -551,13 +589,11 @@ const galleryItems = [
           ? 'none'
           : 'block';
       });
-      // Reset scroll position
+      // Reset scroll position after filtering
       currentTranslateX = 0;
       scrollContainer.style.transform = `translateX(-${currentTranslateX}px)`;
       updateGalleryImagesArray();
     }
-
-    // Update gallery images array for lightbox
     function updateGalleryImagesArray() {
       galleryImages = Array.from(
         document.querySelectorAll(
@@ -565,6 +601,19 @@ const galleryItems = [
         )
       );
       currentIndex = Math.max(0, Math.min(currentIndex, galleryImages.length - 1));
+    }
+
+    // Filter button events
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterGallery(button.getAttribute('data-category'));
+      });
+    });
+    // Category select event for mobile
+    if (categorySelect) {
+      categorySelect.addEventListener('change', (e) => {
+        filterGallery(e.target.value);
+      });
     }
 
     // Lightbox functions
@@ -576,71 +625,22 @@ const galleryItems = [
         lightboxCaption.textContent = img.alt || "Image";
       }
     }
-
     function openLightbox(index) {
       currentIndex = index;
       updateLightbox();
       lightbox.classList.add("active");
       document.body.style.overflow = 'hidden';
     }
-
     function closeLightbox() {
       lightbox.classList.remove("active");
       document.body.style.overflow = '';
     }
-
     function navigateLightbox(direction) {
       currentIndex = direction === 'prev'
         ? (currentIndex - 1 + galleryImages.length) % galleryImages.length
         : (currentIndex + 1) % galleryImages.length;
       updateLightbox();
     }
-
-    // Auto scroll using JavaScript
-    function startAutoScroll() {
-      clearInterval(autoScrollInterval);
-      autoScrollInterval = setInterval(() => {
-        currentTranslateX += autoScrollSpeed;
-        const resetThreshold = scrollContainer.scrollWidth / 2;
-        if (currentTranslateX >= resetThreshold) {
-          currentTranslateX = 0;
-        }
-        scrollContainer.style.transform = `translateX(-${currentTranslateX}px)`;
-      }, autoScrollIntervalTime);
-    }
-
-    // Manual arrow navigation
-    leftArrow.addEventListener('click', () => {
-      currentTranslateX -= scrollStep;
-      if (currentTranslateX < 0) {
-        currentTranslateX = scrollContainer.scrollWidth / 2 - 1;
-      }
-      scrollContainer.style.transform = `translateX(-${currentTranslateX}px)`;
-    });
-
-    rightArrow.addEventListener('click', () => {
-      currentTranslateX += scrollStep;
-      const resetThreshold = scrollContainer.scrollWidth / 2;
-      if (currentTranslateX >= resetThreshold) {
-        currentTranslateX = 0;
-      }
-      scrollContainer.style.transform = `translateX(-${currentTranslateX}px)`;
-    });
-
-    // Filter button events
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        filterGallery(button.getAttribute('data-category'));
-      });
-    });
-
-    // Category select event for mobile
-    if (categorySelect) {
-      categorySelect.addEventListener('change', (e) => {
-        filterGallery(e.target.value);
-      });
-    }
-
     // Gallery item click events for lightbox
     document.querySelectorAll('.gallery-item').forEach(item => {
       item.addEventListener('click', function() {
@@ -649,25 +649,17 @@ const galleryItems = [
         if (imgIndex >= 0) openLightbox(imgIndex);
       });
     });
-
     // Lightbox controls
     closeButton.addEventListener('click', closeLightbox);
     prevButton.addEventListener('click', () => navigateLightbox('prev'));
     nextButton.addEventListener('click', () => navigateLightbox('next'));
-
-    // Close lightbox when clicking outside of image
     lightbox.addEventListener('click', function(e) {
       if (e.target === lightbox) closeLightbox();
     });
-
-    // Close lightbox with Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && lightbox.classList.contains('active')) {
         closeLightbox();
       }
     });
-
-    // Initialize gallery on page load
-    initializeGallery();
   });
 </script>

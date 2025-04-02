@@ -1,5 +1,7 @@
 ---
 import { Image } from 'astro:assets';
+
+// Celebrity images
 import AmyraUttam from '../assets/wall_of_fame/amyra-uttam.jpg';
 import DaisyShah from '../assets/wall_of_fame/daisy-shah.jpg';
 import KumarSanu from '../assets/wall_of_fame/kumar-sanu.jpg';
@@ -15,6 +17,7 @@ const celebrities = [
   { name: "Sonal Chauhan", image: SonalChauhan },
   { name: "Inaayat Sharma", image: InaayatSharma }
 ];
+
 const totalSlides = Math.ceil(celebrities.length / 4);
 ---
 
@@ -25,6 +28,7 @@ const totalSlides = Math.ceil(celebrities.length / 4);
       <button class="nav-arrow wof-prev-arrow" aria-label="Previous slide">
         <i class="fas fa-chevron-left"></i>
       </button>
+
       <div class="wof-celebrities-wrapper">
         <div class="wof-celebrities-track">
           {celebrities.filter(celebrity => celebrity.image).map((celebrity) => (
@@ -43,6 +47,7 @@ const totalSlides = Math.ceil(celebrities.length / 4);
           ))}
         </div>
       </div>
+
       <button class="nav-arrow wof-next-arrow" aria-label="Next slide">
         <i class="fas fa-chevron-right"></i>
       </button>
@@ -52,189 +57,174 @@ const totalSlides = Math.ceil(celebrities.length / 4);
 
 <style>
   .wall-of-fame {
-      padding: 3rem 0;
-      background-color: var(--color-bg);
-      position: relative;
-      overflow: hidden;
+    padding: 3rem 0;
+    background-color: var(--color-bg);
+    position: relative;
+    overflow: hidden;
   }
+
   .container {
-      max-width: 1200px;
-      width: 92%;
-      margin: 0 auto;
+    max-width: 1200px;
+    width: 92%;
+    margin: 0 auto;
   }
+
   .section-title {
-      font-size: 2.8rem;
-      text-align: center;
-      background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
+    font-size: 2.8rem;
+    text-align: center;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
+
+  /* Desktop and tablet container padding */
   .wof-celebrities-container {
-      padding: 2.5rem 0;
-      position: relative;
-      display: flex;
-      align-items: center;
-      margin-bottom: 30px;
+    padding: 2.5rem 60px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
   }
+
   .wof-celebrities-wrapper {
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-      padding: 16px 15px 0;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 16px 0 0;
   }
+
   .wof-celebrities-track {
-      display: flex;
-      transition: transform 0.5s ease;
-      gap: 25px;
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 25px;
   }
+
   .wof-celebrity-item {
-      flex: 0 0 calc(25% - 20px);
-      min-width: calc(25% - 20px);
-      text-align: center;
+    flex: 0 0 calc(25% - 20px);
+    min-width: calc(25% - 20px);
+    text-align: center;
   }
+
   .celebrity-image {
-      width: 95%;
-      margin: 0 auto;
-      padding-bottom: 95%;
-      margin-bottom: 25px;
-      border-radius: 50%;
-      overflow: hidden;
-      position: relative;
-      border: 3px solid rgba(231, 201, 128, 0.4);
-      box-shadow: 0 12px 30px rgba(231, 201, 128, 0.35);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 95%;
+    margin: 0 auto;
+    padding-bottom: 95%;
+    margin-bottom: 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid rgba(231, 201, 128, 0.4);
+    box-shadow: 0 12px 30px rgba(231, 201, 128, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+
   .celebrity-image:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(231, 201, 128, 0.4);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(231, 201, 128, 0.4);
   }
+
   .celebrity-image img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
+
   .celebrity-name {
-      font-size: 22px;
-      color: #fff;
-      font-weight: 500;
-      margin-top: 10px;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 10px;
   }
+
   .nav-arrow {
-      background: rgba(231, 201, 128, 0.25);
-      border: 1px solid rgba(231, 201, 128, 0.4);
-      color: #e7c980;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      transition: all 0.3s ease;
+    background: rgba(231, 201, 128, 0.25);
+    border: 1px solid rgba(231, 201, 128, 0.4);
+    color: #e7c980;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: all 0.3s ease;
   }
+
   .nav-arrow:hover {
-      background: rgba(231, 201, 128, 0.4);
+    background: rgba(231, 201, 128, 0.4);
   }
-  /* Adjusted arrow positions for desktop */
-  .wof-prev-arrow {
+
+  /* Desktop arrow positions remain inside the padded area */
+  @media (min-width: 1024px) {
+    .wof-prev-arrow {
       left: 10px;
-      top: 45%;
-  }
-  .wof-next-arrow {
+    }
+    .wof-next-arrow {
       right: 10px;
-      top: 45%;
+    }
   }
-  /* Responsive adjustments for tablet screens */
+
+  /* Tablet adjustments */
   @media (max-width: 1024px) {
-      .wof-celebrity-item {
-          flex: 0 0 calc(25% - 20px);
-      }
-      .celebrity-image {
-          padding-bottom: 110%;
-      }
+    .wof-celebrity-item {
+      flex: 0 0 calc(25% - 20px);
+    }
+    .celebrity-image {
+      padding-bottom: 110%;
+    }
   }
-  /* Responsive adjustments for smaller screens */
-  @media (max-width: 768px) {
-      .wof-celebrities-container {
-          padding: 1.5rem 0;
-      }
-      .wof-celebrity-item {
-          flex: 0 0 calc(50% - 10px);
-          min-width: calc(50% - 10px);
-      }
-      .wof-celebrities-track {
-          gap: 20px;
-      }
-      .celebrity-image {
-          width: 95%;
-          padding-bottom: 95%;
-          border-width: 4px;
-      }
-      .nav-arrow {
-          width: 40px;
-          height: 40px;
-          background: rgba(231, 201, 128, 0.35);
-      }
-      .celebrity-name {
-          font-size: 20px;
-      }
-      /* For tablets, keep arrows inside the container */
-      .wof-prev-arrow {
-          left: 10px;
-      }
-      .wof-next-arrow {
-          right: 10px;
-      }
-  }
-  /* Responsive adjustments for mobile screens */
+
+  /* Mobile adjustments */
   @media (max-width: 480px) {
-      .section-title {
-          font-size: 2.2rem;
-      }
-      .wof-celebrities-container {
-          padding: 1rem 0;
-      }
-      .wof-celebrity-item {
-          flex: 0 0 100%;
-          min-width: 100%;
-      }
-      .wof-celebrities-track {
-          gap: 30px;
-      }
-      .nav-arrow {
-          width: 38px;
-          height: 38px;
-      }
-      .celebrity-name {
-          font-size: 22px;
-          margin-top: 5px;
-      }
-      .celebrity-image {
-          width: 70%;
-          padding-bottom: 70%;
-          margin-bottom: 10px;
-          border-width: 4px;
-          box-shadow: 0 15px 35px rgba(231, 201, 128, 0.5);
-      }
-      /* Further adjust arrow positions for mobile */
-      .wof-prev-arrow {
-          left: 5px;
-      }
-      .wof-next-arrow {
-          right: 5px;
-      }
+    .section-title {
+      font-size: 2.2rem;
+    }
+    /* Increase container padding on mobile for safe area */
+    .wof-celebrities-container {
+      padding: 1rem 40px;
+    }
+    .wof-celebrity-item {
+      flex: 0 0 100%;
+      min-width: 100%;
+    }
+    .wof-celebrities-track {
+      gap: 30px;
+    }
+    .nav-arrow {
+      width: 38px;
+      height: 38px;
+    }
+    .celebrity-name {
+      font-size: 22px;
+      margin-top: 5px;
+    }
+    /* Increase frame size on mobile: updated to 85% */
+    .celebrity-image {
+      width: 85%;
+      padding-bottom: 85%;
+      margin-bottom: 10px;
+      border-width: 4px;
+      box-shadow: 0 15px 35px rgba(231, 201, 128, 0.5);
+    }
+    /* Reposition mobile arrows flush with the container edge */
+    .wof-prev-arrow {
+      left: 0;
+    }
+    .wof-next-arrow {
+      right: 0;
+    }
   }
 </style>
 
@@ -244,81 +234,82 @@ const totalSlides = Math.ceil(celebrities.length / 4);
   const nextButton = document.querySelector('.wof-next-arrow');
 
   const getItemsPerView = () => {
-      if (window.innerWidth >= 1024) return 4;
-      if (window.innerWidth >= 768) return 2;
-      return 1;
+    if (window.innerWidth >= 1024) return 4;
+    if (window.innerWidth >= 768) return 2;
+    return 1;
   };
 
   let currentIndex = 0;
   const celebrityItems = document.querySelectorAll('.wof-celebrity-item');
 
   function updateTotalSlides() {
-      return Math.ceil(celebrityItems.length / getItemsPerView()) - 1;
+    return Math.ceil(celebrityItems.length / getItemsPerView()) - 1;
   }
 
   function updateNavigation() {
-      const totalSlides = updateTotalSlides();
-      if (prevButton && nextButton) {
-          prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
-          prevButton.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+    const totalSlides = updateTotalSlides();
+    if (prevButton && nextButton) {
+      prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
+      prevButton.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
 
-          nextButton.style.opacity = currentIndex >= totalSlides ? '0.5' : '1';
-          nextButton.style.pointerEvents = currentIndex >= totalSlides ? 'none' : 'auto';
-      }
+      nextButton.style.opacity = currentIndex >= totalSlides ? '0.5' : '1';
+      nextButton.style.pointerEvents = currentIndex >= totalSlides ? 'none' : 'auto';
+    }
   }
 
   function scrollToSlide(index) {
-      if (trackElement) {
-          currentIndex = index;
-          const item = trackElement.querySelector('.wof-celebrity-item');
-          const itemWidth = item ? item.offsetWidth : 0;
-          const gap = window.innerWidth <= 480 ? 30 : 25;
-          const scrollDistance = index * -(itemWidth + gap) * getItemsPerView();
-          trackElement.style.transform = `translateX(${scrollDistance}px)`;
-          updateNavigation();
-      }
+    if (trackElement) {
+      currentIndex = index;
+      const item = trackElement.querySelector('.wof-celebrity-item');
+      const itemWidth = item ? item.offsetWidth : 0;
+      // Use a gap of 30px for mobile, otherwise 25px.
+      const gap = window.innerWidth <= 480 ? 30 : 25;
+      const scrollDistance = index * -(itemWidth + gap) * getItemsPerView();
+      trackElement.style.transform = `translateX(${scrollDistance}px)`;
+      updateNavigation();
+    }
   }
 
   if (prevButton) {
-      prevButton.addEventListener('click', () => {
-          if (currentIndex > 0) {
-              scrollToSlide(currentIndex - 1);
-          }
-      });
+    prevButton.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        scrollToSlide(currentIndex - 1);
+      }
+    });
   }
 
   if (nextButton) {
-      nextButton.addEventListener('click', () => {
-          if (currentIndex < updateTotalSlides()) {
-              scrollToSlide(currentIndex + 1);
-          }
-      });
+    nextButton.addEventListener('click', () => {
+      if (currentIndex < updateTotalSlides()) {
+        scrollToSlide(currentIndex + 1);
+      }
+    });
   }
 
   // Handle window resize
   window.addEventListener('resize', () => {
-      currentIndex = 0;
-      scrollToSlide(0);
-      updateNavigation();
+    currentIndex = 0;
+    scrollToSlide(0);
+    updateNavigation();
   });
 
-  // Auto-trigger navigation on arrow hover
+  // Auto-trigger navigation on arrow hover (if desired)
   document.addEventListener("DOMContentLoaded", function() {
-      const prevArrow = document.querySelector(".wof-prev-arrow");
-      const nextArrow = document.querySelector(".wof-next-arrow");
+    const prevArrow = document.querySelector(".wof-prev-arrow");
+    const nextArrow = document.querySelector(".wof-next-arrow");
 
-      function triggerClick(element) {
-          if (element) {
-              element.click();
-          }
+    function triggerClick(element) {
+      if (element) {
+        element.click();
       }
+    }
 
-      prevArrow.addEventListener("mouseenter", function() {
-          triggerClick(prevArrow);
-      });
-      nextArrow.addEventListener("mouseenter", function() {
-          triggerClick(nextArrow);
-      });
+    prevArrow.addEventListener("mouseenter", function() {
+      triggerClick(prevArrow);
+    });
+    nextArrow.addEventListener("mouseenter", function() {
+      triggerClick(nextArrow);
+    });
   });
 
   // Initial setup
