@@ -32,7 +32,6 @@ const features = [
     },
 ];
 ---
-
 <section class="luxury-experience">
     <div class="container">
         <div class="content">
@@ -40,13 +39,14 @@ const features = [
                 <h2>OUR LUXURY EXPERIENCE</h2>
                 <div class="underline"></div>
             </div>
-            
+            <div class="lft">
+            <div class="desc">
             <p class="description">
                 Phoenixx Casino Goa offers a luxury gaming destination in Candolim, a
                 Hilton Goa resort. Join us to experience fun, entertainment, and
                 unlimited luck at our Casino.
             </p>
-
+            </div>
             <div class="features">
                 {
                     features.map((feature) => (
@@ -62,7 +62,7 @@ const features = [
                     ))
                 }
             </div>
-
+            </div>
             <a href="/contact" class="book-now">BOOK NOW</a>
         </div>
         
@@ -82,32 +82,50 @@ const features = [
 </section>
 
 <style>
+.lft {
+    width: 100%;
+    max-width: 600px;
+    min-width: 150px;  /* Shrink down to 150px */
+    margin: 0 auto;
+}
     .luxury-experience {
         background-color: #000;
+        //border: 2px solid white;  /* White border */
         color: #fff;
-        padding: 4rem 0;
-        margin-top: 0;
+        padding:0px;
+        margin-top: 20px;
+        padding-top:20px;
         width: 100%;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .container {
         max-width: 1200px;
-        width: 90%;
-        margin: 0 auto;
+        //border: 2px solid yellow;  /* White border */
+        min-width:150px;
+        margin: 0px;;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
         align-items: flex-start;
     }
 
-    .content {
-        width: 100%;
-        text-align: left;
-    }
+    .container {
+    //border: 2px solid blue;  
+    width: 100%;             
+    max-width: 1200px;       
+    min-width: 150px;        
+    margin: 0 auto;          
+}
+
 
     .title-section {
+        //border: 2px solid white;  /* White border */
         margin-bottom: 2rem;
+        width: 100%;             /* Responsive width */
+        max-width: 1200px;       /* Prevent it from growing too large */
+        min-width: 150px;        /* Stop shrinking below 400px */
+        margin: 0px;   
         text-align: left;
     }
 
@@ -122,6 +140,10 @@ const features = [
         line-height: 1;
         letter-spacing: -0.02em;
         white-space: nowrap;
+        width: 100%;             /* Responsive width */
+        max-width: 1200px;       /* Prevent it from growing too large */
+        min-width: 150px;        /* Stop shrinking below 400px */
+        margin: 0 auto;   
     }
 
     .underline {
@@ -132,15 +154,22 @@ const features = [
         margin-left: 0;
         margin-right: auto;
     }
+    .desc{
+        //border:2px solid brown;
+        width: 100%;
+        text-align: center;
+    }
 
     .description {
+        //border: 2px solid white;  /* White border */
         letter-spacing: 1px;
-        font-size: 18px;
         line-height: 1.6;
         font-weight: 400;
         color: #e0e0e0;
-        margin-bottom: 2rem;
-        max-width: 100%;
+        font-size: 16px;
+    line-height: 1.5;
+    max-width: 100%;
+    padding: 0 10px;
     }
 
     .features {
@@ -208,7 +237,6 @@ const features = [
         color: #999;
         margin: 0.1rem 0 0 0;
     }
-
     .book-now {
         display: inline-block;
         background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
@@ -228,6 +256,7 @@ const features = [
     }
 
     .video-container {
+       
         width: 100%;
         aspect-ratio: 16/9;
         background-color: #111;
@@ -238,6 +267,7 @@ const features = [
     }
 
     .video-container iframe {
+        border: 2px solid white;  /* White border */
         position: absolute;
         top: 0;
         left: 0;
@@ -349,7 +379,7 @@ const features = [
         }
 
         h2 {
-            font-size: 1.6rem;
+            font-size: .8rem;
         }
 
         .features {
@@ -388,4 +418,47 @@ const features = [
             font-size: 1rem;
         }
     }
+    
+/* ✅ Mobile Responsive */
+@media (max-width: 768px) {
+    .lft {
+        max-width: 100%;
+        min-width: 150px;  /* Ensure full shrink */
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .features {
+        gap: 5px;
+    }
+
+    .feature {
+        flex: 1 1 30%;  /* Allow shrink till 150px */
+        min-width: 50px;
+    }
+
+    .icon-circle {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* ✅ Super Small Screens */
+@media (max-width: 350px) {
+    .lft {
+        min-width: 150px;  /* Stop shrinking at 150px */
+    }
+
+    .feature {
+        flex: 1 1 100%;  /* Stack features in small screens */
+        min-width: 50px;
+    }
+
+    .icon-circle {
+        width: 25px;
+        height: 25px;
+    }
+}
 </style> 
