@@ -167,11 +167,6 @@ const galleryItems = [
     <p class="lightbox-caption" id="lightboxCaption"></p>
     <button class="lightbox-arrow right" id="nextImage" aria-label="Next image">▶</button>
 </div>
-
-
-
-</div>
-
 <style>
     .gallery-section {
         padding: 2rem 0;
@@ -252,12 +247,36 @@ const galleryItems = [
         position: relative;
     }
 
+    /* Updated animation styles */
     .gallery-scroll {
         display: flex;
         gap: 1.5rem;
         padding: 0 1rem;
-        animation: scroll 10s linear infinite;
+        animation: scroll 0s linear infinite;
         transition: transform 0.5s ease-in-out;
+    }
+    @media (max-width: 768px) {
+        .gallery-scroll {
+            animation: scrollMobile 10s linear infinite;
+            gap: 1rem;
+        }
+    }
+     @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-50% - 0.75rem)); /* Account for gap */
+        }
+    }
+
+    @keyframes scrollMobile {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-100% - 1rem)); /* More movement for mobile */
+        }
     }
 
     .gallery-scroll:hover {
@@ -376,31 +395,39 @@ const galleryItems = [
 }
 
 
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 0.75rem)); }
+}
 
-    @keyframes scroll {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-50%);
-        }
-    }
 
+     /* Ensure enough items for seamless animation */
     .gallery-item {
         width: 200px;
         aspect-ratio: 4/5;
-        position: relative;
         flex-shrink: 0;
-        overflow: hidden;
-        border-radius: 12px;
-        transition: all 0.3s ease-in-out;
-        opacity: 1;
-        transform: scale(1);
-        margin: 0 10px;
-        cursor: pointer;
-        position: relative;
+    }
+    
+    @media (max-width: 1024px) {
+        .gallery-item {
+            width: 350px;
+            height: 260px;
+        }
     }
 
+    @media (max-width: 768px) {
+        .gallery-item {
+            width: calc(50vw - 2rem); /* Better mobile sizing */
+            height: auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .gallery-item {
+            width: calc(85vw - 2rem); /* Larger on small mobile */
+            height: auto;
+        }
+    }
     .gallery-item.hidden {
         opacity: 0;
         transform: scale(0.95);
@@ -593,164 +620,193 @@ const galleryItems = [
 </style>
 
 <script>
-    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-    const galleryItems = document.querySelectorAll<HTMLElement>('.gallery-item');
-    const categorySelect = document.querySelector<HTMLSelectElement>('.category-select');
-    const scrollContainer = document.querySelector<HTMLElement>('.gallery-scroll');
+    document.addEventListener("DOMContentLoaded", function () {
+        // DOM elements
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const categorySelect = document.querySelector('.category-select');
+        const scrollContainer = document.querySelector('.gallery-scroll');
+        const lightbox = document.getElementById("imageLightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+        const lightboxCaption = document.getElementById("lightboxCaption");
+        const closeButton = document.querySelector(".lightbox-close");
+        const prevButton = document.getElementById("prevImage");
+        const nextButton = document.getElementById("nextImage");
 
-    function filterGallery(selectedCategory: string) {
-        // Simple approach with clean transitions
-        if (!scrollContainer) return;
+        // State variables
+        let galleryImages = Array.from(document.querySelectorAll(".gallery-item img"));
+        let currentIndex = 0;
+        let activeCategory = 'all';
+        let isMobileView = window.innerWidth <= 768;
 
-        // 1. Stop current animation completely
-        scrollContainer.style.animation = 'none';
-        
-        // 2. Hide all items first (with display:none for clean layout)
-        document.querySelectorAll<HTMLElement>('.gallery-item').forEach(item => {
-            if (selectedCategory !== 'all' && item.dataset.category !== selectedCategory) {
-                item.style.display = 'none';
-            } else {
-                item.style.display = 'block';
+        // Animation speeds (increased from previous values)
+        const DESKTOP_ANIMATION_DURATION = '5s'; // Previously 40s
+        const MOBILE_ANIMATION_DURATION = '10s';  // Previously 20s
+
+        // Initialize the gallery
+        function initializeGallery() {
+            updateFilterUI(activeCategory);
+            setAnimationForViewport();
+            updateGalleryImagesArray();
+            
+            // Start the animation immediately
+            if (scrollContainer) {
+                scrollContainer.style.animationPlayState = 'running';
             }
-        });
-        
-        // 3. Reset scroll position immediately
-        scrollContainer.style.transform = 'translateX(0)';
-        
-        // 4. Force browser to process layout changes
-        void scrollContainer.offsetWidth;
-        
-        // 5. Restart animation
-        setTimeout(() => {
-            scrollContainer.style.animation = 'scroll 10s linear infinite';
-        }, 50);
-    }
+        }
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.setAttribute('data-active', 'false'));
-            button.setAttribute('data-active', 'true');
-            
-            const selectedCategory = button.getAttribute('data-category')!;
-            filterGallery(selectedCategory);
-            
-            if (categorySelect) {
-                categorySelect.value = selectedCategory;
-            }
-        });
-    });
-
-    if (categorySelect) {
-        categorySelect.addEventListener('change', (e) => {
-            const selectedCategory = (e.target as HTMLSelectElement).value;
-            filterGallery(selectedCategory);
-            
+        // Update filter UI elements
+        function updateFilterUI(category) {
             filterButtons.forEach(btn => {
                 btn.setAttribute('data-active', 
-                    btn.getAttribute('data-category') === selectedCategory ? 'true' : 'false'
+                    btn.getAttribute('data-category') === category ? 'true' : 'false'
                 );
             });
-        });
-    }
-
-    // After your existing code, add the lightbox functionality
-    const lightbox = document.getElementById('imageLightbox') as HTMLElement;
-    const lightboxImage = lightbox?.querySelector('.lightbox-image') as HTMLImageElement;
-    const lightboxCaption = lightbox?.querySelector('.lightbox-caption') as HTMLElement;
-    const lightboxClose = lightbox?.querySelector('.lightbox-close') as HTMLElement;
-    
-    // Make all gallery items clickable
-    document.querySelectorAll('.gallery-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const img = item.querySelector('img');
-            if (img && lightbox && lightboxImage) {
-                // Get the source image URL (using currentSrc to get the responsive version)
-                const imgSrc = img.currentSrc || img.src;
-                
-                // Get the alt text for caption
-                const imgAlt = img.alt;
-                
-                // Set the lightbox content
-                lightboxImage.src = imgSrc;
-                lightboxImage.alt = imgAlt;
-                if (lightboxCaption) {
-                    lightboxCaption.textContent = imgAlt;
-                }
-                
-                // Show the lightbox
-                lightbox.classList.add('active');
-                
-                // Prevent scrolling on the body
-                document.body.style.overflow = 'hidden';
+            
+            if (categorySelect) {
+                categorySelect.value = category;
             }
-        });
-    });
-    
-    // Close lightbox when clicking the close button
-    lightboxClose?.addEventListener('click', () => {
-        lightbox?.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-    
-    // Close lightbox when clicking outside the image
-    lightbox?.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
         }
-    });
-    
-    // Close lightbox with Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox?.classList.contains('active')) {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
+
+        // Filter gallery function
+        function filterGallery(selectedCategory) {
+            activeCategory = selectedCategory;
+            updateFilterUI(selectedCategory);
+            
+            galleryItems.forEach(item => {
+                item.style.display = (selectedCategory !== 'all' && item.dataset.category !== selectedCategory) 
+                    ? 'none' 
+                    : 'block';
+            });
+            
+            resetAnimation();
+            updateGalleryImagesArray();
         }
-    });
-    //
-    document.addEventListener("DOMContentLoaded", function () {
-    const lightbox = document.getElementById("imageLightbox");
-    const lightboxImg = document.getElementById("lightboxImg");
-    const lightboxCaption = document.getElementById("lightboxCaption");
-    const closeButton = document.querySelector(".lightbox-close");
-    const prevButton = document.getElementById("prevImage");
-    const nextButton = document.getElementById("nextImage");
 
-    let galleryImages = Array.from(document.querySelectorAll(".gallery-item img"));
-    let currentIndex = 0;
+        // Set animation based on viewport with faster speeds
+        function setAnimationForViewport() {
+            if (!scrollContainer) return;
+            
+            const animationDuration = isMobileView ? MOBILE_ANIMATION_DURATION : DESKTOP_ANIMATION_DURATION;
+            const animationName = isMobileView ? 'scrollMobile' : 'scroll';
+            
+            scrollContainer.style.animation = `${animationName} ${animationDuration} linear infinite`;
+        }
 
-    // Open Lightbox
-    galleryImages.forEach((img, index) => {
-        img.addEventListener("click", function () {
+        // Reset animation with faster speed
+        function resetAnimation() {
+            if (!scrollContainer) return;
+            
+            // Pause animation during reset
+            scrollContainer.style.animationPlayState = 'paused';
+            scrollContainer.style.animation = 'none';
+            scrollContainer.style.transform = 'translateX(0)';
+            
+            // Force reflow
+            void scrollContainer.offsetWidth;
+            
+            setAnimationForViewport();
+            
+            // Restart animation after a brief delay
+            setTimeout(() => {
+                scrollContainer.style.animationPlayState = 'running';
+            }, 50);
+        }
+
+        // Update gallery images array for lightbox
+        function updateGalleryImagesArray() {
+            galleryImages = Array.from(
+                document.querySelectorAll(
+                    `.gallery-item${
+                        activeCategory !== 'all' ? `[data-category="${activeCategory}"]` : ''
+                    } img`
+                )
+            );
+            currentIndex = Math.max(0, Math.min(currentIndex, galleryImages.length - 1));
+        }
+
+        // Lightbox functions
+        function updateLightbox() {
+            if (currentIndex >= 0 && currentIndex < galleryImages.length) {
+                const img = galleryImages[currentIndex];
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxCaption.textContent = img.alt || "Image";
+            }
+        }
+
+        function openLightbox(index) {
             currentIndex = index;
             updateLightbox();
             lightbox.classList.add("active");
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove("active");
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(direction) {
+            currentIndex = direction === 'prev'
+                ? (currentIndex - 1 + galleryImages.length) % galleryImages.length
+                : (currentIndex + 1) % galleryImages.length;
+            updateLightbox();
+        }
+
+        // Event Listeners
+
+        // Filter button events
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterGallery(button.getAttribute('data-category'));
+            });
         });
+
+        // Category select event
+        if (categorySelect) {
+            categorySelect.addEventListener('change', (e) => {
+                filterGallery(e.target.value);
+            });
+        }
+
+        // Gallery item click events
+        document.querySelectorAll('.gallery-item').forEach((item, index) => {
+            item.addEventListener('click', function() {
+                const imgIndex = galleryImages.findIndex(img => 
+                    img === this.querySelector('img')
+                );
+                if (imgIndex >= 0) openLightbox(imgIndex);
+            });
+        });
+
+        // Lightbox controls
+        closeButton.addEventListener('click', closeLightbox);
+        prevButton.addEventListener('click', () => navigateLightbox('prev'));
+        nextButton.addEventListener('click', () => navigateLightbox('next'));
+
+        // Close lightbox when clicking outside
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Close with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        // Handle viewport changes
+        window.addEventListener('resize', function() {
+            const newIsMobileView = window.innerWidth <= 768;
+            if (newIsMobileView !== isMobileView) {
+                isMobileView = newIsMobileView;
+                resetAnimation();
+            }
+        });
+
+        // Initialize the gallery
+        initializeGallery();
     });
-
-    // Close Lightbox
-    closeButton.addEventListener("click", function () {
-        lightbox.classList.remove("active");
-    });
-
-    // Previous Image
-    prevButton.addEventListener("click", function () {
-        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-        updateLightbox();
-    });
-
-    // Next Image
-    nextButton.addEventListener("click", function () {
-        currentIndex = (currentIndex + 1) % galleryImages.length;
-        updateLightbox();
-    });
-
-    // Function to Update Lightbox Image
-    function updateLightbox() {
-        let img = galleryImages[currentIndex];
-        lightboxImg.src = img.src;
-        lightboxCaption.textContent = img.alt || "Image";
-    }
-});
-
-</script> 
+</script>

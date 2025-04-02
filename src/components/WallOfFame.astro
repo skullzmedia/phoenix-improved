@@ -15,6 +15,7 @@ const celebrities = [
   { name: "Sonal Chauhan", image: SonalChauhan },
   { name: "Inaayat Sharma", image: InaayatSharma }
 ];
+const totalSlides = Math.ceil(celebrities.length / 4);
 ---
 
 <section class="wall-of-fame">
@@ -29,12 +30,12 @@ const celebrities = [
           {celebrities.filter(celebrity => celebrity.image).map((celebrity) => (
             <div class="wof-celebrity-item">
               <div class="celebrity-image">
-                <Image 
-                  src={celebrity.image} 
-                  alt={celebrity.name} 
-                  width={300} 
-                  height={300} 
-                  quality="high" 
+                <Image
+                  src={celebrity.image}
+                  alt={celebrity.name}
+                  width={300}
+                  height={300}
+                  quality="high"
                 />
               </div>
               <h3 class="celebrity-name">{celebrity.name}</h3>
@@ -146,12 +147,14 @@ const celebrities = [
   .nav-arrow:hover {
       background: rgba(231, 201, 128, 0.4);
   }
-  /* Default arrow positions for desktop */
+  /* Adjusted arrow positions for desktop */
   .wof-prev-arrow {
-      left: -35px;
+      left: 10px;
+      top: 45%;
   }
   .wof-next-arrow {
-      right: -35px;
+      right: 10px;
+      top: 45%;
   }
   /* Responsive adjustments for tablet screens */
   @media (max-width: 1024px) {
@@ -187,7 +190,7 @@ const celebrities = [
       .celebrity-name {
           font-size: 20px;
       }
-      /* Move arrows inside the container for tablet */
+      /* For tablets, keep arrows inside the container */
       .wof-prev-arrow {
           left: 10px;
       }
@@ -195,7 +198,7 @@ const celebrities = [
           right: 10px;
       }
   }
-  /* Further responsive adjustments for mobile screens */
+  /* Responsive adjustments for mobile screens */
   @media (max-width: 480px) {
       .section-title {
           font-size: 2.2rem;
@@ -258,6 +261,7 @@ const celebrities = [
       if (prevButton && nextButton) {
           prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
           prevButton.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+
           nextButton.style.opacity = currentIndex >= totalSlides ? '0.5' : '1';
           nextButton.style.pointerEvents = currentIndex >= totalSlides ? 'none' : 'auto';
       }
