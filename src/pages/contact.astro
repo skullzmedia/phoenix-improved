@@ -114,17 +114,16 @@ const contactInfo = {
             </div>
             
             <div class="form-field">
-              <label for="people" class="field-icon">
-                <i class="fas fa-users"></i>
+              <label for="message" class="field-icon">
+                <i class="fas fa-comment"></i>
               </label>
-              <input 
-                type="number" 
-                id="people" 
-                name="people" 
-                placeholder="Number of People" 
-                min="1" 
+              <textarea 
+                id="message" 
+                name="message" 
+                placeholder="Your Message" 
                 required
-              />
+                rows="4"
+              ></textarea>
             </div>
             
             <button type="submit" class="submit-btn">
@@ -370,6 +369,28 @@ const contactInfo = {
     color: #999;
   }
   
+  .contact-form textarea {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    font-size: 1rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(231, 201, 128, 0.3);
+    color: #fff;
+    transition: border-color 0.3s ease;
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: #e7c980;
+  }
+  
+  .contact-form textarea::placeholder {
+    color: #999;
+  }
+  
   .submit-btn {
     background-color: #D4AF37; /* Match nav button color */
     color: #000;
@@ -518,37 +539,46 @@ const contactInfo = {
   document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Get form values
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const email = document.getElementById('email').value;
-      const people = document.getElementById('people').value;
-      
-      // Construct WhatsApp message
-      const message = `Hello, my name is ${name}. I'd like to make a reservation at Phoenix Casino for ${people} people. My contact details: Phone: ${phone}, Email: ${email}`;
-      
-      // Construct WhatsApp URL with your number
-      const whatsappURL = `https://wa.me/919960007937?text=${encodeURIComponent(message)}`;
-      
-      // Open WhatsApp
-      window.open(whatsappURL, '_blank');
-    });
-    
-    // Add visual feedback for form inputs
-    const inputs = document.querySelectorAll('.contact-form input');
-    inputs.forEach(input => {
-      input.addEventListener('focus', function() {
-        this.parentElement.classList.add('input-focus');
-      });
-      
-      input.addEventListener('blur', function() {
-        if (!this.value) {
-          this.parentElement.classList.remove('input-focus');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const nameInput = document.getElementById('name') as HTMLInputElement;
+        const phoneInput = document.getElementById('phone') as HTMLInputElement;
+        const emailInput = document.getElementById('email') as HTMLInputElement;
+        const messageInput = document.getElementById('message') as HTMLTextAreaElement;
+        
+        if (nameInput && phoneInput && emailInput && messageInput) {
+          const name = nameInput.value;
+          const phone = phoneInput.value;
+          const email = emailInput.value;
+          const message = messageInput.value;
+          
+          // Construct WhatsApp message
+          const whatsappMessage = `Hello, my name is ${name}.\n\n${message}\n\nMy contact details:\nPhone: ${phone}\nEmail: ${email}`;
+          
+          // Construct WhatsApp URL with your number
+          const whatsappURL = `https://wa.me/919960007937?text=${encodeURIComponent(whatsappMessage)}`;
+          
+          // Open WhatsApp
+          window.open(whatsappURL, '_blank');
         }
       });
-    });
+      
+      // Add visual feedback for form inputs
+      const inputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+      inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+          this.parentElement?.classList.add('input-focus');
+        });
+        
+        input.addEventListener('blur', function() {
+          if (!(this as HTMLInputElement | HTMLTextAreaElement).value) {
+            this.parentElement?.classList.remove('input-focus');
+          }
+        });
+      });
+    }
   });
 </script> 
