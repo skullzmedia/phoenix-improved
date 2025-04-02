@@ -1,4 +1,4 @@
----
+--- 
 import Layout from '../layouts/Layout.astro';
 import HeroSlider from '../components/HeroSlider.astro';
 import LuxuryExperience from '../components/LuxuryExperience.astro';
@@ -8,33 +8,41 @@ import ExploreGallery from '../components/ExploreGallery.astro';
 import WallOfFame from '../components/WallOfFame.astro';
 import Entertainment from '../components/Entertainment.astro';
 import Packages from '../components/Packages.astro';
----
-
+--- 
 
 <Layout title="Phoenix Casino Goa - Luxury Gaming & Entertainment">
   <main>
-    <HeroSlider />
-    
-    <!-- Wrap LuxuryExperience in a centering container -->
-    <div class="luxury-experience-wrapper">
-      <LuxuryExperience />
+    <div class="main-container">
+      <HeroSlider />
+
+      <!-- Wrap LuxuryExperience in a centering container -->
+      <div class="luxury-experience-wrapper">
+        <LuxuryExperience />
+      </div>
+
+      <PhoenixExperience />
+      <LatestOffers />
+      <ExploreGallery />
+      <WallOfFame />
+      <Entertainment />
+      <Packages />
     </div>
-    
-    <PhoenixExperience />
-    <LatestOffers />
-    <ExploreGallery />
-    <WallOfFame />
-    <Entertainment />
-    <Packages />
   </main>
 </Layout>
 
 <style>
+  /* Reset margins and disable horizontal scroll */
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
   /* Global box-sizing */
   *, *::before, *::after {
     box-sizing: border-box;
   }
-  
+
   main {
     width: 100%;
     margin: 0 auto;
@@ -42,14 +50,21 @@ import Packages from '../components/Packages.astro';
     text-align: left; /* Default alignment on larger screens */
   }
 
+  /* Center the content with a maximum width */
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
   /* Center the LuxuryExperience section */
   .luxury-experience-wrapper {
     margin: 0 auto;
-    max-width: 1200px; /* Or any width that fits your design */
+    max-width: 1200px;
     text-align: center;
   }
   
-  /* For smaller screens, center main content */
+  /* For smaller screens, center the main content */
   @media (max-width: 768px) {
     main {
       padding: 0 1rem;

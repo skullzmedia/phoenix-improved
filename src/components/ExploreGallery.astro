@@ -1,5 +1,7 @@
 ---
 import { Image } from 'astro:assets';
+
+// Import images
 import amenity1 from "../assets/gallery/amenities/1.jpg";
 import amenity2 from "../assets/gallery/amenities/2.jpg";
 import amenity3 from "../assets/gallery/amenities/3.jpg";
@@ -39,251 +41,344 @@ import celebrities11 from "../assets/gallery/celebrities/11.jpg";
 import celebrities12 from "../assets/gallery/celebrities/12.jpg";
 import celebrities13 from "../assets/gallery/celebrities/13.jpg";
 
+// Categories and Gallery Items
 const categories = [
-    { id: 'all', label: 'All' },
-    { id: 'gaming', label: 'Gaming' },
-    { id: 'entertainment', label: 'Entertainment' },
-    { id: 'ambiance', label: 'Ambiance' },
-    { id: 'food', label: 'Food' },
-    { id: 'celebrities', label: 'Celebrities' },
-    { id: 'amenities', label: 'Amenities' }
+  { id: 'all', label: 'All' },
+  { id: 'gaming', label: 'Gaming' },
+  { id: 'entertainment', label: 'Entertainment' },
+  { id: 'ambiance', label: 'Ambiance' },
+  { id: 'food', label: 'Food' },
+  { id: 'celebrities', label: 'Celebrities' },
+  { id: 'amenities', label: 'Amenities' }
 ];
 
 const galleryItems = [
-    // Amenities
-    { image: amenity1, alt: "Luxury Amenities", width: 800, height: 1000, category: "amenities" },
-    { image: amenity2, alt: "VIP Lounge", width: 800, height: 1000, category: "amenities" },
-    { image: amenity3, alt: "Private Suites", width: 800, height: 1000, category: "amenities" },
-    { image: amenity4, alt: "Premium Services", width: 800, height: 1000, category: "amenities" },
-
-    // Gaming
-    { image: gaming1, alt: "Slot Machines", width: 800, height: 1000, category: "gaming" },
-    { image: gaming2, alt: "Poker Tables", width: 800, height: 1000, category: "gaming" },
-    { image: gaming3, alt: "Roulette Wheel", width: 800, height: 1000, category: "gaming" },
-    { image: gaming4, alt: "Blackjack Table", width: 800, height: 1000, category: "gaming" },
-    { image: gaming5, alt: "Chip Stacks", width: 800, height: 1000, category: "gaming" },
-
-    // Entertainment
-    { image: entertainment1, alt: "Live Band", width: 800, height: 1000, category: "entertainment" },
-    { image: entertainment2, alt: "DJ Performance", width: 800, height: 1000, category: "entertainment" },
-    { image: entertainment3, alt: "Stage Show", width: 800, height: 1000, category: "entertainment" },
-    { image: entertainment4, alt: "Dance Floor", width: 800, height: 1000, category: "entertainment" },
-    { image: entertainment5, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
-
-    // Ambiance
-    { image: ambiance1, alt: "Lobby View", width: 800, height: 1000, category: "ambiance" },
-    { image: ambiance2, alt: "Chandeliers", width: 800, height: 1000, category: "ambiance" },
-    { image: ambiance3, alt: "Bar Area", width: 800, height: 1000, category: "ambiance" },
-    { image: ambiance4, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
-
-    // Food & Drinks
-    { image: food1, alt: "Gourmet Dishes", width: 800, height: 1000, category: "food" },
-    { image: food2, alt: "Cocktail Bar", width: 800, height: 1000, category: "food" },
-    { image: food3, alt: "Dessert Spread", width: 800, height: 1000, category: "food" },
-    { image: food4, alt: "Wine Selection", width: 800, height: 1000, category: "food" },
-    { image: food5, alt: "Chef's Special", width: 800, height: 1000, category: "food" },
-    { image: food6, alt: "Appetizers", width: 800, height: 1000, category: "food" },
-    { image: food7, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
-    // Celebrities
-    { image: celebrities1, alt: "Celebrity Appearance", width: 800, height: 1000, category: "celebrities" },
-    { image: celebrities2, alt: "Star Guest", width: 800, height: 1000, category: "celebrities" },
-    { image: celebrities3, alt: "VIP Entry", width: 800, height: 1000, category: "celebrities" },
-    { image: celebrities4, alt: "Red Carpet", width: 800, height: 1000, category: "celebrities" },
-    { image: celebrities5, alt: "Celebrity Meet", width: 800, height: 1000, category: "celebrities" },
-    { image: celebrities6, alt: "Famous Performer", width: 800, height: 1000, category: "celebrities" },
-    { image: celebrities7, alt: "Star Interaction", width: 800, height: 1000, category: "celebrities" },
-    { image: celebrities8, alt: "Celebrity Host", width: 800, height: 1000, category: "celebrities" },
-    { image: celebrities9, alt: "VIP Experience", width: 800, height: 1000, category: "celebrities" },
-    { image: celebrities10, alt: "Exclusive Event", width: 800, height: 1000, category: "celebrities" },
-    { image: celebrities11, alt: "Star Performance", width: 800, height: 1000, category: "celebrities" },
-    { image: celebrities12, alt: "Celebrity Guest", width: 800, height: 1000, category: "celebrities" },
-    { image: celebrities13, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" }
+  // Amenities
+  { image: amenity1, alt: "Luxury Amenities", width: 800, height: 1000, category: "amenities" },
+  { image: amenity2, alt: "VIP Lounge", width: 800, height: 1000, category: "amenities" },
+  { image: amenity3, alt: "Private Suites", width: 800, height: 1000, category: "amenities" },
+  { image: amenity4, alt: "Premium Services", width: 800, height: 1000, category: "amenities" },
+  // Gaming
+  { image: gaming1, alt: "Slot Machines", width: 800, height: 1000, category: "gaming" },
+  { image: gaming2, alt: "Poker Tables", width: 800, height: 1000, category: "gaming" },
+  { image: gaming3, alt: "Roulette Wheel", width: 800, height: 1000, category: "gaming" },
+  { image: gaming4, alt: "Blackjack Table", width: 800, height: 1000, category: "gaming" },
+  { image: gaming5, alt: "Chip Stacks", width: 800, height: 1000, category: "gaming" },
+  // Entertainment
+  { image: entertainment1, alt: "Live Band", width: 800, height: 1000, category: "entertainment" },
+  { image: entertainment2, alt: "DJ Performance", width: 800, height: 1000, category: "entertainment" },
+  { image: entertainment3, alt: "Stage Show", width: 800, height: 1000, category: "entertainment" },
+  { image: entertainment4, alt: "Dance Floor", width: 800, height: 1000, category: "entertainment" },
+  { image: entertainment5, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
+  // Ambiance
+  { image: ambiance1, alt: "Lobby View", width: 800, height: 1000, category: "ambiance" },
+  { image: ambiance2, alt: "Chandeliers", width: 800, height: 1000, category: "ambiance" },
+  { image: ambiance3, alt: "Bar Area", width: 800, height: 1000, category: "ambiance" },
+  { image: ambiance4, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
+  // Food & Drinks
+  { image: food1, alt: "Gourmet Dishes", width: 800, height: 1000, category: "food" },
+  { image: food2, alt: "Cocktail Bar", width: 800, height: 1000, category: "food" },
+  { image: food3, alt: "Dessert Spread", width: 800, height: 1000, category: "food" },
+  { image: food4, alt: "Wine Selection", width: 800, height: 1000, category: "food" },
+  { image: food5, alt: "Chef's Special", width: 800, height: 1000, category: "food" },
+  { image: food6, alt: "Appetizers", width: 800, height: 1000, category: "food" },
+  { image: food7, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
+  // Celebrities
+  { image: celebrities1, alt: "Celebrity Appearance", width: 800, height: 1000, category: "celebrities" },
+  { image: celebrities2, alt: "Star Guest", width: 800, height: 1000, category: "celebrities" },
+  { image: celebrities3, alt: "VIP Entry", width: 800, height: 1000, category: "celebrities" },
+  { image: celebrities4, alt: "Red Carpet", width: 800, height: 1000, category: "celebrities" },
+  { image: celebrities5, alt: "Celebrity Meet", width: 800, height: 1000, category: "celebrities" },
+  { image: celebrities6, alt: "Famous Performer", width: 800, height: 1000, category: "celebrities" },
+  { image: celebrities7, alt: "Star Interaction", width: 800, height: 1000, category: "celebrities" },
+  { image: celebrities8, alt: "Celebrity Host", width: 800, height: 1000, category: "celebrities" },
+  { image: celebrities9, alt: "VIP Experience", width: 800, height: 1000, category: "celebrities" },
+  { image: celebrities10, alt: "Exclusive Event", width: 800, height: 1000, category: "celebrities" },
+  { image: celebrities11, alt: "Star Performance", width: 800, height: 1000, category: "celebrities" },
+  { image: celebrities12, alt: "Celebrity Guest", width: 800, height: 1000, category: "celebrities" },
+  { image: celebrities13, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" }
 ];
 ---
+
+<!-- Gallery Section -->
 <section class="gallery-section">
-    <div class="container">
-        <h2 class="section-title">EXPLORE OUR CASINO</h2>
-        
-        
-        <!-- Add mobile dropdown -->
-        <div class="category-filter-mobile">
-            <select class="category-select" aria-label="Filter gallery">
-                {categories.map(category => (
-                    <option value={category.id}>{category.label}</option>
-                ))}
-            </select>
-        </div>
-
-        <!-- Desktop filter buttons -->
-        <div class="category-filter">
-            {categories.map(category => (
-                <button 
-                    class="filter-btn" 
-                    data-category={category.id}
-                    data-active={category.id === 'all' ? 'true' : 'false'}
-                >
-                    {category.label}
-                </button>
-            ))}
-        </div>
-
-        <div class="gallery-container">
-            <div class="gallery-scroll">
-                {galleryItems.filter(item => item.image).map(item => (
-                    <div class="gallery-item" data-category={item.category}>
-                        <Image 
-                            src={item.image} 
-                            alt={item.alt} 
-                            width={item.width}
-                            height={item.height}
-                            quality={80}
-                            loading="lazy"
-                            class="gallery-image"
-                        />
-                    </div>
-                ))}
-                {/* Clone items for seamless animation */}
-                {galleryItems.filter(item => item.image).map(item => (
-                    <div class="gallery-item" data-category={item.category}>
-                        <Image 
-                            src={item.image} 
-                            alt={item.alt} 
-                            width={item.width}
-                            height={item.height}
-                            quality={80}
-                            loading="lazy"
-                            class="gallery-image"
-                        />
-                    </div>
-                ))}
-            </div>
-        </div>
+  <div class="container">
+    <h2 class="section-title">EXPLORE OUR CASINO</h2>
+    <!-- Mobile Dropdown Filter -->
+    <div class="category-filter-mobile">
+      <select class="category-select" aria-label="Filter gallery">
+        {categories.map(category => (
+          <option value={category.id}>{category.label}</option>
+        ))}
+      </select>
     </div>
+    <!-- Desktop Filter Buttons -->
+    <div class="category-filter">
+      {categories.map(category => (
+        <button
+          class="filter-btn"
+          data-category={category.id}
+          data-active={category.id === 'all' ? 'true' : 'false'}
+        >
+          {category.label}
+        </button>
+      ))}
+    </div>
+    <!-- Gallery Container -->
+    <div class="gallery-container" tabindex="0">
+      <div class="gallery-scroll">
+        {galleryItems.filter(item => item.image).map(item => (
+          <div class="gallery-item" data-category={item.category}>
+            <Image
+              src={item.image}
+              alt={item.alt}
+              width={item.width}
+              height={item.height}
+              quality={80}
+              loading="lazy"
+              class="gallery-image"
+            />
+          </div>
+        ))}
+        {/* Clone items for infinite scroll */}
+        {galleryItems.filter(item => item.image).map(item => (
+          <div class="gallery-item" data-category={item.category}>
+            <Image
+              src={item.image}
+              alt={item.alt}
+              width={item.width}
+              height={item.height}
+              quality={80}
+              loading="lazy"
+              class="gallery-image"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+    <!-- Navigation Arrow Buttons -->
+    <div class="arrow-buttons">
+      <button class="arrow-left" id="scrollLeft" aria-label="Scroll left">◀</button>
+      <button class="arrow-right" id="scrollRight" aria-label="Scroll right">▶</button>
+    </div>
+  </div>
 </section>
 
+<!-- Lightbox -->
 <div class="image-lightbox" id="imageLightbox">
-    <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
-    <button class="lightbox-arrow left" id="prevImage" aria-label="Previous image">◀</button>
-    <img src="" alt="" class="lightbox-image" id="lightboxImg">
-    <p class="lightbox-caption" id="lightboxCaption"></p>
-    <button class="lightbox-arrow right" id="nextImage" aria-label="Next image">▶</button>
-</div>
-
-
+  <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+  <button class="lightbox-arrow left" id="prevImage" aria-label="Previous image">◀</button>
+  <img src="" alt="" class="lightbox-image" id="lightboxImg">
+  <p class="lightbox-caption" id="lightboxCaption"></p>
+  <button class="lightbox-arrow right" id="nextImage" aria-label="Next image">▶</button>
 </div>
 
 <style>
-    .gallery-section {
-        padding: 2rem 0;
-        background-color: var(--color-bg);
-        position: relative;
-        overflow: hidden;
+  .gallery-section {
+    padding: 2rem 0;
+    background-color: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .category-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .filter-btn[data-active="true"] {
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .filter-btn[data-active="true"]::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+  }
+  .filter-btn:hover {
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gallery-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+    position: relative;
+    outline: none;
+  }
+  .gallery-container:focus {
+    outline: none;
+  }
+  .gallery-scroll {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    animation: scroll 10s linear infinite;
+    transition: transform 0.5s ease-in-out;
+  }
+  .gallery-scroll:hover {
+    animation-play-state: paused;
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
     }
-
-    .container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 2rem;
+    100% {
+      transform: translateX(-50%);
     }
-
-    .section-title {
-        font-size: 2.5rem;
-        text-align: center;
-        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 3rem;
-        font-weight: 700;
-        text-transform: uppercase;
-    }
-
-    .category-filter {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 3rem;
-        flex-wrap: wrap;
-    }
-
-    .filter-btn {
-        background: transparent;
-        border: none;
-        font-size: 1.1rem;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        position: relative;
-        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .filter-btn[data-active="true"] {
-        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .filter-btn[data-active="true"]::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 30px;
-        height: 2px;
-        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-    }
-
-    .filter-btn:hover {
-        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .gallery-container {
-        width: 100%;
-        overflow: hidden;
-        padding: 1rem 0;
-        position: relative;
-    }
-
-    .gallery-scroll {
-        display: flex;
-        gap: 1.5rem;
-        padding: 0 1rem;
-        animation: scroll 12s linear infinite;
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .gallery-scroll:hover {
-        animation-play-state: paused;
-    }
-    //
- .image-lightbox {
+  }
+  .gallery-item {
+    width: 200px;
+    aspect-ratio: 4/5;
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    transform: scale(1);
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  .gallery-item.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    margin: 0 -390px;
+    pointer-events: none;
+  }
+  .gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .gallery-item:hover .gallery-image {
+    transform: scale(1.05);
+  }
+  .gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(231, 201, 128, 0);
+    transition: background 0.3s ease;
+    border-radius: 12px;
+    pointer-events: none;
+  }
+  .gallery-item:hover::after {
+    background: rgba(231, 201, 128, 0.1);
+  }
+  .arrow-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .arrow-left,
+  .arrow-right {
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .arrow-left:hover,
+  .arrow-right:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(231, 201, 128, 0.3);
+  }
+  .image-lightbox {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-}
-
-.lightbox-image {
-    max-width: 80%;
+    padding: 20px;
+  }
+  .image-lightbox.active {
+    display: flex;
+  }
+  .lightbox-image {
+    max-width: 90%;
     max-height: 80vh;
-    display: block;
-}
-
-.lightbox-arrow {
+    object-fit: contain;
+    border: 3px solid rgba(231, 201, 128, 0.3);
+    border-radius: 8px;
+  }
+  .lightbox-caption {
+    color: #e7c980;
+    margin-top: 15px;
+    font-size: 18px;
+    text-align: center;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #e7c980;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .lightbox-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -294,463 +389,238 @@ const galleryItems = [
     cursor: pointer;
     padding: 10px;
     z-index: 10;
-}
-
-.lightbox-arrow.left {
+  }
+  .lightbox-arrow.left {
     left: 10px;
-}
-
-.lightbox-arrow.right {
+  }
+  .lightbox-arrow.right {
     right: 10px;
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-//
-.gallery-navigation{
-    align-item:center;
-}
-.arrow-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 20px;
-}
-
-.arrow-left,
-.arrow-right {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 24px;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background-color 0.3s;
-}
-
-.arrow-left:hover,
-.arrow-right:hover {
-    background-color: rgba(231, 201, 128, 0.7);
-}
-//
-/* Ensures that the gallery-navigation container spans the full width */
-.gallery-navigation {
-    position: relative;
+  }
+  .category-filter-mobile {
+    display: none;
+    margin-bottom: 2rem;
+  }
+  .category-select {
     width: 100%;
-    display: flex;
-    justify-content: center; /* Centers the buttons horizontally */
-    align-items: center; /* Centers the buttons vertically */
-    z-index: 1000; /* Ensures the navigation buttons stay on top */
-}
-
-/* Ensures the arrows are properly aligned */
-.gallery-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    padding: 10px 15px;
+    max-width: 300px;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    background: rgba(231, 201, 128, 0.1);
+    border: 1px solid rgba(231, 201, 128, 0.3);
+    color: #e7c980;
+    font-size: 1rem;
     cursor: pointer;
-    font-size: 20px;
-    z-index: 1000; /* Ensures the buttons stay on top */
-}
-
-.gallery-arrow.left {
-    left: 5%; /* You can adjust this value for proper spacing */
-}
-
-.gallery-arrow.right {
-    right: 5%; /* You can adjust this value for proper spacing */
-}
-
-
-
-    @keyframes scroll {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-50%);
-        }
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e7c980' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2em;
+  }
+  @media (max-width: 1024px) {
+    .section-title {
+      font-size: 2.5rem;
     }
-
     .gallery-item {
-        width: 200px;
-        aspect-ratio: 4/5;
-        position: relative;
-        flex-shrink: 0;
-        overflow: hidden;
-        border-radius: 12px;
-        transition: all 0.3s ease-in-out;
-        opacity: 1;
-        transform: scale(1);
-        margin: 0 10px;
-        cursor: pointer;
-        position: relative;
+      width: 350px;
+      height: 260px;
     }
-
-    .gallery-item.hidden {
-        opacity: 0;
-        transform: scale(0.95);
-        margin: 0 -390px; /* Adjust based on item width + gap */
-        pointer-events: none;
+  }
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+      width: 95%;
     }
-
-    .gallery-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
+    .section-title {
+      font-size: 2rem;
     }
-
-    .gallery-item:hover .gallery-image {
-        transform: scale(1.05);
+    .category-filter {
+      display: none;
     }
-
-    .gallery-item::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(231, 201, 128, 0);
-        transition: background 0.3s ease;
-        border-radius: 12px;
-        pointer-events: none;
-    }
-    
-    .gallery-item:hover::after {
-        background: rgba(231, 201, 128, 0.1);
-    }
-
-    @media (max-width: 1024px) {
-        .section-title {
-            font-size: 2.5rem;
-        }
-
-        .gallery-item {
-            width: 350px;
-            height: 260px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            padding: 0 1rem;
-            width: 95%;
-        }
-
-        .section-title {
-            font-size: 2rem;
-        }
-
-        .filter-btn {
-            font-size: 1rem;
-            padding: 0.4rem 0.8rem;
-        }
-
-        .gallery-item {
-            width: 300px;
-            height: 225px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .container {
-            width: 98%;
-            padding: 0 0.5rem;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-        }
-
-        .filter-btn {
-            font-size: 0.9rem;
-            padding: 0.3rem 0.6rem;
-        }
-
-        .gallery-item {
-            width: 250px;
-            height: 190px;
-        }
-    }
-
     .category-filter-mobile {
-        display: none;
-        margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      padding: 0 1rem;
     }
-
-    .category-select {
-        width: 100%;
-        max-width: 300px;
-        padding: 0.8rem 1rem;
-        border-radius: 8px;
-        background: rgba(231, 201, 128, 0.1);
-        border: 1px solid rgba(231, 201, 128, 0.3);
-        color: #e7c980;
-        font-size: 1rem;
-        cursor: pointer;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e7c980' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 1rem center;
-        background-size: 1.2em;
+    .filter-btn {
+      font-size: 1rem;
+      padding: 0.4rem 0.8rem;
     }
-
-    .category-select:focus {
-        outline: none;
-        border-color: #e7c980;
+    .gallery-item {
+      width: 300px;
+      height: 225px;
     }
-
-    .category-select option {
-        background: var(--color-bg);
-        color: #e7c980;
-        padding: 0.5rem;
+    .gallery-container {
+      padding: 0.5rem 0;
     }
-
-    @media (max-width: 768px) {
-        .category-filter {
-            display: none; /* Hide buttons on mobile */
-        }
-
-        .category-filter-mobile {
-            display: flex;
-            justify-content: center;
-            padding: 0 1rem;
-        }
-
-        .gallery-container {
-            padding: 0.5rem 0;
-        }
-
-        .gallery-scroll {
-            gap: 1rem;
-        }
+    .gallery-scroll {
+      gap: 1rem;
     }
-
-    /* Lightbox styles */
-    .image-lightbox {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        z-index: 10000;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 20px;
+  }
+  @media (max-width: 480px) {
+    .container {
+      width: 98%;
+      padding: 0 0.5rem;
     }
-    
-    .image-lightbox.active {
-        display: flex;
+    .section-title {
+      font-size: 1.8rem;
     }
-    
-    .lightbox-image {
-        max-width: 90%;
-        max-height: 80vh;
-        object-fit: contain;
-        border: 3px solid rgba(231, 201, 128, 0.3);
-        border-radius: 8px;
+    .filter-btn {
+      font-size: 0.9rem;
+      padding: 0.3rem 0.6rem;
     }
-    
-    .lightbox-caption {
-        color: #e7c980;
-        margin-top: 15px;
-        font-size: 18px;
-        text-align: center;
+    .gallery-item {
+      width: 250px;
+      height: 190px;
     }
-    
-    .lightbox-close {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        font-size: 40px;
-        color: #e7c980;
-        background: none;
-        border: none;
-        cursor: pointer;
-        line-height: 1;
-    }
+  }
 </style>
 
 <script>
-    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-    const galleryItems = document.querySelectorAll<HTMLElement>('.gallery-item');
-    const categorySelect = document.querySelector<HTMLSelectElement>('.category-select');
-    const scrollContainer = document.querySelector<HTMLElement>('.gallery-scroll');
-
-    function filterGallery(selectedCategory: string) {
-        // Simple approach with clean transitions
-        if (!scrollContainer) return;
-
-        // 1. Stop current animation completely
-        scrollContainer.style.animation = 'none';
-        
-        // 2. Hide all items first (with display:none for clean layout)
-        document.querySelectorAll<HTMLElement>('.gallery-item').forEach(item => {
-            if (selectedCategory !== 'all' && item.dataset.category !== selectedCategory) {
-                item.style.display = 'none';
-            } else {
-                item.style.display = 'block';
-            }
-        });
-        
-        // 3. Reset scroll position immediately
-        scrollContainer.style.transform = 'translateX(0)';
-        
-        // 4. Force browser to process layout changes
-        void scrollContainer.offsetWidth;
-        
-        // 5. Restart animation
-        setTimeout(() => {
-            scrollContainer.style.animation = 'scroll 12s linear infinite';
-        }, 50);
+  document.addEventListener("DOMContentLoaded", function () {
+    // Filter functionality for category buttons and mobile select
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const categorySelect = document.querySelector('.category-select');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const galleryScroll = document.querySelector('.gallery-scroll');
+    
+    function filterGallery(selectedCategory) {
+      // Stop current auto-scroll
+      galleryScroll.style.animationPlayState = 'paused';
+      galleryItems.forEach(item => {
+        if (selectedCategory === 'all' || item.getAttribute('data-category') === selectedCategory) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      // Reset scroll position
+      galleryScroll.style.transform = 'translateX(0)';
+      // Restart auto-scroll
+      setTimeout(() => {
+        galleryScroll.style.animationPlayState = 'running';
+      }, 50);
     }
-
+    
     filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.setAttribute('data-active', 'false'));
-            button.setAttribute('data-active', 'true');
-            
-            const selectedCategory = button.getAttribute('data-category')!;
-            filterGallery(selectedCategory);
-            
-            if (categorySelect) {
-                categorySelect.value = selectedCategory;
-            }
-        });
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.setAttribute('data-active', 'false'));
+        button.setAttribute('data-active', 'true');
+        const selectedCategory = button.getAttribute('data-category');
+        filterGallery(selectedCategory);
+        if (categorySelect) {
+          categorySelect.value = selectedCategory;
+        }
+      });
     });
-
+    
     if (categorySelect) {
-        categorySelect.addEventListener('change', (e) => {
-            const selectedCategory = (e.target as HTMLSelectElement).value;
-            filterGallery(selectedCategory);
-            
-            filterButtons.forEach(btn => {
-                btn.setAttribute('data-active', 
-                    btn.getAttribute('data-category') === selectedCategory ? 'true' : 'false'
-                );
-            });
+      categorySelect.addEventListener('change', (e) => {
+        const selectedCategory = e.target.value;
+        filterGallery(selectedCategory);
+        filterButtons.forEach(btn => {
+          btn.setAttribute('data-active', btn.getAttribute('data-category') === selectedCategory ? 'true' : 'false');
         });
+      });
     }
-
-    // After your existing code, add the lightbox functionality
-    const lightbox = document.getElementById('imageLightbox') as HTMLElement;
-    const lightboxImage = lightbox?.querySelector('.lightbox-image') as HTMLImageElement;
-    const lightboxCaption = lightbox?.querySelector('.lightbox-caption') as HTMLElement;
-    const lightboxClose = lightbox?.querySelector('.lightbox-close') as HTMLElement;
     
-    // Make all gallery items clickable
-    document.querySelectorAll('.gallery-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const img = item.querySelector('img');
-            if (img && lightbox && lightboxImage) {
-                // Get the source image URL (using currentSrc to get the responsive version)
-                const imgSrc = img.currentSrc || img.src;
-                
-                // Get the alt text for caption
-                const imgAlt = img.alt;
-                
-                // Set the lightbox content
-                lightboxImage.src = imgSrc;
-                lightboxImage.alt = imgAlt;
-                if (lightboxCaption) {
-                    lightboxCaption.textContent = imgAlt;
-                }
-                
-                // Show the lightbox
-                lightbox.classList.add('active');
-                
-                // Prevent scrolling on the body
-                document.body.style.overflow = 'hidden';
-            }
-        });
-    });
-    
-    // Close lightbox when clicking the close button
-    lightboxClose?.addEventListener('click', () => {
-        lightbox?.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-    
-    // Close lightbox when clicking outside the image
-    lightbox?.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-    
-    // Close lightbox with Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox?.classList.contains('active')) {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-    //
-    document.addEventListener("DOMContentLoaded", function () {
+    // Lightbox functionality
     const lightbox = document.getElementById("imageLightbox");
     const lightboxImg = document.getElementById("lightboxImg");
     const lightboxCaption = document.getElementById("lightboxCaption");
     const closeButton = document.querySelector(".lightbox-close");
     const prevButton = document.getElementById("prevImage");
     const nextButton = document.getElementById("nextImage");
-
     let galleryImages = Array.from(document.querySelectorAll(".gallery-item img"));
     let currentIndex = 0;
-
-    // Open Lightbox
-    galleryImages.forEach((img, index) => {
-        img.addEventListener("click", function () {
-            currentIndex = index;
-            updateLightbox();
-            lightbox.classList.add("active");
-        });
-    });
-
-    // Close Lightbox
-    closeButton.addEventListener("click", function () {
-        lightbox.classList.remove("active");
-    });
-
-    // Previous Image
-    prevButton.addEventListener("click", function () {
-        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-        updateLightbox();
-    });
-
-    // Next Image
-    nextButton.addEventListener("click", function () {
-        currentIndex = (currentIndex + 1) % galleryImages.length;
-        updateLightbox();
-    });
-
-    // Function to Update Lightbox Image
+    
     function updateLightbox() {
-        let img = galleryImages[currentIndex];
+      if (lightboxImg && lightboxCaption && galleryImages[currentIndex]) {
+        const img = galleryImages[currentIndex];
         lightboxImg.src = img.src;
         lightboxCaption.textContent = img.alt || "Image";
+      }
     }
-});
-
-</script> 
+    
+    galleryImages.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        currentIndex = index;
+        updateLightbox();
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      });
+    });
+    
+    closeButton?.addEventListener("click", () => {
+      lightbox?.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+    
+    prevButton?.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateLightbox();
+    });
+    
+    nextButton?.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      updateLightbox();
+    });
+    
+    document.addEventListener("keydown", (e) => {
+      if (lightbox?.classList.contains("active")) {
+        switch (e.key) {
+          case "Escape":
+            lightbox.classList.remove("active");
+            document.body.style.overflow = "";
+            break;
+          case "ArrowLeft":
+            prevButton?.click();
+            break;
+          case "ArrowRight":
+            nextButton?.click();
+            break;
+        }
+      }
+    });
+    
+    lightbox?.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+    
+    // Arrow button functionality to scroll 3 pics per click
+    const scrollLeftBtn = document.getElementById("scrollLeft");
+    const scrollRightBtn = document.getElementById("scrollRight");
+    if (scrollLeftBtn && scrollRightBtn && galleryScroll) {
+      // Calculate slide amount based on one item width (including margin) multiplied by 3
+      const firstItem = document.querySelector(".gallery-item");
+      let slideAmount = 0;
+      if (firstItem) {
+        const style = window.getComputedStyle(firstItem);
+        const width = firstItem.offsetWidth;
+        const marginLeft = parseFloat(style.marginLeft) || 0;
+        const marginRight = parseFloat(style.marginRight) || 0;
+        slideAmount = (width + marginLeft + marginRight) * 3;
+      }
+      
+      scrollLeftBtn.addEventListener("click", () => {
+        galleryScroll.style.animationPlayState = "paused";
+        galleryScroll.scrollLeft -= slideAmount;
+        setTimeout(() => {
+          galleryScroll.style.animationPlayState = "running";
+        }, 1000);
+      });
+      
+      scrollRightBtn.addEventListener("click", () => {
+        galleryScroll.style.animationPlayState = "paused";
+        galleryScroll.scrollLeft += slideAmount;
+        setTimeout(() => {
+          galleryScroll.style.animationPlayState = "running";
+        }, 1000);
+      });
+    }
+  });
+</script>
