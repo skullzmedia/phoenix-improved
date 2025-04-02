@@ -1,8 +1,15 @@
 ---
-// Navigation component
+import Layout from '../layouts/Layout.astro';
+import HeroSlider from '../components/HeroSlider.astro';
+import LuxuryExperience from '../components/LuxuryExperience.astro';
+import PhoenixExperience from '../components/PhoenixExperience.astro';
+import LatestOffers from '../components/LatestOffers.astro';
+import ExploreGallery from '../components/ExploreGallery.astro';
+import WallOfFame from '../components/WallOfFame.astro';
+import Entertainment from '../components/Entertainment.astro';
+import Packages from '../components/Packages.astro';
 ---
-import from '../pages/game.astro'
-import from '../pages/casino.astro'
+
 <nav class="navigation">
     <div class="page-transition"></div>
     <div class="nav-container">
@@ -87,7 +94,7 @@ import from '../pages/casino.astro'
                 <a href="/gallery" class="mobile-nav-link">GALLERY</a>
                 <a href="/contact" class="mobile-nav-link">CONTACT US</a>
                 <a href="/faq" class="mobile-nav-link">FAQ</a>
-                <a href="game" class="mobile-nav-link">GAME</a>
+                <a href="/game" class="mobile-nav-link">GAMES</a>
                 <a href="/blog" class="mobile-nav-link">BLOG</a>
             </div>
             
@@ -110,14 +117,8 @@ import from '../pages/casino.astro'
         transition: all 0.3s ease;
     }
 
-    .navigation.scrolled {
-        background-color: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-    }
-
     .nav-container {
-        max-width: 1300px;
+        max-width: 1300px; /* Increased width for better spacing */
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -254,7 +255,6 @@ import from '../pages/casino.astro'
     .mobile-nav-link {
         color: white;
         text-decoration: none;
-        /*font-size: 24px;*/
         font-weight: 600;
         letter-spacing: 1px;
         transition: color 0.3s ease;
@@ -294,7 +294,6 @@ import from '../pages/casino.astro'
         letter-spacing: 1px;
         transition: all 0.3s ease;
         display: inline-block;
-        /*margin-top: 1rem;*/
     }
     
     .mobile-cta-button:hover {
@@ -850,4 +849,4 @@ import from '../pages/casino.astro'
             });
         }
     });
-</script> 
+</script>
