@@ -72,7 +72,7 @@ You can also book your slot for teen Patti.
 
 Unique Selling Point Alert! Phoenix Casino’s hookah bar is a game-changer. After trying your luck, recharge with:
 
-20+ Flavors: From classic mint to exotic blueberry-mint.
+20+ Flavors: From classic mint to exotic lueberry-mint.
 
 Chill Vibes: Lounge under fairy lights with live acoustic music.
 
