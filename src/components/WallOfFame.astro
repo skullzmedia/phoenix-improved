@@ -47,15 +47,19 @@ const totalSlides = Math.ceil(celebrities.length / 4);
           ))}
         </div>
       </div>
-
-      <button class="nav-arrow wof-next-arrow" aria-label="Next slide">
+<button class="nav-arrow wof-next-arrow" aria-label="Next slide">
         <i class="fas fa-chevron-right"></i>
       </button>
+      
     </div>
   </div>
 </section>
 
 <style>
+/*
+
+
+*/
   .wall-of-fame {
     padding: 3rem 0;
     background-color: var(--color-bg);
@@ -65,7 +69,7 @@ const totalSlides = Math.ceil(celebrities.length / 4);
 
   .container {
     max-width: 1200px;
-    width: 92%;
+    width: 95%;
     margin: 0 auto;
   }
 
@@ -189,11 +193,11 @@ const totalSlides = Math.ceil(celebrities.length / 4);
   /* Mobile adjustments */
   @media (max-width: 480px) {
     .section-title {
-      font-size: 2.2rem;
+      font-size: 2.0rem;
     }
     /* Increase container padding on mobile for safe area */
     .wof-celebrities-container {
-      padding: 1rem 40px;
+      padding: 1rem 0px;
     }
     .wof-celebrity-item {
       flex: 0 0 100%;
@@ -220,10 +224,16 @@ const totalSlides = Math.ceil(celebrities.length / 4);
     }
     /* Reposition mobile arrows flush with the container edge */
     .wof-prev-arrow {
-      left: 0;
+      left: -27px;
     }
     .wof-next-arrow {
-      right: 0;
+      right: -27px;
+    }
+  }
+  @media(max-width:360px)
+  {
+    .section-title {
+      font-size: 1.8rem;
     }
   }
 </style>

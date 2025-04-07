@@ -255,7 +255,7 @@ const activeIndex = cards.findIndex(card => card.initialClass === 'active');
     }
 
     .slider-title {
-        font-size: 2.5rem;
+        /*font-size: 2.5rem;
         background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -265,20 +265,26 @@ const activeIndex = cards.findIndex(card => card.initialClass === 'active');
         line-height: 1;
         letter-spacing: -0.02em;
         position: relative;
-        z-index: 3;
+        z-index: 3;*/
+        font-size: 2.5rem;
+        text-align: center;
+        background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        position: relative;
     }
     
     .slider-title::after {
         content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: inherit;
-        filter: blur(15px);
-        opacity: 0.3;
-        z-index: -1;
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: #D4AF37;
+        margin: 1rem auto 0;
     }
 
     .slider-subtitle {
@@ -516,7 +522,7 @@ const activeIndex = cards.findIndex(card => card.initialClass === 'active');
         }
 
         .slider-title {
-            font-size: 1.6rem;
+            font-size: 2.0rem;
         }
 
         .slider-subtitle {
@@ -546,6 +552,12 @@ const activeIndex = cards.findIndex(card => card.initialClass === 'active');
 
         .card-label {
             font-size: 1.2rem;
+        }
+    }
+    @media(max-width:360px)
+    {
+        .slider-title {
+            font-size: 1.8rem;
         }
     }
 </style> 

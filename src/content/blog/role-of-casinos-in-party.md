@@ -1,7 +1,7 @@
 ---
 title: "From Gaming to Glamour: The Role of Casinos in Party"
 description: "Learn how casino events can elevate your party experience to the next level"
-pubDate: 2024-03-23
+pubDate: 2024-02-20
 author: "Events Team"
 image: "/blog/casino-party-scene.png"
 category: "Events"

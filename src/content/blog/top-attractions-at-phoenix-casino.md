@@ -1,7 +1,7 @@
 ---
 title: "Top Attractions at the Goa's Biggest Casino: Phoenix Casino"
 description: "Explore the most exciting attractions and amenities that make Phoenixx Casino a must-visit destination"
-pubDate: 2024-03-23
+pubDate: 2024-02-17
 author: "Entertainment Team"
 image: "/blog/top-attractions-phoenix-casino.png"
 category: "Entertainment"
