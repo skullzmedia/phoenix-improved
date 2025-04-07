@@ -3,10 +3,10 @@ title: "From Beaches to Hidden Places You Must Visit In Goa : A detailed guide t
 description: "This coastal paradise has something for everyone. To help you plan visit to Goa and explore the nightlife in Goa, here’s a detailed guide answering the most common questions—with a focus on genuine experiences and practical advice"
 pubDate: 2025-04-25
 author: "Marketing Team"
-image: "/blog/best-casino-in-panjim.png"
+image: "/blog/From-Beaches.jpg"
 category: "News"
 featured: true
-slug: "From Beaches to Hidden Places You Must Visit In Goa : A detailed guide to plan your next trip"
+slug: "From-Beaches-to-Hidden-Places-You-Must-Visit-In-Goa"
 ---
 
 #From Beaches to Hidden Places You Must Visit In Goa : A detailed guide to plan your next trip**  
