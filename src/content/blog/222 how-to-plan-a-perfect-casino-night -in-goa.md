@@ -1,10 +1,13 @@
-export const meta = { title: "How to Plan a Perfect Casino Night in Goa: A First-Timer’s Guide to Phoenix Casino, Candolim", 
-date: "2025-02-28T00:00:00.000Z", 
-excerpt: "Phoenix Casino in Goa stands out with its unique blend of gaming excitement, a luxurious hookah lounge, and one of the best F&B services making it a must-visit for first-timers. If you’re planning a memorable casino night here.", 
-author: "Phoenix Team", 
-coverImage: "/blog/roulette-game-in-best-casino-of-goa-phoenix-casino.png", 
-slug: "How-to-Plan-a-Perfect-Casino-Night-in-Goa-First-Timers-Guide-to-Phoenix-Casino-Candolim" };
-
+---
+title: "The Best Casino in Panjim: Explore the Nightlife and Entertainment at the Biggest Casino"
+description: "Discover why Phoenixx Casino is rated as the top casino destination in Panjim"
+pubDate: 2024-02-15
+author: "Marketing Team"
+image: "/blog/best-casino-in-panjim.png"
+category: "News"
+featured: true
+slug: "2222the-best-casino-in-panjim-explore-the-nightlife-and-entertainment-at-the-biggest-casino"
+---
 
 # How to Plan a Perfect Casino Night in Goa: A First-Timer’s Guide to Phoenix Casino, Candolim
 
