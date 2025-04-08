@@ -107,38 +107,43 @@ import Packages from '../components/Packages.astro';
 
 <style>
   .navigation {
-    background-color: rgba(0, 0, 0, 0.85);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    padding: 0.5rem 0;
-    transition: all 0.3s ease;
-  }
+  background-color: rgba(0, 0, 0, 0.85);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  margin: 0;
+  padding: 0; /* remove all padding */
+  transition: all 0.3s ease;
+}
+
 
   /* CHANGED: Removed max-width and margin: 0 auto to make nav full width */
   .nav-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* Keep or remove padding as desired for side spacing */
-    padding: 0 2rem;
-  }
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem; /* horizontal only */
+}
+
 
   .logo img {
-    height: 140px;
+    height: 125px;
     width: auto;
+    margin:0px;
+    padding:0px;
     position: relative;
     z-index: 1001; /* Ensure logo appears above mobile menu */
   }
 
   .nav-links {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100%; /* inherit nav-container height */
+}
 
   .nav-link {
     color: white;
