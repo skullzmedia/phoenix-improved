@@ -44,7 +44,7 @@ const sliderImages = [
                                 width={1400}
                                 height={600}
                                 quality={90}
-                                class="slider-image desktop-image"
+                                class={`slider-image desktop-image ${index === 0 ? 'slide-image-1' : ''}`}
                             />
                             <Image 
                                 src={slide.mobile}
@@ -131,6 +131,12 @@ const sliderImages = [
 </script>
 
 <style>
+    .slide-image-1 {
+    object-position: right center;
+    object-position:85% center; 
+}
+
+
     .hero-section {
         width: 100%;
         padding: 0 1rem;
