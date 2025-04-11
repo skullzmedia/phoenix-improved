@@ -317,8 +317,20 @@ import Packages from '../components/Packages.astro';
   .mobile-menu-toggle.active .bar:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
   }
+  @media (max-width: 1298px)
+  {
+    .nav-links{
+      gap:12px;
+    }
+  }
+  @media (max-width: 1198px)
+  {
+    .nav-links{
+      gap:5px;
+    }
+  }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1185px) {
     .desktop-nav {
       display: none;
     }
