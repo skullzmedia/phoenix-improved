@@ -154,15 +154,14 @@ const features = [
       min-width: 150px;
       margin: 0 auto;
   }
-  
-  .underline {
-      width: 60px;
-      height: 3px;
-      background-color: #D4AF37;
-      margin-top: 1.2rem;
-      margin-left: 0;
-      margin-right: auto;
-  }
+  h2::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: #D4AF37;
+        margin: 1rem auto 0;
+    }
   
   .desc{
       width: 100%;
