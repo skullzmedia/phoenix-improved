@@ -3,9 +3,15 @@ import { Image } from 'astro:assets';
 import PlaceholderImage from '../assets/latest_offers/placeholder.svg';
 import IndependenceDay from '../assets/entertainment/upcoming/event-two.png'
 import FreeOTPC from '../assets/entertainment/upcoming/event-one.png'
+import BikeMob from '../assets/banner/bike-mob.jpeg';
 
 const offers = [
-{
+    {
+    title: "Bikes & Bet Bash",
+    description: "Buy-in and stand a chance to win a Continental GT 650cc, Goan Classic 350cc or Hunter 350cc.",
+    image: BikeMob,
+  },
+    {
     title: "Free 500 OTPC",
     description: "Get Free 500 OTPC on our entry packages ( T&C apply )",
     image: FreeOTPC,
@@ -15,6 +21,7 @@ const offers = [
     description: "Celebrate Independence day with big wins and entertainmet.",
     image: IndependenceDay,
   }
+
 ];
 ---
 
@@ -24,7 +31,7 @@ const offers = [
         <p class="section-subtitle">Phoenixx casino is Goa's hub for endless winnings whilst having a gala time</p>
         
         <div class="offers-container">
-            {offers.length < 3 ? (
+            {offers.length < 4 ? (
                 <div class="offers-static">
                     {offers.map(offer => (
                         <a href="/contact" class="offer-card">

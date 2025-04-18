@@ -3,7 +3,7 @@ title: "The Best Casino in Panjim: Explore the Nightlife and Entertainment at th
 description: "Discover why Phoenixx Casino is rated as the top casino destination in Panjim"
 pubDate: 2024-02-15
 author: "Marketing Team"
-image: "/blog/best-casino-in-panjim.png"
+image: "/blog/best-casino-in-panjim.avif"
 category: "News"
 featured: true
 slug: "the-best-casino-in-panjim-explore-the-nightlife-and-entertainment-at-the-biggest-casino"

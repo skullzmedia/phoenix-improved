@@ -3,7 +3,7 @@ title: "The Biggest Casino in Goa: A Review of Its Features and Amenities"
 description: "Experience luxury gaming at Goa's largest casino destination"
 pubDate: 2024-02-16
 author: "Casino Management"
-image: "/blog/biggest-casino-in-goa.png"
+image: "/blog/biggest-casino-in-goa.avif"
 category: "News"
 featured: true
 slug: "the-biggest-casino-in-goa-a-review-of-its-features-and-amenities"

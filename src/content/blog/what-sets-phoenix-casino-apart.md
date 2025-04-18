@@ -3,7 +3,7 @@ title: "Big Casino in Goa: What Sets It Apart from Others"
 description: "Discover why Phoenixx Casino is the premier gaming destination in Goa, offering unmatched luxury and entertainment"
 pubDate: 2024-02-10
 author: "Phoenixx Team"
-image: "/blog/big-casino-in-goa.png"
+image: "/blog/big-casino-in-goa.avif"
 category: "Casino Games"
 featured: true
 slug: "big-casino-in-goa"

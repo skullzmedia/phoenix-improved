@@ -11,6 +11,7 @@ import RussianDancer from '../assets/entertainment/daily/russian_dancer.jpeg'
 import PlaceholderImage from '../assets/entertainment/placeholder.svg';
 import IndependenceDay from '../assets/entertainment/upcoming/indi.jpeg'
 import FreeOTPC from '../assets/entertainment/upcoming/free-otpc.png'
+import BikeDesk from '../assets/banner/bike-desktop.jpeg';
 
 // Daily Entertainment
 const dailyEntertainment = [
@@ -33,6 +34,11 @@ const dailyEntertainment = [
 
 // Upcoming Events
 const upcomingEvents = [
+  { 
+    title: "Bikes & Bet Bash",
+    description: "Buy-in and stand a chance to win a Continental GT 650cc, Goan Classic 350cc or Hunter 350cc.",
+    image: BikeDesk,
+  },
   {
     title: "Free 500 OTPC",
     description: "Get Free 500 OTPC on our entry packages ( T&C apply )",
@@ -42,7 +48,7 @@ const upcomingEvents = [
     title: "Independence Day Fiesta",
     description: "Celebrate Independence day with big wins and entertainmet.",
     image: IndependenceDay,
-  }
+  },
 ];
 
 // Past Events
@@ -154,7 +160,7 @@ const bannerSlides = [
       <p class="section-subtitle">Mark your calendar for these exciting upcoming events</p>
       
       <div class="events-container">
-        <div class={`events-scroll ${upcomingEvents.length > 3 ? 'scrollable' : 'non-scrollable'}`}>
+        <div class="events-scroll">
           {upcomingEvents.map(event => (
             <a href="/contact" class="event-card">
               <div class="event-image">
