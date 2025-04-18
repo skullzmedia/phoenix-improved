@@ -3,7 +3,7 @@ title: "Top 5 Casino Games to Try at a Casino in Goa"
 description: "Discover the most popular casino games that you must try at Phoenixx Casino"
 pubDate: 2024-02-18
 author: "Gaming Expert"
-image: "/blog/top-5-casino-games.png"
+image: "/blog/top-5-casino-games.avif"
 category: "Casino Games"
 featured: false
 slug : "top-5-casino-games-to-try-at-a-casino-in-goa"
