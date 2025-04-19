@@ -15,41 +15,95 @@ import BikeDesk from '../assets/banner/bike-desktop.jpeg';
 
 // Daily Entertainment Data
 const dailyEntertainment = [
-  { title: "Russian Dancers", description: "Experience the art and elegance of Russian dancers as they perform traditional and contemporary routines that captivate and mesmerize.", image: RussianDancer },
-  { title: "Live Music & Bollywood Dance", description: "Enjoy electrifying live music performances by talented artists and bands, creating the perfect ambience for your casino experience.", image: LivePerformances },
-  { title: "Live Games & Giveaways", description: "Participate in exciting live games and stand a chance to win amazing prizes in our regular giveaways throughout the evening.", image: DailyGiveAways }
+  {
+    title: "Russian Dancers",
+    description: "Experience the art and elegance of Russian dancers as they perform traditional and contemporary routines that captivate and mesmerize.",
+    image: RussianDancer,
+  },
+  {
+    title: "Live Music & Bollywood Dance",
+    description: "Enjoy electrifying live music performances by talented artists and bands, creating the perfect ambience for your casino experience.",
+    image: LivePerformances,
+  },
+  {
+    title: "Live Games & Giveaways",
+    description: "Participate in exciting live games and stand a chance to win amazing prizes in our regular giveaways throughout the evening.",
+    image: DailyGiveAways,
+  },
 ];
 
 // Upcoming Events Data
 const upcomingEvents = [
-  { title: "Bikes & Bet Bash", description: "Buy-in and stand a chance to win a Continental GT 650cc, Goan Classic 350cc or Hunter 350cc.", image: BikeDesk },
-  { title: "Free 500 OTPC", description: "Get Free 500 OTPC on our entry packages (T&C apply).", image: FreeOTPC },
-  { title: "Independence Day Fiesta", description: "Celebrate Independence Day with big wins and entertainment.", image: IndependenceDay }
+  {
+    title: "Bikes & Bet Bash",
+    description: "Buy-in and stand a chance to win a Continental GT 650cc, Goan Classic 350cc or Hunter 350cc.",
+    image: BikeDesk,
+  },
+  {
+    title: "Free 500 OTPC",
+    description: "Get Free 500 OTPC on our entry packages (T&C apply).",
+    image: FreeOTPC,
+  },
+  {
+    title: "Independence Day Fiesta",
+    description: "Celebrate Independence Day with big wins and entertainment.",
+    image: IndependenceDay,
+  },
 ];
 
 // Past Events Data
 const pastEvents = [
-  { title: "New Year's Eve Bash", description: "Our spectacular New Year celebration featuring celebrity performances and breathtaking fireworks.", video: "https://www.youtube.com/embed/oMvX-g5jKxE", date: "Dec 31, 2024" },
-  { title: "Celebrity Night Extravaganza", description: "A dazzling fashion showcase feat. Urvashi Rautela, Sonal Chauhan & Amyra Uttam.", video: "https://youtube.com/embed/yzPjaQ8jrtQ", date: "Feb 20, 2025" }
+  {
+    title: "New Year's Eve Bash",
+    description: "Our spectacular New Year celebration featuring celebrity performances and breathtaking fireworks.",
+    video: "https://www.youtube.com/embed/oMvX-g5jKxE",
+    date: "Dec 31, 2024",
+  },
+  {
+    title: "Celebrity Night Extravaganza",
+    description: "A dazzling fashion showcase feat. Urvashi Rautela, Sonal Chauhan & Amyra Uttam.",
+    video: "https://youtube.com/embed/yzPjaQ8jrtQ",
+    date: "Feb 20, 2025",
+  },
 ];
 
 // Banner Slides Data
 const bannerSlides = [
-  { image: EntertainmentBanner, alt: "Entertainment at Phoenixx Casino", title: "EXPERIENCE THE MAGIC", subtitle: "Unforgettable entertainment experiences await you" },
-  { image: RussianDance, alt: "Live Performances", title: "LIVE PERFORMANCES", subtitle: "Enjoy electrifying shows by talented artists" },
-  { image: CelebrityBanner, alt: "Celebrity Appearances", title: "CELEBRITY APPEARANCES", subtitle: "Meet your favorite stars at our exclusive events" }
+  {
+    image: EntertainmentBanner,
+    alt: "Entertainment at Phoenixx Casino",
+    title: "EXPERIENCE THE MAGIC",
+    subtitle: "Unforgettable entertainment experiences await you",
+  },
+  {
+    image: RussianDance,
+    alt: "Live Performances",
+    title: "LIVE PERFORMANCES",
+    subtitle: "Enjoy electrifying shows by talented artists",
+  },
+  {
+    image: CelebrityBanner,
+    alt: "Celebrity Appearances",
+    title: "CELEBRITY APPEARANCES",
+    subtitle: "Meet your favorite stars at our exclusive events",
+  },
 ];
 ---
 
 <Layout title="Entertainment | Phoenixx Casino">
-
   <!-- Banner Section -->
   <section class="entertainment-banner">
     <div class="banner-slider">
       <div class="slides-container">
         {bannerSlides.map((slide, idx) => (
           <div class="slide" data-index={idx}>
-            <Image src={slide.image} alt={slide.alt} width={1400} height={600} class="slide-image" />
+            <Image
+              src={slide.image}
+              alt={slide.alt}
+              width={1400}
+              height={600}
+              class="slide-image"
+            />
             <div class="slide-content">
               <h1>{slide.title}</h1>
               <p>{slide.subtitle}</p>
@@ -75,7 +129,13 @@ const bannerSlides = [
       <div class="entertainment-grid">
         {dailyEntertainment.map((item, idx) => (
           <div key={idx} class="entertainment-card">
-            <Image src={item.image} alt={item.title} width={600} height={400} class="card-img" />
+            <Image
+              src={item.image}
+              alt={item.title}
+              width={600}
+              height={400}
+              class="card-img"
+            />
             <div class="card-content">
               <h3>{item.title}</h3>
               <p>{item.description}</p>
@@ -94,7 +154,13 @@ const bannerSlides = [
       <div class="entertainment-grid">
         {upcomingEvents.map((event, idx) => (
           <a key={idx} href="/contact" class="entertainment-card">
-            <Image src={event.image} alt={event.title} width={600} height={400} class="card-img" />
+            <Image
+              src={event.image}
+              alt={event.title}
+              width={600}
+              height={400}
+              class="card-img"
+            />
             <div class="card-content">
               <h3>{event.title}</h3>
               <p>{event.description}</p>
@@ -115,7 +181,13 @@ const bannerSlides = [
           {pastEvents.map((ev, idx) => (
             <div key={idx} class="video-card">
               <div class="video-frame">
-                <iframe src={ev.video} title={ev.title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe
+                  src={ev.video}
+                  title={ev.title}
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
               </div>
               <div class="video-content">
                 <h3>{ev.title}</h3>
@@ -130,10 +202,8 @@ const bannerSlides = [
   </section>
 
   <!-- Celebrities Section -->
-  <section id="celebrities">
-    <WallOfFame />
+  <section id="celebrities">\n    <WallOfFame />
   </section>
-
 </Layout>
 
 <style>
@@ -189,17 +259,17 @@ const bannerSlides = [
 .prev { left: 20px; }
 .next { right: 20px; }
 .banner-dots {
-  position: absolute; bottom: 30px; left: 50%; transform:translateX(-50%); display:flex; gap:8px;
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px;
 }
-.dot { width: 10px; height: 10px; border-radius:50%; background: rgba(255,255,255,.5); cursor: pointer; }
-.dot.active { background: #D4AF37; transform:scale(1.2); }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.5); cursor: pointer; }
+.dot.active { background: #D4AF37; transform: scale(1.2); }
 
-/* Card Grid (Daily & Upcoming) */
+/* Grid for Cards */
 .entertainment-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  padding: 0 2rem;
 }
 .entertainment-card {
   background: #111;
@@ -223,7 +293,7 @@ const bannerSlides = [
 /* Past Events */
 .videos-container { overflow-x: auto; padding: 1rem 2rem; }
 .videos-scroll { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
-.video-card { background: #111; border-radius: 10px; overflow:hidden; width: 300px; }
+.video-card { background: #111; border-radius: 10px; overflow: hidden; width: 300px; }
 .video-frame { position: relative; padding-top: 56.25%; }
 .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
 .video-content { padding: 1rem; }
@@ -237,13 +307,13 @@ const bannerSlides = [
 }
 @media (max-width: 600px) {
   .container { padding: 0 1rem; }
-  .entertainment-grid { padding: 0 1rem; }
-  .video-card { width: 100%; }
+  .entertainment-grid { padding: 0 1rem; justify-items: center; grid-template-columns: 1fr; }
+  .card-img { height: 180px; }
+  .video-card { width: 100%; max-width: none; }
 }
 </style>
 
 <script>
-// Banner Slider
 document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dot');
