@@ -46,6 +46,16 @@ import celebrities11 from "../assets/gallery/celebrities/11.jpg";
 import celebrities12 from "../assets/gallery/celebrities/12.jpg";
 import celebrities13 from "../assets/gallery/celebrities/13.jpg";
 
+const categories = [
+  { id: 'all',           label: 'All' },
+  { id: 'amenities',     label: 'Amenities' },
+  { id: 'gaming',        label: 'Gaming' },
+  { id: 'entertainment', label: 'Entertainment' },
+  { id: 'ambiance',      label: 'Ambiance' },
+  { id: 'food',          label: 'Food' },
+  { id: 'celebrities',   label: 'Celebrities' },
+];
+
 const items = [
   { src: amenity1,    category: "amenities" },
   { src: amenity2,    category: "amenities" },
@@ -91,27 +101,33 @@ const items = [
 <section class="gallery-section">
   <h2 class="section-title">EXPLORE OUR CASINO</h2>
 
+  <!-- Desktop buttons -->
   <div class="category-filter">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="amenities">Amenities</button>
-    <button class="filter-btn" data-filter="gaming">Gaming</button>
-    <button class="filter-btn" data-filter="entertainment">Entertainment</button>
-    <button class="filter-btn" data-filter="ambiance">Ambiance</button>
-    <button class="filter-btn" data-filter="food">Food</button>
-    <button class="filter-btn" data-filter="celebrities">Celebrities</button>
+    {categories.map(cat => (
+      <button class="filter-btn" data-filter={cat.id}>{cat.label}</button>
+    ))}
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div class="category-filter-mobile">
+    <select class="filter-select" aria-label="Filter gallery">
+      {categories.map(cat => (
+        <option value={cat.id}>{cat.label}</option>
+      ))}
+    </select>
   </div>
 
   <div class="gallery-wrapper">
     <button class="gallery-arrow left" aria-label="Previous">❮</button>
     <div class="gallery-scroll" data-filter="all">
-      {items.map((item, i) => (
-        <div class="gallery-item" data-category={item.category} key={`dup1-${i}`}>
-          <Image src={item.src} alt="" width={800} height={1000} class="gallery-image" loading="lazy" />
+      {items.map((it, i) => (
+        <div class="gallery-item" data-category={it.category} key={`dup1-${i}`}>
+          <Image src={it.src} alt="" width={800} height={1000} class="gallery-image" loading="lazy" />
         </div>
       ))}
-      {items.map((item, i) => (
-        <div class="gallery-item" data-category={item.category} key={`dup2-${i}`}>
-          <Image src={item.src} alt="" width={800} height={1000} class="gallery-image" loading="lazy" />
+      {items.map((it, i) => (
+        <div class="gallery-item" data-category={it.category} key={`dup2-${i}`}>
+          <Image src={it.src} alt="" width={800} height={1000} class="gallery-image" loading="lazy" />
         </div>
       ))}
     </div>
@@ -128,10 +144,10 @@ const items = [
 </div>
 
 <style>
-  .gallery-section { padding: 2rem 0; background: var(--color-bg); }
+  .gallery-section { padding:2rem 0; background:var(--color-bg); }
   .section-title {
-    text-align: center; font-size: 2.5rem; margin-bottom:1.5rem;
-    background: linear-gradient(90deg,#e7c980,#9e8253);
+    text-align:center; font-size:2.5rem; margin-bottom:1.5rem;
+    background:linear-gradient(90deg,#e7c980,#9e8253);
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
   }
 
@@ -145,17 +161,44 @@ const items = [
   }
   .filter-btn.active, .filter-btn:hover { opacity:1; }
 
+  .category-filter-mobile {
+    display:none; justify-content:center; margin-bottom:1.5rem;
+  }
+  .filter-select {
+    padding:.5rem 1rem; font-size:1rem;
+    border-radius:8px; border:1px solid rgba(231,201,128,0.5);
+    background:rgba(231,201,128,0.1); color:#e7c980;
+  }
+
   .gallery-wrapper { position:relative; overflow:hidden; }
   .gallery-scroll {
     display:flex; gap:1rem; width:max-content;
-    /* no animation here—set via JS */
     will-change:transform;
   }
-  @keyframes scrollGallery { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
-  .gallery-scroll:hover { animation-play-state:paused; }
+
+  @keyframes scrollGallery {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* pause on hover of wrapper OR scroll container */
+  .gallery-wrapper:hover .gallery-scroll,
+  .gallery-scroll:hover {
+    animation-play-state: paused !important;
+  }
+
+  /* image glow + pop */
+  .gallery-image {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gallery-item:hover .gallery-image {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(231, 201, 128, 0.7);
+    z-index: 2;
+  }
 
   /* filters */
-  .gallery-scroll[data-filter="all"] .gallery-item { display:block; }
+  .gallery-scroll[data-filter="all"]     .gallery-item { display:block; }
   .gallery-scroll[data-filter="amenities"]    .gallery-item:not([data-category="amenities"])    { display:none; }
   .gallery-scroll[data-filter="gaming"]       .gallery-item:not([data-category="gaming"])       { display:none; }
   .gallery-scroll[data-filter="entertainment"] .gallery-item:not([data-category="entertainment"]) { display:none; }
@@ -175,11 +218,10 @@ const items = [
   .gallery-arrow.left  { left:1rem; }
   .gallery-arrow.right { right:1rem; }
 
-  /* Lightbox */
   .lightbox {
     display:none; position:fixed; inset:0;
-    background:rgba(0,0,0,0.8); z-index:10000;
-    align-items:center; justify-content:center;
+    background:rgba(0,0,0,0.8); align-items:center; justify-content:center;
+    z-index:10000;
   }
   .lightbox.active { display:flex; }
   .lightbox-image {
@@ -194,12 +236,16 @@ const items = [
     position:absolute; top:50%; transform:translateY(-50%);
     background:rgba(0,0,0,0.5); color:#fff; border:none;
     width:2.5rem;height:2.5rem;border-radius:50%;cursor:pointer;
-    z-index:10001;display:flex;align-items:center;justify-content:center;
+    z-index:10001; display:flex;align-items:center;justify-content:center;
   }
   .lightbox-arrow.left  { left:2rem; }
   .lightbox-arrow.right { right:2rem; }
 
-  @media(max-width:768px){ .gallery-item{width:150px;} }
+  @media (max-width:768px) {
+    .gallery-item { width:150px; }
+    .category-filter { display:none; }
+    .category-filter-mobile { display:flex; }
+  }
 </style>
 
 <script type="module">
@@ -209,31 +255,29 @@ const items = [
     const gap        = parseInt(getComputedStyle(firstItem).marginRight) || 0;
     const step       = firstItem.clientWidth + gap;
     const arrows     = document.querySelectorAll('.gallery-arrow');
-    const filters    = document.querySelectorAll('.filter-btn');
-    const baseDur    = 40; // seconds
+    const buttons    = document.querySelectorAll('.filter-btn');
+    const select     = document.querySelector('.filter-select');
+    const baseDur    = 40;
     const initHalf   = scrollEl.scrollWidth / 2;
 
-    // initialize marquee inline
+    // initialize marquee
     scrollEl.style.animation = `scrollGallery ${baseDur}s linear infinite`;
     scrollEl.style.animationDelay = `0s`;
 
     function jump(dir) {
       scrollEl.style.animationPlayState = 'paused';
-      // current X
       const matrix = getComputedStyle(scrollEl).transform;
       let curX = 0;
-      if (matrix && matrix.startsWith('matrix')) {
+      if (matrix.startsWith('matrix')) {
         const vals = matrix.slice(7, -1).split(', ');
         curX = parseFloat(vals[4]);
       }
       const newX = curX - dir * step * 3;
       scrollEl.style.transform = `translateX(${newX}px)`;
 
-      // recalc new duration
       const newHalf = scrollEl.scrollWidth / 2;
       const newDur  = (newHalf * baseDur) / initHalf;
       scrollEl.style.animation = `scrollGallery ${newDur}s linear infinite`;
-      // compute delay for continuity
       const off  = ((newX % -newHalf) + -newHalf) % -newHalf;
       const frac = off / -newHalf;
       scrollEl.style.animationDelay = `-${frac * newDur}s`;
@@ -251,28 +295,30 @@ const items = [
       }
     });
 
-    filters.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filters.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const cat = btn.dataset.filter;
-        scrollEl.setAttribute('data-filter', cat);
+    function applyFilter(cat) {
+      scrollEl.setAttribute('data-filter', cat);
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
+      if (select) select.value = cat;
 
-        // re-init marquee so speed stays constant
-        const newHalf2 = scrollEl.scrollWidth / 2;
-        const newDur2  = (newHalf2 * baseDur) / initHalf;
-        scrollEl.style.animation = `scrollGallery ${newDur2}s linear infinite`;
-        scrollEl.style.animationDelay = '0s';
-      });
+      const newHalf2 = scrollEl.scrollWidth / 2;
+      const newDur2  = (newHalf2 * baseDur) / initHalf;
+      scrollEl.style.animation = `scrollGallery ${newDur2}s linear infinite`;
+      scrollEl.style.animationDelay = `0s`;
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
     });
+    if (select) {
+      select.addEventListener('change', () => applyFilter(select.value));
+    }
 
-    // Lightbox setup
+    // Lightbox
     const lb       = document.getElementById('lightbox');
     const lbImg    = lb.querySelector('.lightbox-image');
     const lbClose  = lb.querySelector('.lightbox-close');
     const lbPrev   = lb.querySelector('.lightbox-arrow.left');
     const lbNext   = lb.querySelector('.lightbox-arrow.right');
-    // collect unique srcs
     const allImgs  = Array.from(document.querySelectorAll('.gallery-item img')).map(i => i.src);
     const imgs     = allImgs.slice(0, allImgs.length / 2);
     let idx = 0;
