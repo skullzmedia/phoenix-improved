@@ -1,4 +1,5 @@
 ---
+/* src/components/ExploreCasinoGallery.astro */
 import { Image } from 'astro:assets';
 
 import amenity1 from "../assets/gallery/amenities/1.jpg";
@@ -6,11 +7,11 @@ import amenity2 from "../assets/gallery/amenities/2.jpg";
 import amenity3 from "../assets/gallery/amenities/3.jpg";
 import amenity4 from "../assets/gallery/amenities/4.jpg";
 
-import gaming1 from "../assets/gallery/gaming/1.jpg";
-import gaming2 from "../assets/gallery/gaming/2.jpg";
-import gaming3 from "../assets/gallery/gaming/3.jpg";
-import gaming4 from "../assets/gallery/gaming/4.jpg";
-import gaming5 from "../assets/gallery/gaming/5.jpg";
+import gaming1  from "../assets/gallery/gaming/1.jpg";
+import gaming2  from "../assets/gallery/gaming/2.jpg";
+import gaming3  from "../assets/gallery/gaming/3.jpg";
+import gaming4  from "../assets/gallery/gaming/4.jpg";
+import gaming5  from "../assets/gallery/gaming/5.jpg";
 
 import entertainment1 from "../assets/gallery/entertainment/1.jpg";
 import entertainment2 from "../assets/gallery/entertainment/2.jpg";
@@ -23,701 +24,288 @@ import ambiance2 from "../assets/gallery/ambiance/2.jpg";
 import ambiance3 from "../assets/gallery/ambiance/3.jpg";
 import ambiance4 from "../assets/gallery/ambiance/4.jpg";
 
-import food1 from "../assets/gallery/food-and-drinks/1.jpg";
-import food2 from "../assets/gallery/food-and-drinks/2.jpg";
-import food3 from "../assets/gallery/food-and-drinks/3.jpg";
-import food4 from "../assets/gallery/food-and-drinks/4.jpg";
-import food5 from "../assets/gallery/food-and-drinks/5.jpg";
-import food6 from "../assets/gallery/food-and-drinks/6.jpg";
-import food7 from "../assets/gallery/food-and-drinks/7.jpg";
+import food1  from "../assets/gallery/food-and-drinks/1.jpg";
+import food2  from "../assets/gallery/food-and-drinks/2.jpg";
+import food3  from "../assets/gallery/food-and-drinks/3.jpg";
+import food4  from "../assets/gallery/food-and-drinks/4.jpg";
+import food5  from "../assets/gallery/food-and-drinks/5.jpg";
+import food6  from "../assets/gallery/food-and-drinks/6.jpg";
+import food7  from "../assets/gallery/food-and-drinks/7.jpg";
 
-import celebrities1 from "../assets/gallery/celebrities/1.jpg";
-import celebrities2 from "../assets/gallery/celebrities/2.jpg";
-import celebrities3 from "../assets/gallery/celebrities/3.jpg";
-import celebrities4 from "../assets/gallery/celebrities/4.jpg";
-import celebrities5 from "../assets/gallery/celebrities/5.jpg";
-import celebrities6 from "../assets/gallery/celebrities/6.jpg";
-import celebrities7 from "../assets/gallery/celebrities/7.jpg";
-import celebrities8 from "../assets/gallery/celebrities/8.jpg";
-import celebrities9 from "../assets/gallery/celebrities/9.jpg";
+import celebrities1  from "../assets/gallery/celebrities/1.jpg";
+import celebrities2  from "../assets/gallery/celebrities/2.jpg";
+import celebrities3  from "../assets/gallery/celebrities/3.jpg";
+import celebrities4  from "../assets/gallery/celebrities/4.jpg";
+import celebrities5  from "../assets/gallery/celebrities/5.jpg";
+import celebrities6  from "../assets/gallery/celebrities/6.jpg";
+import celebrities7  from "../assets/gallery/celebrities/7.jpg";
+import celebrities8  from "../assets/gallery/celebrities/8.jpg";
+import celebrities9  from "../assets/gallery/celebrities/9.jpg";
 import celebrities10 from "../assets/gallery/celebrities/10.jpg";
 import celebrities11 from "../assets/gallery/celebrities/11.jpg";
 import celebrities12 from "../assets/gallery/celebrities/12.jpg";
 import celebrities13 from "../assets/gallery/celebrities/13.jpg";
 
-const categories = [
-  { id: 'all', label: 'All' },
-  { id: 'gaming', label: 'Gaming' },
-  { id: 'entertainment', label: 'Entertainment' },
-  { id: 'ambiance', label: 'Ambiance' },
-  { id: 'food', label: 'Food' },
-  { id: 'celebrities', label: 'Celebrities' },
-  { id: 'amenities', label: 'Amenities' }
-];
-
-const galleryItems = [
-  // Amenities
-  { image: amenity1, alt: "Luxury Amenities", width: 800, height: 1000, category: "amenities" },
-  { image: amenity2, alt: "VIP Lounge", width: 800, height: 1000, category: "amenities" },
-  { image: amenity3, alt: "Private Suites", width: 800, height: 1000, category: "amenities" },
-  { image: amenity4, alt: "Premium Services", width: 800, height: 1000, category: "amenities" },
-
-  // Gaming
-  { image: gaming1, alt: "Slot Machines", width: 800, height: 1000, category: "gaming" },
-  { image: gaming2, alt: "Poker Tables", width: 800, height: 1000, category: "gaming" },
-  { image: gaming3, alt: "Roulette Wheel", width: 800, height: 1000, category: "gaming" },
-  { image: gaming4, alt: "Blackjack Table", width: 800, height: 1000, category: "gaming" },
-  { image: gaming5, alt: "Chip Stacks", width: 800, height: 1000, category: "gaming" },
-
-  // Entertainment
-  { image: entertainment1, alt: "Live Band", width: 800, height: 1000, category: "entertainment" },
-  { image: entertainment2, alt: "DJ Performance", width: 800, height: 1000, category: "entertainment" },
-  { image: entertainment3, alt: "Stage Show", width: 800, height: 1000, category: "entertainment" },
-  { image: entertainment4, alt: "Dance Floor", width: 800, height: 1000, category: "entertainment" },
-  { image: entertainment5, alt: "Nightlife", width: 800, height: 1000, category: "entertainment" },
-
-  // Ambiance
-  { image: ambiance1, alt: "Lobby View", width: 800, height: 1000, category: "ambiance" },
-  { image: ambiance2, alt: "Chandeliers", width: 800, height: 1000, category: "ambiance" },
-  { image: ambiance3, alt: "Bar Area", width: 800, height: 1000, category: "ambiance" },
-  { image: ambiance4, alt: "Interior Design", width: 800, height: 1000, category: "ambiance" },
-
-  // Food & Drinks
-  { image: food1, alt: "Gourmet Dishes", width: 800, height: 1000, category: "food" },
-  { image: food2, alt: "Cocktail Bar", width: 800, height: 1000, category: "food" },
-  { image: food3, alt: "Dessert Spread", width: 800, height: 1000, category: "food" },
-  { image: food4, alt: "Wine Selection", width: 800, height: 1000, category: "food" },
-  { image: food5, alt: "Chef's Special", width: 800, height: 1000, category: "food" },
-  { image: food6, alt: "Appetizers", width: 800, height: 1000, category: "food" },
-  { image: food7, alt: "Buffet Setup", width: 800, height: 1000, category: "food" },
-
-  // Celebrities
-  { image: celebrities1, alt: "Celebrity Appearance", width: 800, height: 1000, category: "celebrities" },
-  { image: celebrities2, alt: "Star Guest", width: 800, height: 1000, category: "celebrities" },
-  { image: celebrities3, alt: "VIP Entry", width: 800, height: 1000, category: "celebrities" },
-  { image: celebrities4, alt: "Red Carpet", width: 800, height: 1000, category: "celebrities" },
-  { image: celebrities5, alt: "Celebrity Meet", width: 800, height: 1000, category: "celebrities" },
-  { image: celebrities6, alt: "Famous Performer", width: 800, height: 1000, category: "celebrities" },
-  { image: celebrities7, alt: "Star Interaction", width: 800, height: 1000, category: "celebrities" },
-  { image: celebrities8, alt: "Celebrity Host", width: 800, height: 1000, category: "celebrities" },
-  { image: celebrities9, alt: "VIP Experience", width: 800, height: 1000, category: "celebrities" },
-  { image: celebrities10, alt: "Exclusive Event", width: 800, height: 1000, category: "celebrities" },
-  { image: celebrities11, alt: "Star Performance", width: 800, height: 1000, category: "celebrities" },
-  { image: celebrities12, alt: "Celebrity Guest", width: 800, height: 1000, category: "celebrities" },
-  { image: celebrities13, alt: "Famous Attendee", width: 800, height: 1000, category: "celebrities" }
+const items = [
+  { src: amenity1,    category: "amenities" },
+  { src: amenity2,    category: "amenities" },
+  { src: amenity3,    category: "amenities" },
+  { src: amenity4,    category: "amenities" },
+  { src: gaming1,     category: "gaming"    },
+  { src: gaming2,     category: "gaming"    },
+  { src: gaming3,     category: "gaming"    },
+  { src: gaming4,     category: "gaming"    },
+  { src: gaming5,     category: "gaming"    },
+  { src: entertainment1, category: "entertainment" },
+  { src: entertainment2, category: "entertainment" },
+  { src: entertainment3, category: "entertainment" },
+  { src: entertainment4, category: "entertainment" },
+  { src: entertainment5, category: "entertainment" },
+  { src: ambiance1,   category: "ambiance"  },
+  { src: ambiance2,   category: "ambiance"  },
+  { src: ambiance3,   category: "ambiance"  },
+  { src: ambiance4,   category: "ambiance"  },
+  { src: food1,       category: "food"      },
+  { src: food2,       category: "food"      },
+  { src: food3,       category: "food"      },
+  { src: food4,       category: "food"      },
+  { src: food5,       category: "food"      },
+  { src: food6,       category: "food"      },
+  { src: food7,       category: "food"      },
+  { src: celebrities1,  category: "celebrities" },
+  { src: celebrities2,  category: "celebrities" },
+  { src: celebrities3,  category: "celebrities" },
+  { src: celebrities4,  category: "celebrities" },
+  { src: celebrities5,  category: "celebrities" },
+  { src: celebrities6,  category: "celebrities" },
+  { src: celebrities7,  category: "celebrities" },
+  { src: celebrities8,  category: "celebrities" },
+  { src: celebrities9,  category: "celebrities" },
+  { src: celebrities10, category: "celebrities" },
+  { src: celebrities11, category: "celebrities" },
+  { src: celebrities12, category: "celebrities" },
+  { src: celebrities13, category: "celebrities" },
 ];
 ---
 
 <section class="gallery-section">
-  <div class="container">
-    <h2 class="section-title">EXPLORE OUR CASINO</h2>
+  <h2 class="section-title">EXPLORE OUR CASINO</h2>
 
-    <!-- Mobile Dropdown Filter -->
-    <div class="category-filter-mobile">
-      <select class="category-select" aria-label="Filter gallery">
-        {categories.map(category => (
-          <option value={category.id}>{category.label}</option>
-        ))}
-      </select>
-    </div>
+  <div class="category-filter">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="amenities">Amenities</button>
+    <button class="filter-btn" data-filter="gaming">Gaming</button>
+    <button class="filter-btn" data-filter="entertainment">Entertainment</button>
+    <button class="filter-btn" data-filter="ambiance">Ambiance</button>
+    <button class="filter-btn" data-filter="food">Food</button>
+    <button class="filter-btn" data-filter="celebrities">Celebrities</button>
+  </div>
 
-    <!-- Desktop Filter Buttons -->
-    <div class="category-filter">
-      {categories.map(category => (
-        <button
-          class="filter-btn"
-          data-category={category.id}
-          data-active={category.id === 'all' ? 'true' : 'false'}
-        >
-          {category.label}
-        </button>
+  <div class="gallery-wrapper">
+    <button class="gallery-arrow left" aria-label="Previous">❮</button>
+    <div class="gallery-scroll" data-filter="all">
+      {items.map((item, i) => (
+        <div class="gallery-item" data-category={item.category} key={`dup1-${i}`}>
+          <Image src={item.src} alt="" width={800} height={1000} class="gallery-image" loading="lazy" />
+        </div>
+      ))}
+      {items.map((item, i) => (
+        <div class="gallery-item" data-category={item.category} key={`dup2-${i}`}>
+          <Image src={item.src} alt="" width={800} height={1000} class="gallery-image" loading="lazy" />
+        </div>
       ))}
     </div>
-
-    <div class="gallery-container">
-      <div class="gallery-scroll">
-        {galleryItems.filter(item => item.image).map(item => (
-          <div class="gallery-item" data-category={item.category}>
-            <Image
-              src={item.image}
-              alt={item.alt}
-              width={item.width}
-              height={item.height}
-              quality={80}
-              loading="lazy"
-              class="gallery-image"
-            />
-          </div>
-        ))}
-        <!-- Duplicate items for seamless infinite scroll -->
-        {galleryItems.filter(item => item.image).map(item => (
-          <div class="gallery-item" data-category={item.category}>
-            <Image
-              src={item.image}
-              alt={item.alt}
-              width={item.width}
-              height={item.height}
-              quality={80}
-              loading="lazy"
-              class="gallery-image"
-            />
-          </div>
-        ))}
-        
-      </div>
-     <button class="gallery-arrow left arrow-left" aria-label="Previous slide">❮</button>
-      <button class="gallery-arrow right arrow-right" aria-label="Next slide">❯</button>
-    </div>
- <!-- Manual Arrow Navigation 
-    <div class="gallery-navigation">
-      <button class="allery-arrow left arrow-left" aria-label="Slide left">❮</button>
-      <button class="allery-arrow right arrow-right" aria-label="Slide right">❯</button>
-    </div>
-    -->
+    <button class="gallery-arrow right" aria-label="Next">❯</button>
   </div>
 </section>
 
-<!-- Lightbox for full-size image preview -->
-<div class="image-lightbox" id="imageLightbox">
-  <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
-  <button class="lightbox-arrow left" id="prevImage" aria-label="Previous image"><i class="fa-solid fa-angle-left"></i></button>
-  <img src="" alt="" class="lightbox-image" id="lightboxImg">
-  <p class="lightbox-caption" id="lightboxCaption"></p>
-  <button class="lightbox-arrow right" id="nextImage" aria-label="Next image"><i class="fa-solid fa-angle-right"></i></button>
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-arrow left" aria-label="Previous">❮</button>
+  <img class="lightbox-image" src="" alt="">
+  <button class="lightbox-arrow right" aria-label="Next">❯</button>
 </div>
+
 <style>
-  /* ========== General Layout ========== */
-  .gallery-section {
-    padding: 2rem 0;
-    background-color: var(--color-bg);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
+  .gallery-section { padding: 2rem 0; background: var(--color-bg); }
   .section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 3rem;
-    font-weight: 700;
-    text-transform: uppercase;
+    text-align: center; font-size: 2.5rem; margin-bottom:1.5rem;
+    background: linear-gradient(90deg,#e7c980,#9e8253);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
   }
 
-  /* ========== Filter Buttons ========== */
   .category-filter {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
+    display:flex; justify-content:center; gap:1rem; margin-bottom:1.5rem;
   }
-
   .filter-btn {
-    background: transparent;
-    border: none;
-    font-size: 1.1rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    position: relative;
-    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    transition: none;
+    background:transparent; border:none; padding:.5rem 1rem;
+    font-size:1rem; cursor:pointer; color:#e7c980; opacity:.6;
+    transition:opacity .2s;
   }
+  .filter-btn.active, .filter-btn:hover { opacity:1; }
 
-  .filter-btn[data-active="true"],
-  .filter-btn:hover {
-    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .filter-btn[data-active="true"]::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 2px;
-    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-  }
-
-  /* ========== Gallery Layout ========== */
-  .gallery-container {
-    width: 100%;
-    overflow: hidden;
-    padding: 1rem 0;
-    position: relative;
-  }
-
+  .gallery-wrapper { position:relative; overflow:hidden; }
   .gallery-scroll {
-    display: flex;
-    gap: 1.5rem;
-    padding: 0 1rem;
-    transition: none;
-    will-change: transform;
+    display:flex; gap:1rem; width:max-content;
+    /* no animation here—set via JS */
+    will-change:transform;
   }
+  @keyframes scrollGallery { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+  .gallery-scroll:hover { animation-play-state:paused; }
 
-  .gallery-item {
-    width: 200px;
-    aspect-ratio: 4/5;
-    flex-shrink: 0;
-    position: relative;
-  }
+  /* filters */
+  .gallery-scroll[data-filter="all"] .gallery-item { display:block; }
+  .gallery-scroll[data-filter="amenities"]    .gallery-item:not([data-category="amenities"])    { display:none; }
+  .gallery-scroll[data-filter="gaming"]       .gallery-item:not([data-category="gaming"])       { display:none; }
+  .gallery-scroll[data-filter="entertainment"] .gallery-item:not([data-category="entertainment"]) { display:none; }
+  .gallery-scroll[data-filter="ambiance"]     .gallery-item:not([data-category="ambiance"])     { display:none; }
+  .gallery-scroll[data-filter="food"]         .gallery-item:not([data-category="food"])         { display:none; }
+  .gallery-scroll[data-filter="celebrities"]  .gallery-item:not([data-category="celebrities"])  { display:none; }
 
-  .gallery-item.hidden {
-    opacity: 0;
-    transform: scale(0.95);
-    margin: 0 -390px;
-    pointer-events: none;
-  }
-
-  .gallery-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: none;
-  }
-
-  .gallery-item:hover .gallery-image {
-    transform: scale(1.05);
-  }
-
-  .gallery-item::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(231, 201, 128, 0);
-    transition: none;
-    border-radius: 12px;
-    pointer-events: none;
-  }
-
-  .gallery-item:hover::after {
-    background: rgba(231, 201, 128, 0.1);
-  }
-
-  /* ========== Arrow Navigation ========== */
-  .gallery-navigation {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    z-index: 1000;
-  }
+  .gallery-item { flex:0 0 auto; width:200px; aspect-ratio:4/5; cursor:pointer; }
+  .gallery-image { width:100%; height:100%; object-fit:cover; border-radius:8px; }
 
   .gallery-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    //background: rgba(212, 175, 55, 0.9);
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    width: clamp(30px, 5vw, 40px);
-    height: clamp(30px, 5vw, 40px);
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: clamp(0.8rem, 1.5vw, 1.2rem);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    z-index: 2;
+    position:absolute; top:50%; transform:translateY(-50%);
+    background:rgba(0,0,0,0.5); color:#fff; border:none;
+    width:2.5rem;height:2.5rem;border-radius:50%;cursor:pointer;
+    z-index:10; display:flex;align-items:center;justify-content:center;
   }
+  .gallery-arrow.left  { left:1rem; }
+  .gallery-arrow.right { right:1rem; }
 
-  .gallery-arrow:hover {
-    background-color: rgba(231, 201, 128, 0.7);
+  /* Lightbox */
+  .lightbox {
+    display:none; position:fixed; inset:0;
+    background:rgba(0,0,0,0.8); z-index:10000;
+    align-items:center; justify-content:center;
   }
-
-  .arrow-left {
-    left: clamp(0.5rem, 2vw, 1rem);
-    left: 10px;
-  }
-
-  .arrow-right {
-    right: clamp(0.5rem, 2vw, 1rem);
-    right: 10px;
-  }
-
-  /* ========== Lightbox ========== */
-  .image-lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 10000;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  .image-lightbox.active {
-    display: flex;
-  }
-
+  .lightbox.active { display:flex; }
   .lightbox-image {
-    max-width: 90%;
-    max-height: 80vh;
-    object-fit: contain;
-    border: 3px solid rgba(231, 201, 128, 0.3);
-    border-radius: 8px;
+    max-width:90%; max-height:80vh; object-fit:contain;
+    border:3px solid rgba(231,201,128,0.3); border-radius:8px;
   }
-
-  .lightbox-caption {
-    color: #e7c980;
-    margin-top: 15px;
-    font-size: 18px;
-    text-align: center;
-  }
-
   .lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: #e7c980;
-    background: none;
-    border: none;
-    cursor: pointer;
-    line-height: 1;
+    position:absolute; top:1rem; right:1rem;
+    background:none; border:none; font-size:2.5rem; color:#e7c980; cursor:pointer;
   }
-
   .lightbox-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-110%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    //font-size: 24px;
-    font-size:clamp(0.8rem, 1.5vw, 1.2rem);
-    cursor: pointer;
-    padding: 0;
-    z-index: 10;
-    width: clamp(30px, 5vw, 40px);
-    height: clamp(30px, 5vw, 40px);
+    position:absolute; top:50%; transform:translateY(-50%);
+    background:rgba(0,0,0,0.5); color:#fff; border:none;
+    width:2.5rem;height:2.5rem;border-radius:50%;cursor:pointer;
+    z-index:10001;display:flex;align-items:center;justify-content:center;
   }
+  .lightbox-arrow.left  { left:2rem; }
+  .lightbox-arrow.right { right:2rem; }
 
-  .lightbox-arrow.left {
-    left: 48px;
-  }
-
-  .lightbox-arrow.right {
-    right: 48px;
-  }
-
-  /* ========== Mobile Dropdown Filter ========== */
-  .category-filter-mobile {
-    display: none;
-    margin-bottom: 2rem;
-  }
-
-  .category-select {
-    width: 100%;
-    max-width: 300px;
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    background: rgba(231, 201, 128, 0.1);
-    border: 1px solid rgba(231, 201, 128, 0.3);
-    color: #e7c980;
-    font-size: 1rem;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e7c980' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 1.2em;
-  }
-
-  .category-select:focus {
-    outline: none;
-    border-color: #e7c980;
-  }
-
-  .category-select option {
-    background: var(--color-bg);
-    color: #e7c980;
-    padding: 0.5rem;
-  }
-
-  /* ========== Media Queries ========== */
-  @media (max-width: 1024px) {
-    .section-title {
-      font-size: 2.5rem;
-    }
-    .gallery-item {
-      width: 350px;
-      height: 260px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .container {
-      padding: 0 1rem;
-      width: 95%;
-    }
-    .section-title {
-      font-size: 2rem;
-    }
-    .filter-btn {
-      font-size: 1rem;
-      padding: 0.4rem 0.8rem;
-    }
-    .gallery-item {
-      width: 300px;
-      height: 225px;
-    }
-    .category-filter {
-      display: none;
-    }
-    .category-filter-mobile {
-      display: flex;
-      justify-content: center;
-      padding: 0 1rem;
-    }
-    .gallery-container {
-      padding: 0.5rem 0;
-    }
-    .gallery-scroll {
-      gap: 1rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .container {
-      width: 98%;
-      padding: 0 0.5rem;
-    }
-    .section-title {
-      font-size: 2.0rem;
-    }
-    .filter-btn {
-      font-size: 0.9rem;
-      padding: 0.3rem 0.6rem;
-    }
-    .gallery-item {
-      width: 250px;
-      height: 190px;
-    }
-  }
-  @media(max-width:360px)
-  {
-    .section-title {
-      font-size: 1.8rem;
-    }
-  }
-
-  //update css for scrolling 18apr
-  .gallery-container {
-  overflow: hidden;
-  position: relative;
-}
-
-.gallery-scroll {
-  display: flex;
-  width: max-content;
-  animation: scrollGallery 60s linear infinite;
-  will-change: transform;
-}
-
-@keyframes scrollGallery {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.gallery-scroll:hover {
-  animation-play-state: paused;
-}
-.gallery-item {
-  flex-shrink: 0;
-  margin-right: 10px;
-}
+  @media(max-width:768px){ .gallery-item{width:150px;} }
 </style>
 
+<script type="module">
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollEl   = document.querySelector('.gallery-scroll');
+    const firstItem  = scrollEl.querySelector('.gallery-item');
+    const gap        = parseInt(getComputedStyle(firstItem).marginRight) || 0;
+    const step       = firstItem.clientWidth + gap;
+    const arrows     = document.querySelectorAll('.gallery-arrow');
+    const filters    = document.querySelectorAll('.filter-btn');
+    const baseDur    = 40; // seconds
+    const initHalf   = scrollEl.scrollWidth / 2;
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-  // DOM elements
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  const categorySelect = document.querySelector('.category-select');
-  const scrollContainer = document.querySelector('.gallery-scroll');
+    // initialize marquee inline
+    scrollEl.style.animation = `scrollGallery ${baseDur}s linear infinite`;
+    scrollEl.style.animationDelay = `0s`;
 
-  const lightbox = document.getElementById("imageLightbox");
-  const lightboxImg = document.getElementById("lightboxImg");
-  const lightboxCaption = document.getElementById("lightboxCaption");
-  const closeButton = document.querySelector(".lightbox-close");
-  const prevButton = document.getElementById("prevImage");
-  const nextButton = document.getElementById("nextImage");
+    function jump(dir) {
+      scrollEl.style.animationPlayState = 'paused';
+      // current X
+      const matrix = getComputedStyle(scrollEl).transform;
+      let curX = 0;
+      if (matrix && matrix.startsWith('matrix')) {
+        const vals = matrix.slice(7, -1).split(', ');
+        curX = parseFloat(vals[4]);
+      }
+      const newX = curX - dir * step * 3;
+      scrollEl.style.transform = `translateX(${newX}px)`;
 
-  const leftArrow = document.querySelector('.arrow-left');
-  const rightArrow = document.querySelector('.arrow-right');
-
-  let galleryImages = Array.from(document.querySelectorAll(".gallery-item img"));
-  let currentIndex = 0;
-  let activeCategory = 'all';
-
-  let currentTranslateX = 0;
-  const scrollStep = 300;
-  const resetThreshold = scrollContainer.scrollWidth / 2;
-
-  // Manual arrow navigation
-  leftArrow.addEventListener('click', () => {
-    scrollContainer.style.animation = 'none';  // Stop CSS animation
-    currentTranslateX -= scrollStep;
-    if (currentTranslateX < 0) {
-      currentTranslateX = resetThreshold - 1;
+      // recalc new duration
+      const newHalf = scrollEl.scrollWidth / 2;
+      const newDur  = (newHalf * baseDur) / initHalf;
+      scrollEl.style.animation = `scrollGallery ${newDur}s linear infinite`;
+      // compute delay for continuity
+      const off  = ((newX % -newHalf) + -newHalf) % -newHalf;
+      const frac = off / -newHalf;
+      scrollEl.style.animationDelay = `-${frac * newDur}s`;
     }
-    scrollContainer.style.transform = `translateX(-${currentTranslateX}px)`;
 
-    // Restart CSS animation after manual move (optional)
-    setTimeout(() => {
-      scrollContainer.style.animation = '';
-    }, 500);
-  });
-
-  rightArrow.addEventListener('click', () => {
-    scrollContainer.style.animation = 'none';  // Stop CSS animation
-    currentTranslateX += scrollStep;
-    if (currentTranslateX >= resetThreshold) {
-      currentTranslateX = 0;
-    }
-    scrollContainer.style.transform = `translateX(-${currentTranslateX}px)`;
-
-    // Restart CSS animation after manual move (optional)
-    setTimeout(() => {
-      scrollContainer.style.animation = '';
-    }, 300);
-  });
-
-  // Filter gallery function
-  function updateFilterUI(category) {
-    filterButtons.forEach(btn => {
-      btn.setAttribute('data-active', btn.getAttribute('data-category') === category ? 'true' : 'false');
-    });
-    if (categorySelect) {
-      categorySelect.value = category;
-    }
-  }
-
-  function filterGallery(selectedCategory) {
-  activeCategory = selectedCategory;
-  updateFilterUI(selectedCategory);
-
-  galleryItems.forEach(item => {
-    const shouldShow = (selectedCategory === 'all' || item.dataset.category === selectedCategory);
-    item.style.display = shouldShow ? 'block' : 'none';
-  });
-
-  updateGalleryImagesArray();
-
-  // Adjust scroll speed based on new width
-  const totalWidth = scrollContainer.scrollWidth;
-  const baseWidth = 3000;   // <- adjust to your original full width
-  const baseDuration = 10;  // <- match your CSS animation duration
-
-  const newDuration = (totalWidth / baseWidth) * baseDuration;
-  scrollContainer.style.animationDuration = `${newDuration}s`;
-}
-
-
-
-
-  function updateGalleryImagesArray() {
-    galleryImages = Array.from(
-      document.querySelectorAll(
-        `.gallery-item${activeCategory !== 'all' ? `[data-category="${activeCategory}"]` : ''} img`
+    arrows.forEach(btn =>
+      btn.addEventListener('click', () =>
+        jump(btn.classList.contains('right') ? 1 : -1)
       )
     );
-    currentIndex = Math.max(0, Math.min(currentIndex, galleryImages.length - 1));
-  }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        jump(e.key === 'ArrowRight' ? 1 : -1);
+      }
+    });
 
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      filterGallery(button.getAttribute('data-category'));
+    filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.filter;
+        scrollEl.setAttribute('data-filter', cat);
+
+        // re-init marquee so speed stays constant
+        const newHalf2 = scrollEl.scrollWidth / 2;
+        const newDur2  = (newHalf2 * baseDur) / initHalf;
+        scrollEl.style.animation = `scrollGallery ${newDur2}s linear infinite`;
+        scrollEl.style.animationDelay = '0s';
+      });
+    });
+
+    // Lightbox setup
+    const lb       = document.getElementById('lightbox');
+    const lbImg    = lb.querySelector('.lightbox-image');
+    const lbClose  = lb.querySelector('.lightbox-close');
+    const lbPrev   = lb.querySelector('.lightbox-arrow.left');
+    const lbNext   = lb.querySelector('.lightbox-arrow.right');
+    // collect unique srcs
+    const allImgs  = Array.from(document.querySelectorAll('.gallery-item img')).map(i => i.src);
+    const imgs     = allImgs.slice(0, allImgs.length / 2);
+    let idx = 0;
+
+    document.querySelectorAll('.gallery-item').forEach((el, i) => {
+      el.addEventListener('click', () => {
+        idx = i % imgs.length;
+        lbImg.src = imgs[idx];
+        lb.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    lbClose.addEventListener('click', () => {
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    lbPrev.addEventListener('click', () => {
+      idx = (idx - 1 + imgs.length) % imgs.length;
+      lbImg.src = imgs[idx];
+    });
+    lbNext.addEventListener('click', () => {
+      idx = (idx + 1) % imgs.length;
+      lbImg.src = imgs[idx];
+    });
+    lb.addEventListener('click', e => {
+      if (e.target === lb) lbClose.click();
+    });
+    document.addEventListener('keydown', e => {
+      if (lb.classList.contains('active')) {
+        if (e.key === 'ArrowLeft') lbPrev.click();
+        if (e.key === 'ArrowRight') lbNext.click();
+        if (e.key === 'Escape') lbClose.click();
+      }
     });
   });
-
-  if (categorySelect) {
-    categorySelect.addEventListener('change', (e) => {
-      filterGallery(e.target.value);
-    });
-  }
-
-  // Lightbox functions
-  function updateLightbox() {
-    if (currentIndex >= 0 && currentIndex < galleryImages.length) {
-      const img = galleryImages[currentIndex];
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightboxCaption.textContent = img.alt || "Image";
-    }
-  }
-
-  function openLightbox(index) {
-    currentIndex = index;
-    updateLightbox();
-    lightbox.classList.add("active");
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove("active");
-    document.body.style.overflow = '';
-  }
-
-  function navigateLightbox(direction) {
-    currentIndex = direction === 'prev'
-      ? (currentIndex - 1 + galleryImages.length) % galleryImages.length
-      : (currentIndex + 1) % galleryImages.length;
-    updateLightbox();
-  }
-
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', function() {
-      const clickedImg = this.querySelector('img');
-      const imgIndex = galleryImages.findIndex(img => img === clickedImg);
-      if (imgIndex >= 0) openLightbox(imgIndex);
-    });
-  });
-
-  closeButton.addEventListener('click', closeLightbox);
-  prevButton.addEventListener('click', () => navigateLightbox('prev'));
-  nextButton.addEventListener('click', () => navigateLightbox('next'));
-
-  lightbox.addEventListener('click', function(e) {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-      closeLightbox();
-    }
-  });
-});
 </script>
