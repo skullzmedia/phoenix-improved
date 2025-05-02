@@ -1,7 +1,7 @@
 ---
 title: "🎉 Bikes & Bets Bash at Phoenix Casino Goa – Win Big, Ride in Style! 🏍️🎰"
 description: "This isn’t just another night at the casino – it’s your shot at riding home on one of these dream machines"
-pubDate: 2024-05-25
+pubDate: 2024-05-02
 author: "Marketing Team"
 image: "/blog/Competition-bike-phoenix-casino.png"
 category: "Events"
