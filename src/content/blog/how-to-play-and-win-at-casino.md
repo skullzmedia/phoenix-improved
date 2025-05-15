@@ -1,7 +1,7 @@
 ---
 title: "How to Play and Win at a Casino in Goa? | Beginner’s Guide"
 description: "Whether you're just curious or hoping to win big, this guide will help you understand how to play and win at a casino in Goa, even if you’ve never stepped into one before."
-pubDate: 2024-05-15
+pubDate: 2025-05-15
 author: "Phoenix Casino"
 image: "/blog/How-to-play-and-win-at-casino.jpg"
 category: "Tips & Tricks"
