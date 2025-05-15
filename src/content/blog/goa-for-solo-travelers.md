@@ -1,7 +1,7 @@
 ---
 title: "Goa for Solo Travelers: Is It Safe, Fun, and Worth It?"
 description: "a solo traveler needs to know before visiting Goa — from safety tips to places to visit and things to do. Plus, we’ll.."
-pubDate: 2024-05-07
+pubDate: 2025-05-07
 author: "Phoenix Casino"
 image: "/blog/solo-trip-phoenix-casino-in-goa.jpg"
 category: "Tips & Tricks"
