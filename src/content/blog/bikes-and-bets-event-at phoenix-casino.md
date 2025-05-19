@@ -3,7 +3,7 @@ title: "🎉 Bikes & Bets Bash at Phoenixx Casino Goa – Win Big, Ride in Style
 description: "This isn’t just another night at the casino – it’s your shot at riding home on one of these dream machines"
 pubDate: 2025-05-02
 author: "Marketing Team"
-image: "/blog/Competition-bike-Phoenixx-casino.png"
+image: "/blog/Competition-bike-phoenix-casino.png"
 category: "Events"
 featured: true
 slug: "the-best-casino-in-panjim-hosts-bets-and-bike-event-at-the-biggest-casino-in-goa"
