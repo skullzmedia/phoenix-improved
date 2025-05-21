@@ -1,0 +1,287 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Contact information
+const contactInfo = {
+  address: "Floor No 6, 603, Gera Imperium Grand, Panaji, near Ginger Hotel, Panaji, Goa 403001",
+  phone: "+91 77678 80001",
+  email: "turtlegaminggroup@gmail.com"
+};
+---
+
+<Layout title="Contact Us | Turtle Gaming">
+  <section class="page-banner">
+    <div class="container">
+      <h1 class="page-title">Contact Us</h1>
+      <p class="page-subtitle">Get in touch with our team for bookings and inquiries</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-container">
+        <div class="contact-info">
+          <h2 class="contact-heading">CONTACT US</h2>
+          <h3 class="contact-subheading">Have Questions? Get in touch!</h3>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                {contactInfo.address}
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-text">
+                <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="business-hours">
+            <h4 class="hours-heading">Business Hours</h4>
+            <p class="hours-text">Monday - Saturday: 9:00 AM - 6:00 PM</p>
+            <p class="hours-note">Closed on Sundays</p>
+          </div>
+          
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Page Banner - adjusted to match nav */
+  .page-banner {
+    padding: 3rem 0 4rem;
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    position: relative;
+    margin-top: 120px; /* Account for fixed nav height */
+  }
+  
+  .page-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+  
+  .page-banner .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .page-title {
+    font-size: 3rem;
+    color: #e7c980;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .page-subtitle {
+    font-size: 1.2rem;
+    color: #fff;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Common Styles - adjusted to match nav container */
+  .container {
+    max-width: 1200px; /* Match nav container */
+    margin: 0 auto;
+    padding: 0 2rem; /* Match nav padding */
+  }
+  
+  /* Contact Section */
+  .contact-section {
+    padding: 5rem 0;
+    background-color: #000;
+    position: relative;
+  }
+  
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Contact Info */
+  .contact-heading {
+    font-size: 1.2rem;
+    color: #e7c980;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+  }
+  
+  .contact-subheading {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+  }
+  
+  .contact-details {
+    margin-bottom: 2.5rem;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(231, 201, 128, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e7c980;
+    font-size: 1rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .contact-text {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .contact-text a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-text a:hover {
+    color: #e7c980;
+  }
+  
+  /* Business Hours */
+  .business-hours {
+    margin-bottom: 2.5rem;
+  }
+  
+  .hours-heading {
+    font-size: 1.2rem;
+    color: #e7c980;
+    margin-bottom: 1rem;
+  }
+  
+  .hours-text {
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hours-note {
+    color: #999;
+    font-size: 0.9rem;
+  }
+  
+  /* Social Links */
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(231, 201, 128, 0.1);
+    color: #e7c980;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .social-link:hover {
+    background-color: #e7c980;
+    color: #000;
+    transform: translateY(-3px);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem; /* Match nav mobile padding */
+    }
+    
+    .page-banner {
+      margin-top: 100px; /* Account for smaller mobile nav */
+      padding: 6rem 0 3rem;
+    }
+    
+    .page-title {
+      font-size: 2.5rem;
+    }
+    
+    .contact-subheading {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .contact-section {
+      padding: 3rem 0;
+    }
+    
+    .page-title {
+      font-size: 2rem;
+    }
+    
+    .contact-subheading {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+    }
+  }
+</style> 
