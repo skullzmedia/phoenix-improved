@@ -3,7 +3,7 @@ title: "How to Plan a Perfect Casino Night in Goa: A First-Timer’s Guide to Ph
 description: "Your complete guide to organizing an unforgettable casino night experience in Goa"
 pubDate: 2024-02-28
 author: "Event Planning Team"
-image: "/blog/roulette-game-in-best-casino-of-goa-Phoenixx-casino.avif"
+image: "/blog/roulette-game-in-best-casino-of-goa-phoenix-casino.png"
 category: "Tips & Tricks"
 featured: false
 slug: "How-to-Plan-a-Perfect-Casino-Night-in-Goa-First-Timers-Guide-to-Phoenixx-Casino-Candolim"
