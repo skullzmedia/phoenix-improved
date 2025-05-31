@@ -39,7 +39,7 @@ Located in Candolim, Phoenix Casino is right in the middle of one of Goa’s mos
 Whether you're staying in North Goa, Panaji, or anywhere along the coast, Candolim is super accessible.
 
 ## 🛎️ VIP Lounges & Hospitality
-For those who want a touch of luxury, Phoenix Casino also offers VIP gaming rooms, private tables, and premium services. It's ideal for high-rollers or anyone celebrating a special occasion like a birthday, bachelor party, or even a destination wedding after-party.
+For those who want a touch of luxury, Phoenix Casino also offers VIP gaming rooms, private tables, and premium services. It's ideal for high-rollers or anyone celebrating a special occasion. Head over to Phoenix Casino and we will take care of everything from Gaming to Drinks to Food and Entertainment.
 
 Their hospitality is top-notch, which makes every guest feel like a VIP, whether you’re betting big or just there for the vibe.
 
