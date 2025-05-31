@@ -3,7 +3,7 @@ title: "Las Vegas-Like Experience In Goa – Phoenix Casino, Right in the Heart 
 description: "You don’t need to fly halfway around the world to experience that...Goa Casino located in the vibrant area of Candolim, brings the thrill of Vegas straight to India’s most loved beach destination."
 pubDate: 2025-05-31
 author: "Marketing Team"
-image: "/blog/Las-vegas-like-experience-in-Goa-Casino.jpg"
+image: "/blog/las-vegas-like-experience-in-goa-casino.jpg"
 category: "Events"
 featured: true
 slug: "las-vegas-like-experience-in-Goa-at-best-casino-in-goa"
