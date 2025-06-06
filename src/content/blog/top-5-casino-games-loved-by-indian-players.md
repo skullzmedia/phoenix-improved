@@ -6,7 +6,7 @@ author: "Marketing Team"
 image: "/blog/play_poker_at_phoenix_casino_in_goa.jpg"
 category: "News"
 featured: false
-slug: "las-vegas-like-experience-in-Goa-at-best-casino-in-goa"
+slug: "top-5-casino-games-loved-by-indian-players"
 ---
 # Top 5 Casino Games Loved by Indian Players
 India's love for games of skill and chance goes back centuries—from playing traditional card games during Diwali to trying modern casino games online and at luxury venues. With the rise of gaming culture and the growing popularity of casinos in India and Goa, more Indian players are exploring a variety of exciting games. Whether it’s online or at a live casino, some games stand out as clear favorites.
