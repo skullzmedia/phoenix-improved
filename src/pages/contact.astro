@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 // Contact information
 const contactInfo = {
   address: "Hilton Goa Resort, Saipem, Candolim",
-  phone: "+919960007937",
+  phones: ["+919960007937", "+919960010198"],
   email: "marketing@phoenixcasino.in"
 };
 ---
@@ -39,7 +39,12 @@ const contactInfo = {
                 <i class="fas fa-phone-alt"></i>
               </div>
               <div class="contact-text">
-                <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a>
+                {contactInfo.phones.map((phone, idx) => (
+                  <>
+                    <a href={`tel:${phone}`}>{phone}</a>
+                    {idx < contactInfo.phones.length - 1 && <span style="margin: 0 0.5em;">/</span>}
+                  </>
+                ))}
               </div>
             </div>
             
