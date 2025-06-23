@@ -154,7 +154,9 @@ const highlights = [
                         
                         <div class="package-pricing">
                             <div class="price-item">Stag: ₹{pkg.pricing.stag.price} (With ₹{pkg.pricing.stag.otpc} OTPC)</div>
-                            <div class="price-item">Couple: ₹{pkg.pricing.couple.price} (With ₹{pkg.pricing.couple.otpc} OTPC)</div>
+                            {pkg.id !== 'regular' && (
+                                <div class="price-item">Couple: ₹{pkg.pricing.couple.price} (With ₹{pkg.pricing.couple.otpc} OTPC)</div>
+                            )}
                         </div>
                         
                         <ul class="package-features">
@@ -1788,10 +1790,10 @@ const highlights = [
                     }
                     
                     // Set package name
-                    packageNameEl.textContent = packageName + " Package";
+                    if (packageNameEl) packageNameEl.textContent = packageName + " Package";
                     
                     // Clear previous content
-                    brandsListEl.innerHTML = '';
+                    if (brandsListEl) brandsListEl.innerHTML = '';
                     
                     // Add alcohol brands
                     const brands = packagesData[packageIndex].alcoholBrands;
@@ -1838,12 +1840,14 @@ const highlights = [
                             categoryEl.appendChild(listEl);
                         }
                         
-                        brandsListEl.appendChild(categoryEl);
+                        if (brandsListEl) brandsListEl.appendChild(categoryEl);
                     }
                     
                     // Show popup
-                    popup.classList.add('active');
-                    document.body.style.overflow = 'hidden';
+                    if (popup) {
+                        popup.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
                 });
             });
         };
@@ -1851,22 +1855,26 @@ const highlights = [
         // Setup close button
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {
-                popup.classList.remove('active');
-                document.body.style.overflow = '';
+                if (popup) {
+                    popup.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             });
         }
         
         // Close on backdrop click
-        popup.addEventListener('click', (e) => {
-            if (e.target === popup || e.target.classList.contains('alcohol-popup-backdrop')) {
-                popup.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
+        if (popup) {
+            popup.addEventListener('click', (e) => {
+                if (e.target === popup || ((e.target as HTMLElement)?.classList?.contains('alcohol-popup-backdrop'))) {
+                    popup.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
         
         // Close on ESC key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && popup.classList.contains('active')) {
+            if (e.key === 'Escape' && popup && popup.classList.contains('active')) {
                 popup.classList.remove('active');
                 document.body.style.overflow = '';
             }
