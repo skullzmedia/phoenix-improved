@@ -80,7 +80,9 @@ const packages = [
                         <div class="package-details">
                             <div class="package-pricing">
                                 <div class="price-item">Stag: ₹{pkg.pricing.stag.price} (With ₹{pkg.pricing.stag.otpc} OTPC)</div>
-                                <div class="price-item">Couple: ₹{pkg.pricing.couple.price} (With ₹{pkg.pricing.couple.otpc} OTPC)</div>
+                                {pkg.id !== 'regular' && (
+                                    <div class="price-item">Couple: ₹{pkg.pricing.couple.price} (With ₹{pkg.pricing.couple.otpc} OTPC)</div>
+                                )}
                             </div>
 
                             <ul class="package-features">
@@ -162,7 +164,7 @@ const packages = [
                         if (icon) icon.textContent = '-';
 
                         // Update images
-                        const packageId = tab.dataset.package;
+                        const packageId = (tab as HTMLElement).dataset.package;
                         packageImages.forEach(img => {
                             img.classList.remove('active');
                             if (img.id === `${packageId}-image`) {
