@@ -3,7 +3,7 @@ title: " 5 Casino Myths Busted: What Really Happens Inside Goa’s Premium Casin
 description: "From concerns about “rigged games” to dress code confusion, there are plenty of misconceptions floating around. In this article, we break down the top 5 casino myths and tell you exactly what to expect when you Visit Goa Casino."
 pubDate: 2025-07-05
 author: "Marketing Team"
-image: "/blog/reality-of-goa-casinos-phoenix-casino-goa.png"
+image: "/blog/reality-of-Goa-casinos-phoenix-casino-goa.png"
 category: "Tips & Tricks"
 featured: true
 slug: "reality-of-luxury-goa-casinos-phoenix-casino-goa"
