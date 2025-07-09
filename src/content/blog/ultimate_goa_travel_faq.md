@@ -3,8 +3,8 @@ title: "🌴 Ultimate Goa Travel FAQ | All Your Questions Answered"
 description: "Planning a trip to Goa? Discover everything you need to know—best time to visit, travel tips, budget planning, hidden beaches, nightlife, water sports, casinos, and safety—in this ultimate Goa travel FAQ guide."
 pubDate: 2025-07-09
 author: "Marketing Team"
-image: "public/blog/ultimate-goa-travel-faq-thumbnail-cover.png"
-category: "FAQs"
+image: "/blog/ultimate-goa-travel-faq-thumbnail-cover.png"
+category: "Tips & Tricks"
 featured: true
 slug: "ultimate_goa_travel_faq"
 ---
