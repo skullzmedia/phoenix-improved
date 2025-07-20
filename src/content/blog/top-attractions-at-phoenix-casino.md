@@ -6,7 +6,7 @@ author: "Entertainment Team"
 image: "/blog/top-attractions-phoenix-casino.png"
 category: "Entertainment"
 featured: false
-slug: "top-attractions-at-the-goas-biggest-casino-Phoenixx-casino"
+slug: "top-attractions-at-the-goas-biggest-casino-Phoenix-casino"
 ---
 # Top Attractions at the Goa's Biggest Casino: Phoenixx Casino
 
