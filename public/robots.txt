@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.phoenixcasino.in/sitemap.xml
+Sitemap: https://www.phoenixcasino.in/sitemap-0.xml
