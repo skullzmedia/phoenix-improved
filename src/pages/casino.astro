@@ -101,13 +101,11 @@ const gamesData = [
 const gamesGroup1 = gamesData.slice(0, 5);
 const gamesGroup2 = gamesData.slice(5, 10);
 ---
-<Layout title="About Us | Phoenixx Casino">
-  <section class="page-banner" style={`background-image: url(${aboutImage.src});`}>
-    <div class="container">
-      <h1 class="page-title">About Us</h1>
-      <p class="page-subtitle">Discover the luxury and excitement of Phoenixx Casino Goa</p>
-    </div>
-  </section>
+<Layout pageTitle={pageTitle}
+  pageDescription={pageDescription}
+  title="Explore the Best Casino in Goa – Phoenixx Casino"
+  subtitle="Luxury gaming, live shows, hookah lounge & more at Hilton Resort, Candolim."
+>
 
   <section class="about-intro">
     <div class="container">
