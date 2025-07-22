@@ -45,7 +45,7 @@ phoenixx Casino is more than just a gaming floor — it’s an experience.
 Reality:
 Not true. Anyone aged 21 and above with valid ID proof can enter [Phoenixx Casino](https://www.phoenixcasino.in). No membership is needed. Our entry process is simple, professional, and transparent, and our team is always happy to assist first-time visitors.
 
-You can check our casino packages online at our [Packages Section](www.phoenixxcasino.in/packages) or walk in directly and purchase entry at the reception.
+You can check our casino packages online at our [Packages Section](https://www.phoenixxcasino.in/packages) or walk in directly and purchase entry at the reception.
 
 🎉 Experience the Real Phoenixx
 Don’t let myths keep you from experiencing the best casino in North Goa. Whether you’re coming with friends, a partner, or solo, phoenixx Casino offers a perfect blend of thrill, luxury, and hospitality.
