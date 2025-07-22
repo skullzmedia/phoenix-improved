@@ -4,6 +4,7 @@ description: "Whether you're a first-time traveler or planning a return trip, th
 pubDate: 2025-06-22
 author: "Marketing Team"
 image: "/blog/must-know-facts-about-Goa-Before-you-plan-your-trip-to-Goa.jpg"
+imageAlt: "Best places to visit in Goa- Detailed Travel Guide by Phoenix Casino"
 category: "Tips & Tricks"
 featured: true
 slug: "8-facts-about-goa-before-you-plan-your-goa-trip.md"
