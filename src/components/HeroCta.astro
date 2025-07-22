@@ -2,6 +2,8 @@
 // HeroCta.astro - Place this component before the footer
 import { Image } from 'astro:assets';
 import CtaBackground from '../assets/cta-background.svg';
+
+const { title = 'WELCOME TO GOLDEN LIFE', subtitle = 'With Extensive Luxury and Unlimited Winning, Phoenixx Casino is an unforgettable experience, visit us today!' } = Astro.props;
 ---
 
 <section class="hero-cta">
@@ -16,9 +18,9 @@ import CtaBackground from '../assets/cta-background.svg';
     </div>
     
     <div class="content">
-        <h1 class="title">WELCOME TO GOLDEN LIFE</h1>
-        <p class="subtitle">With Extensive Luxury and Unlimited Winning, Phoenixx Casino is an unforgettable
-            experience, visit us today!</p>
+        <h1 class="title">{title}</h1>
+<p class="subtitle">{subtitle}</p>
+
         <a href="/contact" class="cta-button">Book Now</a>
     </div>
 </section>
