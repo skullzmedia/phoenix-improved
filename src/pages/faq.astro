@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "FAQ | Phoenixx Casino Goa – Your Questions Answered";
+const pageDescription = "Find answers to frequently asked questions about Phoenixx Casino in Goa, including entry rules, age restrictions, packages, and more.";
+
 // FAQ data
 const faqData = [
   {
@@ -108,13 +112,12 @@ const categories = {
 };
 --- 
 
-<Layout title="FAQ | Phoenixx Casino">
-  <section class="page-banner">
-    <div class="container">
-      <h1 class="page-title">Frequently Asked Questions</h1>
-      <p class="page-subtitle">Find answers to common questions about Phoenixx Casino Goa</p>
-    </div>
-  </section>
+<Layout 
+  pageTitle={pageTitle}
+  pageDescription={pageDescription}
+  title="Frequently Asked Questions"
+  subtitle="Find answers to common questions about Phoenixx Casino Goa"
+>
 
   <section class="faq-section">
     <div class="container">
