@@ -18,16 +18,19 @@ const dailyEntertainment = [
     title: "Russian Dancers",
     description: "Experience the art and elegance of Russian dancers as they perform traditional and contemporary routines that captivate and mesmerize.",
     image: RussianDancer,
+    alt: "Russian dancers performing live at Phoenix Casino Goa, Best Casino in goa for gaming and entertainment"
   },
   {
     title: "Live Music & Bollywood Dance",
     description: "Enjoy electrifying live music performances by talented artists and bands, creating the perfect ambience for your casino experience.",
     image: LivePerformances,
+    alt: "Live Bollywood music and dance with bollywood celebrities at Phoenix Casino stage"
   },
   {
     title: "Live Games & Giveaways",
     description: "Participate in exciting live games and stand a chance to win amazing prizes in our regular giveaways throughout the evening.",
     image: DailyGiveAways,
+    alt: "Guests enjoying live casino games and prize giveaways at casino in goa, Phoenix casino goa"
   },
 ];
 
@@ -37,11 +40,13 @@ const upcomingEvents = [
     title: "Free 500 OTPC",
     description: "Get Free 500 OTPC on our entry packages (T&C apply).",
     image: FreeOTPC,
+    alt: "Phoenix Casino offering free 500 OTPC promotional offer, Goa casino with offers"
   },
   {
     title: "Independence Day Fiesta",
     description: "Celebrate Independence Day with big wins and entertainment.",
     image: IndependenceDay,
+    alt: "Independence Day celebration setup at Phoenix Casino Goa, Join us to celebrate independence day at the best casino in goa"
   },
 ];
 
@@ -71,19 +76,19 @@ const pastEvents = [
 const bannerSlides = [
   {
     image: EntertainmentBanner,
-    alt: "Entertainment at Phoenixx Casino",
+    alt: "Casino in goa for entertainment and gaming, Phoenix Casino Goa",
     title: "EXPERIENCE THE MAGIC",
     subtitle: "Unforgettable entertainment experiences await you",
   },
   {
     image: RussianDance,
-    alt: "Live Performances",
+    alt: "Models performing live at the top casino in goa, Phoenix casino in goa ",
     title: "LIVE PERFORMANCES",
     subtitle: "Enjoy electrifying shows by talented artists",
   },
   {
     image: CelebrityBanner,
-    alt: "Celebrity Appearances",
+    alt: "Famous bollywood celebrities enjoying at goa casino, Phoenix casino is the best casino in goa",
     title: "CELEBRITY APPEARANCES",
     subtitle: "Meet your favorite stars at our exclusive events",
   },
@@ -99,7 +104,7 @@ const bannerSlides = [
           <div class="slide" data-index={idx}>
             <Image
               src={slide.image}
-              alt={slide.alt}
+              alt={slide.alt || slide.title}
               width={1400}
               height={600}
               class="slide-image"
@@ -131,7 +136,7 @@ const bannerSlides = [
           <div key={idx} class="entertainment-card">
             <Image
               src={item.image}
-              alt={item.title}
+              alt={item.alt || item.title}
               width={600}
               height={400}
               class="card-img"
@@ -156,7 +161,7 @@ const bannerSlides = [
           <a key={idx} href="/contact" class="entertainment-card">
             <Image
               src={event.image}
-              alt={event.title}
+              alt={item.alt || item.title}
               width={600}
               height={400}
               class="card-img"
