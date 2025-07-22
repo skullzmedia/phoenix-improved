@@ -51,7 +51,7 @@ Must-see heritage highlights:
 - Fort Aguada—stunning sea views
 - Shri Mangueshi Temple—exquisite Hindu architecture
 
-These sights are often part of day tours, just a short ride from [Phoenix Casino](www.phoenixcasino.in)
+These sights are often part of day tours, just a short ride from [Phoenix Casino](https://www.phoenixcasino.in)
 
 # 10. What festivals are special in Goa? 🎉
 Goa’s biggest celebrations include:
