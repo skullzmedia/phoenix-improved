@@ -10,7 +10,7 @@ function formatDate(date: Date): string {
     }).format(date);
 }
 
-const { title, description, pubDate, author, image, category } = Astro.props;
+const { title, description, pubDate, author, image, imageAlt, category } = Astro.props;
 ---
 
 <Layout title={`${title} | Phoenixx Casino Blog`}>
@@ -28,7 +28,7 @@ const { title, description, pubDate, author, image, category } = Astro.props;
 
         <div class="featured-image">
             <div class="container">
-                <img src={image} alt={title} />
+                <img src={image} alt={imageAlt || title} loading="lazy" />
             </div>
         </div>
 
