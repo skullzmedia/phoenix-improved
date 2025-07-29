@@ -17,7 +17,10 @@ const posts = await getCollection('blog', ({ data }) => {
 const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<Layout title="Blog | Phoenixx Casino">
+<Layout 
+  title="Phoenixx Casino Blog | Casino Tips, Games & News"
+  pageDescription="Discover tips, strategies, and stories about the best casino in Goa. Explore luxury gaming, entertainment, and nightlife at Phoenixx Casino in Candolim."
+>
     <section class="blog-index">
         <div class="container">
             <h1>Latest from Phoenixx</h1>
