@@ -7,7 +7,7 @@ image: "/blog/must-know-facts-about-Goa-Before-you-plan-your-trip-to-Goa.jpg"
 imageAlt: "Best places to visit in Goa- Detailed Travel Guide by Phoenix Casino"
 category: "Tips & Tricks"
 featured: true
-slug: "8-facts-about-goa-before-you-plan-your-goa-trip.md"
+slug: "8-facts-about-goa-before-you-plan-your-goa-trip"
 ---
 # ✈️ Planning a Trip to Goa? Here Are 8 Things You Must Know Before You Go
 Goa is more than just a beach destination—it's an experience that blends sun, sea, casinos, nightlife, and culture in the most vibrant way. Whether you're a first-time traveler or planning a return trip, these commonly asked questions will help you plan a smooth and memorable Goa vacation.
