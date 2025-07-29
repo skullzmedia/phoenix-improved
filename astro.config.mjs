@@ -6,8 +6,8 @@ export default defineConfig({
   integrations: [
     sitemap({
       serialize: (page) => ({
-        url: page.pathname,
-        lastmod: new Date().toISOString(), // Uses current build time as lastmod
+        url: page.url.pathname, // ✅ use `page.url.pathname` instead of `page.pathname`
+        lastmod: new Date().toISOString(),
       }),
     }),
   ],
