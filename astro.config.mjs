@@ -1,3 +1,4 @@
+// astro.config.ts
 import { defineConfig } from 'astro/config';
 import sitemap from 'astro-sitemap';
 
@@ -7,8 +8,8 @@ export default defineConfig({
     sitemap({
       filter: (page) => !page.pathname.includes('/drafts'),
       serialize: (page) => ({
-        url: page.pathname || page.url?.pathname || '/', // fallback
-        lastmod: new Date().toISOString(), // use publish date if possible
+        url: page.pathname || '/',
+        lastmod: new Date().toISOString(),
       }),
     }),
   ],
