@@ -5,10 +5,10 @@ export default defineConfig({
   site: 'https://www.phoenixcasino.in',
   integrations: [
     sitemap({
-      filter: (page) => !page.pathname.includes('/drafts'), // optional
+      filter: (page) => !page.pathname.includes('/drafts'),
       serialize: (page) => ({
-        url: page.pathname,
-        lastmod: new Date().toISOString(), // for now, use build time
+        url: page.pathname || page.url?.pathname || '/', // fallback
+        lastmod: new Date().toISOString(), // use publish date if possible
       }),
     }),
   ],
