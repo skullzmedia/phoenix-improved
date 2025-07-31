@@ -70,6 +70,12 @@ const pastEvents = [
     video: "https://www.youtube.com/embed/X1eCfUJ4eQo",
     date: "May 2-4th, 2025",
   },
+  {
+    title: "Anup Jalota Ghazal Performance",
+    description: "Check out Ghazal night and phoenix casino goa with Anup and Jalota and his lovely performance",
+    video: "https://www.youtube.com/embed/g_1y0aciAj0",
+    date: "15th July",
+  },
 ];
 
 // Banner Slides Data
@@ -120,7 +126,7 @@ const bannerSlides = [
       <button class="banner-nav next" aria-label="Next slide">❯</button>
       <div class="banner-dots">
         {bannerSlides.map((_, idx) => (
-          <button key={idx} class="dot" data-index={idx} aria-label={`Go to slide ${idx + 1}`}></button>
+          <button class="dot" data-index={idx} aria-label={`Go to slide ${idx + 1}`}></button>
         ))}
       </div>
     </div>
@@ -133,7 +139,7 @@ const bannerSlides = [
       <p class="section-subtitle">Experience the vibrant entertainment offerings at Phoenixx Casino</p>
       <div class="entertainment-grid">
         {dailyEntertainment.map((item, idx) => (
-          <div key={idx} class="entertainment-card">
+          <div class="entertainment-card">
             <Image
               src={item.image}
               alt={item.alt || item.title}
@@ -158,7 +164,7 @@ const bannerSlides = [
       <p class="section-subtitle">Mark your calendar for these exciting upcoming events</p>
       <div class="entertainment-grid">
         {upcomingEvents.map((event, idx) => (
-          <a key={idx} href="/contact" class="entertainment-card">
+          <a href="/contact" class="entertainment-card">
             <Image
               src={event.image}
               alt={event.alt || event.title}
@@ -182,9 +188,9 @@ const bannerSlides = [
       <h2 class="section-title">PAST EVENTS</h2>
       <p class="section-subtitle">Relive the magical moments from our past events</p>
       <div class="videos-container">
-        <div class="videos-scroll">
+        <div class="videos-grid">
           {pastEvents.map((ev, idx) => (
-            <div key={idx} class="video-card">
+            <div class="video-card">
               <div class="video-frame">
                 <iframe
                   src={ev.video}
@@ -207,7 +213,8 @@ const bannerSlides = [
   </section>
 
   <!-- Celebrities Section -->
-  <section id="celebrities">\n    <WallOfFame />
+  <section id="celebrities">
+    <WallOfFame />
   </section>
 </Layout>
 
@@ -270,12 +277,14 @@ const bannerSlides = [
 .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.5); cursor: pointer; }
 .dot.active { background: #D4AF37; transform: scale(1.2); }
 
-/* Grid for Cards */
+/* Grid for Cards - Fixed to show 4 per row */
 .entertainment-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
+  max-width: 100%;
 }
+
 .entertainment-card {
   background: #111;
   border-radius: 10px;
@@ -283,6 +292,7 @@ const bannerSlides = [
   display: flex;
   flex-direction: column;
   transition: transform .3s;
+  min-width: 0;
 }
 .entertainment-card:hover { transform: translateY(-10px); }
 .card-img { width: 100%; height: 200px; object-fit: cover; }
@@ -295,10 +305,20 @@ const bannerSlides = [
 .upcoming-events { padding: 4rem 0; background: #0a0a0a; }
 .past-events { padding: 4rem 0; background: #000; }
 
-/* Past Events */
-.videos-container { overflow-x: auto; padding: 1rem 2rem; }
-.videos-scroll { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
-.video-card { background: #111; border-radius: 10px; overflow: hidden; width: 300px; }
+/* Past Events - Fixed grid layout */
+.videos-container { padding: 1rem 2rem; }
+.videos-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 2rem; 
+  max-width: 100%;
+}
+.video-card { 
+  background: #111; 
+  border-radius: 10px; 
+  overflow: hidden; 
+  min-width: 0;
+}
 .video-frame { position: relative; padding-top: 56.25%; }
 .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
 .video-content { padding: 1rem; }
@@ -307,14 +327,36 @@ const bannerSlides = [
 .video-content p { color: #ccc; line-height: 1.4; }
 
 /* Responsive */
+@media (max-width: 1200px) {
+  .entertainment-grid,
+  .videos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .entertainment-grid,
+  .videos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .section-title { font-size: 2rem; }
+  .entertainment-grid,
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
 }
+
 @media (max-width: 600px) {
   .container { padding: 0 1rem; }
-  .entertainment-grid { padding: 0 1rem; justify-items: center; grid-template-columns: 1fr; }
+  .entertainment-grid,
+  .videos-grid { 
+    padding: 0 1rem; 
+    grid-template-columns: 1fr;
+  }
   .card-img { height: 180px; }
-  .video-card { width: 100%; max-width: none; }
 }
 </style>
 
@@ -322,15 +364,43 @@ const bannerSlides = [
 document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dot');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  
   let current = 0;
+  
   const update = () => {
-    slides.forEach((s, i) => s.style.opacity = i === current ? '1' : '0');
+    slides.forEach((s, i) => {
+      if (s instanceof HTMLElement) {
+        s.style.opacity = i === current ? '1' : '0';
+      }
+    });
     dots.forEach((d, i) => d.classList.toggle('active', i === current));
   };
-  document.querySelector('.prev').addEventListener('click', () => { current = (current - 1 + slides.length) % slides.length; update(); });
-  document.querySelector('.next').addEventListener('click', () => { current = (current + 1) % slides.length; update(); });
-  dots.forEach((d, i) => d.addEventListener('click', () => { current = i; update(); }));
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => { 
+      current = (current - 1 + slides.length) % slides.length; 
+      update(); 
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => { 
+      current = (current + 1) % slides.length; 
+      update(); 
+    });
+  }
+  
+  dots.forEach((d, i) => d.addEventListener('click', () => { 
+    current = i; 
+    update(); 
+  }));
+  
   update();
-  setInterval(() => { current = (current + 1) % slides.length; update(); }, 5000);
+  setInterval(() => { 
+    current = (current + 1) % slides.length; 
+    update(); 
+  }, 5000);
 });
 </script>

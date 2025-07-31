@@ -298,64 +298,20 @@ const highlights = [
     </section>
 
     <!-- VIP Packages Section -->
-    <!-- <section class="vip-packages-section" id="vip-packages">
+    <section class="vip-packages-section" id="vip-packages">
         <div class="container">
             <h2 class="section-title">VIP PACKAGES</h2>
             
-            <div class="vip-table-container">
-                <table class="vip-table">
-                    <thead>
-                        <tr>
-                            <th>Buy In</th>
-                            <th>Airfare Reimbursement</th>
-                            <th>Hotel Reimbursement</th>
-                            <th>Nights</th>
-                            <th>Hotel options (Candolim, Goa)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="vip-row">
-                            <td class="buy-in">1 Lakh</td>
-                            <td>NA</td>
-                            <td>4000</td>
-                            <td>1</td>
-                            <td>Hue Guh / Carnival-de-Goa</td>
-                        </tr>
-                        <tr class="vip-row">
-                            <td class="buy-in">2 Lakh</td>
-                            <td>8000</td>
-                            <td>8000</td>
-                            <td>2</td>
-                            <td>Hue Guh / Carnival-de-Goa</td>
-                        </tr>
-                        <tr class="vip-row">
-                            <td class="buy-in">3 Lakh</td>
-                            <td>12000</td>
-                            <td>12000</td>
-                            <td>2</td>
-                            <td>ITC Fortune Select/Astor Standard</td>
-                        </tr>
-                        <tr class="vip-row">
-                            <td class="buy-in">5 Lakh</td>
-                            <td>15000</td>
-                            <td>15000</td>
-                            <td>2</td>
-                            <td>Hilton Goa Resort/Grand Mercure/Astor Resort – Deluxe Room</td>
-                        </tr>
-                        <tr class="vip-row">
-                            <td class="buy-in">10 Lakh</td>
-                            <td>20000</td>
-                            <td>20000</td>
-                            <td>2</td>
-                            <td>Hilton Goa Resort/Grand Mercure/Astor Resort – Suite Room</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="vip-note">
-                <p>• The player needs to complete 6 times rolling/tracking to get eligible for benefits and rebates.</p>
-                <p>• 1.5% on rolling / 5% on tracking or 10% on losing</p>
+            <!-- VIP Images Section -->
+            <div class="vip-images-section">
+                <!-- Desktop Image -->
+                <div class="vip-image-desktop">
+                    <Image src={import('../assets/vip-section/vip-desktop.jpeg')} alt="VIP Experience - Desktop" width={1200} height={600} />
+                </div>
+                <!-- Mobile Image -->
+                <div class="vip-image-mobile">
+                    <Image src={import('../assets/vip-section/vip-mob.jpeg')} alt="VIP Experience - Mobile" width={600} height={800} />
+                </div>
             </div>
 
             <div class="vip-cta">
@@ -363,9 +319,41 @@ const highlights = [
                     Contact Us
                     <span class="arrow">→</span>
                 </a>
+                <a 
+                    href="https://wa.me/919960007937?text=Hi%20I%20am%20interested%20in%20VIP%20Packages%20at%20Phoenix%20Casino%20Goa" 
+                    class="cta-button whatsapp-btn" 
+                    target="_blank" 
+                    rel="noopener"
+                    style="margin-left: 1rem; display: inline-flex; align-items: center;"
+                >
+                    <i class="fab fa-whatsapp" style="margin-right: 0.5em;"></i>
+                    WhatsApp Us
+                </a>
             </div>
         </div>
-    </section> -->
+    </section>
+    <style>
+        .vip-image-desktop {
+            display: block;
+        }
+        .vip-image-mobile {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .vip-image-desktop {
+                display: none;
+            }
+            .vip-image-mobile {
+                display: block;
+            }
+        }
+        .vip-images-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+    </style>
 
     <!-- Highlights Section -->
     <section class="highlights-section">
