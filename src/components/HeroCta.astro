@@ -3,14 +3,14 @@
 import { Image } from 'astro:assets';
 import CtaBackground from '../assets/cta-background.svg';
 
-const { title = 'WELCOME TO GOLDEN LIFE', subtitle = 'With Extensive Luxury and Unlimited Winning, Phoenixx Casino is an unforgettable experience, visit us today!' } = Astro.props;
+const { title = 'Best Casino in Goa – Experience Phoenixx Casino', subtitle = 'Live entertainment, luxury dining & thrilling games at Goa’s top casino destination in Candolim – Phoenixx Casino.' } = Astro.props;
 ---
 
 <section class="hero-cta">
     <div class="background">
         <Image 
             src={CtaBackground} 
-            alt="Background" 
+            alt="Luxury casino background at Phoenixx Casino in Goa" 
             width={1200} 
             height={400} 
             class="bg-image"
@@ -18,7 +18,7 @@ const { title = 'WELCOME TO GOLDEN LIFE', subtitle = 'With Extensive Luxury and 
     </div>
     
     <div class="content">
-        <h1 class="title">{title}</h1>
+        <h2 class="title">{title}</h2>
 <p class="subtitle">{subtitle}</p>
 
         <a href="/contact" class="cta-button">Book Now</a>
