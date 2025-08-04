@@ -1,20 +1,15 @@
 {
   "redirects": [
     {
+      "source": "/(.*[^/])",
+      "has": [{ "type": "host", "value": "phoenixcasino.in" }],
+      "destination": "https://www.phoenixcasino.in/:1/",
+      "permanent": true
+    },
+    {
       "source": "/",
       "has": [{ "type": "host", "value": "phoenixcasino.in" }],
       "destination": "https://www.phoenixcasino.in/",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "phoenixcasino.in" }],
-      "destination": "https://www.phoenixcasino.in/:1",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)/",
-      "destination": "/$1",
       "permanent": true
     }
   ]
