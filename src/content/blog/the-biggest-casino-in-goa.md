@@ -14,7 +14,7 @@ Goa is renowned for its lively night parties, beaches and cheerful atmosphere, a
 
 ## Location
 
-Phoenixx Casino is nestled at Candolim Road in North Goa, easily accessible for tourists and locals. The venue is designed with the essence of Goa's chill allure. The visitors are welcomed with sophistication and warmth, putting them at ease. The ambience sparkles a sense of richness, making them feel special from the moment they arrive. Whether you're for intense gaming or to relish the atmosphere, Casino provides a space where guests can indulge in games in a relaxed yet luxurious setting.
+[Phoenixx Casino](https://www.phoenixcasino.in/) is nestled at Candolim Road in North Goa, easily accessible for tourists and locals. The venue is designed with the essence of Goa's chill allure. The visitors are welcomed with sophistication and warmth, putting them at ease. The ambience sparkles a sense of richness, making them feel special from the moment they arrive. Whether you're for intense gaming or to relish the atmosphere, Casino provides a space where guests can indulge in games in a relaxed yet luxurious setting.
 
 ## Gaming Options
 
