@@ -1,6 +1,6 @@
 ---
 title: "What to Expect on a Casino Night Out in Goa"
-description: "Discover the ultimate casino night experience in Goa at Phoenixx Casino – from luxury games and gourmet dining to VIP lounges and live entertainment. Plan your perfect night at the best casino in Goa."
+description: "Discover the ultimate casino night experience in Goa at Phoenix Casino – from luxury games and gourmet dining to VIP lounges and live entertainment. Plan your perfect night at the best casino in Goa."
 pubDate: 2025-08-04
 author: "Marketing Team"
 image: "/blog/casino-in-goa-nightout-guide.png"
