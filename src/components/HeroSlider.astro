@@ -1,5 +1,7 @@
 ---
+// Astro Component Code
 import { Image } from 'astro:assets';
+
 import SliderImageMob from '../assets/banner/banner-mob-1.png';
 import SliderImageDesk from '../assets/banner/banner-desk-1.jpg';
 import SliderImage2 from '../assets/banner/banner-2.jpg';
@@ -10,10 +12,10 @@ import SliderImageKangnaMob from '../assets/banner/kangna-mobile.png';
 
 const sliderImages = [
     {
-         desktop: SliderImageKangnaDesk,
-         mobile: SliderImageKangnaMob,
-         alt: 'Casino in goa hosts Kangna Sharma at Phoenix Casino',
-         isResponsive: true
+        desktop: SliderImageKangnaDesk,
+        mobile: SliderImageKangnaMob,
+        alt: 'Casino in goa hosts Kangna Sharma at Phoenix Casino',
+        isResponsive: true
     },
     {
         desktop: SliderImageDesk,
@@ -67,7 +69,7 @@ const sliderImages = [
                         <Image 
                             src={slide.image}
                             alt={slide.alt}
-                            width={1400}
+                            width={1600}
                             height={600}
                             quality={90}
                             class="slider-image"
@@ -75,10 +77,10 @@ const sliderImages = [
                     )}
                 </div>
             ))}
-            
+
             <button class="slider-btn prev" aria-label="Previous slide">❮</button>
             <button class="slider-btn next" aria-label="Next slide">❯</button>
-            
+
             <div class="slider-dots">
                 {sliderImages.map((_, index) => (
                     <button class="dot" data-index={index} aria-label={`Go to slide ${index + 1}`}></button>
@@ -90,11 +92,11 @@ const sliderImages = [
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const slides = document.querySelectorAll<HTMLElement>('.slide');
-        const dots = document.querySelectorAll<HTMLElement>('.dot');
-        const prevBtn = document.querySelector<HTMLButtonElement>('.prev');
-        const nextBtn = document.querySelector<HTMLButtonElement>('.next');
-        
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+
         let currentSlide = 0;
         const slideCount = slides.length;
 
@@ -119,13 +121,9 @@ const sliderImages = [
             updateSlider();
         }
 
-        // Initialize slider
         updateSlider();
-
-        // Event listeners
         prevBtn?.addEventListener('click', prevSlide);
         nextBtn?.addEventListener('click', nextSlide);
-        
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 currentSlide = index;
@@ -133,160 +131,157 @@ const sliderImages = [
             });
         });
 
-        // Auto-advance slides every 5 seconds
         setInterval(nextSlide, 5000);
     });
 </script>
 
 <style>
-    .slide-image-1 {
-    object-position: right center;
-    object-position:85% center; 
+.hero-section {
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0;
+    box-sizing: border-box;
+    margin-top: 140px;
+    position: relative;
+    z-index: 1;
 }
 
+.hero-slider {
+    position: relative;
+    max-width: 1600px; /* ✅ Increased from 1400px */
+    width: 100%;
+    margin: 0 auto;
+    height: min(600px, 70vh);
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
 
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.slide[data-index="0"] {
+    opacity: 1;
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.slide-image-1 {
+    object-position: 85% center;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(212, 175, 55, 0.9);
+    color: white;
+    border: none;
+    width: clamp(30px, 5vw, 40px);
+    height: clamp(30px, 5vw, 40px);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.slider-btn:hover {
+    background: rgb(212, 175, 55);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+    left: clamp(0.5rem, 2vw, 1rem);
+}
+
+.next {
+    right: clamp(0.5rem, 2vw, 1rem);
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: clamp(1rem, 2vh, 1.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: clamp(0.5rem, 1vw, 0.75rem);
+    z-index: 2;
+}
+
+.dot {
+    width: clamp(8px, 1.5vw, 10px);
+    height: clamp(8px, 1.5vw, 10px);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: rgb(212, 175, 55);
+    border-color: white;
+    transform: scale(1.2);
+}
+
+.desktop-image {
+    display: block;
+}
+
+.mobile-image {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
     .hero-section {
-        width: 100%;
-        padding: 0 1rem;
-        margin: 0;
-        box-sizing: border-box;
-        margin-top: 140px;
-        position: relative;
-        z-index: 1;
+        padding: 0 0.5rem;
+        margin-top: 170px;
     }
 
     .hero-slider {
-        position: relative;
-        max-width: 1400px;
-        width: 100%;
-        margin: 0 auto;
-        height: min(600px, 70vh);
-        overflow: hidden;
-        border-radius: 8px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .slider-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-
-    .slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transition: all 0.5s ease;
-        opacity: 0;
-    }
-
-    .slide[data-index="0"] {
-        opacity: 1;
-    }
-
-    .slider-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .slider-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(212, 175, 55, 0.9);
-        color: white;
-        border: none;
-        width: clamp(30px, 5vw, 40px);
-        height: clamp(30px, 5vw, 40px);
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: clamp(0.8rem, 1.5vw, 1.2rem);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        z-index: 2;
-    }
-
-    .slider-btn:hover {
-        background: rgb(212, 175, 55);
-        transform: translateY(-50%) scale(1.1);
-    }
-
-    .prev {
-        left: clamp(0.5rem, 2vw, 1rem);
-    }
-
-    .next {
-        right: clamp(0.5rem, 2vw, 1rem);
-    }
-
-    .slider-dots {
-        position: absolute;
-        bottom: clamp(1rem, 2vh, 1.5rem);
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: clamp(0.5rem, 1vw, 0.75rem);
-        z-index: 2;
-    }
-
-    .dot {
-        width: clamp(8px, 1.5vw, 10px);
-        height: clamp(8px, 1.5vw, 10px);
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.5);
-        border: 2px solid rgba(212, 175, 55, 0.5);
-        padding: 0;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .dot.active {
-        background: rgb(212, 175, 55);
-        border-color: white;
-        transform: scale(1.2);
+        height: min(400px, 60vh);
+        border-radius: 4px;
     }
 
     .desktop-image {
-        display: block;
-    }
-
-    .mobile-image {
         display: none;
     }
 
-    @media (max-width: 768px) {
-        .hero-section {
-            padding: 0 0.5rem;
-            margin-top: 170px;
-            z-index: 1;
-        }
+    .mobile-image {
+        display: block;
+    }
+}
 
-        .hero-slider {
-            height: min(400px, 60vh);
-            border-radius: 4px;
-        }
-
-        .desktop-image {
-            display: none;
-        }
-
-        .mobile-image {
-            display: block;
-        }
+@media (max-width: 480px) {
+    .hero-section {
+        margin-top: 150px;
     }
 
-    @media (max-width: 480px) {
-        .hero-section {
-            margin-top: 150px;
-        }
-        
-        .hero-slider {
-            height: min(500px, 50vh);
-        }
+    .hero-slider {
+        height: min(500px, 50vh);
     }
-</style> 
+}
+</style>
