@@ -3,7 +3,7 @@ title: "A Woman’s Guide to Experiencing Casinos in Goa | Solo & Safe 🧳🎲"
 description: "Planning a solo trip to Goa? Discover the safest casinos for women, insider tips, and why Phoenix Casino is a must-visit for gaming & nightlife."
 pubDate: 2025-08-11
 author: "Marketing Team"
-image: "/blog/casino-in-goa-a-woman’s-guide-to-casinos-in-goa.png"
+image: "/blog/womans-guide-to-casinos-in-goa-solo-safe-cover.png"
 imageAlt: "Luxury Goa Casino Night Experience as a woman at Phoenix Casino Goa"
 category: "Tips & Tricks"
 featured: true
