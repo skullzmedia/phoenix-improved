@@ -1,13 +1,15 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 // Celebrity images
-import AmyraUttam from '../assets/wall_of_fame/amyra-uttam.jpg';
-import DaisyShah from '../assets/wall_of_fame/daisy-shah.jpg';
-import KumarSanu from '../assets/wall_of_fame/kumar-sanu.jpg';
-import UrvashiRautela from '../assets/wall_of_fame/urvashi-rautela.jpg';
-import SonalChauhan from '../assets/wall_of_fame/sonal-chauhan.jpg';
-import InaayatSharma from '../assets/wall_of_fame/inaayat-sharma.jpg';
+import AmyraUttam from "../assets/wall_of_fame/amyra-uttam.jpg";
+import KangnaSharma from "../assets/wall_of_fame/kangna-sharma.jpg";
+import AnupJalota from "../assets/wall_of_fame/anup-jalota.jpg";
+import DaisyShah from "../assets/wall_of_fame/daisy-shah.jpg";
+import KumarSanu from "../assets/wall_of_fame/kumar-sanu.jpg";
+import UrvashiRautela from "../assets/wall_of_fame/urvashi-rautela.jpg";
+import SonalChauhan from "../assets/wall_of_fame/sonal-chauhan.jpg";
+import InaayatSharma from "../assets/wall_of_fame/inaayat-sharma.jpg";
 
 const celebrities = [
   { name: "Kumar Sanu", image: KumarSanu },
@@ -15,7 +17,9 @@ const celebrities = [
   { name: "Amyra Uttam", image: AmyraUttam },
   { name: "Urvashi Rautela", image: UrvashiRautela },
   { name: "Sonal Chauhan", image: SonalChauhan },
-  { name: "Inaayat Sharma", image: InaayatSharma }
+  { name: "Inaayat Sharma", image: InaayatSharma },
+  { name: "Anup Jalota", image: AnupJalota },
+  { name: "Kangna Sharma", image: KangnaSharma },
 ];
 
 const totalSlides = Math.ceil(celebrities.length / 4);
@@ -31,32 +35,35 @@ const totalSlides = Math.ceil(celebrities.length / 4);
 
       <div class="wof-celebrities-wrapper">
         <div class="wof-celebrities-track">
-          {celebrities.filter(celebrity => celebrity.image).map((celebrity) => (
-            <div class="wof-celebrity-item">
-              <div class="celebrity-image">
-                <Image
-                  src={celebrity.image}
-                  alt={celebrity.name}
-                  width={300}
-                  height={300}
-                  quality="high"
-                />
-              </div>
-              <h3 class="celebrity-name">{celebrity.name}</h3>
-            </div>
-          ))}
+          {
+            celebrities
+              .filter((celebrity) => celebrity.image)
+              .map((celebrity) => (
+                <div class="wof-celebrity-item">
+                  <div class="celebrity-image">
+                    <Image
+                      src={celebrity.image}
+                      alt={celebrity.name}
+                      width={300}
+                      height={300}
+                      quality="high"
+                    />
+                  </div>
+                  <h3 class="celebrity-name">{celebrity.name}</h3>
+                </div>
+              ))
+          }
         </div>
       </div>
-<button class="nav-arrow wof-next-arrow" aria-label="Next slide">
+      <button class="nav-arrow wof-next-arrow" aria-label="Next slide">
         <i class="fas fa-chevron-right"></i>
       </button>
-      
     </div>
   </div>
 </section>
 
 <style>
-/*
+  /*
 
 
 */
@@ -124,7 +131,9 @@ const totalSlides = Math.ceil(celebrities.length / 4);
     position: relative;
     border: 3px solid rgba(231, 201, 128, 0.4);
     box-shadow: 0 12px 30px rgba(231, 201, 128, 0.35);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .celebrity-image:hover {
@@ -193,7 +202,7 @@ const totalSlides = Math.ceil(celebrities.length / 4);
   /* Mobile adjustments */
   @media (max-width: 480px) {
     .section-title {
-      font-size: 2.0rem;
+      font-size: 2rem;
     }
     /* Increase container padding on mobile for safe area */
     .wof-celebrities-container {
@@ -230,8 +239,7 @@ const totalSlides = Math.ceil(celebrities.length / 4);
       right: -27px;
     }
   }
-  @media(max-width:360px)
-  {
+  @media (max-width: 360px) {
     .section-title {
       font-size: 1.8rem;
     }
@@ -239,9 +247,9 @@ const totalSlides = Math.ceil(celebrities.length / 4);
 </style>
 
 <script>
-  const trackElement = document.querySelector('.wof-celebrities-track');
-  const prevButton = document.querySelector('.wof-prev-arrow');
-  const nextButton = document.querySelector('.wof-next-arrow');
+  const trackElement = document.querySelector(".wof-celebrities-track");
+  const prevButton = document.querySelector(".wof-prev-arrow");
+  const nextButton = document.querySelector(".wof-next-arrow");
 
   const getItemsPerView = () => {
     if (window.innerWidth >= 1024) return 4;
@@ -250,7 +258,7 @@ const totalSlides = Math.ceil(celebrities.length / 4);
   };
 
   let currentIndex = 0;
-  const celebrityItems = document.querySelectorAll('.wof-celebrity-item');
+  const celebrityItems = document.querySelectorAll(".wof-celebrity-item");
 
   function updateTotalSlides() {
     return Math.ceil(celebrityItems.length / getItemsPerView()) - 1;
@@ -259,18 +267,19 @@ const totalSlides = Math.ceil(celebrities.length / 4);
   function updateNavigation() {
     const totalSlides = updateTotalSlides();
     if (prevButton && nextButton) {
-      prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
-      prevButton.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+      prevButton.style.opacity = currentIndex === 0 ? "0.5" : "1";
+      prevButton.style.pointerEvents = currentIndex === 0 ? "none" : "auto";
 
-      nextButton.style.opacity = currentIndex >= totalSlides ? '0.5' : '1';
-      nextButton.style.pointerEvents = currentIndex >= totalSlides ? 'none' : 'auto';
+      nextButton.style.opacity = currentIndex >= totalSlides ? "0.5" : "1";
+      nextButton.style.pointerEvents =
+        currentIndex >= totalSlides ? "none" : "auto";
     }
   }
 
   function scrollToSlide(index) {
     if (trackElement) {
       currentIndex = index;
-      const item = trackElement.querySelector('.wof-celebrity-item');
+      const item = trackElement.querySelector(".wof-celebrity-item");
       const itemWidth = item ? item.offsetWidth : 0;
       // Use a gap of 30px for mobile, otherwise 25px.
       const gap = window.innerWidth <= 480 ? 30 : 25;
@@ -281,7 +290,7 @@ const totalSlides = Math.ceil(celebrities.length / 4);
   }
 
   if (prevButton) {
-    prevButton.addEventListener('click', () => {
+    prevButton.addEventListener("click", () => {
       if (currentIndex > 0) {
         scrollToSlide(currentIndex - 1);
       }
@@ -289,7 +298,7 @@ const totalSlides = Math.ceil(celebrities.length / 4);
   }
 
   if (nextButton) {
-    nextButton.addEventListener('click', () => {
+    nextButton.addEventListener("click", () => {
       if (currentIndex < updateTotalSlides()) {
         scrollToSlide(currentIndex + 1);
       }
@@ -297,14 +306,14 @@ const totalSlides = Math.ceil(celebrities.length / 4);
   }
 
   // Handle window resize
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     currentIndex = 0;
     scrollToSlide(0);
     updateNavigation();
   });
 
   // Auto-trigger navigation on arrow hover (if desired)
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     const prevArrow = document.querySelector(".wof-prev-arrow");
     const nextArrow = document.querySelector(".wof-next-arrow");
 
@@ -314,10 +323,10 @@ const totalSlides = Math.ceil(celebrities.length / 4);
       }
     }
 
-    prevArrow.addEventListener("mouseenter", function() {
+    prevArrow.addEventListener("mouseenter", function () {
       triggerClick(prevArrow);
     });
-    nextArrow.addEventListener("mouseenter", function() {
+    nextArrow.addEventListener("mouseenter", function () {
       triggerClick(nextArrow);
     });
   });

@@ -1,36 +1,39 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import WallOfFame from '../components/WallOfFame.astro';
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import WallOfFame from "../components/WallOfFame.astro";
 
-import RussianDance from '../assets/entertainment/banner/banner_two.jpeg';
-import EntertainmentBanner from '../assets/entertainment/banner/banner_four.jpeg';
-import CelebrityBanner from '../assets/entertainment/banner/banner_one.png';
-import DailyGiveAways from '../assets/entertainment/daily/daily_giveaways.jpeg';
-import LivePerformances from '../assets/entertainment/daily/live.jpeg';
-import RussianDancer from '../assets/entertainment/daily/russian_dancer.jpeg';
-import FreeOTPC from '../assets/entertainment/upcoming/free-otpc.png';
-import kangna600 from '../assets/entertainment/upcoming/upcoming-kangna.png';
+import RussianDance from "../assets/entertainment/banner/banner_two.jpeg";
+import EntertainmentBanner from "../assets/entertainment/banner/banner_four.jpeg";
+import CelebrityBanner from "../assets/entertainment/banner/banner_one.png";
+import DailyGiveAways from "../assets/entertainment/daily/daily_giveaways.jpeg";
+import LivePerformances from "../assets/entertainment/daily/live.jpeg";
+import RussianDancer from "../assets/entertainment/daily/russian_dancer.jpeg";
+import FreeOTPC from "../assets/entertainment/upcoming/free-otpc.png";
+import kangna600 from "../assets/entertainment/upcoming/upcoming-kangna.png";
 
 // Daily Entertainment Data
 const dailyEntertainment = [
   {
     title: "Russian Dancers",
-    description: "Experience the art and elegance of Russian dancers as they perform traditional and contemporary routines that captivate and mesmerize.",
+    description:
+      "Experience the art and elegance of Russian dancers as they perform traditional and contemporary routines that captivate and mesmerize.",
     image: RussianDancer,
-    alt: "Russian dancers performing live at Phoenix Casino Goa, Best Casino in goa for gaming and entertainment"
+    alt: "Russian dancers performing live at Phoenix Casino Goa, Best Casino in goa for gaming and entertainment",
   },
   {
     title: "Live Music & Bollywood Dance",
-    description: "Enjoy electrifying live music performances by talented artists and bands, creating the perfect ambience for your casino experience.",
+    description:
+      "Enjoy electrifying live music performances by talented artists and bands, creating the perfect ambience for your casino experience.",
     image: LivePerformances,
-    alt: "Live Bollywood music and dance with bollywood celebrities at Phoenix Casino stage"
+    alt: "Live Bollywood music and dance with bollywood celebrities at Phoenix Casino stage",
   },
   {
     title: "Live Games & Giveaways",
-    description: "Participate in exciting live games and stand a chance to win amazing prizes in our regular giveaways throughout the evening.",
+    description:
+      "Participate in exciting live games and stand a chance to win amazing prizes in our regular giveaways throughout the evening.",
     image: DailyGiveAways,
-    alt: "Guests enjoying live casino games and prize giveaways at casino in goa, Phoenix casino goa"
+    alt: "Guests enjoying live casino games and prize giveaways at casino in goa, Phoenix casino goa",
   },
 ];
 
@@ -40,41 +43,46 @@ const upcomingEvents = [
     title: "Free 500 OTPC",
     description: "Get Free 500 OTPC on our entry packages (T&C apply).",
     image: FreeOTPC,
-    alt: "Phoenix Casino offering free 500 OTPC promotional offer, Goa casino with offers"
+    alt: "Phoenix Casino offering free 500 OTPC promotional offer, Goa casino with offers",
   },
-
-   {
-title: "Celebrity Visit - 15th August",
-    description: "Guest appreance by Kangna Sharma with Live performances.",
-    image: kangna600,
-    }
 ];
 
 // Past Events Data
 const pastEvents = [
   {
     title: "New Year's Eve Bash",
-    description: "Our spectacular New Year celebration featuring celebrity performances and breathtaking fireworks.",
+    description:
+      "Our spectacular New Year celebration featuring celebrity performances and breathtaking fireworks.",
     video: "https://www.youtube.com/embed/oMvX-g5jKxE",
     date: "Dec 31, 2024",
   },
   {
     title: "Celebrity Night Extravaganza",
-    description: "A dazzling fashion showcase feat. Urvashi Rautela, Sonal Chauhan & Amyra Uttam.",
+    description:
+      "A dazzling fashion showcase feat. Urvashi Rautela, Sonal Chauhan & Amyra Uttam.",
     video: "https://youtube.com/embed/yzPjaQ8jrtQ",
     date: "Feb 20, 2025",
   },
   {
     title: "Bikes & Bets Bash",
-    description: "3 days, 3 lucky winners, & Countless memories at the Bikes & Bets Bash! ",
+    description:
+      "3 days, 3 lucky winners, & Countless memories at the Bikes & Bets Bash! ",
     video: "https://www.youtube.com/embed/X1eCfUJ4eQo",
     date: "May 2-4th, 2025",
   },
   {
     title: "Anup Jalota Ghazal Performance",
-    description: "Check out Ghazal night and phoenix casino goa with Anup and Jalota and his lovely performance",
+    description:
+      "Check out Ghazal night and phoenix casino goa with Anup and Jalota and his lovely performance",
     video: "https://www.youtube.com/embed/g_1y0aciAj0",
-    date: "15th July",
+    date: "Jul 15, 2025",
+  },
+  {
+    title: "Independence Day Celebration",
+    description:
+      " View our amazing Independence Day Celebration with live performances, cocktails and celeb-studded by Kangna Sharma!",
+    video: "https://youtube.com/embed/jHJ6BtLGDdA",
+    date: "Aug 15, 2025",
   },
 ];
 
@@ -106,28 +114,36 @@ const bannerSlides = [
   <section class="entertainment-banner">
     <div class="banner-slider">
       <div class="slides-container">
-        {bannerSlides.map((slide, idx) => (
-          <div class="slide" data-index={idx}>
-            <Image
-              src={slide.image}
-              alt={slide.alt || slide.title}
-              width={1400}
-              height={600}
-              class="slide-image"
-            />
-            <div class="slide-content">
-              <h1>{slide.title}</h1>
-              <p>{slide.subtitle}</p>
+        {
+          bannerSlides.map((slide, idx) => (
+            <div class="slide" data-index={idx}>
+              <Image
+                src={slide.image}
+                alt={slide.alt || slide.title}
+                width={1400}
+                height={600}
+                class="slide-image"
+              />
+              <div class="slide-content">
+                <h1>{slide.title}</h1>
+                <p>{slide.subtitle}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
       <button class="banner-nav prev" aria-label="Previous slide">❮</button>
       <button class="banner-nav next" aria-label="Next slide">❯</button>
       <div class="banner-dots">
-        {bannerSlides.map((_, idx) => (
-          <button class="dot" data-index={idx} aria-label={`Go to slide ${idx + 1}`}></button>
-        ))}
+        {
+          bannerSlides.map((_, idx) => (
+            <button
+              class="dot"
+              data-index={idx}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))
+        }
       </div>
     </div>
   </section>
@@ -136,23 +152,27 @@ const bannerSlides = [
   <section id="daily-entertainment" class="daily-entertainment">
     <div class="container">
       <h2 class="section-title">DAILY ENTERTAINMENT</h2>
-      <p class="section-subtitle">Experience the vibrant entertainment offerings at Phoenixx Casino</p>
+      <p class="section-subtitle">
+        Experience the vibrant entertainment offerings at Phoenixx Casino
+      </p>
       <div class="entertainment-grid">
-        {dailyEntertainment.map((item, idx) => (
-          <div class="entertainment-card">
-            <Image
-              src={item.image}
-              alt={item.alt || item.title}
-              width={600}
-              height={400}
-              class="card-img"
-            />
-            <div class="card-content">
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
+        {
+          dailyEntertainment.map((item, idx) => (
+            <div class="entertainment-card">
+              <Image
+                src={item.image}
+                alt={item.alt || item.title}
+                width={600}
+                height={400}
+                class="card-img"
+              />
+              <div class="card-content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
@@ -161,23 +181,27 @@ const bannerSlides = [
   <section id="upcoming-events" class="upcoming-events">
     <div class="container">
       <h2 class="section-title">UPCOMING EVENTS</h2>
-      <p class="section-subtitle">Mark your calendar for these exciting upcoming events</p>
+      <p class="section-subtitle">
+        Mark your calendar for these exciting upcoming events
+      </p>
       <div class="entertainment-grid">
-        {upcomingEvents.map((event, idx) => (
-          <a href="/contact" class="entertainment-card">
-            <Image
-              src={event.image}
-              alt={event.alt || event.title}
-              width={600}
-              height={400}
-              class="card-img"
-            />
-            <div class="card-content">
-              <h3>{event.title}</h3>
-              <p>{event.description}</p>
-            </div>
-          </a>
-        ))}
+        {
+          upcomingEvents.map((event, idx) => (
+            <a href="/contact" class="entertainment-card">
+              <Image
+                src={event.image}
+                alt={event.alt || event.title}
+                width={600}
+                height={400}
+                class="card-img"
+              />
+              <div class="card-content">
+                <h3>{event.title}</h3>
+                <p>{event.description}</p>
+              </div>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -186,27 +210,31 @@ const bannerSlides = [
   <section id="past-events" class="past-events">
     <div class="container">
       <h2 class="section-title">PAST EVENTS</h2>
-      <p class="section-subtitle">Relive the magical moments from our past events</p>
+      <p class="section-subtitle">
+        Relive the magical moments from our past events
+      </p>
       <div class="videos-container">
         <div class="videos-grid">
-          {pastEvents.map((ev, idx) => (
-            <div class="video-card">
-              <div class="video-frame">
-                <iframe
-                  src={ev.video}
-                  title={ev.title}
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
+          {
+            pastEvents.map((ev, idx) => (
+              <div class="video-card">
+                <div class="video-frame">
+                  <iframe
+                    src={ev.video}
+                    title={ev.title}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  />
+                </div>
+                <div class="video-content">
+                  <h3>{ev.title}</h3>
+                  <p class="video-date">📅 {ev.date}</p>
+                  <p>{ev.description}</p>
+                </div>
               </div>
-              <div class="video-content">
-                <h3>{ev.title}</h3>
-                <p class="video-date">📅 {ev.date}</p>
-                <p>{ev.description}</p>
-              </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </div>
@@ -219,188 +247,301 @@ const bannerSlides = [
 </Layout>
 
 <style>
-/* Container */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
 
-/* Section Titles */
-.section-title {
-  font-size: 2.5rem;
-  text-align: center;
-  background: linear-gradient(90deg, #e7c980, #9e8253);
-  -webkit-background-clip: text;
-  color: transparent;
-  margin-bottom: 1rem;
-  word-break: break-word;
-}
-.section-subtitle {
-  font-size: 1.2rem;
-  color: #ccc;
-  text-align: center;
-  margin-bottom: 2rem;
-}
+  /* Section Titles */
+  .section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    background: linear-gradient(90deg, #e7c980, #9e8253);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+    word-break: break-word;
+  }
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
 
-/* Banner */
-.entertainment-banner { margin-top: 120px; position: relative; }
-.banner-slider { position: relative; overflow: hidden; height: min(70vh, 600px); }
-.slides-container { position: relative; width: 100%; height: 100%; }
-.slide { position: absolute; inset: 0; opacity: 0; transition: opacity .8s; }
-.slide[data-index="0"] { opacity: 1; }
-.slide-image { width: 100%; height: 100%; object-fit: cover; }
-.slide-content {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  background: rgba(0,0,0,.5); color: #fff;
-  text-align: center; padding: 0 2rem;
-}
-.slide-content h1 {
-  font-size: 3rem;
-  background: linear-gradient(90deg, #e7c980, #9e8253);
-  -webkit-background-clip: text;
-  color: transparent;
-  text-transform: uppercase;
-}
-.slide-content p { font-size: 1.5rem; max-width: 800px; }
-.banner-nav {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  background: rgba(212,175,55,.8); border: none;
-  width: 50px; height: 50px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-}
-.prev { left: 20px; }
-.next { right: 20px; }
-.banner-dots {
-  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 8px;
-}
-.dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.5); cursor: pointer; }
-.dot.active { background: #D4AF37; transform: scale(1.2); }
+  /* Banner */
+  .entertainment-banner {
+    margin-top: 120px;
+    position: relative;
+  }
+  .banner-slider {
+    position: relative;
+    overflow: hidden;
+    height: min(70vh, 600px);
+  }
+  .slides-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s;
+  }
+  .slide[data-index="0"] {
+    opacity: 1;
+  }
+  .slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .slide-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 0 2rem;
+  }
+  .slide-content h1 {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #e7c980, #9e8253);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+  }
+  .slide-content p {
+    font-size: 1.5rem;
+    max-width: 800px;
+  }
+  .banner-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(212, 175, 55, 0.8);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .prev {
+    left: 20px;
+  }
+  .next {
+    right: 20px;
+  }
+  .banner-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+  .dot.active {
+    background: #d4af37;
+    transform: scale(1.2);
+  }
 
-/* Grid for Cards - Fixed to show 4 per row */
-.entertainment-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  max-width: 100%;
-}
+  /* Grid for Cards - Fixed to show 4 per row */
+  .entertainment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 100%;
+  }
 
-.entertainment-card {
-  background: #111;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform .3s;
-  min-width: 0;
-}
-.entertainment-card:hover { transform: translateY(-10px); }
-.card-img { width: 100%; height: 200px; object-fit: cover; }
-.card-content { padding: 1rem; flex: 1; }
-.card-content h3 { color: #e7c980; margin-bottom: .5rem; font-size: 1.25rem; }
-.card-content p { color: #ccc; line-height: 1.5; }
+  .entertainment-card {
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+    min-width: 0;
+  }
+  .entertainment-card:hover {
+    transform: translateY(-10px);
+  }
+  .card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .card-content {
+    padding: 1rem;
+    flex: 1;
+  }
+  .card-content h3 {
+    color: #e7c980;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+  .card-content p {
+    color: #ccc;
+    line-height: 1.5;
+  }
 
-/* Section Backgrounds */
-.daily-entertainment { padding: 4rem 0; background: #000; }
-.upcoming-events { padding: 4rem 0; background: #0a0a0a; }
-.past-events { padding: 4rem 0; background: #000; }
+  /* Section Backgrounds */
+  .daily-entertainment {
+    padding: 4rem 0;
+    background: #000;
+  }
+  .upcoming-events {
+    padding: 4rem 0;
+    background: #0a0a0a;
+  }
+  .past-events {
+    padding: 4rem 0;
+    background: #000;
+  }
 
-/* Past Events - Fixed grid layout */
-.videos-container { padding: 1rem 2rem; }
-.videos-grid { 
-  display: grid; 
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 2rem; 
-  max-width: 100%;
-}
-.video-card { 
-  background: #111; 
-  border-radius: 10px; 
-  overflow: hidden; 
-  min-width: 0;
-}
-.video-frame { position: relative; padding-top: 56.25%; }
-.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
-.video-content { padding: 1rem; }
-.video-content h3 { color: #e7c980; font-size: 1.2rem; margin-bottom: .5rem; }
-.video-date { color: #ccc; margin-bottom: .5rem; }
-.video-content p { color: #ccc; line-height: 1.4; }
-
-/* Responsive */
-@media (max-width: 1200px) {
-  .entertainment-grid,
+  /* Past Events - Fixed grid layout */
+  .videos-container {
+    padding: 1rem 2rem;
+  }
   .videos-grid {
-    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 100%;
   }
-}
+  .video-card {
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 0;
+  }
+  .video-frame {
+    position: relative;
+    padding-top: 56.25%;
+  }
+  .video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .video-content {
+    padding: 1rem;
+  }
+  .video-content h3 {
+    color: #e7c980;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .video-date {
+    color: #ccc;
+    margin-bottom: 0.5rem;
+  }
+  .video-content p {
+    color: #ccc;
+    line-height: 1.4;
+  }
 
-@media (max-width: 900px) {
-  .entertainment-grid,
-  .videos-grid {
-    grid-template-columns: repeat(2, 1fr);
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .entertainment-grid,
+    .videos-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
-}
 
-@media (max-width: 768px) {
-  .section-title { font-size: 2rem; }
-  .entertainment-grid,
-  .videos-grid {
-    grid-template-columns: 1fr;
+  @media (max-width: 900px) {
+    .entertainment-grid,
+    .videos-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
-}
 
-@media (max-width: 600px) {
-  .container { padding: 0 1rem; }
-  .entertainment-grid,
-  .videos-grid { 
-    padding: 0 1rem; 
-    grid-template-columns: 1fr;
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+    .entertainment-grid,
+    .videos-grid {
+      grid-template-columns: 1fr;
+    }
   }
-  .card-img { height: 180px; }
-}
+
+  @media (max-width: 600px) {
+    .container {
+      padding: 0 1rem;
+    }
+    .entertainment-grid,
+    .videos-grid {
+      padding: 0 1rem;
+      grid-template-columns: 1fr;
+    }
+    .card-img {
+      height: 180px;
+    }
+  }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.dot');
-  const prevBtn = document.querySelector('.prev');
-  const nextBtn = document.querySelector('.next');
-  
-  let current = 0;
-  
-  const update = () => {
-    slides.forEach((s, i) => {
-      if (s instanceof HTMLElement) {
-        s.style.opacity = i === current ? '1' : '0';
-      }
-    });
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
-  };
-  
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => { 
-      current = (current - 1 + slides.length) % slides.length; 
-      update(); 
-    });
-  }
-  
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => { 
-      current = (current + 1) % slides.length; 
-      update(); 
-    });
-  }
-  
-  dots.forEach((d, i) => d.addEventListener('click', () => { 
-    current = i; 
-    update(); 
-  }));
-  
-  update();
-  setInterval(() => { 
-    current = (current + 1) % slides.length; 
-    update(); 
-  }, 5000);
-});
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+
+    let current = 0;
+
+    const update = () => {
+      slides.forEach((s, i) => {
+        if (s instanceof HTMLElement) {
+          s.style.opacity = i === current ? "1" : "0";
+        }
+      });
+      dots.forEach((d, i) => d.classList.toggle("active", i === current));
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        current = (current - 1 + slides.length) % slides.length;
+        update();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        current = (current + 1) % slides.length;
+        update();
+      });
+    }
+
+    dots.forEach((d, i) =>
+      d.addEventListener("click", () => {
+        current = i;
+        update();
+      })
+    );
+
+    update();
+    setInterval(() => {
+      current = (current + 1) % slides.length;
+      update();
+    }, 5000);
+  });
 </script>
