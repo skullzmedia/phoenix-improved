@@ -3,7 +3,7 @@ title: "Phoenix Casino Goa 1st Anniversary Grand Celebration: A Star Studded Cel
 description: "this September,the spotlight is firmly on Phoenix Casino as it gears up for its 1st Anniversary Celebration. Known for redefining luxury gaming and entertainment in Goa, Phoenix Casino is leaving no stone unturned to..."
 pubDate: 2025-09-02
 author: "Marketing Team"
-image: "/blog/phoenix-casino-goa-grand-anniversary- with-bollywood-celebs-cover.png"
+image: "/blog/phoenix-casino-anniversary-banner-extended.png"
 imageAlt: "Phoenix Casino Goa 1st Anniversary Grand Celebration with celebrities Nia Sharma, Giorgia Andriani and Isha Malviya"
 category: "Tips & Tricks"
 featured: true
