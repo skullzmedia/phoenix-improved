@@ -1,106 +1,125 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
 const pageTitle = "FAQ | Phoenixx Casino Goa – Your Questions Answered";
-const pageDescription = "Find answers to frequently asked questions about Phoenixx Casino in Goa, including entry rules, age restrictions, packages, and more.";
+const pageDescription =
+  "Find answers to frequently asked questions about Phoenixx Casino in Goa, including entry rules, age restrictions, packages, and more.";
 
 // FAQ data
 const faqData = [
   {
     id: 1,
     question: "Are children allowed in Phoenixx casino goa?",
-    answer: "Children are not allowed in the gaming area. They are allowed in the restaurant area only."
+    answer:
+      "Children are not allowed in the gaming area. They are allowed in the restaurant area only.",
   },
   {
     id: 2,
-    question: "Is there any charge. for children below 21 at Phoenixx casino goa?",
-    answer: "There is no extra charge for children below 21. Food and beverages are free for them. They are allowed only in restaurant area."
+    question:
+      "Is there any charge. for children below 21 at Phoenixx casino goa?",
+    answer:
+      "There is no extra charge for children below 21. Food and beverages are free for them. They are allowed only in restaurant area.",
   },
   {
     id: 3,
     question: "Are guests allowed to carry bag in Phoenixx casino in goa?",
-    answer: "Only small handbags after checking are allowed inside the casino. No luggage bags allowed."
+    answer:
+      "Only small handbags after checking are allowed inside the casino. No luggage bags allowed.",
   },
   {
     id: 4,
     question: "What are the timings of Phoenixx casino goa?",
-    answer: "Casino is open 24x7."
+    answer: "Casino is open 24x7.",
   },
   {
     id: 5,
-    question: "Do we need to carry a photo ID for entry in Phoenixx casino goa?",
-    answer: "Yes, a government photo ID - Aadhar card/Driving license/Passport is required for age proof."
+    question:
+      "Do we need to carry a photo ID for entry in Phoenixx casino goa?",
+    answer:
+      "Yes, a government photo ID - Aadhar card/Driving license/Passport is required for age proof.",
   },
   {
     id: 6,
     question: "What's the entry fee for Phoenixx casino?",
-    answer: "Minimum entry is Rs 2000 for stag and Rs 3000 for couple."
+    answer: "Minimum entry is Rs 3000 for stag and Rs 5000 for couple.",
   },
   {
     id: 7,
     question: "What's the minimum bet at or required in Phoenixx casino?",
-    answer: "Different games have different criteria. Ranging from 500 minimum to 1000 bet."
+    answer:
+      "Different games have different criteria. Ranging from 500 minimum to 1000 bet.",
   },
   {
     id: 8,
     question: "Can I arrange an event in Phoenixx casino?",
-    answer: "For all gaming and celebrity related events, please message at marketing@phoenixcasino.in"
+    answer:
+      "For all gaming and celebrity related events, please message at marketing@phoenixcasino.in",
   },
   {
     id: 9,
     question: "What's special in Phoenixx casino?",
-    answer: "Phoenixx casino is one of the best casinos in Goa in terms of its luxurious ambience, good service and delicious food."
+    answer:
+      "Phoenixx casino is one of the best casinos in Goa in terms of its luxurious ambience, good service and delicious food.",
   },
   {
     id: 10,
     question: "What's the USP of Phoenixx casino of goa?",
-    answer: "Our USP is our luxurious ambience with a special Hukkah Bar area."
+    answer: "Our USP is our luxurious ambience with a special Hukkah Bar area.",
   },
   {
     id: 11,
     question: "Why should I/we go to Phoenixx casino?",
-    answer: "One of the most luxurious and new casinos in Goa. A must visit for the casino lovers to experience great gaming, excellent service, friendly environment, luxurious ambience and scrumptious food."
+    answer:
+      "One of the most luxurious and new casinos in Goa. A must visit for the casino lovers to experience great gaming, excellent service, friendly environment, luxurious ambience and scrumptious food.",
   },
   {
     id: 12,
     question: "What are the games available in Phoenixx casino?",
-    answer: "All range of card and machine games available like roulette, spintec roulette, slot machines, baccarat, blackjack, Andar-Bahar, three-card poker etc."
+    answer:
+      "All range of card and machine games available like roulette, spintec roulette, slot machines, baccarat, blackjack, Andar-Bahar, three-card poker etc.",
   },
   {
     id: 13,
     question: "Does Phoenixx casino conduct celebrity events?",
-    answer: "Regular events are being conducted in Phoenixx Casino. Kumar Shanu, Sonal Chauhan, Desi Shah, Inaayat Sharma, and Urvashi Routela have graced the floors with their dazzling presence."
+    answer:
+      "Regular events are being conducted in Phoenixx Casino. Kumar Shanu, Sonal Chauhan, Desi Shah, Inaayat Sharma, and Urvashi Routela have graced the floors with their dazzling presence.",
   },
   {
     id: 14,
     question: "Is there any special package for couple?",
-    answer: "Special couple packages are available ranging from 3000, 5000 to 10000 per couple entry charges with extra OTPCs."
+    answer:
+      "Special couple packages are available ranging from 3000, 5000 to 10000 per couple entry charges with extra OTPCs.",
   },
   {
     id: 15,
-    question: "Is there any special discounts available on weekends in Phoenixx casino?",
-    answer: "Phoenixx Casino follows same packages all through the week."
+    question:
+      "Is there any special discounts available on weekends in Phoenixx casino?",
+    answer: "Phoenixx Casino follows same packages all through the week.",
   },
   {
     id: 16,
     question: "Is there a kid's room in Phoenixx Casino?",
-    answer: "No we do not have kids room as of yet."
+    answer: "No we do not have kids room as of yet.",
   },
   {
     id: 17,
     question: "Is there restaurant available in Phoenixx casino?",
-    answer: "Yes we have a dedicated restaurant cum bar area for guests to fulfil their food and beverages requirements. Restaurant also has a stage where every evening dance performances are held."
+    answer:
+      "Yes we have a dedicated restaurant cum bar area for guests to fulfil their food and beverages requirements. Restaurant also has a stage where every evening dance performances are held.",
   },
   {
     id: 18,
-    question: "Is there Hukka bar/room available for guests in Phoenixx casino goa?",
-    answer: "Yes there is a special Hukka bar. The facilities can be availed on extra charges."
+    question:
+      "Is there Hukka bar/room available for guests in Phoenixx casino goa?",
+    answer:
+      "Yes there is a special Hukka bar. The facilities can be availed on extra charges.",
   },
   {
     id: 19,
     question: "Are drinks free in Phoenixx casino goa?",
-    answer: "2 coupons of drinks ( 30 ml each ) are free on any package purchased, brand as per the package ( Visit the packages page to check brands ). After redeeming the coupons drinks are unlimited on the table till the player is playing."
-  }
+    answer:
+      "2 coupons of drinks ( 30 ml each ) are free on any package purchased, brand as per the package ( Visit the packages page to check brands ). After redeeming the coupons drinks are unlimited on the table till the player is playing.",
+  },
 ];
 
 // Group FAQs by category (for better organization)
@@ -108,82 +127,99 @@ const categories = {
   "General Information": [1, 4, 5, 9, 10, 11, 19],
   "Entry & Pricing": [2, 6, 14, 15],
   "Facilities & Amenities": [3, 16, 17, 18],
-  "Gaming & Entertainment": [7, 8, 12, 13]
+  "Gaming & Entertainment": [7, 8, 12, 13],
 };
---- 
+---
 
-<Layout 
+<Layout
   pageTitle={pageTitle}
   pageDescription={pageDescription}
   title="Frequently Asked Questions"
   subtitle="Find answers to common questions about Phoenixx Casino Goa"
 >
-
   <section class="faq-section">
     <div class="container">
-<h1 class="visually-hidden">
-  Frequently Asked Questions About Phoenixx Casino Goa – Gaming, Packages, Rules & More
-</h1>
+      <h1 class="visually-hidden">
+        Frequently Asked Questions About Phoenixx Casino Goa – Gaming, Packages,
+        Rules & More
+      </h1>
       <div class="faq-intro">
         <p>
-          Welcome to our FAQ section where we've compiled answers to the most common questions about Phoenixx Casino Goa. 
-          If you can't find the answer you're looking for, feel free to <a href="/contact">contact us</a> directly.
+          Welcome to our FAQ section where we've compiled answers to the most
+          common questions about Phoenixx Casino Goa. If you can't find the
+          answer you're looking for, feel free to <a href="/contact"
+            >contact us</a
+          > directly.
         </p>
       </div>
-      
+
       <div class="faq-search">
         <div class="search-container">
           <i class="fas fa-search search-icon"></i>
           <input type="text" id="faqSearch" placeholder="Search questions..." />
         </div>
       </div>
-      
+
       <div class="faq-categories">
         <div class="category-tabs">
-          <button class="category-tab active" data-category="all">All Questions</button>
-          {Object.keys(categories).map(category => (
-            <button class="category-tab" data-category={category.toLowerCase().replace(/\s+/g, '-')}>
-              {category}
-            </button>
-          ))}
+          <button class="category-tab active" data-category="all"
+            >All Questions</button
+          >
+          {
+            Object.keys(categories).map((category) => (
+              <button
+                class="category-tab"
+                data-category={category.toLowerCase().replace(/\s+/g, "-")}
+              >
+                {category}
+              </button>
+            ))
+          }
         </div>
-        
+
         <div class="faq-container">
           <div class="no-results" style="display: none;">
-            <p>No matching questions found. Please try a different search term.</p>
+            <p>
+              No matching questions found. Please try a different search term.
+            </p>
           </div>
-          
-          {faqData.map(faq => (
-            <div 
-              class="faq-item" 
-              data-categories={Object.entries(categories)
-                .filter(([_, ids]) => ids.includes(faq.id))
-                .map(([cat]) => cat.toLowerCase().replace(/\s+/g, '-'))
-                .join(' ')}
-            >
-              <div class="faq-question">
-                <h3>{faq.question}</h3>
-                <div class="question-icon">
-                  <i class="fas fa-plus"></i>
-                  <i class="fas fa-minus"></i>
+
+          {
+            faqData.map((faq) => (
+              <div
+                class="faq-item"
+                data-categories={Object.entries(categories)
+                  .filter(([_, ids]) => ids.includes(faq.id))
+                  .map(([cat]) => cat.toLowerCase().replace(/\s+/g, "-"))
+                  .join(" ")}
+              >
+                <div class="faq-question">
+                  <h3>{faq.question}</h3>
+                  <div class="question-icon">
+                    <i class="fas fa-plus" />
+                    <i class="fas fa-minus" />
+                  </div>
+                </div>
+                <div class="faq-answer">
+                  <p>{faq.answer}</p>
                 </div>
               </div>
-              <div class="faq-answer">
-                <p>{faq.answer}</p>
-              </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
-      
+
       <div class="faq-contact">
         <h2>Still have questions?</h2>
-        <p>If you couldn't find the answer to your question, feel free to reach out to us directly.</p>
+        <p>
+          If you couldn't find the answer to your question, feel free to reach
+          out to us directly.
+        </p>
         <a href="/contact" class="contact-btn">Contact Us</a>
       </div>
     </div>
   </section>
-  
+
   <section class="map-section">
     <div class="map-container">
       <iframe
@@ -193,8 +229,7 @@ const categories = {
         style="border:0;"
         allowfullscreen=""
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 </Layout>
@@ -210,9 +245,9 @@ const categories = {
     position: relative;
     margin-top: 120px; /* Account for fixed nav height */
   }
-  
+
   .page-banner::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -221,12 +256,12 @@ const categories = {
     background: rgba(0, 0, 0, 0.7);
     z-index: 1;
   }
-  
+
   .page-banner .container {
     position: relative;
     z-index: 2;
   }
-  
+
   .page-title {
     font-size: 3rem;
     color: #e7c980;
@@ -237,7 +272,7 @@ const categories = {
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   .page-subtitle {
     font-size: 1.2rem;
     color: #fff;
@@ -251,47 +286,47 @@ const categories = {
     margin: 0 auto;
     padding: 0 2rem; /* Match nav padding */
   }
-  
+
   /* FAQ Section */
   .faq-section {
     background-color: #000;
     position: relative;
   }
-  
+
   /* FAQ Intro */
   .faq-intro {
     text-align: center;
     max-width: 800px;
     margin: 0 auto 3rem;
   }
-  
+
   .faq-intro p {
     color: #ccc;
     font-size: 1.1rem;
     line-height: 1.7;
   }
-  
+
   .faq-intro a {
     color: #e7c980;
     text-decoration: none;
     transition: color 0.3s ease;
   }
-  
+
   .faq-intro a:hover {
     color: #d4b76e;
     text-decoration: underline;
   }
-  
+
   /* FAQ Search */
   .faq-search {
     max-width: 600px;
     margin: 0 auto 3rem;
   }
-  
+
   .search-container {
     position: relative;
   }
-  
+
   .search-icon {
     position: absolute;
     left: 1rem;
@@ -300,7 +335,7 @@ const categories = {
     color: #e7c980;
     font-size: 1rem;
   }
-  
+
   #faqSearch {
     width: 100%;
     padding: 1rem 1rem 1rem 3rem;
@@ -311,23 +346,23 @@ const categories = {
     color: #fff;
     transition: all 0.3s ease;
   }
-  
+
   #faqSearch:focus {
     outline: none;
     background-color: rgba(255, 255, 255, 0.1);
     border-color: #e7c980;
     box-shadow: 0 0 15px rgba(231, 201, 128, 0.2);
   }
-  
+
   #faqSearch::placeholder {
     color: #999;
   }
-  
+
   /* FAQ Categories */
   .faq-categories {
     margin-bottom: 4rem;
   }
-  
+
   .category-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -335,7 +370,7 @@ const categories = {
     gap: 1rem;
     margin-bottom: 3rem;
   }
-  
+
   .category-tab {
     background: none;
     border: 1px solid rgba(231, 201, 128, 0.3);
@@ -346,24 +381,24 @@ const categories = {
     cursor: pointer;
     transition: all 0.3s ease;
   }
-  
+
   .category-tab:hover {
     background-color: rgba(231, 201, 128, 0.1);
     color: #e7c980;
   }
-  
+
   .category-tab.active {
     background-color: rgba(231, 201, 128, 0.2);
     color: #e7c980;
     border-color: #e7c980;
   }
-  
+
   /* FAQ Items */
   .faq-container {
     max-width: 900px;
     margin: 0 auto;
   }
-  
+
   .no-results {
     text-align: center;
     color: #ccc;
@@ -373,7 +408,7 @@ const categories = {
     border-radius: 8px;
     border: 1px dashed rgba(231, 201, 128, 0.2);
   }
-  
+
   .faq-item {
     margin-bottom: 1.5rem;
     border: 1px solid rgba(231, 201, 128, 0.2);
@@ -382,12 +417,12 @@ const categories = {
     background-color: rgba(20, 20, 20, 0.5);
     transition: all 0.3s ease;
   }
-  
+
   .faq-item:hover {
     border-color: rgba(231, 201, 128, 0.4);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
-  
+
   .faq-question {
     padding: 1.5rem;
     display: flex;
@@ -396,11 +431,11 @@ const categories = {
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  
+
   .faq-question:hover {
     background-color: rgba(231, 201, 128, 0.05);
   }
-  
+
   .faq-question h3 {
     margin: 0;
     font-size: 1.1rem;
@@ -409,45 +444,47 @@ const categories = {
     transition: color 0.3s ease;
     padding-right: 2rem;
   }
-  
+
   .faq-item.active .faq-question h3 {
     color: #e7c980;
   }
-  
+
   .question-icon {
     flex-shrink: 0;
     color: #e7c980;
   }
-  
+
   .question-icon .fa-minus {
     display: none;
   }
-  
+
   .faq-item.active .question-icon .fa-plus {
     display: none;
   }
-  
+
   .faq-item.active .question-icon .fa-minus {
     display: block;
   }
-  
+
   .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
+    transition:
+      max-height 0.4s ease,
+      padding 0.4s ease;
   }
-  
+
   .faq-item.active .faq-answer {
     max-height: 500px;
     padding: 0 1.5rem 1.5rem;
   }
-  
+
   .faq-answer p {
     color: #ccc;
     line-height: 1.6;
     margin: 0;
   }
-  
+
   /* FAQ Contact */
   .faq-contact {
     text-align: center;
@@ -456,22 +493,22 @@ const categories = {
     border-radius: 8px;
     border: 1px solid rgba(231, 201, 128, 0.2);
   }
-  
+
   .faq-contact h2 {
     font-size: 1.8rem;
     color: #e7c980;
     margin-bottom: 1rem;
   }
-  
+
   .faq-contact p {
     color: #ccc;
     margin-bottom: 2rem;
     font-size: 1.1rem;
   }
-  
+
   .contact-btn {
     display: inline-block;
-    background-color: #D4AF37;
+    background-color: #d4af37;
     color: #000;
     padding: 0.75rem 2rem;
     border-radius: 4px;
@@ -481,37 +518,37 @@ const categories = {
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
   }
-  
+
   .contact-btn:hover {
-    background-color: #C5A028;
+    background-color: #c5a028;
     transform: translateY(-2px);
   }
-  
+
   /* Responsive Styles */
   @media (max-width: 1024px) {
     .faq-contact {
       padding: 2.5rem;
     }
   }
-  
+
   @media (max-width: 768px) {
     .container {
       padding: 0 1rem; /* Match nav mobile padding */
     }
-    
+
     .page-banner {
       margin-top: 100px; /* Account for smaller mobile nav */
       padding: 6rem 0 3rem;
     }
-    
+
     .page-title {
       font-size: 2.5rem;
     }
-    
+
     .faq-intro p {
       font-size: 1rem;
     }
-    
+
     .category-tabs {
       flex-wrap: nowrap;
       overflow-x: auto;
@@ -519,58 +556,58 @@ const categories = {
       padding-bottom: 0.5rem;
       -webkit-overflow-scrolling: touch;
     }
-    
+
     .category-tab {
       flex: 0 0 auto;
       white-space: nowrap;
     }
-    
+
     .faq-contact {
       padding: 2rem 1.5rem;
     }
-    
+
     .faq-contact h2 {
       font-size: 1.6rem;
     }
-    
+
     .map-section {
       height: 400px;
       margin-top: 3rem;
     }
   }
-  
+
   @media (max-width: 480px) {
     .faq-section {
       padding: 3rem 0;
     }
-    
+
     .page-title {
       font-size: 2rem;
     }
-    
+
     .faq-question {
       padding: 1.25rem;
     }
-    
+
     .faq-question h3 {
       font-size: 1rem;
     }
-    
+
     .faq-item.active .faq-answer {
       padding: 0 1.25rem 1.25rem;
     }
-    
+
     .contact-btn {
       width: 100%;
       padding: 0.75rem 1rem;
     }
-    
+
     .map-section {
       height: 350px;
       margin-top: 2rem;
     }
   }
-  
+
   /* Map Section */
   .map-section {
     width: 100%;
@@ -578,16 +615,16 @@ const categories = {
     position: relative;
     margin-top: 4rem;
   }
-  
+
   .map-container {
     width: 100%;
     height: 100%;
     overflow: hidden;
     position: relative;
   }
-  
+
   .map-container:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -597,116 +634,123 @@ const categories = {
     z-index: 2;
     opacity: 0.7;
   }
-  
+
   .map-container iframe {
     display: block;
   }
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
-}
-
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     // Initialize accordion functionality
-    const faqItems = document.querySelectorAll('.faq-item');
-    const categoryTabs = document.querySelectorAll('.category-tab');
-    const searchInput = document.getElementById('faqSearch');
-    const noResults = document.querySelector('.no-results');
-    
+    const faqItems = document.querySelectorAll(".faq-item");
+    const categoryTabs = document.querySelectorAll(".category-tab");
+    const searchInput = document.getElementById("faqSearch");
+    const noResults = document.querySelector(".no-results");
+
     // Handle FAQ item toggle
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        const isOpen = item.classList.contains('active');
-        
+    faqItems.forEach((item) => {
+      const question = item.querySelector(".faq-question");
+      question.addEventListener("click", () => {
+        const isOpen = item.classList.contains("active");
+
         // Close all items
-        faqItems.forEach(faq => {
-          faq.classList.remove('active');
+        faqItems.forEach((faq) => {
+          faq.classList.remove("active");
         });
-        
+
         // If clicked item wasn't open, open it
         if (!isOpen) {
-          item.classList.add('active');
+          item.classList.add("active");
         }
       });
     });
-    
+
     // Handle category filtering
-    categoryTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
+    categoryTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
         // Update active tab
-        categoryTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        
+        categoryTabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+
         const category = tab.dataset.category;
-        
+
         // Filter items
-        faqItems.forEach(item => {
-          if (category === 'all') {
-            item.style.display = 'block';
+        faqItems.forEach((item) => {
+          if (category === "all") {
+            item.style.display = "block";
           } else {
             if (item.dataset.categories.includes(category)) {
-              item.style.display = 'block';
+              item.style.display = "block";
             } else {
-              item.style.display = 'none';
+              item.style.display = "none";
             }
           }
         });
-        
+
         // Clear search
         if (searchInput) {
-          searchInput.value = '';
+          searchInput.value = "";
         }
-        
+
         // Hide no results message
         if (noResults) {
-          noResults.style.display = 'none';
+          noResults.style.display = "none";
         }
       });
     });
-    
+
     // Handle search functionality
     if (searchInput) {
-      searchInput.addEventListener('input', () => {
+      searchInput.addEventListener("input", () => {
         const searchTerm = searchInput.value.toLowerCase().trim();
         let visibleCount = 0;
-        
+
         // Reset category tabs
-        categoryTabs.forEach(tab => {
-          tab.classList.remove('active');
-          if (tab.dataset.category === 'all') {
-            tab.classList.add('active');
+        categoryTabs.forEach((tab) => {
+          tab.classList.remove("active");
+          if (tab.dataset.category === "all") {
+            tab.classList.add("active");
           }
         });
-        
+
         // Filter by search term
-        faqItems.forEach(item => {
-          const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
-          const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
-          
-          if (searchTerm === '' || question.includes(searchTerm) || answer.includes(searchTerm)) {
-            item.style.display = 'block';
+        faqItems.forEach((item) => {
+          const question = item
+            .querySelector(".faq-question h3")
+            .textContent.toLowerCase();
+          const answer = item
+            .querySelector(".faq-answer p")
+            .textContent.toLowerCase();
+
+          if (
+            searchTerm === "" ||
+            question.includes(searchTerm) ||
+            answer.includes(searchTerm)
+          ) {
+            item.style.display = "block";
             visibleCount++;
           } else {
-            item.style.display = 'none';
+            item.style.display = "none";
           }
         });
-        
+
         // Show/hide no results message
         if (noResults) {
-          noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+          noResults.style.display = visibleCount === 0 ? "block" : "none";
         }
       });
     }
   });
-</script> 
+</script>
