@@ -6,95 +6,152 @@ interface Props {
 
 const { title, description } = Astro.props;
 
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
-import HeroCta from '../components/HeroCta.astro';
-import FloatingContactButtons from '../components/FloatingContactButtons.astro';
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import HeroCta from "../components/HeroCta.astro";
+import FloatingContactButtons from "../components/FloatingContactButtons.astro";
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Casino",
-  "name": "Phoenix Casino Goa",
-  "url": "https://www.phoenixcasino.in",
-  "image": "https://www.phoenixcasino.in/logo-newC.png",
-  "description": "Phoenix Casino offers a world-class casino experience that caters to both seasoned players and those new to the excitement.",
-  "telephone": "+91-9960007937",
-  "email": "phoenixcasinogoa@gmail.com",
-  "address": {
+  name: "Phoenix Casino Goa",
+  url: "https://www.phoenixcasino.in",
+  image: "https://www.phoenixcasino.in/logo-newC.png",
+  description:
+    "Phoenix Casino offers a world-class casino experience that caters to both seasoned players and those new to the excitement.",
+  telephone: "+91-9960007937",
+  email: "phoenixcasinogoa@gmail.com",
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": "Pilerne - Candolim Rd, Saipem, Candolim, Marra",
-    "addressLocality": "Candolim",
-    "addressRegion": "Goa",
-    "postalCode": "403515",
-    "addressCountry": "IN"
+    streetAddress: "Pilerne - Candolim Rd, Saipem, Candolim, Marra",
+    addressLocality: "Candolim",
+    addressRegion: "Goa",
+    postalCode: "403515",
+    addressCountry: "IN",
   },
-  "geo": {
+  geo: {
     "@type": "GeoCoordinates",
-    "latitude": 15.523934,
-    "longitude": 73.792725
+    latitude: 15.523934,
+    longitude: 73.792725,
   },
-  "openingHours": "Mo-Su 12:00-04:00",
-  "priceRange": "₹2000 to ₹5000",
-  "currenciesAccepted": "INR",
-  "paymentAccepted": "Cash, Credit Card, UPI",
-  "amenityFeature": [
-    { "@type": "LocationFeatureSpecification", "name": "Sheesha Lounge", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Live Performances", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Buffet", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "VIP Rooms", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Bar", "value": true }
+  openingHours: "Mo-Su 12:00-04:00",
+  priceRange: "₹2000 to ₹5000",
+  currenciesAccepted: "INR",
+  paymentAccepted: "Cash, Credit Card, UPI",
+  amenityFeature: [
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Sheesha Lounge",
+      value: true,
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      name: "Live Performances",
+      value: true,
+    },
+    { "@type": "LocationFeatureSpecification", name: "Buffet", value: true },
+    { "@type": "LocationFeatureSpecification", name: "VIP Rooms", value: true },
+    { "@type": "LocationFeatureSpecification", name: "Bar", value: true },
   ],
-  "hasOfferCatalog": {
+  hasOfferCatalog: {
     "@type": "OfferCatalog",
-    "name": "Casino Games",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Poker Table" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Roulette" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Blackjack" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Teen Patti" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Spintec Electronic Roulette" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Andar Bahar" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Slot Machines" }},
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "3 Card Poker" }}
-    ]
+    name: "Casino Games",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Poker Table" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Roulette" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Blackjack" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Teen Patti" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Spintec Electronic Roulette",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Andar Bahar" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Slot Machines" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "3 Card Poker" },
+      },
+    ],
   },
-  "sameAs": [
+  sameAs: [
     "https://www.facebook.com/phoenixcasinogoa",
     "https://www.instagram.com/phoenixcasinogoa",
     "https://www.youtube.com/@Phoenixcasinogoa",
     "https://www.linkedin.com/company/phoenix-casino-goa",
     "https://www.tripadvisor.in/Attraction_Review-g297605-d28646923-Reviews-Phoenix_Casino_Goa-Candolim_Bardez_North_Goa_District_Goa.html",
     "https://in.pinterest.com/phoenixcasinogoa/",
-    "https://medium.com/@phoenixcasinogoa"
+    "https://medium.com/@phoenixcasinogoa",
   ],
-  "hasMap": "https://maps.app.goo.gl/A4txDZRhRx2YmSGZ9"
+  hasMap: "https://maps.app.goo.gl/A4txDZRhRx2YmSGZ9",
 };
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google Tag Manager -->
-    <script>
+    <!-- <script>
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-K23JH589');
-    </script>
+    </script> -->
     <!-- End Google Tag Manager -->
 
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-WPHQ77DZ");
+    </script>
+    <!-- End Google Tag Manager -->
+
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY03FLD6ZD"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY03FLD6ZD"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-PY03FLD6ZD');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-PY03FLD6ZD");
     </script>
 
     <!-- Site Verification -->
-    <meta name="google-site-verification" content="LezJkVpCUXJUHxLCkSEIlh-hnUr6RwWv3Qs8tc8niKI" />
+    <meta
+      name="google-site-verification"
+      content="LezJkVpCUXJUHxLCkSEIlh-hnUr6RwWv3Qs8tc8niKI"
+    />
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -102,10 +159,16 @@ const structuredData = {
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
-    <meta name="description" content={description || 'Phoenixx Group Goa - Luxury Entertainment Hub in Candolim at Hilton Goa Resort'} />
+    <meta
+      name="description"
+      content={description ||
+        "Phoenixx Group Goa - Luxury Entertainment Hub in Candolim at Hilton Goa Resort"}
+    />
     <!-- ✅ Canonical Tag: Add this -->
-    <link rel="canonical" href={`https://www.phoenixcasino.in${Astro.url.pathname}`} />
-
+    <link
+      rel="canonical"
+      href={`https://www.phoenixcasino.in${Astro.url.pathname}`}
+    />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -116,49 +179,76 @@ const structuredData = {
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://phoenixcasino.in/" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description || 'Phoenixx Group Goa - Luxury Entertainment Hub in Candolim at Hilton Goa Resort'} />
+    <meta
+      property="og:description"
+      content={description ||
+        "Phoenixx Group Goa - Luxury Entertainment Hub in Candolim at Hilton Goa Resort"}
+    />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://phoenixcasino.in/" />
     <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description || 'Phoenixx Group Goa - Luxury Entertainment Hub in Candolim at Hilton Goa Resort'} />
+    <meta
+      property="twitter:description"
+      content={description ||
+        "Phoenixx Group Goa - Luxury Entertainment Hub in Candolim at Hilton Goa Resort"}
+    />
 
     <meta name="generator" content={Astro.generator} />
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
     <!-- Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
   </head>
-	<body>
-	<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K23JH589"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-		<Navigation />
-		<main>
-			<slot />
-		</main>
-		<HeroCta />
-		<Footer />
-		<FloatingContactButtons />
-	</body>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K23JH589"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WPHQ77DZ"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <Navigation />
+    <main>
+      <slot />
+    </main>
+    <HeroCta />
+    <Footer />
+    <FloatingContactButtons />
+  </body>
 </html>
 <style is:global>
-	html {
-		font-family: var(--font-family-base);
-		background: var(--color-bg);
-		color: var(--color-text);
-		scroll-behavior: smooth;
-	}
-	* {
-		box-sizing: border-box;
-	}
+  html {
+    font-family: var(--font-family-base);
+    background: var(--color-bg);
+    color: var(--color-text);
+    scroll-behavior: smooth;
+  }
+  * {
+    box-sizing: border-box;
+  }
 
-	img {
-		max-width: 100%;
-		height: auto;
-	}
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 </style>
