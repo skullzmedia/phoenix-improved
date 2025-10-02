@@ -1,43 +1,45 @@
---- 
-import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import aboutImage from '../assets/abtus/image.jpg';
-import AboutSectionImage from '../assets/abtus/aboutsection.jpeg';
-import GameOne from '../assets/abtus/game-one.png';
-import GameTwo from '../assets/abtus/game-two.png';
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import aboutImage from "../assets/abtus/image.jpg";
+import AboutSectionImage from "../assets/abtus/aboutsection.jpeg";
+import GameOne from "../assets/abtus/game-one.png";
+import GameTwo from "../assets/abtus/game-two.webp";
 
 // Highlights with icons
 const highlights = [
   {
-    icon: 'dice',
-    title: '20+ Games',
-    description: 'Enjoy a variety of card games, slot machines, and table games'
+    icon: "dice",
+    title: "20+ Games",
+    description:
+      "Enjoy a variety of card games, slot machines, and table games",
   },
   {
-    icon: 'smoking',
-    title: 'Hookah Lounge',
-    description: 'Relax in our premium hookah lounge with exclusive flavors'
+    icon: "smoking",
+    title: "Hookah Lounge",
+    description: "Relax in our premium hookah lounge with exclusive flavors",
   },
   {
-    icon: 'crown',
-    title: 'VIP Room',
-    description: 'Experience luxury gaming in our exclusive VIP rooms'
+    icon: "crown",
+    title: "VIP Room",
+    description: "Experience luxury gaming in our exclusive VIP rooms",
   },
   {
-    icon: 'music',
-    title: 'Live Performances',
-    description: 'Enjoy regular live entertainment and special celebrity events'
+    icon: "music",
+    title: "Live Performances",
+    description:
+      "Enjoy regular live entertainment and special celebrity events",
   },
   {
-    icon: 'utensils',
-    title: 'Restaurant',
-    description: 'Savor gourmet cuisine with our premium dining experience'
+    icon: "utensils",
+    title: "Restaurant",
+    description: "Savor gourmet cuisine with our premium dining experience",
   },
   {
-    icon: 'glass-martini-alt',
-    title: 'Phoenixx Bar',
-    description: 'Taste our signature cocktails and premium spirits'
-  }
+    icon: "glass-martini-alt",
+    title: "Phoenixx Bar",
+    description: "Taste our signature cocktails and premium spirits",
+  },
 ];
 
 // Games data
@@ -45,53 +47,63 @@ const gamesData = [
   {
     id: 1,
     title: "Andar Bahar",
-    description: "A simple and fast-paced Indian card game where players bet on which side (Andar or Bahar) a matching card will appear. The dealer draws cards alternately to each side until a match is found."
+    description:
+      "A simple and fast-paced Indian card game where players bet on which side (Andar or Bahar) a matching card will appear. The dealer draws cards alternately to each side until a match is found.",
   },
   {
     id: 2,
     title: "Baccarat",
-    description: "A popular card game where players bet on whether the Player's hand or the Banker's hand will be closer to a total of 9, or if the round will end in a tie. It's a game of chance with simple rules but offers high stakes."
+    description:
+      "A popular card game where players bet on whether the Player's hand or the Banker's hand will be closer to a total of 9, or if the round will end in a tie. It's a game of chance with simple rules but offers high stakes.",
   },
   {
     id: 3,
     title: "Blackjack",
-    description: "Also known as 21, the goal is to have a hand value closer to 21 than the dealer without going over. Players are dealt two cards and can choose to 'hit' for more cards or 'stand' to keep their current hand."
+    description:
+      "Also known as 21, the goal is to have a hand value closer to 21 than the dealer without going over. Players are dealt two cards and can choose to 'hit' for more cards or 'stand' to keep their current hand.",
   },
   {
     id: 4,
     title: "Roulette",
-    description: "A classic casino game where players place bets on where a ball will land on a spinning wheel. The wheel has numbered and colored slots (red, black, and green), and players can bet on specific numbers, colors, or ranges of numbers."
+    description:
+      "A classic casino game where players place bets on where a ball will land on a spinning wheel. The wheel has numbered and colored slots (red, black, and green), and players can bet on specific numbers, colors, or ranges of numbers.",
   },
   {
     id: 5,
     title: "Dragon Tiger",
-    description: "A simple two-card game where players bet on which side (Dragon or Tiger) will have the higher card. It's a fast game, often compared to Baccarat, with only two possible outcomes and a tie option."
+    description:
+      "A simple two-card game where players bet on which side (Dragon or Tiger) will have the higher card. It's a fast game, often compared to Baccarat, with only two possible outcomes and a tie option.",
   },
   {
     id: 6,
     title: "3 Card Poker",
-    description: "A poker variant where players are dealt three cards and aim to have a higher-ranking hand than the dealer. There are two betting options: Ante/Play or Pair Plus, with various hand rankings, including straight flushes and three-of-a-kind."
+    description:
+      "A poker variant where players are dealt three cards and aim to have a higher-ranking hand than the dealer. There are two betting options: Ante/Play or Pair Plus, with various hand rankings, including straight flushes and three-of-a-kind.",
   },
   {
     id: 7,
     title: "Slot Machine",
-    description: "A game of chance where players spin reels featuring various symbols. Wins are based on matching symbols on paylines, and modern slots often feature bonus rounds, wilds, and progressive jackpots."
+    description:
+      "A game of chance where players spin reels featuring various symbols. Wins are based on matching symbols on paylines, and modern slots often feature bonus rounds, wilds, and progressive jackpots.",
   },
   {
     id: 8,
     title: "Spintec",
-    description: "An automated electronic gaming system offering live, virtual, and multi-game setups for casino table games like Roulette and Baccarat, known for providing a smooth, immersive gaming experience."
+    description:
+      "An automated electronic gaming system offering live, virtual, and multi-game setups for casino table games like Roulette and Baccarat, known for providing a smooth, immersive gaming experience.",
   },
   {
     id: 9,
     title: "Casino War",
-    description: "A simple card game where players bet on having a higher card than the dealer. If the player's card is higher, they win. In case of a tie, players can choose to go to 'war' for an additional bet."
+    description:
+      "A simple card game where players bet on having a higher card than the dealer. If the player's card is higher, they win. In case of a tie, players can choose to go to 'war' for an additional bet.",
   },
   {
     id: 10,
     title: "Sic Bo",
-    description: "A dice-based game originating in China. Players bet on various possible outcomes of the roll of three dice, with options to wager on combinations, totals, or specific dice values. It's a game of chance with multiple betting strategies."
-  }
+    description:
+      "A dice-based game originating in China. Players bet on various possible outcomes of the roll of three dice, with options to wager on combinations, totals, or specific dice values. It's a game of chance with multiple betting strategies.",
+  },
 ];
 
 // Split games into two groups
@@ -103,11 +115,14 @@ const gamesGroup2 = gamesData.slice(5, 10);
   <!-- Games Section 1 - Image left, games right -->
   <section class="games-section" id="game-sec" style="padding-top: 120px;">
     <div class="container">
-<h1 class="visually-hidden">
-        Popular Casino Games at Phoenixx Casino Goa – Play Andar Bahar, Blackjack, Roulette & More
+      <h1 class="visually-hidden">
+        Popular Casino Games at Phoenixx Casino Goa – Play Andar Bahar,
+        Blackjack, Roulette & More
       </h1>
       <h2 class="section-title">Our Popular Games</h2>
-      <p class="section-subtitle">Experience the thrill of our diverse game selection</p>
+      <p class="section-subtitle">
+        Experience the thrill of our diverse game selection
+      </p>
       <div class="games-container">
         <div class="games-image">
           <Image
@@ -120,20 +135,22 @@ const gamesGroup2 = gamesData.slice(5, 10);
           />
         </div>
         <div class="games-accordions">
-          {gamesGroup1.map(game => (
-            <div class="game-accordion">
-              <div class="game-header">
-                <h3>{game.title}</h3>
-                <div class="accordion-icon">
-                  <i class="fas fa-plus"></i>
-                  <i class="fas fa-minus"></i>
+          {
+            gamesGroup1.map((game) => (
+              <div class="game-accordion">
+                <div class="game-header">
+                  <h3>{game.title}</h3>
+                  <div class="accordion-icon">
+                    <i class="fas fa-plus" />
+                    <i class="fas fa-minus" />
+                  </div>
+                </div>
+                <div class="game-content">
+                  <p>{game.description}</p>
                 </div>
               </div>
-              <div class="game-content">
-                <p>{game.description}</p>
-              </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </div>
@@ -144,20 +161,22 @@ const gamesGroup2 = gamesData.slice(5, 10);
     <div class="container">
       <div class="games-container games-container-reverse">
         <div class="games-accordions">
-          {gamesGroup2.map(game => (
-            <div class="game-accordion">
-              <div class="game-header">
-                <h3>{game.title}</h3>
-                <div class="accordion-icon">
-                  <i class="fas fa-plus"></i>
-                  <i class="fas fa-minus"></i>
+          {
+            gamesGroup2.map((game) => (
+              <div class="game-accordion">
+                <div class="game-header">
+                  <h3>{game.title}</h3>
+                  <div class="accordion-icon">
+                    <i class="fas fa-plus" />
+                    <i class="fas fa-minus" />
+                  </div>
+                </div>
+                <div class="game-content">
+                  <p>{game.description}</p>
                 </div>
               </div>
-              <div class="game-content">
-                <p>{game.description}</p>
-              </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
         <div class="games-image">
           <Image
@@ -186,7 +205,7 @@ const gamesGroup2 = gamesData.slice(5, 10);
     margin-top: 120px; /* Account for fixed nav height */
   }
   .page-banner::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -240,7 +259,7 @@ const gamesGroup2 = gamesData.slice(5, 10);
   }
   .cta-button {
     display: inline-block;
-    background-color: #D4AF37;
+    background-color: #d4af37;
     color: #000;
     padding: 0.75rem 2rem;
     border-radius: 4px;
@@ -251,7 +270,7 @@ const gamesGroup2 = gamesData.slice(5, 10);
     letter-spacing: 0.5px;
   }
   .cta-button:hover {
-    background-color: #C5A028;
+    background-color: #c5a028;
     transform: translateY(-2px);
   }
   .cta-button.outline {
@@ -353,18 +372,17 @@ const gamesGroup2 = gamesData.slice(5, 10);
     line-height: 1.7;
     margin: 0;
   }
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
-}
-
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
 
   /* Responsive Styles */
   @media (max-width: 1024px) {
@@ -490,20 +508,23 @@ const gamesGroup2 = gamesData.slice(5, 10);
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const accordions = document.querySelectorAll('.game-accordion');
-    accordions.forEach(accordion => {
-      const header = accordion.querySelector('.game-header');
+  document.addEventListener("DOMContentLoaded", () => {
+    const accordions = document.querySelectorAll(".game-accordion");
+    accordions.forEach((accordion) => {
+      const header = accordion.querySelector(".game-header");
       if (header) {
-        header.addEventListener('click', function() {
+        header.addEventListener("click", function () {
           // Close all other accordions
-          accordions.forEach(otherAccordion => {
-            if (otherAccordion !== accordion && otherAccordion.classList.contains('active')) {
-              otherAccordion.classList.remove('active');
+          accordions.forEach((otherAccordion) => {
+            if (
+              otherAccordion !== accordion &&
+              otherAccordion.classList.contains("active")
+            ) {
+              otherAccordion.classList.remove("active");
             }
           });
           // Toggle this accordion
-          accordion.classList.toggle('active');
+          accordion.classList.toggle("active");
         });
       }
     });
