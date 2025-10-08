@@ -31,6 +31,22 @@ const sliderImages = [
 ];
 ---
 
+<!-- ✅ Preload the LCP hero (slide 1 desktop/mobile) -->
+<link
+  rel="preload"
+  as="image"
+  href={SliderImageDesk.src}
+  type="image/jpeg"
+  media="(min-width:768px)"
+/>
+<link
+  rel="preload"
+  as="image"
+  href={SliderImageMob.src}
+  type="image/jpeg"
+  media="(max-width:767px)"
+/>
+
 <section class="hero-section">
   <div class="hero-slider">
     <div class="slider-container">
@@ -38,31 +54,32 @@ const sliderImages = [
         sliderImages.map((slide, index) => (
           <div class="slide" data-index={index}>
             {slide.isResponsive ? (
-              <>
+              <picture>
+                <source
+                  srcset={slide.mobile.src}
+                  media="(max-width: 767px)"
+                  type="image/avif"
+                />
                 <Image
                   src={slide.desktop}
                   alt={slide.alt}
-                  width={1600}
-                  height={600}
-                  quality={90}
-                  class={`slider-image desktop-image ${index === 0 ? "slide-image-1" : ""}`}
+                  widths={[480, 768, 1200, 1600]}
+                  formats={["avif", "webp"]}
+                  sizes="(max-width: 768px) 100vw, 1600px"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  class="slider-image"
                 />
-                <Image
-                  src={slide.mobile}
-                  alt={slide.alt}
-                  width={480}
-                  height={600}
-                  quality={90}
-                  class="slider-image mobile-image"
-                />
-              </>
+              </picture>
             ) : (
               <Image
                 src={slide.image}
                 alt={slide.alt}
-                width={1400}
-                height={600}
-                quality={90}
+                widths={[480, 768, 1200, 1600]}
+                formats={["avif", "webp"]}
+                sizes="(max-width: 768px) 100vw, 1600px"
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
                 class="slider-image"
               />
             )}
@@ -87,6 +104,22 @@ const sliderImages = [
     </div>
   </div>
 </section>
+
+<script>
+  // Small client-side script for lazy-initializing non-visible slides
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".slide img[loading='lazy']");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.loading = "eager";
+          io.unobserve(e.target);
+        }
+      });
+    });
+    slides.forEach((img) => io.observe(img));
+  });
+</script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
