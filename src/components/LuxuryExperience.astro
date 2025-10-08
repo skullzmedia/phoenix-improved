@@ -1,422 +1,288 @@
 ---
 const features = [
-    {
-        icon: "fa-solid fa-music",
-        title: "Live",
-        subtitle: "Performances"
-    },
-    {
-        icon: "fa-solid fa-dice",
-        title: "10+",
-        subtitle: "Games"
-    },
-    {
-        icon: "fa-solid fa-champagne-glasses",
-        title: "Festive",
-        subtitle: "Fun"
-    },
-    {
-        icon: "fa-solid fa-martini-glass-citrus",
-        title: "Drinks &",
-        subtitle: "Cocktails"
-    },
-    {
-        icon: "fa-solid fa-utensils",
-        title: "Delicious",
-        subtitle: "Food"
-    },
-    {
-        icon: "fa-solid fa-gamepad",
-        title: "Gaming",
-        subtitle: "Experience"
-    },
+  {
+    icon: "fa-solid fa-music",
+    title: "Live",
+    subtitle: "Performances",
+  },
+  {
+    icon: "fa-solid fa-dice",
+    title: "10+",
+    subtitle: "Games",
+  },
+  {
+    icon: "fa-solid fa-champagne-glasses",
+    title: "Festive",
+    subtitle: "Fun",
+  },
+  {
+    icon: "fa-solid fa-martini-glass-citrus",
+    title: "Drinks &",
+    subtitle: "Cocktails",
+  },
+  {
+    icon: "fa-solid fa-utensils",
+    title: "Delicious",
+    subtitle: "Food",
+  },
+  {
+    icon: "fa-solid fa-gamepad",
+    title: "Gaming",
+    subtitle: "Experience",
+  },
 ];
 ---
 
 <section class="luxury-experience">
-    <div class="container">
-        <div class="content">
-            <div class="title-section">
-                <h2 class="heading">OUR LUXURY EXPERIENCE</h2>
-                <div class="underline"></div>
-            </div>
-            <div class="lft">
-                <div class="desc">
-                    <p class="description">
-                        Phoenixx Casino Goa offers a luxury gaming destination in Candolim, a
-                        Hilton Goa resort. Join us to experience fun, entertainment, and
-                        unlimited luck at our Casino.
-                    </p>
+  <div class="container">
+    <div class="content">
+      <div class="title-section">
+        <h2 class="heading">OUR LUXURY EXPERIENCE</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="lft">
+        <p class="description">
+          Phoenixx Casino Goa offers a luxury gaming destination in Candolim, a
+          Hilton Goa resort. Join us to experience fun, entertainment, and
+          unlimited luck at our Casino.
+        </p>
+
+        <div class="features">
+          {
+            features.map((feature) => (
+              <div class="feature">
+                <div class="icon-circle">
+                  <i class={`fa-solid ${feature.icon}`} aria-hidden="true" />
                 </div>
-                <div class="features">
-                    {
-                        features.map((feature) => (
-                            <div class="feature">
-                                <div class="icon-circle">
-                                    <i class={feature.icon}></i>
-                                </div>
-                                <div class="feature-text">
-                                    <h3>{feature.title}</h3>
-                                    <p>{feature.subtitle}</p>
-                                </div>
-                            </div>
-                        ))
-                    }
+                <div class="feature-text">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.subtitle}</p>
                 </div>
-            </div>
-            <a href="/contact" class="book-now">BOOK NOW</a>
+              </div>
+            ))
+          }
         </div>
-        <div class="video-container">
-            <iframe
-                src="https://www.youtube.com/embed/tawS88SZ8Cw?si=EFiS0OMvuUFMWjjD&autoplay=1&mute=1&loop=1&playlist=tawS88SZ8Cw&controls=0&showinfo=0&rel=0"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
-            </iframe>
-        </div>
+      </div>
+
+      <a href="/contact" class="book-now">BOOK NOW</a>
     </div>
+
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/tawS88SZ8Cw?autoplay=1&mute=1&loop=1&playlist=tawS88SZ8Cw&controls=0&rel=0"
+        title="Phoenixx Casino Promo"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+      >
+      </iframe>
+    </div>
+  </div>
 </section>
 
 <style>
-  .heading{
-      font-size: 2.5rem;
-      background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin: 0;
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      position: relative;
-      z-index: 3;
+  .heading {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 3;
   }
-  
+
   .lft {
-      width: 100%;
-      max-width: 600px;
-      min-width: 150px;
-      margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    min-width: 150px;
+    margin: 0 auto;
   }
-  
+
   .luxury-experience {
-      background-color: #000;
-      color: #fff;
-      padding: 0;
-      margin-top: 20px;
-      padding-top: 20px;
-      width: 100%;
-      overflow: visible;
+    background-color: #000;
+    color: #fff;
+    padding: 0;
+    margin-top: 20px;
+    padding-top: 20px;
+    width: 100%;
+    overflow: visible;
   }
   //
   .luxury-experience .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: flex-start;
-}
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+  }
   .container {
-      max-width: 1200px;
-      min-width: 150px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: flex-start;
+    max-width: 1200px;
+    min-width: 150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: flex-start;
   }
-  
+
   .title-section {
-      margin-bottom: 2rem;
-      width: 100%;
-      max-width: 1200px;
-      min-width: 150px;
-      margin: 0;
-      text-align: left;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 150px;
+    margin: 0;
+    text-align: left;
   }
-  
+
   h2 {
-      font-size: 2.5rem;
-      background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin: 0;
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-      width: 100%;
-      max-width: 1200px;
-      min-width: 150px;
-      margin: 0 auto;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 150px;
+    margin: 0 auto;
   }
   h2::after {
-        content: '';
-        display: block;
-        width: 80px;
-        height: 3px;
-        background-color: #D4AF37;
-        margin: 1rem auto 0;
-    }
-  
-  .desc{
-      width: 100%;
-      text-align: center;
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #d4af37;
+    margin: 1rem auto 0;
   }
-  
-  .description {
-      letter-spacing: 1px;
-      line-height: 1.6;
-      font-weight: 400;
-      color: #e0e0e0;
-      font-size: 16px;
-      line-height: 1.5;
-      max-width: 100%;
-      padding: 0 10px;
-  }
-  
-  .features {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      width: 100%;
-  }
-  
-  .feature {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 0.5rem;
-      transition: all 0.3s ease;
-  }
-  
-  .feature:last-child {
-      display: none; /* Hide the 6th feature on desktop */
-  }
-  
-  .icon-circle {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 15px;
-      box-shadow: 0 5px 15px rgba(231, 201, 128, 0.3);
-      transition: all 0.3s ease;
-  }
-  
-  .icon-circle i {
-      font-size: 1.5rem;
-      color: #000;
-      transition: all 0.3s ease;
-  }
-  
-  .feature:hover .icon-circle {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(231, 201, 128, 0.4);
-  }
-  
-  .feature:hover .icon-circle i {
-      transform: scale(1.1);
-  }
-  
-  .feature-text {
-      text-align: center;
-  }
-  
-  .feature-text h3 {
-      font-size: 1rem;
-      margin: 0;
-      color: #e7c980;
-      font-weight: 600;
-  }
-  
-  .feature-text p {
-      font-size: 1rem;
-      color: #999;
-      margin: 0.1rem 0 0 0;
-  }
-  
-  .book-now {
-      display: inline-block;
-      background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
-      color: #000;
-      padding: 0.875rem 2rem;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-      transition: all 0.3s ease;
-  }
-  
-  .book-now:hover {
-      background-color: #c4a032;
-      transform: translateY(-2px);
-  }
-  
-  /* Increase video-container size and fill the frame */
-  .video-container {
-      width: 100%;
-      max-width: 800px;
-      aspect-ratio: 16/9;
-      background-color: #111;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      position: relative;
-      margin: 2rem auto;
-  }
-  
-  .video-container iframe {
-      display: block; /* Remove inline spacing */
-      border: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-  }
-  
-  @media (max-width: 1200px) {
-      .container {
-          width: 95%;
-      }
-      h2 {
-          font-size: 2.2rem;
-      }
-  }
-  
-  @media (max-width: 1024px) {
-      .container {
-          grid-template-columns: 1fr;
-          gap: 2.5rem;
-      }
-      .content {
-          max-width: 800px;
-          margin: 0 auto;
-          text-align: center;
-      }
-      .title-section {
-          text-align: center;
-      }
-      .underline {
-          margin-left: auto;
-      }
-      .features {
-          max-width: 600px;
-          margin: 0 auto 2rem auto;
-      }
-      .icon-circle {
-          width: 55px;
-          height: 55px;
-      }
-      .heading{
-          font-size: 2rem;
-      }
-  }
-  
-  @media (max-width: 768px) {
-      .luxury-experience {
-          padding: 3rem 0;
-      }
-      h2 {
-          font-size: 2.2rem;
-      }
-      .features {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: repeat(2, auto);
-          gap: 1.5rem;
-          padding: 0;
-          overflow-x: visible;
-          width: 100%;
-          max-width: 500px;
-          margin: 0 auto 2rem auto;
-      }
-      .feature {
-          width: auto;
-          display: flex;
-      }
-      .feature:last-child {
-          display: flex;
-      }
-      .icon-circle {
-          width: 45px;
-          height: 45px;
-      }
-      .heading{
-          font-size: 1.8rem;
-          white-space: normal;
-          text-align: center;
-      }
-  }
-  
-  @media (max-width: 480px) {
-      .container {
-          width: 100%;
-      }
-      .luxury-experience {
-          padding: 2.8rem 0;
-      }
-      .features {
-          gap: 1rem;
-      }
-      .icon-circle {
-          width: 40px;
-          height: 40px;
-      }
-      .feature-text h3 {
-          font-size: 0.8rem;
-      }
-      .feature-text p {
-          font-size: 0.7rem;
-      }
-      .heading{
-          font-size: 2.0rem;
-          white-space: normal;
-          text-align: center;
-      }
-      /* Increase frame size on mobile: updated to 85% */
-      .celebrity-image {
-          width: 85%;
-          padding-bottom: 85%;
-          margin-bottom: 10px;
-          border-width: 4px;
-          box-shadow: 0 15px 35px rgba(231, 201, 128, 0.5);
-      }
-      /* Reposition mobile arrows flush with the container edge */
-      .wof-prev-arrow {
-          left: 0;
-      }
-      .wof-next-arrow {
-          right: 0;
-      }
-     
 
-      .container {
+  .desc {
+    width: 100%;
+    text-align: center;
+  }
+
+  .description {
+    letter-spacing: 1px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #e0e0e0;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .feature {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 0.5rem;
+    transition: all 0.3s ease;
   }
 
-  .video-container {
-    width: calc(100vw - 1rem); /* subtract left + right padding */
-    max-width: 100%;
-    margin: 1rem auto;
-    height: 260px;
-    border-radius: 8px;
+  .feature:last-child {
+    display: none; /* Hide the 6th feature on desktop */
   }
+
+  .icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(231, 201, 128, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .icon-circle i {
+    font-size: 1.5rem;
+    color: #000;
+    transition: all 0.3s ease;
+  }
+
+  .feature:hover .icon-circle {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(231, 201, 128, 0.4);
+  }
+
+  .feature:hover .icon-circle i {
+    transform: scale(1.1);
+  }
+
+  .feature-text {
+    text-align: center;
+  }
+
+  .feature-text h3 {
+    font-size: 1rem;
+    margin: 0;
+    color: #e7c980;
+    font-weight: 600;
+  }
+
+  .feature-text p {
+    font-size: 1rem;
+    color: #999;
+    margin: 0.1rem 0 0 0;
+  }
+
+  .book-now {
+    display: inline-block;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    color: #000;
+    padding: 0.875rem 2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+  }
+
+  .book-now:hover {
+    background-color: #c4a032;
+    transform: translateY(-2px);
+  }
+
+  /* Increase video-container size and fill the frame */
+  .video-container {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16/9;
+    background-color: #111;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    position: relative;
+    margin: 2rem auto;
+  }
+
   .video-container iframe {
+    display: block; /* Remove inline spacing */
+    border: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -424,76 +290,211 @@ const features = [
     height: 100%;
     object-fit: cover;
   }
-  .luxury-experience .container {
-    display: flex;
-    flex-direction: column;
-  }
-  section{
-    padding:0px;
-  }
-    .container{
-        margin:0px;
-        padding:0px;
+
+  @media (max-width: 1200px) {
+    .container {
+      width: 95%;
     }
-}
-  
-  @media (max-width: 360px) {
-      .container {
-          width: 100%;
-      }
-      .features {
-          gap: 0.8rem;
-      }
-      .icon-circle {
-          width: 40px;
-          height: 40px;
-      }
-      .heading{
-          font-size: 1.8rem;
-          white-space: normal;
-          text-align: center;
-      }
-      .lft {
-          min-width: 150px;
-      }
-      .feature {
-          flex: 1 1 100%;
-          min-width: 50px;
-      }
-      .icon-circle {
-          width: 25px;
-          height: 25px;
-      }
+    h2 {
+      font-size: 2.2rem;
+    }
   }
-  
+
+  @media (max-width: 1024px) {
+    .container {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .title-section {
+      text-align: center;
+    }
+    .underline {
+      margin-left: auto;
+    }
+    .features {
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+    }
+    .icon-circle {
+      width: 55px;
+      height: 55px;
+    }
+    .heading {
+      font-size: 2rem;
+    }
+  }
+
   @media (max-width: 768px) {
-      .lft {
-          max-width: 100%;
-          min-width: 150px;
-      }
-      .description {
-          font-size: 14px;
-      }
-      .features {
-          gap: 5px;
-      }
-      .feature {
-          flex: 1 1 30%;
-          min-width: 50px;
-      }
-      .icon-circle {
-          width: 30px;
-          height: 30px;
-      }
+    .luxury-experience {
+      padding: 3rem 0;
+    }
+    h2 {
+      font-size: 2.2rem;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 1.5rem;
+      padding: 0;
+      overflow-x: visible;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto 2rem auto;
+    }
+    .feature {
+      width: auto;
+      display: flex;
+    }
+    .feature:last-child {
+      display: flex;
+    }
+    .icon-circle {
+      width: 45px;
+      height: 45px;
+    }
+    .heading {
+      font-size: 1.8rem;
+      white-space: normal;
+      text-align: center;
+    }
   }
-  
-  
+
+  @media (max-width: 480px) {
+    .container {
+      width: 100%;
+    }
+    .luxury-experience {
+      padding: 2.8rem 0;
+    }
+    .features {
+      gap: 1rem;
+    }
+    .icon-circle {
+      width: 40px;
+      height: 40px;
+    }
+    .feature-text h3 {
+      font-size: 0.8rem;
+    }
+    .feature-text p {
+      font-size: 0.7rem;
+    }
+    .heading {
+      font-size: 2rem;
+      white-space: normal;
+      text-align: center;
+    }
+    /* Increase frame size on mobile: updated to 85% */
+    .celebrity-image {
+      width: 85%;
+      padding-bottom: 85%;
+      margin-bottom: 10px;
+      border-width: 4px;
+      box-shadow: 0 15px 35px rgba(231, 201, 128, 0.5);
+    }
+    /* Reposition mobile arrows flush with the container edge */
+    .wof-prev-arrow {
+      left: 0;
+    }
+    .wof-next-arrow {
+      right: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .video-container {
+      width: calc(100vw - 1rem); /* subtract left + right padding */
+      max-width: 100%;
+      margin: 1rem auto;
+      height: 260px;
+      border-radius: 8px;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .luxury-experience .container {
+      display: flex;
+      flex-direction: column;
+    }
+    section {
+      padding: 0px;
+    }
+    .container {
+      margin: 0px;
+      padding: 0px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .container {
+      width: 100%;
+    }
+    .features {
+      gap: 0.8rem;
+    }
+    .icon-circle {
+      width: 40px;
+      height: 40px;
+    }
+    .heading {
+      font-size: 1.8rem;
+      white-space: normal;
+      text-align: center;
+    }
+    .lft {
+      min-width: 150px;
+    }
+    .feature {
+      flex: 1 1 100%;
+      min-width: 50px;
+    }
+    .icon-circle {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .lft {
+      max-width: 100%;
+      min-width: 150px;
+    }
+    .description {
+      font-size: 14px;
+    }
+    .features {
+      gap: 5px;
+    }
+    .feature {
+      flex: 1 1 30%;
+      min-width: 50px;
+    }
+    .icon-circle {
+      width: 30px;
+      height: 30px;
+    }
+  }
 </style>
 
 <script>
-  const trackElement = document.querySelector('.wof-celebrities-track');
-  const prevButton = document.querySelector('.wof-prev-arrow');
-  const nextButton = document.querySelector('.wof-next-arrow');
+  const trackElement = document.querySelector(".wof-celebrities-track");
+  const prevButton = document.querySelector(".wof-prev-arrow");
+  const nextButton = document.querySelector(".wof-next-arrow");
 
   const getItemsPerView = () => {
     if (window.innerWidth >= 1024) return 4;
@@ -502,7 +503,7 @@ const features = [
   };
 
   let currentIndex = 0;
-  const celebrityItems = document.querySelectorAll('.wof-celebrity-item');
+  const celebrityItems = document.querySelectorAll(".wof-celebrity-item");
 
   function updateTotalSlides() {
     return Math.ceil(celebrityItems.length / getItemsPerView()) - 1;
@@ -511,18 +512,19 @@ const features = [
   function updateNavigation() {
     const totalSlides = updateTotalSlides();
     if (prevButton && nextButton) {
-      prevButton.style.opacity = currentIndex === 0 ? '0.5' : '1';
-      prevButton.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+      prevButton.style.opacity = currentIndex === 0 ? "0.5" : "1";
+      prevButton.style.pointerEvents = currentIndex === 0 ? "none" : "auto";
 
-      nextButton.style.opacity = currentIndex >= totalSlides ? '0.5' : '1';
-      nextButton.style.pointerEvents = currentIndex >= totalSlides ? 'none' : 'auto';
+      nextButton.style.opacity = currentIndex >= totalSlides ? "0.5" : "1";
+      nextButton.style.pointerEvents =
+        currentIndex >= totalSlides ? "none" : "auto";
     }
   }
 
   function scrollToSlide(index) {
     if (trackElement) {
       currentIndex = index;
-      const item = trackElement.querySelector('.wof-celebrity-item');
+      const item = trackElement.querySelector(".wof-celebrity-item");
       const itemWidth = item ? item.offsetWidth : 0;
       // Use a gap of 30px for mobile, otherwise 25px.
       const gap = window.innerWidth <= 480 ? 30 : 25;
@@ -533,7 +535,7 @@ const features = [
   }
 
   if (prevButton) {
-    prevButton.addEventListener('click', () => {
+    prevButton.addEventListener("click", () => {
       if (currentIndex > 0) {
         scrollToSlide(currentIndex - 1);
       }
@@ -541,7 +543,7 @@ const features = [
   }
 
   if (nextButton) {
-    nextButton.addEventListener('click', () => {
+    nextButton.addEventListener("click", () => {
       if (currentIndex < updateTotalSlides()) {
         scrollToSlide(currentIndex + 1);
       }
@@ -549,14 +551,14 @@ const features = [
   }
 
   // Handle window resize
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     currentIndex = 0;
     scrollToSlide(0);
     updateNavigation();
   });
 
   // Auto-trigger navigation on arrow hover (if desired)
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     const prevArrow = document.querySelector(".wof-prev-arrow");
     const nextArrow = document.querySelector(".wof-next-arrow");
 
@@ -566,10 +568,10 @@ const features = [
       }
     }
 
-    prevArrow.addEventListener("mouseenter", function() {
+    prevArrow.addEventListener("mouseenter", function () {
       triggerClick(prevArrow);
     });
-    nextArrow.addEventListener("mouseenter", function() {
+    nextArrow.addEventListener("mouseenter", function () {
       triggerClick(nextArrow);
     });
   });
