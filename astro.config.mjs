@@ -11,12 +11,5 @@ export default defineConfig({
         lastmod: new Date().toISOString(), // keep default URL, just add lastmod
       }),
     }),
-    compress({
-      css: true,
-      html: true,
-      img: true,
-      js: true,
-      svg: true,
-    })
   ],
 });
