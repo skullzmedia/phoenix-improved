@@ -1,35 +1,20 @@
 ---
+import {
+  Music,
+  Dices,
+  PartyPopper,
+  Martini,
+  Utensils,
+  Gamepad2,
+} from "lucide-astro";
+
 const features = [
-  {
-    icon: "fa-solid fa-music",
-    title: "Live",
-    subtitle: "Performances",
-  },
-  {
-    icon: "fa-solid fa-dice",
-    title: "10+",
-    subtitle: "Games",
-  },
-  {
-    icon: "fa-solid fa-champagne-glasses",
-    title: "Festive",
-    subtitle: "Fun",
-  },
-  {
-    icon: "fa-solid fa-martini-glass-citrus",
-    title: "Drinks &",
-    subtitle: "Cocktails",
-  },
-  {
-    icon: "fa-solid fa-utensils",
-    title: "Delicious",
-    subtitle: "Food",
-  },
-  {
-    icon: "fa-solid fa-gamepad",
-    title: "Gaming",
-    subtitle: "Experience",
-  },
+  { icon: Music, title: "Live", subtitle: "Performances" },
+  { icon: Dices, title: "10+", subtitle: "Games" },
+  { icon: PartyPopper, title: "Festive", subtitle: "Fun" },
+  { icon: Martini, title: "Drinks &", subtitle: "Cocktails" },
+  { icon: Utensils, title: "Delicious", subtitle: "Food" },
+  { icon: Gamepad2, title: "Gaming", subtitle: "Experience" },
 ];
 ---
 
@@ -53,7 +38,7 @@ const features = [
             features.map((feature) => (
               <div class="feature">
                 <div class="icon-circle">
-                  <i class={`fa-solid ${feature.icon}`} aria-hidden="true" />
+                  <feature.icon size="24" color="#000" />
                 </div>
                 <div class="feature-text">
                   <h3>{feature.title}</h3>
@@ -76,9 +61,7 @@ const features = [
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen
         loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-      >
-      </iframe>
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
   </div>
 </section>

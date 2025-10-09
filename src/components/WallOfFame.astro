@@ -14,6 +14,8 @@ import NiaSharma from "../assets/wall_of_fame/nia-sharma.jpg";
 import GiorgiaAndriani from "../assets/wall_of_fame/giorgia-andriani.jpg";
 import IshaMalviya from "../assets/wall_of_fame/isha-malviya.JPG";
 
+import { ChevronLeft, ChevronRight } from "lucide-astro";
+
 const celebrities = [
   { name: "Kumar Sanu", image: KumarSanu },
   { name: "Daisy Shah", image: DaisyShah },
@@ -36,7 +38,7 @@ const totalSlides = Math.ceil(celebrities.length / 4);
     <h2 class="section-title">OUR WALL OF FAME</h2>
     <div class="wof-celebrities-container">
       <button class="nav-arrow wof-prev-arrow" aria-label="Previous slide">
-        <i class="fas fa-chevron-left"></i>
+        <ChevronLeft size={20} color="#e7c980" />
       </button>
 
       <div class="wof-celebrities-wrapper">
@@ -63,7 +65,7 @@ const totalSlides = Math.ceil(celebrities.length / 4);
         </div>
       </div>
       <button class="nav-arrow wof-next-arrow" aria-label="Next slide">
-        <i class="fas fa-chevron-right"></i>
+        <ChevronRight size={20} color="#e7c980" />
       </button>
     </div>
   </div>
