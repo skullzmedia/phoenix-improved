@@ -5,6 +5,16 @@ import aboutImage from "../assets/abtus/image.jpg";
 import AboutSectionImage from "../assets/abtus/aboutsection.jpeg";
 import GameOne from "../assets/abtus/game-one.png";
 import GameTwo from "../assets/abtus/game-two.webp";
+import {
+  Cigarette,
+  Crown,
+  Dices,
+  Martini,
+  Minus,
+  Music,
+  Plus,
+  Utensils,
+} from "lucide-astro";
 
 const pageTitle =
   "Best Casino in Goa – Phoenix Casino | Luxury Gaming in Candolim";
@@ -14,34 +24,34 @@ const pageDescription =
 // Highlights with icons
 const highlights = [
   {
-    icon: "dice",
+    icon: Dices,
     title: "20+ Games",
     description:
       "Enjoy a variety of card games, slot machines, and table games",
   },
   {
-    icon: "smoking",
+    icon: Cigarette,
     title: "Hookah Lounge",
     description: "Relax in our premium hookah lounge with exclusive flavors",
   },
   {
-    icon: "crown",
+    icon: Crown,
     title: "VIP Room",
     description: "Experience luxury gaming in our exclusive VIP rooms",
   },
   {
-    icon: "music",
+    icon: Music,
     title: "Live Performances",
     description:
       "Enjoy regular live entertainment and special celebrity events",
   },
   {
-    icon: "utensils",
+    icon: Utensils,
     title: "Restaurant",
     description: "Savor gourmet cuisine with our premium dining experience",
   },
   {
-    icon: "glass-martini-alt",
+    icon: Martini,
     title: "Phoenixx Bar",
     description: "Taste our signature cocktails and premium spirits",
   },
@@ -173,7 +183,7 @@ const gamesGroup2 = gamesData.slice(5, 10);
           highlights.map((highlight) => (
             <div class="highlight-card">
               <div class="highlight-icon">
-                <i class={`fas fa-${highlight.icon}`} />
+                <highlight.icon class="icon" />
               </div>
               <h3 class="highlight-title">{highlight.title}</h3>
               <p class="highlight-description">{highlight.description}</p>
@@ -210,8 +220,8 @@ const gamesGroup2 = gamesData.slice(5, 10);
                 <div class="game-header">
                   <h3>{game.title}</h3>
                   <div class="accordion-icon">
-                    <i class="fas fa-plus" />
-                    <i class="fas fa-minus" />
+                    <Plus class="fas plus-icon" />
+                    <Minus class="fas minus-icon" />
                   </div>
                 </div>
                 <div class="game-content">
@@ -236,8 +246,8 @@ const gamesGroup2 = gamesData.slice(5, 10);
                 <div class="game-header">
                   <h3>{game.title}</h3>
                   <div class="accordion-icon">
-                    <i class="fas fa-plus" />
-                    <i class="fas fa-minus" />
+                    <Plus class="fas plus-icon" />
+                    <Minus class="fas minus-icon" />
                   </div>
                 </div>
                 <div class="game-content">
@@ -778,15 +788,15 @@ const gamesGroup2 = gamesData.slice(5, 10);
     font-size: 1rem;
   }
 
-  .accordion-icon .fa-minus {
+  .accordion-icon .minus-icon {
     display: none;
   }
 
-  .game-accordion.active .accordion-icon .fa-plus {
+  .game-accordion.active .accordion-icon .plus-icon {
     display: none;
   }
 
-  .game-accordion.active .accordion-icon .fa-minus {
+  .game-accordion.active .accordion-icon .minus-icon {
     display: block;
   }
 

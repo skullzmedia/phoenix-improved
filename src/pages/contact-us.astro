@@ -1,23 +1,27 @@
----
-import Layout from '../layouts/Layout.astro';
+<!-- ---
+import Layout from "../layouts/Layout.astro";
+import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-astro";
 
 // Contact information
 const contactInfo = {
-  address: "Floor No 6, 603, Gera Imperium Grand, Panaji, near Ginger Hotel, Panaji, Goa 403001",
+  address:
+    "Floor No 6, 603, Gera Imperium Grand, Panaji, near Ginger Hotel, Panaji, Goa 403001",
   phone: "+91 77678 80001",
-  email: "turtlegaminggroup@gmail.com"
+  email: "turtlegaminggroup@gmail.com",
 };
 
 const pageTitle = "Contact Us | Phoenix Casino Goa | Bookings & Queries";
-const pageDescription = "Get in touch with Phoenix Casino, a top luxury casino in Goa located in Candolim. Contact us for bookings, packages, and game inquiries.";
-
+const pageDescription =
+  "Get in touch with Phoenix Casino, a top luxury casino in Goa located in Candolim. Contact us for bookings, packages, and game inquiries.";
 ---
 
 <Layout title="Contact Us | Turtle Gaming">
   <section class="page-banner">
     <div class="container">
       <h1 class="page-title">Contact Us</h1>
-      <p class="page-subtitle">Get in touch with our team for bookings and inquiries</p>
+      <p class="page-subtitle">
+        Get in touch with our team for bookings and inquiries
+      </p>
     </div>
   </section>
 
@@ -27,51 +31,61 @@ const pageDescription = "Get in touch with Phoenix Casino, a top luxury casino i
         <div class="contact-info">
           <h2 class="contact-heading">CONTACT US</h2>
           <h3 class="contact-subheading">Have Questions? Get in touch!</h3>
-          
+
           <div class="contact-details">
             <div class="contact-item">
               <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
+                <MapPin size={16} color="#e7c980" />
               </div>
               <div class="contact-text">
                 {contactInfo.address}
               </div>
             </div>
-            
+
             <div class="contact-item">
               <div class="contact-icon">
-                <i class="fas fa-phone-alt"></i>
+                <Phone size={16} color="#e7c980" />
               </div>
               <div class="contact-text">
                 <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a>
               </div>
             </div>
-            
+
             <div class="contact-item">
               <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
+                <Mail size={16} color="#e7c980" />
               </div>
               <div class="contact-text">
                 <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
               </div>
             </div>
           </div>
-          
+
           <div class="business-hours">
             <h4 class="hours-heading">Business Hours</h4>
             <p class="hours-text">Monday - Saturday: 9:00 AM - 6:00 PM</p>
             <p class="hours-note">Closed on Sundays</p>
           </div>
-          
+
           <div class="social-links">
             <a href="#" class="social-link" aria-label="Facebook">
-              <i class="fab fa-facebook-f"></i>
+              <Facebook size={16} color="#e7c980" />
             </a>
             <a href="#" class="social-link" aria-label="Instagram">
-              <i class="fab fa-instagram"></i>
+              <Instagram size={16} color="#e7c980" />
             </a>
             <a href="#" class="social-link" aria-label="WhatsApp">
-              <i class="fab fa-whatsapp"></i>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+                fill="white"
+                stroke="white"
+                class="whatsapp-icon"
+              >
+                <path
+                  d="M476.9 161.1C435 119.1 379.2 96 319.9 96C197.5 96 97.9 195.6 97.9 318C97.9 357.1 108.1 395.3 127.5 429L96 544L213.7 513.1C246.1 530.8 282.6 540.1 319.8 540.1L319.9 540.1C442.2 540.1 544 440.5 544 318.1C544 258.8 518.8 203.1 476.9 161.1zM319.9 502.7C286.7 502.7 254.2 493.8 225.9 477L219.2 473L149.4 491.3L168 423.2L163.6 416.2C145.1 386.8 135.4 352.9 135.4 318C135.4 216.3 218.2 133.5 320 133.5C369.3 133.5 415.6 152.7 450.4 187.6C485.2 222.5 506.6 268.8 506.5 318.1C506.5 419.9 421.6 502.7 319.9 502.7zM421.1 364.5C415.6 361.7 388.3 348.3 383.2 346.5C378.1 344.6 374.4 343.7 370.7 349.3C367 354.9 356.4 367.3 353.1 371.1C349.9 374.8 346.6 375.3 341.1 372.5C308.5 356.2 287.1 343.4 265.6 306.5C259.9 296.7 271.3 297.4 281.9 276.2C283.7 272.5 282.8 269.3 281.4 266.5C280 263.7 268.9 236.4 264.3 225.3C259.8 214.5 255.2 216 251.8 215.8C248.6 215.6 244.9 215.6 241.2 215.6C237.5 215.6 231.5 217 226.4 222.5C221.3 228.1 207 241.5 207 268.8C207 296.1 226.9 322.5 229.6 326.2C232.4 329.9 268.7 385.9 324.4 410C359.6 425.2 373.4 426.5 391 423.9C401.7 422.3 423.8 410.5 428.4 397.5C433 384.5 433 373.4 431.6 371.1C430.3 368.6 426.6 367.2 421.1 364.5z"
+                ></path>
+              </svg>
             </a>
           </div>
         </div>
@@ -91,9 +105,9 @@ const pageDescription = "Get in touch with Phoenix Casino, a top luxury casino i
     position: relative;
     margin-top: 120px; /* Account for fixed nav height */
   }
-  
+
   .page-banner::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -102,12 +116,12 @@ const pageDescription = "Get in touch with Phoenix Casino, a top luxury casino i
     background: rgba(0, 0, 0, 0.7);
     z-index: 1;
   }
-  
+
   .page-banner .container {
     position: relative;
     z-index: 2;
   }
-  
+
   .page-title {
     font-size: 3rem;
     color: #e7c980;
@@ -118,7 +132,7 @@ const pageDescription = "Get in touch with Phoenix Casino, a top luxury casino i
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   .page-subtitle {
     font-size: 1.2rem;
     color: #fff;
@@ -132,14 +146,14 @@ const pageDescription = "Get in touch with Phoenix Casino, a top luxury casino i
     margin: 0 auto;
     padding: 0 2rem; /* Match nav padding */
   }
-  
+
   /* Contact Section */
   .contact-section {
     padding: 5rem 0;
     background-color: #000;
     position: relative;
   }
-  
+
   .contact-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -147,7 +161,7 @@ const pageDescription = "Get in touch with Phoenix Casino, a top luxury casino i
     max-width: 800px;
     margin: 0 auto;
   }
-  
+
   /* Contact Info */
   .contact-heading {
     font-size: 1.2rem;
@@ -155,24 +169,24 @@ const pageDescription = "Get in touch with Phoenix Casino, a top luxury casino i
     margin-bottom: 1rem;
     letter-spacing: 2px;
   }
-  
+
   .contact-subheading {
     font-size: 2.5rem;
     color: #fff;
     margin-bottom: 2.5rem;
     font-weight: 600;
   }
-  
+
   .contact-details {
     margin-bottom: 2.5rem;
   }
-  
+
   .contact-item {
     display: flex;
     align-items: flex-start;
     margin-bottom: 1.5rem;
   }
-  
+
   .contact-icon {
     width: 40px;
     height: 40px;
@@ -186,50 +200,50 @@ const pageDescription = "Get in touch with Phoenix Casino, a top luxury casino i
     margin-right: 1rem;
     flex-shrink: 0;
   }
-  
+
   .contact-text {
     color: #fff;
     font-size: 1rem;
     line-height: 1.6;
   }
-  
+
   .contact-text a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
   }
-  
+
   .contact-text a:hover {
     color: #e7c980;
   }
-  
+
   /* Business Hours */
   .business-hours {
     margin-bottom: 2.5rem;
   }
-  
+
   .hours-heading {
     font-size: 1.2rem;
     color: #e7c980;
     margin-bottom: 1rem;
   }
-  
+
   .hours-text {
     color: #fff;
     margin-bottom: 0.5rem;
   }
-  
+
   .hours-note {
     color: #999;
     font-size: 0.9rem;
   }
-  
+
   /* Social Links */
   .social-links {
     display: flex;
     gap: 1rem;
   }
-  
+
   .social-link {
     width: 40px;
     height: 40px;
@@ -242,50 +256,50 @@ const pageDescription = "Get in touch with Phoenix Casino, a top luxury casino i
     font-size: 1rem;
     transition: all 0.3s ease;
   }
-  
+
   .social-link:hover {
     background-color: #e7c980;
     color: #000;
     transform: translateY(-3px);
   }
-  
+
   /* Responsive Styles */
   @media (max-width: 768px) {
     .container {
       padding: 0 1rem; /* Match nav mobile padding */
     }
-    
+
     .page-banner {
       margin-top: 100px; /* Account for smaller mobile nav */
       padding: 6rem 0 3rem;
     }
-    
+
     .page-title {
       font-size: 2.5rem;
     }
-    
+
     .contact-subheading {
       font-size: 2rem;
     }
   }
-  
+
   @media (max-width: 480px) {
     .contact-section {
       padding: 3rem 0;
     }
-    
+
     .page-title {
       font-size: 2rem;
     }
-    
+
     .contact-subheading {
       font-size: 1.75rem;
       margin-bottom: 2rem;
     }
-    
+
     .contact-icon {
       width: 36px;
       height: 36px;
     }
   }
-</style> 
+</style> -->

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Minus, Plus, Search } from "lucide-astro";
 
 const pageTitle = "FAQ | Phoenixx Casino Goa – Your Questions Answered";
 const pageDescription =
@@ -155,7 +156,7 @@ const categories = {
 
       <div class="faq-search">
         <div class="search-container">
-          <i class="fas fa-search search-icon"></i>
+          <Search class="search-icon" size={16} color="#e7c980" />
           <input type="text" id="faqSearch" placeholder="Search questions..." />
         </div>
       </div>
@@ -196,8 +197,8 @@ const categories = {
                 <div class="faq-question">
                   <h3>{faq.question}</h3>
                   <div class="question-icon">
-                    <i class="fas fa-plus" />
-                    <i class="fas fa-minus" />
+                    <Plus class="fas plus-icon" />
+                    <Minus class="fas minus-icon" />
                   </div>
                 </div>
                 <div class="faq-answer">
@@ -454,15 +455,15 @@ const categories = {
     color: #e7c980;
   }
 
-  .question-icon .fa-minus {
+  .question-icon .minus-icon {
     display: none;
   }
 
-  .faq-item.active .question-icon .fa-plus {
+  .faq-item.active .question-icon .plus-icon {
     display: none;
   }
 
-  .faq-item.active .question-icon .fa-minus {
+  .faq-item.active .question-icon .minus-icon {
     display: block;
   }
 
