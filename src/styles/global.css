@@ -21,6 +21,13 @@
     --font-family-base: 'Raleway', system-ui, sans-serif;
 }
 
+@font-face {
+    font-family: 'Raleway';
+    font-weight: 200 900;
+    font-display: swap;
+    src: url('/public/fonts/Raleway-VariableFont_wght.ttf') format('truetype');
+}
+
 /* Global Button Styles */
 .cta-button {
     display: inline-block;
