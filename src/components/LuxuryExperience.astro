@@ -8,6 +8,8 @@ import {
   Gamepad2,
 } from "lucide-astro";
 
+import videoSrc from "../assets/video/hero-video.webm";
+
 const features = [
   { icon: Music, title: "Live", subtitle: "Performances" },
   { icon: Dices, title: "10+", subtitle: "Games" },
@@ -17,6 +19,14 @@ const features = [
   { icon: Gamepad2, title: "Gaming", subtitle: "Experience" },
 ];
 ---
+
+<link
+  rel="stylesheet"
+  href="../../node_modules/lite-youtube-embed/src/lite-yt-embed.css"
+/>
+
+<script src="../../node_modules/lite-youtube-embed/src/lite-yt-embed.js"
+></script>
 
 <section class="luxury-experience">
   <div class="container">
@@ -54,18 +64,26 @@ const features = [
     </div>
 
     <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/tawS88SZ8Cw?autoplay=1&mute=1&loop=1&playlist=tawS88SZ8Cw&controls=0&rel=0"
+      <video
+        src={videoSrc}
         title="Phoenixx Casino Promo"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        autoplay
+        muted
+        loop
+        class="video-element"
+      >
+      </video>
     </div>
   </div>
 </section>
 
 <style>
+  .video-element {
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+  }
+
   .heading {
     font-size: 2.5rem;
     background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);

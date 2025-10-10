@@ -1,5 +1,6 @@
 ---
 import { Headphones, Music, Shirt, Star } from "lucide-astro";
+import NewYearVideo from "../assets/video/new-year-video.webm";
 
 title: "Live Entertainment in Goa – Phoenixx Casino Shows & Events";
 description: "Enjoy DJ nights, fashion shows, celebrity appearances, and live music at Phoenixx Casino – Goa’s ultimate destination for nightlife and entertainment.";
@@ -64,14 +65,14 @@ const entertainmentOptions = [
 
       <div class="video-frame">
         <div class="video-placeholder">
-          <iframe
-            width="100%"
+          <video
+            src={NewYearVideo}
+            title="Entertainment Showcase"
             height="100%"
-            src="https://www.youtube.com/embed/oMvX-g5jKxE?autoplay=1&mute=1&loop=1&controls=0&playlist=oMvX-g5jKxE"
-            title="Entertainment Video"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+            autoplay
+            muted
+            loop
+            playsinline></video>
         </div>
       </div>
     </div>
