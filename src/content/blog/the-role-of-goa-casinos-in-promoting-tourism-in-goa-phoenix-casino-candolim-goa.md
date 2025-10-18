@@ -4,7 +4,7 @@ description: "
 Goa has evolved from a sleepy coastal paradise into India’s premier gaming destination, earning the title “Las Vegas of India” through its distinctive casino culture that attracts thousands of visitors daily. Contributing over ₹606 crore, Goa encompasses 13 officially licensed casinos!"
 pubDate: 2025-10-18
 author: "Marketing Team"
-image: "/blog/Role-of-goa-casinos-in-promoting-tourism-in-goa-phoenix-casino-candolim-goa"
+image: "/blog/Role-of-goa-casinos-in-promoting-tourism-in-goa-phoenix-casino-candolim-goa.png"
 imageAlt: "Night view of Phoenix Casino in Goa with tourists entering a luxurious casino entrance, golden lights reflecting on water, and bold title text “Role of Casinos in Promoting Tourism in Goa” in elegant gold font — representing the vibrant nightlife and casino tourism that attracts travelers to Goa."
 category: "Tips & Tricks"
 featured: true
