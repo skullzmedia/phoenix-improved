@@ -73,7 +73,7 @@ If you're planning your first casino visit, these practical tips will help you m
 
 Start by choosing games with better odds. Blackjack and Baccarat offer some of the best chances of winning compared to games that rely purely on luck. Set a clear budget before you enter and stick to it religiously, decide how much you're comfortable spending and never chase losses.
 
-Begin with minimum bets to get comfortable with the game flow and atmosphere. Don't hesitate to ask dealers for help, they're experienced professionals who are happy to explain rules and guide beginners through their first few hands. Most casinos, including Phoenix Casino, also offer learner tables where newcomers can practice without feeling intimidated by experienced players.
+Begin with minimum bets to get comfortable with the game flow and atmosphere. Don't hesitate to ask dealers for help, they're experienced professionals who are happy to explain rules and guide beginners through their first few hands. Most casinos also offer learner tables where newcomers can practice without feeling intimidated by experienced players.
 
 Remember that entry packages at most Goa casinos include gaming chips, food, and drinks, typically ranging from ₹2,000 to ₹5,000. This means you're not just paying for gaming,  you're getting a complete entertainment experience with buffet dinners, live performances, and beverages included.
 
@@ -83,7 +83,7 @@ Take regular breaks to maintain a clear head and make rational decisions. Casino
 
 When it comes to choosing a casino in Goa, Phoenix Casino at Hilton Goa Resort in Candolim has earned its reputation as one of the finest gaming destinations in the state. Its tagline "Where Luxury Begins and Fortunes Rise" perfectly captures the premium experience it offers.
 
-Located within the prestigious Hilton Resort, Phoenix Casino combines state-of-the-art gaming facilities with exceptional service and elegant ambiance. The casino features a diverse selection of games including Andar Bahar, Baccarat, Blackjack, Roulette, Dragon Tiger, Three Card Poker, Slot Machines, Casino War, and Sic Bo. Beyond gaming, guests can enjoy live entertainment, celebrity events, a premium hookah lounge, VIP gaming rooms, and signature cocktails.
+Located within the prestigious Hilton Resort, Phoenix Casino combines state-of-the-art gaming facilities with exceptional service and elegant ambiance. The casino features a diverse selection of games including Andar Bahar, Baccarat, Blackjack, Roulette, Three Card Poker, Slot Machines, Casino War, etc. Beyond gaming, guests can enjoy live entertainment, celebrity events, a premium hookah lounge, VIP gaming rooms, and signature cocktails.
 
 What truly sets Phoenix Casino apart is its focus on creating a complete luxury experience rather than just a gaming venue. The combination of gourmet dining, regular entertainment events, and the convenience of being part of a five-star resort makes it ideal for both serious gamers and casual visitors looking for a memorable night out.
 
