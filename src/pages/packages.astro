@@ -40,7 +40,7 @@ const packages = [
         alcoholBrands: {
           Whiskey: "Blenders, Signature, Rockford",
           Vodka: "Romanov",
-          Rum: "Old Monk, Bacardi white/Black, Cabo",
+          Rum: "Old Monk, Cabo",
           Gin: "Blue Riband",
           Brandy: "Honey Bee, Mansion House",
           Beer: "Kingfisher",
@@ -1969,8 +1969,7 @@ const highlights = [
         alcoholBrands: {
           Whiskey: "Blenders, Signature, Rockford",
           Vodka: "Romanov",
-          Rum: "Old Monk, Bacardi white/Black, Cabo",
-          Gin: "Blue Riband",
+          Rum: "Old Monk, Cabo",
           Brandy: "Honey Bee, Mansion House",
           Beer: "Kingfisher",
           Feni: "Coconut/Cashew",
@@ -1980,15 +1979,15 @@ const highlights = [
         name: "Premium",
         alcoholBrands: {
           Whiskey:
-            "Vat 69, Black Dog, Oak Smith Gold, 100 Pipers, Black & White, Red Label & Ballantines",
+            "Vat 69, Black Dog, Oak Smith Gold, 100 Pipers, Red Label & Ballantines",
           Vodka: "Smirnoff Regular",
-          Rum: "Old Monk, Bacardi white/Black, Cabo",
-          Gin: "Blue Riband, Greater than",
+          Rum: "Old Monk, Cabo",
+          Gin: "Greater than",
           Brandy: "Honey Bee, Mansion House, Morpheus xo",
           Beer: "Kingfisher, Kingfisher ultra, Budweiser",
           Feni: "Coconut/Cashew",
           Breezer: "",
-          Wine: "Amora White/Amora Red/Langoor Red & Port wine",
+          Wine: "Amora White/Amora Red/",
           "Energy Drink": "As per stock available",
           Liqueur: "Kahlua, Triple sec",
         },
@@ -1996,16 +1995,14 @@ const highlights = [
       {
         name: "Elite",
         alcoholBrands: {
-          Whiskey:
-            "Black Label, Chivas Regal 12 yrs, Singleton 12 yrs, Glenfiddich 12 yrs",
-          Vodka: "Absolut, Ciroc & Ketel One",
-          Rum: "Old Monk, Bacardi white/Black, Cabo, Coconut Rum",
+          Whiskey: "Chivas Regal 12 yrs, Singleton 12 yrs, Glenfiddich 12 yrs",
+          Vodka: "Ciroc & Ketel One",
+          Rum: "Old Monk, Coconut Rum",
           Gin: "Blue Riband, Gordons & Bombay Sapphire",
           Brandy: "Honey Bee, Mansion House, Morpheus xo",
           Beer: "House Brands + Premium & Heineken",
           Feni: "Coconut/Cashew",
           Breezer: "",
-          Cognac: "St. Remy VSOP",
           Wine: "Yellow tail and Jacob Greek",
           "Energy Drink": "Red Bull",
           Liqueur: "Kahlua, Triple sec & Baileys",
@@ -2116,7 +2113,7 @@ const highlights = [
         if (
           e.target === popup ||
           (e.target as HTMLElement)?.classList?.contains(
-            "alcohol-popup-backdrop"
+            "alcohol-popup-backdrop",
           )
         ) {
           popup.classList.remove("active");
@@ -2167,7 +2164,7 @@ const highlights = [
 
         // Activate corresponding content
         const content = document.getElementById(
-          `${tabId}-content`
+          `${tabId}-content`,
         ) as HTMLDivElement | null;
         if (content) {
           content.classList.add("active");
@@ -2179,7 +2176,7 @@ const highlights = [
     const packageButtons =
       document.querySelectorAll<HTMLButtonElement>(".package-button");
     const packageImages = document.querySelectorAll<HTMLImageElement>(
-      ".packages-image img"
+      ".packages-image img",
     );
     const packageDetails =
       document.querySelectorAll<HTMLDivElement>(".package-details");
@@ -2196,10 +2193,10 @@ const highlights = [
 
         const targetId = button.getAttribute("data-target");
         const targetImage = document.getElementById(
-          `${targetId}-image`
+          `${targetId}-image`,
         ) as HTMLImageElement | null;
         const targetDetail = document.getElementById(
-          `${targetId}-details`
+          `${targetId}-details`,
         ) as HTMLDivElement | null;
 
         if (targetImage) targetImage.classList.add("active");
