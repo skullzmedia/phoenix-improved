@@ -3,7 +3,7 @@ title: "Luxury Hotels in India Are Evolving: Top Entertainment Trends for 2025 |
 description: "Discover the latest entertainment trends transforming India’s luxury hotels and tourism in 2025 | from immersive live shows to premium gaming experiences. Learn how Phoenix Casino Goa leads the evolution with world-class hospitality and modern entertainment offerings."
 pubDate: 2025-12-03
 author: "Marketing Team"
-image: "/blog/top-entertainment-trends-in-2025-goa-phoenix-casino-goa.png"
+image: "/blog/top-entertainment-trends-in-2025-in-goa-phoenix-casino-goa.png"
 imageAlt: "Luxury hotel entertainment in India with modern gaming, live shows and premium experiences, Phoenix Casino Goa 2025 trends."
 category: "Entertainment"
 featured: true
