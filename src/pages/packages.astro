@@ -161,6 +161,15 @@ const highlights = [
       <p class="page-subtitle">
         Experience luxury with our exclusive casino packages
       </p>
+      <p style="font-size: 20px;">
+        <span style="font-weight: bold; text-decoration: underline;"
+          >Please Note:
+        </span>Package rates and offers not applicable on Blackout dates from <br
+        />
+        <span style="font-weight: bold; color: #e7c980"
+          >25th Dec 2025 to 4th Jan 2026.</span
+        > Please Call us for rates and booking.
+      </p>
     </div>
   </section>
 
@@ -2113,7 +2122,7 @@ const highlights = [
         if (
           e.target === popup ||
           (e.target as HTMLElement)?.classList?.contains(
-            "alcohol-popup-backdrop",
+            "alcohol-popup-backdrop"
           )
         ) {
           popup.classList.remove("active");
@@ -2164,7 +2173,7 @@ const highlights = [
 
         // Activate corresponding content
         const content = document.getElementById(
-          `${tabId}-content`,
+          `${tabId}-content`
         ) as HTMLDivElement | null;
         if (content) {
           content.classList.add("active");
@@ -2176,7 +2185,7 @@ const highlights = [
     const packageButtons =
       document.querySelectorAll<HTMLButtonElement>(".package-button");
     const packageImages = document.querySelectorAll<HTMLImageElement>(
-      ".packages-image img",
+      ".packages-image img"
     );
     const packageDetails =
       document.querySelectorAll<HTMLDivElement>(".package-details");
@@ -2193,10 +2202,10 @@ const highlights = [
 
         const targetId = button.getAttribute("data-target");
         const targetImage = document.getElementById(
-          `${targetId}-image`,
+          `${targetId}-image`
         ) as HTMLImageElement | null;
         const targetDetail = document.getElementById(
-          `${targetId}-details`,
+          `${targetId}-details`
         ) as HTMLDivElement | null;
 
         if (targetImage) targetImage.classList.add("active");
