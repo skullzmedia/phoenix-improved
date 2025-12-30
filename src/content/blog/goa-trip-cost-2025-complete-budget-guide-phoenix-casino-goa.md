@@ -116,7 +116,7 @@ To keep your Goa holiday budget-friendly without missing the fun:
  
 With smart planning and clarity on your budget (backpacker, mid-range, or luxury), you can easily plan a Goa trip in 2025 that fits your wallet while still enjoying beaches, nightlife, water sports, cruises, and authentic Goan food.
 
-# Must Read From [Phoenix Casino](www.phoenixcasino.in)
+# Must Read From [Phoenix Casino](https://www.phoenixcasino.in/)
 
 [Luxury Hotels in India Are Evolving: Top Entertainment Trends for 2025 | Phoenix Casino Goa](https://www.phoenixcasino.in/blog/luxury-hotels-india-entertainment-trends-2025)
 
