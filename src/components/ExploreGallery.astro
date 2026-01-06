@@ -1,17 +1,17 @@
 ---
 /* src/components/ExploreCasinoGallery.astro */
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 import amenity1 from "../assets/gallery/amenities/1.jpg";
 import amenity2 from "../assets/gallery/amenities/2.jpg";
 import amenity3 from "../assets/gallery/amenities/3.jpg";
 import amenity4 from "../assets/gallery/amenities/4.jpg";
 
-import gaming1  from "../assets/gallery/gaming/1.jpg";
-import gaming2  from "../assets/gallery/gaming/2.jpg";
-import gaming3  from "../assets/gallery/gaming/3.jpg";
-import gaming4  from "../assets/gallery/gaming/4.jpg";
-import gaming5  from "../assets/gallery/gaming/5.jpg";
+import gaming1 from "../assets/gallery/gaming/1.jpg";
+import gaming2 from "../assets/gallery/gaming/2.jpg";
+import gaming3 from "../assets/gallery/gaming/3.jpg";
+import gaming4 from "../assets/gallery/gaming/4.jpg";
+import gaming5 from "../assets/gallery/gaming/5.jpg";
 
 import entertainment1 from "../assets/gallery/entertainment/1.jpg";
 import entertainment2 from "../assets/gallery/entertainment/2.jpg";
@@ -28,48 +28,48 @@ import ambiance2 from "../assets/gallery/ambiance/2.jpg";
 import ambiance3 from "../assets/gallery/ambiance/3.jpg";
 import ambiance4 from "../assets/gallery/ambiance/4.jpg";
 
-import food1  from "../assets/gallery/food-and-drinks/1.jpg";
-import food2  from "../assets/gallery/food-and-drinks/2.jpg";
-import food3  from "../assets/gallery/food-and-drinks/3.jpg";
-import food4  from "../assets/gallery/food-and-drinks/4.jpg";
-import food5  from "../assets/gallery/food-and-drinks/5.jpg";
-import food6  from "../assets/gallery/food-and-drinks/6.jpg";
-import food7  from "../assets/gallery/food-and-drinks/7.jpg";
+import food1 from "../assets/gallery/food-and-drinks/1.jpg";
+import food2 from "../assets/gallery/food-and-drinks/2.jpg";
+import food3 from "../assets/gallery/food-and-drinks/3.jpg";
+import food4 from "../assets/gallery/food-and-drinks/4.jpg";
+import food5 from "../assets/gallery/food-and-drinks/5.jpg";
+import food6 from "../assets/gallery/food-and-drinks/6.jpg";
+import food7 from "../assets/gallery/food-and-drinks/7.jpg";
 
-import celebrities1  from "../assets/gallery/celebrities/1.jpg";
-import celebrities2  from "../assets/gallery/celebrities/2.jpg";
-import celebrities3  from "../assets/gallery/celebrities/3.jpg";
-import celebrities4  from "../assets/gallery/celebrities/4.jpg";
-import celebrities5  from "../assets/gallery/celebrities/5.jpg";
-import celebrities6  from "../assets/gallery/celebrities/6.jpg";
-import celebrities7  from "../assets/gallery/celebrities/7.jpg";
-import celebrities8  from "../assets/gallery/celebrities/8.jpg";
-import celebrities9  from "../assets/gallery/celebrities/9.jpg";
+import celebrities1 from "../assets/gallery/celebrities/1.jpg";
+import celebrities2 from "../assets/gallery/celebrities/2.jpg";
+import celebrities3 from "../assets/gallery/celebrities/3.jpg";
+import celebrities4 from "../assets/gallery/celebrities/4.jpg";
+import celebrities5 from "../assets/gallery/celebrities/5.jpg";
+import celebrities6 from "../assets/gallery/celebrities/6.jpg";
+import celebrities7 from "../assets/gallery/celebrities/7.jpg";
+import celebrities8 from "../assets/gallery/celebrities/8.jpg";
+import celebrities9 from "../assets/gallery/celebrities/9.jpg";
 import celebrities10 from "../assets/gallery/celebrities/10.jpg";
 import celebrities11 from "../assets/gallery/celebrities/11.jpg";
 import celebrities12 from "../assets/gallery/celebrities/12.jpg";
 import celebrities13 from "../assets/gallery/celebrities/13.jpg";
 
 const categories = [
-  { id: 'all',           label: 'All' },
-  { id: 'amenities',     label: 'Amenities' },
-  { id: 'gaming',        label: 'Gaming' },
-  { id: 'entertainment', label: 'Entertainment' },
-  { id: 'ambiance',      label: 'Ambiance' },
-  { id: 'food',          label: 'Food' },
-  { id: 'celebrities',   label: 'Celebrities' },
+  { id: "all", label: "All" },
+  { id: "amenities", label: "Amenities" },
+  { id: "gaming", label: "Gaming" },
+  { id: "entertainment", label: "Entertainment" },
+  { id: "ambiance", label: "Ambiance" },
+  { id: "food", label: "Food" },
+  { id: "celebrities", label: "Celebrities" },
 ];
 
 const items = [
-  { src: amenity1,    category: "amenities" },
-  { src: amenity2,    category: "amenities" },
-  { src: amenity3,    category: "amenities" },
-  { src: amenity4,    category: "amenities" },
-  { src: gaming1,     category: "gaming"    },
-  { src: gaming2,     category: "gaming"    },
-  { src: gaming3,     category: "gaming"    },
-  { src: gaming4,     category: "gaming"    },
-  { src: gaming5,     category: "gaming"    },
+  { src: amenity1, category: "amenities" },
+  { src: amenity2, category: "amenities" },
+  { src: amenity3, category: "amenities" },
+  { src: amenity4, category: "amenities" },
+  { src: gaming1, category: "gaming" },
+  { src: gaming2, category: "gaming" },
+  { src: gaming3, category: "gaming" },
+  { src: gaming4, category: "gaming" },
+  { src: gaming5, category: "gaming" },
   { src: entertainment1, category: "entertainment" },
   { src: entertainment2, category: "entertainment" },
   { src: entertainment3, category: "entertainment" },
@@ -79,26 +79,26 @@ const items = [
   { src: entertainment7, category: "entertainment" },
   { src: entertainment8, category: "entertainment" },
   { src: entertainment9, category: "entertainment" },
-  { src: ambiance1,   category: "ambiance"  },
-  { src: ambiance2,   category: "ambiance"  },
-  { src: ambiance3,   category: "ambiance"  },
-  { src: ambiance4,   category: "ambiance"  },
-  { src: food1,       category: "food"      },
-  { src: food2,       category: "food"      },
-  { src: food3,       category: "food"      },
-  { src: food4,       category: "food"      },
-  { src: food5,       category: "food"      },
-  { src: food6,       category: "food"      },
-  { src: food7,       category: "food"      },
-  { src: celebrities1,  category: "celebrities" },
-  { src: celebrities2,  category: "celebrities" },
-  { src: celebrities3,  category: "celebrities" },
-  { src: celebrities4,  category: "celebrities" },
-  { src: celebrities5,  category: "celebrities" },
-  { src: celebrities6,  category: "celebrities" },
-  { src: celebrities7,  category: "celebrities" },
-  { src: celebrities8,  category: "celebrities" },
-  { src: celebrities9,  category: "celebrities" },
+  { src: ambiance1, category: "ambiance" },
+  { src: ambiance2, category: "ambiance" },
+  { src: ambiance3, category: "ambiance" },
+  { src: ambiance4, category: "ambiance" },
+  { src: food1, category: "food" },
+  { src: food2, category: "food" },
+  { src: food3, category: "food" },
+  { src: food4, category: "food" },
+  { src: food5, category: "food" },
+  { src: food6, category: "food" },
+  { src: food7, category: "food" },
+  { src: celebrities1, category: "celebrities" },
+  { src: celebrities2, category: "celebrities" },
+  { src: celebrities3, category: "celebrities" },
+  { src: celebrities4, category: "celebrities" },
+  { src: celebrities5, category: "celebrities" },
+  { src: celebrities6, category: "celebrities" },
+  { src: celebrities7, category: "celebrities" },
+  { src: celebrities8, category: "celebrities" },
+  { src: celebrities9, category: "celebrities" },
   { src: celebrities10, category: "celebrities" },
   { src: celebrities11, category: "celebrities" },
   { src: celebrities12, category: "celebrities" },
@@ -111,33 +111,61 @@ const items = [
 
   <!-- Desktop buttons -->
   <div class="category-filter">
-    {categories.map(cat => (
-      <button class="filter-btn" data-filter={cat.id}>{cat.label}</button>
-    ))}
+    {
+      categories.map((cat) => (
+        <button class="filter-btn" data-filter={cat.id}>
+          {cat.label}
+        </button>
+      ))
+    }
   </div>
 
   <!-- Mobile dropdown -->
   <div class="category-filter-mobile">
     <select class="filter-select" aria-label="Filter gallery">
-      {categories.map(cat => (
-        <option value={cat.id}>{cat.label}</option>
-      ))}
+      {categories.map((cat) => <option value={cat.id}>{cat.label}</option>)}
     </select>
   </div>
 
   <div class="gallery-wrapper">
     <button class="gallery-arrow left" aria-label="Previous">❮</button>
     <div class="gallery-scroll" data-filter="all">
-      {items.map((it, i) => (
-        <div class="gallery-item" data-category={it.category} key={`dup1-${i}`}>
-          <Image src={it.src} alt="" width={800} height={1000} class="gallery-image" loading="lazy" />
-        </div>
-      ))}
-      {items.map((it, i) => (
-        <div class="gallery-item" data-category={it.category} key={`dup2-${i}`}>
-          <Image src={it.src} alt="" width={800} height={1000} class="gallery-image" loading="lazy" />
-        </div>
-      ))}
+      {
+        items.map((it, i) => (
+          <div
+            class="gallery-item"
+            data-category={it.category}
+            key={`dup1-${i}`}
+          >
+            <Image
+              src={it.src}
+              alt=""
+              width={800}
+              height={1000}
+              class="gallery-image"
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
+      {
+        items.map((it, i) => (
+          <div
+            class="gallery-item"
+            data-category={it.category}
+            key={`dup2-${i}`}
+          >
+            <Image
+              src={it.src}
+              alt=""
+              width={800}
+              height={1000}
+              class="gallery-image"
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
     </div>
     <button class="gallery-arrow right" aria-label="Next">❯</button>
   </div>
@@ -147,46 +175,77 @@ const items = [
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" aria-label="Close">&times;</button>
   <button class="lightbox-arrow left" aria-label="Previous">❮</button>
-  <img class="lightbox-image" src="" alt="">
+  <img class="lightbox-image" src="" alt="" />
   <button class="lightbox-arrow right" aria-label="Next">❯</button>
 </div>
 
 <style>
-  .gallery-section { padding:2rem 0; background:var(--color-bg); }
+  .gallery-section {
+    padding: 2rem 0;
+    background: var(--color-bg);
+  }
   .section-title {
-    text-align:center; font-size:2.5rem; margin-bottom:1.5rem;
-    background:linear-gradient(90deg,#e7c980,#9e8253);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, #e7c980, #9e8253);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .category-filter {
-    display:flex; justify-content:center; gap:1rem; margin-bottom:1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
   }
   .filter-btn {
-    background:transparent; border:none; padding:.5rem 1rem;
-    font-size:1rem; cursor:pointer; color:#e7c980; opacity:.6;
-    transition:opacity .2s;
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #e7c980;
+    opacity: 0.6;
+    transition: opacity 0.2s;
   }
-  .filter-btn.active, .filter-btn:hover { opacity:1; }
+  .filter-btn.active,
+  .filter-btn:hover {
+    opacity: 1;
+  }
 
   .category-filter-mobile {
-    display:none; justify-content:center; margin-bottom:1.5rem;
+    display: none;
+    justify-content: center;
+    margin-bottom: 1.5rem;
   }
   .filter-select {
-    padding:.5rem 1rem; font-size:1rem;
-    border-radius:8px; border:1px solid rgba(231,201,128,0.5);
-    background:rgba(231,201,128,0.1); color:#e7c980;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(231, 201, 128, 0.5);
+    background: rgba(231, 201, 128, 0.1);
+    color: #e7c980;
   }
 
-  .gallery-wrapper { position:relative; overflow:hidden; }
+  .gallery-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
   .gallery-scroll {
-    display:flex; gap:1rem; width:max-content;
-    will-change:transform;
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    will-change: transform;
   }
 
   @keyframes scrollGallery {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   /* pause on hover of wrapper OR scroll container */
@@ -197,7 +256,9 @@ const items = [
 
   /* image glow + pop */
   .gallery-image {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
   .gallery-item:hover .gallery-image {
     transform: scale(1.05);
@@ -206,159 +267,245 @@ const items = [
   }
 
   /* filters */
-  .gallery-scroll[data-filter="all"]     .gallery-item { display:block; }
-  .gallery-scroll[data-filter="amenities"]    .gallery-item:not([data-category="amenities"])    { display:none; }
-  .gallery-scroll[data-filter="gaming"]       .gallery-item:not([data-category="gaming"])       { display:none; }
-  .gallery-scroll[data-filter="entertainment"] .gallery-item:not([data-category="entertainment"]) { display:none; }
-  .gallery-scroll[data-filter="ambiance"]     .gallery-item:not([data-category="ambiance"])     { display:none; }
-  .gallery-scroll[data-filter="food"]         .gallery-item:not([data-category="food"])         { display:none; }
-  .gallery-scroll[data-filter="celebrities"]  .gallery-item:not([data-category="celebrities"])  { display:none; }
+  .gallery-scroll[data-filter="all"] .gallery-item {
+    display: block;
+  }
+  .gallery-scroll[data-filter="amenities"]
+    .gallery-item:not([data-category="amenities"]) {
+    display: none;
+  }
+  .gallery-scroll[data-filter="gaming"]
+    .gallery-item:not([data-category="gaming"]) {
+    display: none;
+  }
+  .gallery-scroll[data-filter="entertainment"]
+    .gallery-item:not([data-category="entertainment"]) {
+    display: none;
+  }
+  .gallery-scroll[data-filter="ambiance"]
+    .gallery-item:not([data-category="ambiance"]) {
+    display: none;
+  }
+  .gallery-scroll[data-filter="food"]
+    .gallery-item:not([data-category="food"]) {
+    display: none;
+  }
+  .gallery-scroll[data-filter="celebrities"]
+    .gallery-item:not([data-category="celebrities"]) {
+    display: none;
+  }
 
-  .gallery-item { flex:0 0 auto; width:200px; aspect-ratio:4/5; cursor:pointer; }
-  .gallery-image { width:100%; height:100%; object-fit:cover; border-radius:8px; }
+  .gallery-item {
+    flex: 0 0 auto;
+    width: 200px;
+    aspect-ratio: 4/5;
+    cursor: pointer;
+  }
+  .gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
 
   .gallery-arrow {
-    position:absolute; top:50%; transform:translateY(-50%);
-    background:rgba(0,0,0,0.5); color:#fff; border:none;
-    width:2.5rem;height:2.5rem;border-radius:50%;cursor:pointer;
-    z-index:10; display:flex;align-items:center;justify-content:center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .gallery-arrow.left  { left:1rem; }
-  .gallery-arrow.right { right:1rem; }
+  .gallery-arrow.left {
+    left: 1rem;
+  }
+  .gallery-arrow.right {
+    right: 1rem;
+  }
 
   .lightbox {
-    display:none; position:fixed; inset:0;
-    background:rgba(0,0,0,0.8); align-items:center; justify-content:center;
-    z-index:10000;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
   }
-  .lightbox.active { display:flex; }
+  .lightbox.active {
+    display: flex;
+  }
   .lightbox-image {
-    max-width:90%; max-height:80vh; object-fit:contain;
-    border:3px solid rgba(231,201,128,0.3); border-radius:8px;
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
+    border: 3px solid rgba(231, 201, 128, 0.3);
+    border-radius: 8px;
   }
   .lightbox-close {
-    position:absolute; top:1rem; right:1rem;
-    background:none; border:none; font-size:2.5rem; color:#e7c980; cursor:pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #e7c980;
+    cursor: pointer;
   }
   .lightbox-arrow {
-    position:absolute; top:50%; transform:translateY(-50%);
-    background:rgba(0,0,0,0.5); color:#fff; border:none;
-    width:2.5rem;height:2.5rem;border-radius:50%;cursor:pointer;
-    z-index:10001; display:flex;align-items:center;justify-content:center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .lightbox-arrow.left  { left:2rem; }
-  .lightbox-arrow.right { right:2rem; }
+  .lightbox-arrow.left {
+    left: 2rem;
+  }
+  .lightbox-arrow.right {
+    right: 2rem;
+  }
 
-  @media (max-width:768px) {
-    .gallery-item { width:150px; }
-    .category-filter { display:none; }
-    .category-filter-mobile { display:flex; }
+  @media (max-width: 768px) {
+    .gallery-item {
+      width: 150px;
+    }
+    .category-filter {
+      display: none;
+    }
+    .category-filter-mobile {
+      display: flex;
+    }
+    .section-title {
+      font-size: 1.5rem;
+    }
   }
 </style>
 
 <script type="module">
-  document.addEventListener('DOMContentLoaded', () => {
-    const scrollEl   = document.querySelector('.gallery-scroll');
-    const firstItem  = scrollEl.querySelector('.gallery-item');
-    const gap        = parseInt(getComputedStyle(firstItem).marginRight) || 0;
-    const step       = firstItem.clientWidth + gap;
-    const arrows     = document.querySelectorAll('.gallery-arrow');
-    const buttons    = document.querySelectorAll('.filter-btn');
-    const select     = document.querySelector('.filter-select');
-    const baseDur    = 40;
-    const initHalf   = scrollEl.scrollWidth / 2;
+  document.addEventListener("DOMContentLoaded", () => {
+    const scrollEl = document.querySelector(".gallery-scroll");
+    const firstItem = scrollEl.querySelector(".gallery-item");
+    const gap = parseInt(getComputedStyle(firstItem).marginRight) || 0;
+    const step = firstItem.clientWidth + gap;
+    const arrows = document.querySelectorAll(".gallery-arrow");
+    const buttons = document.querySelectorAll(".filter-btn");
+    const select = document.querySelector(".filter-select");
+    const baseDur = 40;
+    const initHalf = scrollEl.scrollWidth / 2;
 
     // initialize marquee
     scrollEl.style.animation = `scrollGallery ${baseDur}s linear infinite`;
     scrollEl.style.animationDelay = `0s`;
 
     function jump(dir) {
-      scrollEl.style.animationPlayState = 'paused';
+      scrollEl.style.animationPlayState = "paused";
       const matrix = getComputedStyle(scrollEl).transform;
       let curX = 0;
-      if (matrix.startsWith('matrix')) {
-        const vals = matrix.slice(7, -1).split(', ');
+      if (matrix.startsWith("matrix")) {
+        const vals = matrix.slice(7, -1).split(", ");
         curX = parseFloat(vals[4]);
       }
       const newX = curX - dir * step * 3;
       scrollEl.style.transform = `translateX(${newX}px)`;
 
       const newHalf = scrollEl.scrollWidth / 2;
-      const newDur  = (newHalf * baseDur) / initHalf;
+      const newDur = (newHalf * baseDur) / initHalf;
       scrollEl.style.animation = `scrollGallery ${newDur}s linear infinite`;
-      const off  = ((newX % -newHalf) + -newHalf) % -newHalf;
+      const off = ((newX % -newHalf) + -newHalf) % -newHalf;
       const frac = off / -newHalf;
       scrollEl.style.animationDelay = `-${frac * newDur}s`;
     }
 
-    arrows.forEach(btn =>
-      btn.addEventListener('click', () =>
-        jump(btn.classList.contains('right') ? 1 : -1)
+    arrows.forEach((btn) =>
+      btn.addEventListener("click", () =>
+        jump(btn.classList.contains("right") ? 1 : -1)
       )
     );
-    document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
         e.preventDefault();
-        jump(e.key === 'ArrowRight' ? 1 : -1);
+        jump(e.key === "ArrowRight" ? 1 : -1);
       }
     });
 
     function applyFilter(cat) {
-      scrollEl.setAttribute('data-filter', cat);
-      buttons.forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
+      scrollEl.setAttribute("data-filter", cat);
+      buttons.forEach((b) =>
+        b.classList.toggle("active", b.dataset.filter === cat)
+      );
       if (select) select.value = cat;
 
       const newHalf2 = scrollEl.scrollWidth / 2;
-      const newDur2  = (newHalf2 * baseDur) / initHalf;
+      const newDur2 = (newHalf2 * baseDur) / initHalf;
       scrollEl.style.animation = `scrollGallery ${newDur2}s linear infinite`;
       scrollEl.style.animationDelay = `0s`;
     }
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => applyFilter(btn.dataset.filter));
     });
     if (select) {
-      select.addEventListener('change', () => applyFilter(select.value));
+      select.addEventListener("change", () => applyFilter(select.value));
     }
 
     // Lightbox
-    const lb       = document.getElementById('lightbox');
-    const lbImg    = lb.querySelector('.lightbox-image');
-    const lbClose  = lb.querySelector('.lightbox-close');
-    const lbPrev   = lb.querySelector('.lightbox-arrow.left');
-    const lbNext   = lb.querySelector('.lightbox-arrow.right');
-    const allImgs  = Array.from(document.querySelectorAll('.gallery-item img')).map(i => i.src);
-    const imgs     = allImgs.slice(0, allImgs.length / 2);
+    const lb = document.getElementById("lightbox");
+    const lbImg = lb.querySelector(".lightbox-image");
+    const lbClose = lb.querySelector(".lightbox-close");
+    const lbPrev = lb.querySelector(".lightbox-arrow.left");
+    const lbNext = lb.querySelector(".lightbox-arrow.right");
+    const allImgs = Array.from(
+      document.querySelectorAll(".gallery-item img")
+    ).map((i) => i.src);
+    const imgs = allImgs.slice(0, allImgs.length / 2);
     let idx = 0;
 
-    document.querySelectorAll('.gallery-item').forEach((el, i) => {
-      el.addEventListener('click', () => {
+    document.querySelectorAll(".gallery-item").forEach((el, i) => {
+      el.addEventListener("click", () => {
         idx = i % imgs.length;
         lbImg.src = imgs[idx];
-        lb.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        lb.classList.add("active");
+        document.body.style.overflow = "hidden";
       });
     });
-    lbClose.addEventListener('click', () => {
-      lb.classList.remove('active');
-      document.body.style.overflow = '';
+    lbClose.addEventListener("click", () => {
+      lb.classList.remove("active");
+      document.body.style.overflow = "";
     });
-    lbPrev.addEventListener('click', () => {
+    lbPrev.addEventListener("click", () => {
       idx = (idx - 1 + imgs.length) % imgs.length;
       lbImg.src = imgs[idx];
     });
-    lbNext.addEventListener('click', () => {
+    lbNext.addEventListener("click", () => {
       idx = (idx + 1) % imgs.length;
       lbImg.src = imgs[idx];
     });
-    lb.addEventListener('click', e => {
+    lb.addEventListener("click", (e) => {
       if (e.target === lb) lbClose.click();
     });
-    document.addEventListener('keydown', e => {
-      if (lb.classList.contains('active')) {
-        if (e.key === 'ArrowLeft') lbPrev.click();
-        if (e.key === 'ArrowRight') lbNext.click();
-        if (e.key === 'Escape') lbClose.click();
+    document.addEventListener("keydown", (e) => {
+      if (lb.classList.contains("active")) {
+        if (e.key === "ArrowLeft") lbPrev.click();
+        if (e.key === "ArrowRight") lbNext.click();
+        if (e.key === "Escape") lbClose.click();
       }
     });
   });

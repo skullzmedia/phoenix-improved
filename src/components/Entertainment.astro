@@ -262,7 +262,7 @@ const entertainmentOptions = [
 
   @media (max-width: 768px) {
     .entertainment {
-      padding: 2rem 0;
+      padding: 1rem 0;
     }
 
     .content-wrapper {
@@ -283,7 +283,7 @@ const entertainmentOptions = [
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
 
     .section-description {
@@ -302,8 +302,18 @@ const entertainmentOptions = [
   }
 
   @media (max-width: 480px) {
+    .entertainment {
+      width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 100%;
+      text-align: center;
+    }
+
     .section-title {
-      font-size: 1.8rem;
+      font-size: 1.3rem;
     }
 
     .entertainment-item {
@@ -330,6 +340,7 @@ const entertainmentOptions = [
     .cta-button {
       padding: 0.875rem 2rem;
       font-size: 0.9rem;
+      margin-top: 0.1rem;
     }
   }
   @media (max-width: 360px) {
