@@ -1,0 +1,96 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroSlider from "../components/HeroSlider.astro";
+import PhoenixExperience from "../components/PhoenixExperience.astro";
+import ExploreGallery from "../components/ExploreGallery.astro";
+import Entertainment from "../components/Entertainment.astro";
+import Packages from "../components/Packages.astro";
+import LuxuryExperienceTest from "../components/LuxuryExperience_Test.astro";
+import LatestOffersTest from "../components/LatestOffers_Test.astro";
+import WallOfFameTest from "../components/WallOfFame_Test.astro";
+---
+
+<Layout
+  title="Best Casino in Goa – Phoenixx Casino | Goa Casino & Luxury Gaming in Candolim"
+  pageDescription="Experience the best casino in Goa at Phoenixx Casino – the ultimate Goa casino destination for luxury gaming, VIP experiences, and live entertainment in Candolim. Book your casino in Goa visit today!"
+>
+  <main>
+    <div class="main-container">
+      <HeroSlider />
+      <h1 class="visually-hidden">
+        Phoenixx Casino – Best Casino in Goa for Luxury Gaming, Live
+        Entertainment & VIP Experience
+      </h1>
+
+      <!-- Wrap LuxuryExperience in a centering container -->
+      <div class="luxury-experience-wrapper">
+        <LuxuryExperienceTest />
+      </div>
+
+      <PhoenixExperience />
+      <LatestOffersTest />
+      <ExploreGallery />
+      <WallOfFameTest />
+      <Entertainment />
+      <Packages />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* Reset margins and disable horizontal scroll */
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* Global box-sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  main {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left; /* Default alignment on larger screens */
+  }
+
+  /* Center the content with a maximum width */
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Center the LuxuryExperience section */
+  .luxury-experience-wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    text-align: center;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* For smaller screens, center the main content */
+  @media (max-width: 768px) {
+    main {
+      padding: 0 0.1rem;
+      text-align: center;
+    }
+  }
+</style>

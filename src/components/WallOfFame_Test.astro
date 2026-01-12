@@ -1,0 +1,348 @@
+---
+import { Image } from "astro:assets";
+
+// Celebrity images
+import AmyraUttam from "../assets/wall_of_fame/amyra-uttam.jpg";
+import KangnaSharma from "../assets/wall_of_fame/kangna-sharma.jpg";
+import AnupJalota from "../assets/wall_of_fame/anup-jalota.jpg";
+import DaisyShah from "../assets/wall_of_fame/daisy-shah.jpg";
+import KumarSanu from "../assets/wall_of_fame/kumar-sanu.jpg";
+import UrvashiRautela from "../assets/wall_of_fame/urvashi-rautela.jpg";
+import SonalChauhan from "../assets/wall_of_fame/sonal-chauhan.jpg";
+import InaayatSharma from "../assets/wall_of_fame/inaayat-sharma.jpg";
+import NiaSharma from "../assets/wall_of_fame/nia-sharma.jpg";
+import GiorgiaAndriani from "../assets/wall_of_fame/giorgia-andriani.jpg";
+import IshaMalviya from "../assets/wall_of_fame/isha-malviya.JPG";
+
+import { ChevronLeft, ChevronRight } from "lucide-astro";
+
+const celebrities = [
+  { name: "Kumar Sanu", image: KumarSanu },
+  { name: "Daisy Shah", image: DaisyShah },
+  { name: "Amyra Uttam", image: AmyraUttam },
+  { name: "Urvashi Rautela", image: UrvashiRautela },
+  { name: "Sonal Chauhan", image: SonalChauhan },
+  { name: "Inaayat Sharma", image: InaayatSharma },
+  { name: "Anup Jalota", image: AnupJalota },
+  { name: "Kangna Sharma", image: KangnaSharma },
+  { name: "Nia Sharma", image: NiaSharma },
+  { name: "Giorgia Andriani", image: GiorgiaAndriani },
+  { name: "Isha Malviya", image: IshaMalviya },
+];
+
+const totalSlides = Math.ceil(celebrities.length / 4);
+---
+
+<section class="wall-of-fame">
+  <div class="container">
+    <h2 class="section-title">OUR WALL OF FAME</h2>
+    <div class="wof-celebrities-container">
+      <button class="nav-arrow wof-prev-arrow" aria-label="Previous slide">
+        <ChevronLeft size={20} color="#e7c980" />
+      </button>
+
+      <div class="wof-celebrities-wrapper">
+        <div class="wof-celebrities-track">
+          {
+            celebrities
+              .filter((celebrity) => celebrity.image)
+              .map((celebrity) => (
+                <div class="wof-celebrity-item">
+                  <div class="celebrity-image">
+                    <Image
+                      src={celebrity.image}
+                      alt={celebrity.name}
+                      width={300}
+                      height={300}
+                      quality="high"
+                      loading={"lazy"}
+                    />
+                  </div>
+                  <h3 class="celebrity-name">{celebrity.name}</h3>
+                </div>
+              ))
+          }
+        </div>
+      </div>
+      <button class="nav-arrow wof-next-arrow" aria-label="Next slide">
+        <ChevronRight size={20} color="#e7c980" />
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  /*
+
+
+*/
+  .wall-of-fame {
+    padding: 3rem 0;
+    background-color: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2.8rem;
+    text-align: center;
+    background: linear-gradient(90deg, #e7c980 0%, #9e8253 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  /* Desktop and tablet container padding */
+  .wof-celebrities-container {
+    padding: 2.5rem 60px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .wof-celebrities-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 16px 0 0;
+  }
+
+  .wof-celebrities-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 25px;
+  }
+
+  .wof-celebrity-item {
+    flex: 0 0 calc(25% - 20px);
+    min-width: calc(25% - 20px);
+    text-align: center;
+  }
+
+  .celebrity-image {
+    width: 95%;
+    margin: 0 auto;
+    padding-bottom: 95%;
+    margin-bottom: 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid rgba(231, 201, 128, 0.4);
+    box-shadow: 0 12px 30px rgba(231, 201, 128, 0.35);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .celebrity-image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(231, 201, 128, 0.4);
+  }
+
+  .celebrity-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .celebrity-name {
+    font-size: 22px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+
+  .nav-arrow {
+    background: rgba(231, 201, 128, 0.25);
+    border: 1px solid rgba(231, 201, 128, 0.4);
+    color: #e7c980;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+
+  .nav-arrow:hover {
+    background: rgba(231, 201, 128, 0.4);
+  }
+
+  /* Desktop arrow positions remain inside the padded area */
+  @media (min-width: 1024px) {
+    .wof-prev-arrow {
+      left: 10px;
+    }
+    .wof-next-arrow {
+      right: 10px;
+    }
+  }
+
+  /* Tablet adjustments */
+  @media (max-width: 1024px) {
+    .wof-celebrity-item {
+      flex: 0 0 calc(25% - 20px);
+    }
+    .celebrity-image {
+      padding-bottom: 110%;
+    }
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 480px) {
+    .wall-of-fame {
+      padding: 1rem 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+    }
+    /* Increase container padding on mobile for safe area */
+    .wof-celebrities-container {
+      padding: 1rem 0px;
+    }
+    .wof-celebrity-item {
+      flex: 0 0 100%;
+      min-width: 100%;
+    }
+    .wof-celebrities-track {
+      gap: 30px;
+    }
+    .nav-arrow {
+      width: 38px;
+      height: 38px;
+    }
+    .celebrity-name {
+      font-size: 22px;
+      margin-top: 5px;
+    }
+    /* Increase frame size on mobile: updated to 85% */
+    .celebrity-image {
+      width: 90%;
+      padding-bottom: 90%;
+      margin-bottom: 10px;
+      border-width: 4px;
+      box-shadow: 0 15px 35px rgba(231, 201, 128, 0.5);
+    }
+    /* Reposition mobile arrows flush with the container edge */
+    .wof-prev-arrow {
+      left: -27px;
+    }
+    .wof-next-arrow {
+      right: -27px;
+    }
+  }
+  @media (max-width: 360px) {
+    .section-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const trackElement = document.querySelector(".wof-celebrities-track");
+  const prevButton = document.querySelector(".wof-prev-arrow");
+  const nextButton = document.querySelector(".wof-next-arrow");
+
+  const getItemsPerView = () => {
+    if (window.innerWidth >= 1024) return 4;
+    if (window.innerWidth >= 768) return 2;
+    return 1;
+  };
+
+  let currentIndex = 0;
+  const celebrityItems = document.querySelectorAll(".wof-celebrity-item");
+
+  function updateTotalSlides() {
+    return Math.ceil(celebrityItems.length / getItemsPerView()) - 1;
+  }
+
+  function updateNavigation() {
+    const totalSlides = updateTotalSlides();
+    if (prevButton && nextButton) {
+      prevButton.style.opacity = currentIndex === 0 ? "0.5" : "1";
+      prevButton.style.pointerEvents = currentIndex === 0 ? "none" : "auto";
+
+      nextButton.style.opacity = currentIndex >= totalSlides ? "0.5" : "1";
+      nextButton.style.pointerEvents =
+        currentIndex >= totalSlides ? "none" : "auto";
+    }
+  }
+
+  function scrollToSlide(index) {
+    if (trackElement) {
+      const itemsPerView = getItemsPerView();
+      const totalSlides = Math.ceil(celebrityItems.length / itemsPerView);
+
+      // Boundary check
+      if (index < 0) index = 0;
+      if (index >= totalSlides) index = totalSlides - 1;
+
+      currentIndex = index;
+      const item = trackElement.querySelector(".wof-celebrity-item");
+      const itemWidth = item ? item.offsetWidth : 0;
+
+      // Use the same gap logic as CSS
+      const gap = window.innerWidth <= 480 ? 30 : 25;
+
+      // Calculate scroll distance based on items per view
+      // If itemsPerView is 1 (mobile), it scrolls 1 item per button click
+      const scrollDistance = index * -(itemWidth + gap) * itemsPerView;
+
+      trackElement.style.transform = `translateX(${scrollDistance}px)`;
+      updateNavigation();
+    }
+  }
+
+  if (prevButton) {
+    prevButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (currentIndex > 0) {
+        scrollToSlide(currentIndex - 1);
+      }
+    });
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (currentIndex < updateTotalSlides()) {
+        scrollToSlide(currentIndex + 1);
+      }
+    });
+  }
+
+  // Handle window resize
+  let resizeTimeout;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      currentIndex = 0;
+      scrollToSlide(0);
+      updateNavigation();
+    }, 200);
+  });
+
+  // Initial setup
+  updateNavigation();
+</script>
