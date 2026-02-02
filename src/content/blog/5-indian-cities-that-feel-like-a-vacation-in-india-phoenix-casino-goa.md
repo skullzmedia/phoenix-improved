@@ -1,7 +1,7 @@
 ---
 title: "5 Indian Cities That Feel Like a Vacation Without Leaving the Country | Phoenix Casino Goa"
 description: "Discover Indian cities that feel like a vacation without leaving the country. From beaches to nightlife and luxury experiences, explore the best holiday cities in India."
-pubDate: 2025-01-13
+pubDate: 2026-01-13
 author: "Marketing Team"
 image: "/blog/5-indian-citites-that-feel-like-a-vacation-phoenix-casino-goa.png"
 imageAlt: "A luxury travel–style visual showcasing five Indian cities that feel like a vacation destination, featuring beaches, heritage architecture, lakes, nightlife, and scenic landscapes across India."
