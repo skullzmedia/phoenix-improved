@@ -14,7 +14,11 @@ import {
 // Contact information
 const contactInfo = {
   address: "Hilton Goa Resort, Saipem, Candolim",
-  phones: ["+919960007937", "+919960010198"],
+  primaryPhones: ["+919960007937", "+919960010198"],
+  additionalPhones: [
+    { label: "Phoenixx Front Office", number: "9960008026" },
+    { label: "For Vacancy Call", number: "9960006687" },
+  ],
   email: "marketing@phoenixcasino.in",
 };
 ---
@@ -52,13 +56,31 @@ const contactInfo = {
               </div>
               <div class="contact-text">
                 {
-                  contactInfo.phones.map((phone, idx) => (
+                  contactInfo.primaryPhones.map((phone, idx) => (
                     <>
                       <a href={`tel:${phone}`}>{phone}</a>
-                      {idx < contactInfo.phones.length - 1 && (
+                      {idx < contactInfo.primaryPhones.length - 1 && (
                         <span style="margin: 0 0.5em;">/</span>
                       )}
                     </>
+                  ))
+                }
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <Phone size={16} color="#e7c980" />
+              </div>
+              <div class="contact-text">
+                {
+                  contactInfo.additionalPhones.map((phone) => (
+                    <div class="additional-phone-item">
+                      <span style="color: #e7c980; opacity: 0.9; margin-right: 0.5rem;">
+                        {phone.label}:
+                      </span>
+                      <a href={`tel:+91${phone.number}`}>{phone.number}</a>
+                    </div>
                   ))
                 }
               </div>
@@ -582,7 +604,7 @@ const contactInfo = {
         const phoneInput = document.getElementById("phone") as HTMLInputElement;
         const emailInput = document.getElementById("email") as HTMLInputElement;
         const messageInput = document.getElementById(
-          "message"
+          "message",
         ) as HTMLTextAreaElement;
 
         if (nameInput && phoneInput && emailInput && messageInput) {
@@ -604,7 +626,7 @@ const contactInfo = {
 
       // Add visual feedback for form inputs
       const inputs = document.querySelectorAll(
-        ".contact-form input, .contact-form textarea"
+        ".contact-form input, .contact-form textarea",
       );
       inputs.forEach((input) => {
         input.addEventListener("focus", function () {
