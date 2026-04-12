@@ -1,5 +1,11 @@
 ---
 import { Image } from "astro:assets";
+import HeroImageDesk from "../assets/banner/hero_banner.png";
+import HeroImageMob from "../assets/banner/hero_banner_mobile.png";
+import Hero3Desk from "../assets/banner/hero_3.png";
+import Hero3Mob from "../assets/banner/hero_3_mob.png";
+import Hero4Desk from "../assets/banner/hero_4.png";
+import Hero4Mob from "../assets/banner/hero_4_mob.png";
 import SliderImageMob from "../assets/banner/banner-mob-1.webp";
 import SliderImageDesk from "../assets/banner/banner-desk-1.jpg";
 import SliderImage2 from "../assets/banner/banner-2.jpg";
@@ -8,8 +14,8 @@ import SliderImage5Desk from "../assets/banner/banner-5.webp";
 
 const sliderImages = [
   {
-    desktop: SliderImageDesk,
-    mobile: SliderImageMob,
+    desktop: HeroImageDesk,
+    mobile: HeroImageMob,
     alt: "Casino Entertainment",
     isResponsive: true,
   },
@@ -19,14 +25,16 @@ const sliderImages = [
     isResponsive: false,
   },
   {
-    image: SliderImage3,
+    desktop: Hero3Desk,
+    mobile: Hero3Mob,
     alt: "Casino Games",
-    isResponsive: false,
+    isResponsive: true,
   },
   {
-    image: SliderImage5Desk,
+    desktop: Hero4Desk,
+    mobile: Hero4Mob,
     alt: "Casino Experience",
-    isResponsive: false,
+    isResponsive: true,
   },
 ];
 ---
@@ -35,14 +43,14 @@ const sliderImages = [
 <link
   rel="preload"
   as="image"
-  href={SliderImageDesk.src}
+  href={HeroImageDesk.src}
   type="image/jpeg"
   media="(min-width:768px)"
 />
 <link
   rel="preload"
   as="image"
-  href={SliderImageMob.src}
+  href={HeroImageMob.src}
   type="image/jpeg"
   media="(max-width:767px)"
 />
@@ -63,9 +71,9 @@ const sliderImages = [
                 <Image
                   src={slide.desktop}
                   alt={slide.alt}
-                  widths={[480, 768, 1200, 1600]}
+                  widths={[480, 768, 1200, 1800]}
                   formats={["avif", "webp"]}
-                  sizes="(max-width: 768px) 100vw, 1600px"
+                  sizes="(max-width: 768px) 100vw, 1800px"
                   loading={index === 0 ? "eager" : "lazy"}
                   decoding="async"
                   class="slider-image"
@@ -188,9 +196,15 @@ const sliderImages = [
     z-index: 1;
   }
 
+  @media (min-width: 769px) {
+    .hero-section {
+      padding: 0;
+    }
+  }
+
   .hero-slider {
     position: relative;
-    max-width: 1400px;
+    max-width: 1600px;
     width: 100%;
     margin: 0 auto;
     height: min(600px, 70vh);
