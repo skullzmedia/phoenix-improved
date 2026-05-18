@@ -3,7 +3,7 @@ title: "First Time at a Casino in Goa? Complete Beginner's Guide 2026 | Phoenix 
 description: "Never been to a casino in Goa before? This honest first-timer's guide covers everything — what to expect, how to play, entry packages, etiquette & tips for Phoenix Casino Goa."
 pubDate: 2026-05-18
 author: "Marketing Team"
-image: "/blog/is-it-worth-visiting-a-casino-in-goa-phoenix-casino-goa.png"
+image: "/blog/First-time-at-a-casino-in-goa-Phoenix-casino-goa.png"
 imageAlt: "Luxury casino in Goa with gaming tables, roulette wheel, and vibrant nightlife ambience showing what visitors can expect from a casino experience in Goa."
 category: "Entertainment"
 featured: true
