@@ -732,7 +732,6 @@ const highlights = [
     color: #e7c980;
     margin-bottom: 2rem;
     font-weight: 400;
-    text-transform: lowercase;
   }
 
   .package-pricing {
@@ -2135,7 +2134,7 @@ const highlights = [
         if (
           e.target === popup ||
           (e.target as HTMLElement)?.classList?.contains(
-            "alcohol-popup-backdrop"
+            "alcohol-popup-backdrop",
           )
         ) {
           popup.classList.remove("active");
@@ -2186,7 +2185,7 @@ const highlights = [
 
         // Activate corresponding content
         const content = document.getElementById(
-          `${tabId}-content`
+          `${tabId}-content`,
         ) as HTMLDivElement | null;
         if (content) {
           content.classList.add("active");
@@ -2198,7 +2197,7 @@ const highlights = [
     const packageButtons =
       document.querySelectorAll<HTMLButtonElement>(".package-button");
     const packageImages = document.querySelectorAll<HTMLImageElement>(
-      ".packages-image img"
+      ".packages-image img",
     );
     const packageDetails =
       document.querySelectorAll<HTMLDivElement>(".package-details");
@@ -2215,10 +2214,10 @@ const highlights = [
 
         const targetId = button.getAttribute("data-target");
         const targetImage = document.getElementById(
-          `${targetId}-image`
+          `${targetId}-image`,
         ) as HTMLImageElement | null;
         const targetDetail = document.getElementById(
-          `${targetId}-details`
+          `${targetId}-details`,
         ) as HTMLDivElement | null;
 
         if (targetImage) targetImage.classList.add("active");
