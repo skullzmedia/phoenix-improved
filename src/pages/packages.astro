@@ -119,6 +119,26 @@ const packages = [
       },
     ],
   },
+  {
+    id: "diamond",
+    letter: "D",
+    name: "Diamond Package",
+    pricing: {
+      stag: { price: "25,000 NN Chips (with free OTPC's on all entry packages)", otpc: "" },
+      couple: { price: "", otpc: "" },
+    },
+    features: [
+      { icon: Utensils, text: "Starters" },
+      { icon: Utensils, text: "Unlimited Buffet" },
+      { icon: Music, text: "Live Entertainment & Performances" },
+      {
+        icon: PartyPopper,
+        text: "Alcoholic Drinks - 4 Coupons per head: 30 ml each",
+        note: "* T&C Apply",
+        alcoholBrands: {},
+      },
+    ],
+  },
 ];
 
 // Group packages information
@@ -172,15 +192,23 @@ const highlights = [
               <h3 class="package-name">{pkg.name}</h3>
 
               <div class="package-pricing">
-                <div class="price-item">
-                  Stag: ₹{pkg.pricing.stag.price} (With ₹{pkg.pricing.stag.otpc}{" "}
-                  OTPC)
-                </div>
-                {pkg.id !== "regular" && (
+                {pkg.id === "diamond" ? (
                   <div class="price-item">
-                    Couple: ₹{pkg.pricing.couple.price} (With ₹
-                    {pkg.pricing.couple.otpc} OTPC)
+                    Stag: {pkg.pricing.stag.price.startsWith("₹") ? "" : "₹"}{pkg.pricing.stag.price}
                   </div>
+                ) : (
+                  <>
+                    <div class="price-item">
+                      Stag: ₹{pkg.pricing.stag.price} (With ₹{pkg.pricing.stag.otpc}{" "}
+                      OTPC)
+                    </div>
+                    {pkg.id !== "regular" && pkg.id !== "diamond" && (
+                      <div class="price-item">
+                        Couple: ₹{pkg.pricing.couple.price} (With ₹
+                        {pkg.pricing.couple.otpc} OTPC)
+                      </div>
+                    )}
+                  </>
                 )}
               </div>
 
@@ -691,7 +719,7 @@ const highlights = [
 
   .packages-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
   }
 
@@ -875,6 +903,7 @@ const highlights = [
   /* Responsive Styles */
   @media (max-width: 1024px) {
     .packages-grid {
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
 
@@ -2025,6 +2054,17 @@ const highlights = [
           "Energy Drink": "Red Bull",
           Liqueur: "Kahlua, Triple sec & Baileys",
           "Sparkling Wine": "Frizzano/Zampa Brut",
+        },
+      },
+      {
+        name: "Diamond",
+        alcoholBrands: {
+          Whiskey: "Premium Brands Available",
+          Vodka: "Premium Brands Available",
+          Rum: "Premium/Imported Brands Available",
+          Gin: "Premium Brands Available",
+          Beer: "Imported & Craft Beers Available",
+          Wine: "Premium International Wines Available",
         },
       },
     ];

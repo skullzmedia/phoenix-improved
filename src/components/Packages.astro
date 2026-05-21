@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import regularPackageImg from "../assets/packages/1.jpg";
 import premiumPackageImg from "../assets/packages/2.jpg";
 import elitePackageImg from "../assets/packages/3.jpg";
+import diamondPackageImg from "../assets/packages/diamond.png";
 import { Music, Utensils, Wine } from "lucide-astro";
 
 const packages = [
@@ -62,6 +63,24 @@ const packages = [
       },
     ],
   },
+  {
+    id: "diamond",
+    name: "Diamond Package",
+    pricing: {
+      stag: { price: "25,000 NN Chips (with free OTPC's on all entry packages)", otpc: "" },
+      couple: { price: "", otpc: "" },
+    },
+    features: [
+      { icon: Utensils, text: "Starters" },
+      { icon: Utensils, text: "Unlimited Buffet" },
+      { icon: Music, text: "Live Entertainment & Performances" },
+      {
+        icon: Wine,
+        text: "Alcoholic Drinks - 4 Coupons per head: 30 ml each",
+        note: "* T&C Apply",
+      },
+    ],
+  },
 ];
 ---
 
@@ -94,15 +113,23 @@ const packages = [
 
               <div class="package-details">
                 <div class="package-pricing">
-                  <div class="price-item">
-                    Stag: ₹{pkg.pricing.stag.price} (With ₹
-                    {pkg.pricing.stag.otpc} OTPC)
-                  </div>
-                  {pkg.id !== "regular" && (
+                  {pkg.id === "diamond" ? (
                     <div class="price-item">
-                      Couple: ₹{pkg.pricing.couple.price} (With ₹
-                      {pkg.pricing.couple.otpc} OTPC)
+                      Stag: {pkg.pricing.stag.price.startsWith("₹") ? "" : "₹"}{pkg.pricing.stag.price}
                     </div>
+                  ) : (
+                    <>
+                      <div class="price-item">
+                        Stag: ₹{pkg.pricing.stag.price} (With ₹
+                        {pkg.pricing.stag.otpc} OTPC)
+                      </div>
+                      {pkg.id !== "regular" && pkg.id !== "diamond" && (
+                        <div class="price-item">
+                          Couple: ₹{pkg.pricing.couple.price} (With ₹
+                          {pkg.pricing.couple.otpc} OTPC)
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
 
@@ -163,6 +190,18 @@ const packages = [
               src={elitePackageImg}
               alt="Elite Casino Entry Package in Goa for Couples and High Rollers – Phoenix Casino"
               id="elite-image"
+              width={800}
+              height={1000}
+              quality="high"
+            />
+          )
+        }
+        {
+          diamondPackageImg && (
+            <Image
+              src={diamondPackageImg}
+              alt="Diamond Casino Entry Package in Goa with VIP services – Phoenix Casino"
+              id="diamond-image"
               width={800}
               height={1000}
               quality="high"

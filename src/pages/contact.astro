@@ -16,7 +16,7 @@ const contactInfo = {
   address: "Hilton Goa Resort, Saipem, Candolim",
   primaryPhones: ["For Bookings Call:", "+919960007937", "+919960010198"],
   additionalPhones: [
-    { label: "Phoenixx Front Office", number: "9960008026" },
+    { label: "Phoenixx Front Office", number: "+919960008026" },
     { label: "For Vacancy Call", number: "+919960006687" },
   ],
   email: "marketing@phoenixcasino.in",
@@ -55,17 +55,32 @@ const contactInfo = {
                 <Phone size={16} color="#e7c980" />
               </div>
               <div class="contact-text">
-                <span class="booking-label">For Bookings Call:</span>
-                {
-                  contactInfo.primaryPhones.slice(1).map((phone, idx) => (
-                    <>
-                      <a href={`tel:${phone}`}>{phone}</a>
-                      {idx < contactInfo.primaryPhones.slice(1).length - 1 && (
-                        <span style="margin: 0 0.5em;">/</span>
-                      )}
-                    </>
-                  ))
-                }
+                <div>
+                  <span class="booking-label">For Bookings Call:</span>
+                  {
+                    contactInfo.primaryPhones.slice(1).map((phone, idx) => (
+                      <>
+                        <a href={`tel:${phone}`}>{phone}</a>
+                        {idx <
+                          contactInfo.primaryPhones.slice(1).length - 1 && (
+                          <span style="margin: 0 0.5em;">/</span>
+                        )}
+                      </>
+                    ))
+                  }
+                </div>
+                <div style="margin-top: 0.5rem;">
+                  <span class="booking-label">For Group Bookings Call:</span>
+                  <a href="tel:+919960010198">+919960010198</a>
+                  <span style="margin: 0 0.5em;">/</span>
+                  <a href="tel:+919960006806">+919960006806</a>
+                </div>
+                <div style="margin-top: 0.5rem;">
+                  <span class="booking-label">Marketing Hotlines:</span>
+                  <a href="tel:+919960007937">+91 9960007937</a>
+                  <span style="margin: 0 0.5em;">/</span>
+                  <a href="tel:+919960006806">+919960006806</a>
+                </div>
               </div>
             </div>
 
