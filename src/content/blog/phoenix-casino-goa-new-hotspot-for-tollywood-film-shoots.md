@@ -86,7 +86,8 @@ Phoenix Casino Goa | Hilton Goa Resort, Saipem, Candolim
 *📞 +91 99600 07937 | +91 99600 10198*
 *✉️ marketing@phoenixcasino.in*
 
-X—--------------------------------------------------------X—-------------------------------------------------X
+X—--------------------------------------------------------X
+
 You might also enjoy reading:
 
 [How Much Does a Goa Trip Cost in 2026? Full Expense Breakdown | Phoenix Casino Goa](https://www.phoenixcasino.in/blog/goa-trip-cost-updated-phoenix-casino-goa)
