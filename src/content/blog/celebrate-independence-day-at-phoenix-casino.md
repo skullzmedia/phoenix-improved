@@ -1,7 +1,7 @@
 ---
 title: "Celebrate Independence Day 2026 in Style at Phoenix Casino Goa This Monsoon | Phoenix Casino Goa"
 description: "Celebrate Independence Day 2026 at Phoenix Casino Goa with premium gaming, vibrant nightlife, great food, live entertainment and an unforgettable monsoon experience."
-pubDate: 2026-08-18
+pubDate: 2026-08-13
 author: "Marketing Team"
 image: "/blog/Celebrate-Independence-Day-2026-in-Style-at-Phoenix-Casino-Goa-This-Monsoon.jpeg"
 imageAlt: "Luxury nightlife experience at Phoenixx Casino Goa featuring live entertainment, premium dining, elegant hospitality, vibrant casino atmosphere, gaming tables, and guests enjoying an unforgettable evening in one of the best entertainment destinations in Goa."
