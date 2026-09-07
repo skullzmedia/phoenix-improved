@@ -3,7 +3,7 @@ title: "Why Monsoon Nights in Goa Are Better Indoors at Phoenixx Casino | Best C
 description: "Discover why monsoon nights in Goa are better indoors, from fine dining and live entertainment to an unforgettable casino experience at Phoenixx Casino Goa."
 pubDate: 2026-09-04
 author: "Marketing Team"
-image: "/blog/Phoenix-casino-goa-best-casino-in-goa-monsoon.png"
+image: "/blog/phoenix-casino-goa-best-casino-in-goa-monsoon.png.png"
 imageAlt: "Luxury nightlife experience at Phoenixx Casino Goa featuring live entertainment, premium dining, elegant hospitality, vibrant casino atmosphere, gaming tables, and guests enjoying an unforgettable evening in one of the best entertainment destinations in Goa."
 category: "Entertainment"
 featured: true
